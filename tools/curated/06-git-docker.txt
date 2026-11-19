@@ -113,7 +113,7 @@ tags: write
 -f --force | Descarta los cambios locales al cambiar. || When switching branches, proceed even if the index or the working tree differs from HEAD.
 --orphan=RAMA | Crea una rama sin historia. || Create a new orphan branch.
 -t --track | Crea una rama que sigue a la remota. || Create a local branch tracking the remote one.
-tip: «git checkout -- archivo» DESCARTA tus cambios en ese archivo sin posibilidad de recuperarlos.
+tip: «git checkout -- archivo» DESCARTA tus cambios en ese archivo sin posibilidad de recuperarlos. || "git checkout -- file" DISCARDS your changes to that file with no way to recover them.
 
 @@ git-switch
 es: cambia de rama
@@ -165,7 +165,7 @@ tags: write
 --skip | Salta el commit conflictivo. || Restart the rebasing process by skipping the current patch.
 --autosquash | Aplica automáticamente los commits fixup. || Automatically squash commits with specially formatted messages.
 --autostash | Guarda y recupera tus cambios locales. || Automatically create a temporary stash entry before the operation begins.
-tip: No hagas rebase de commits que ya has publicado y otros han descargado.
+tip: No hagas rebase de commits que ya has publicado y otros han descargado. || Do not rebase commits you have already published and others have downloaded.
 
 @@ git-log
 es: muestra el historial de commits
@@ -218,7 +218,7 @@ tags: write
 --mixed | Mueve la rama y vacía el área de preparación; conserva tus archivos (por defecto). || Move the branch and unstage; keep your files (default).
 --hard | Mueve la rama Y DESCARTA todos los cambios del árbol de trabajo (irreversible). || Move the branch AND DISCARD all working tree changes (irreversible).
 -p --patch | Elige trozos interactivamente. || Interactively select hunks.
-tip: «git reset --hard» pierde cambios sin confirmar. Los commits «perdidos» suelen poder recuperarse con «git reflog».
+tip: «git reset --hard» pierde cambios sin confirmar. Los commits «perdidos» suelen poder recuperarse con «git reflog». || "git reset --hard" loses uncommitted changes. "Lost" commits can usually be recovered with "git reflog".
 
 @@ git-revert
 es: crea un commit nuevo que DESHACE otro commit (no reescribe la historia)
@@ -390,7 +390,7 @@ pos: COMANDO... | Comando (y argumentos) a ejecutar dentro, en vez del que trae 
 --tmpfs=RUTA | Monta un tmpfs (memoria). || Mount a tmpfs directory.
 --ulimit=LÍMITE | Límite de recursos. || Ulimit options.
 --userns=MODO | Espacio de nombres de usuario. || User namespace to use.
-tip: «-p 8080:80» = PUERTO_DEL_ANFITRIÓN:PUERTO_DEL_CONTENEDOR. Montar «/var/run/docker.sock» o «/» dentro de un contenedor equivale a darle control del anfitrión.
+tip: «-p 8080:80» = PUERTO_DEL_ANFITRIÓN:PUERTO_DEL_CONTENEDOR. Montar «/var/run/docker.sock» o «/» dentro de un contenedor equivale a darle control del anfitrión. || "-p 8080:80" = HOST_PORT:CONTAINER_PORT. Mounting "/var/run/docker.sock" or "/" inside a container is equivalent to giving it control of the host.
 
 @@ docker-exec
 es: ejecuta un comando dentro de un contenedor en marcha

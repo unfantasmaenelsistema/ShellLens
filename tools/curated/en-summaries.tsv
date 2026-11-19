@@ -79,3 +79,25 @@ wfuzz	web fuzzer: replaces FUZZ with each entry of a wordlist
 wpa_supplicant	manage authentication to WiFi networks (WPA/WPA2/WPA3)
 xxd	show a file in hexadecimal (or rebuild it from hex)
 yum	package manager for Red Hat, Fedora, CentOS and Rocky
+amass	subdomain enumeration and external attack-surface mapping
+ansible	run ad-hoc tasks on many hosts at once over SSH
+ansible-playbook	run an Ansible playbook: automate configuration of many hosts
+arp-scan	discover hosts on the local network via ARP requests
+aws	Amazon Web Services command-line interface
+az	Microsoft Azure command-line interface
+bc	arbitrary-precision calculator
+cargo	Rust package manager and build tool
+convert	convert, resize and retouch images (ImageMagick)
+dnsrecon	DNS enumeration: records, subdomains, zone transfers
+dos2unix	convert line endings between Windows (CRLF) and Unix (LF)
+gcloud	Google Cloud command-line interface
+go	Go language tools (build, test, manage modules)
+java	Java virtual machine: runs .class and .jar programs
+masscan	very fast mass port scanner (can scan the whole Internet)
+mvn	Java build and dependency manager (Maven)
+netdiscover	discover hosts on the local network with ARP (active or passive)
+nuclei	template-based vulnerability scanner
+openvpn	create encrypted VPN tunnels (client and server)
+pandoc	convert documents between formats (Markdown, HTML, Word, PDF…)
+terraform	define and apply infrastructure as code (cloud, networks, servers)
+wg	configure and bring up WireGuard VPN tunnels

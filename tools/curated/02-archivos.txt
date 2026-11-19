@@ -143,7 +143,7 @@ tags: read
 -F --quit-if-one-screen | Sale solo si todo cabe en una pantalla. || Quit if the whole file fits on one screen.
 -R --RAW-CONTROL-CHARS | Muestra los colores ANSI en vez de los códigos. || Output ANSI colour sequences as colour instead of raw codes.
 -X --no-init | No borra la pantalla al salir. || Do not clear the screen on exit.
-tip: Dentro de less: espacio = avanzar, b = retroceder, /texto = buscar, n = siguiente coincidencia, g/G = inicio/final, q = salir.
+tip: Dentro de less: espacio = avanzar, b = retroceder, /texto = buscar, n = siguiente coincidencia, g/G = inicio/final, q = salir. || Inside less: space = forward, b = back, /text = search, n = next match, g/G = start/end, q = quit.
 
 @@ more
 es: visor paginado sencillo (solo avanza; less es más completo)
@@ -208,7 +208,7 @@ pos: CONJUNTO2? | Caracteres por los que se sustituyen, uno a uno. || Characters
 -s --squeeze-repeats | Comprime repeticiones consecutivas en una sola. || Replace each repeated character by a single one.
 -c -C --complement | Usa el complemento del conjunto 1 (todo lo que NO esté en él). || Use the complement of SET1.
 -t --truncate-set1 | Recorta el conjunto 1 a la longitud del 2. || First truncate SET1 to length of SET2.
-tip: tr solo lee de la entrada estándar: «cat f | tr a-z A-Z» o «tr a-z A-Z < f».
+tip: tr solo lee de la entrada estándar: «cat f | tr a-z A-Z» o «tr a-z A-Z < f». || tr only reads standard input: "cat f | tr a-z A-Z" or "tr a-z A-Z < f".
 
 @@ tee
 es: copia la entrada estándar a la salida Y a uno o más archivos
@@ -216,7 +216,7 @@ tags: write
 pos: ARCHIVO... | Archivo(s) donde también se guarda lo que pasa. || File(s) also receiving the data.
 -a --append | Añade al final del archivo en vez de sobrescribirlo. || Append to the files instead of overwriting.
 -i --ignore-interrupts | Ignora Ctrl+C. || Ignore interrupt signals.
-tip: «comando | sudo tee archivo» es la forma de escribir en un archivo protegido, porque «sudo comando > archivo» no funciona.
+tip: «comando | sudo tee archivo» es la forma de escribir en un archivo protegido, porque «sudo comando > archivo» no funciona. || "command | sudo tee file" is the way to write to a protected file, because "sudo command > file" does not work.
 
 @@ ln
 es: crea enlaces entre archivos (duros o simbólicos)
@@ -228,7 +228,7 @@ pos: NOMBRE_ENLACE?@last | Nombre del enlace que se crea. || Name of the link to
 -n --no-dereference | Trata un enlace simbólico a directorio como si fuera un archivo normal. || Treat the destination as a normal file if it is a symlink to a directory.
 -v --verbose | Muestra el enlace que crea. || Print the name of each linked file.
 -r --relative | Con -s, crea enlaces con ruta relativa. || With -s, create links relative to the link location.
-tip: Orden de argumentos: «ln -s DESTINO NOMBRE_ENLACE» (primero a lo que apunta, después el nombre del enlace).
+tip: Orden de argumentos: «ln -s DESTINO NOMBRE_ENLACE» (primero a lo que apunta, después el nombre del enlace). || Argument order: "ln -s TARGET LINK_NAME" (what it points to first, then the link name).
 
 @@ stat
 es: muestra información detallada de un archivo (inodo, permisos, fechas, tamaño)
@@ -335,7 +335,7 @@ pos: RUTA... | Dónde empezar a buscar (uno o varios directorios). Sin ruta busc
 -user=USUARIO | Pertenece al usuario indicado. || Owned by the given user.
 -nouser | Archivos cuyo propietario ya no existe. || Files whose owner no longer exists.
 -samefile=ARCHIVO | Mismo inodo que el archivo dado (enlaces duros). || Same inode as the given file (hard links).
-tip: Las condiciones se evalúan de izquierda a derecha: pon «-delete» o «-exec» al final, nunca antes de las pruebas.
+tip: Las condiciones se evalúan de izquierda a derecha: pon «-delete» o «-exec» al final, nunca antes de las pruebas. || Tests are evaluated left to right: put "-delete" or "-exec" last, never before the tests.
 
 @@ xargs
 es: construye y ejecuta comandos a partir de la entrada estándar
@@ -349,7 +349,7 @@ tags: exec
 -p --interactive | Pregunta antes de ejecutar cada comando. || Prompt the user before running each command.
 -d --delimiter=DELIM | Usa DELIM como separador de elementos. || Input items are terminated by DELIM.
 -a --arg-file=FILE | Lee los elementos de FILE en lugar de la entrada estándar. || Read items from FILE instead of standard input.
-tip: Por defecto xargs separa por espacios: con nombres que contengan espacios usa «find … -print0 | xargs -0 …».
+tip: Por defecto xargs separa por espacios: con nombres que contengan espacios usa «find … -print0 | xargs -0 …». || By default xargs splits on whitespace: with names containing spaces use "find … -print0 | xargs -0 …".
 
 @@ locate
 es: busca archivos por nombre en una base de datos indexada (muy rápido)
@@ -359,7 +359,7 @@ tags: read
 -n --limit=N | Muestra como máximo N resultados. || Limit output to N entries.
 -b --basename | Casa solo contra el nombre del archivo, no la ruta. || Match only the base name.
 -r --regexp=REGEXP | Busca con expresión regular. || Search using a regular expression.
-tip: La base se actualiza con «sudo updatedb»: los archivos recientes pueden no aparecer.
+tip: La base se actualiza con «sudo updatedb»: los archivos recientes pueden no aparecer. || The database is refreshed with "sudo updatedb": recent files may not show up.
 
 @@ chmod
 es: cambia los permisos de archivos y directorios
@@ -372,7 +372,7 @@ pos: ARCHIVO... | Archivo(s) o directorio(s) a modificar. || File(s) or director
 -f --silent --quiet | Suprime la mayoría de los errores. || Suppress most error messages.
 --reference=RFILE | Copia el modo de otro archivo. || Use RFILE's mode instead of a mode value.
 --preserve-root | No actúa recursivamente sobre «/». || Fail to operate recursively on "/".
-tip: Lectura=4, escritura=2, ejecución=1; las tres cifras son propietario, grupo y resto. 644 = rw-r--r--, 755 = rwxr-xr-x, 600 = rw-------.
+tip: Lectura=4, escritura=2, ejecución=1; las tres cifras son propietario, grupo y resto. 644 = rw-r--r--, 755 = rwxr-xr-x, 600 = rw-------. || Read=4, write=2, execute=1; the three digits are owner, group and others. 644 = rw-r--r--, 755 = rwxr-xr-x, 600 = rw-------.
 
 @@ chown
 es: cambia el propietario y/o el grupo de archivos
@@ -487,7 +487,7 @@ pos: NÚMERO... | seq FIN; seq INICIO FIN; seq INICIO PASO FIN. || seq LAST; seq
 @@ yes
 es: repite una cadena sin parar (por defecto «y»); útil para responder «sí» automáticamente
 tags: write
-tip: Se corta con Ctrl+C o cuando el comando que lo recibe termina («yes | comando»).
+tip: Se corta con Ctrl+C o cuando el comando que lo recibe termina («yes | comando»). || Stop it with Ctrl+C or when the receiving command ends ("yes | command").
 
 @@ sleep
 es: espera un tiempo antes de continuar
@@ -531,4 +531,4 @@ tags: delete
 -n --iterations=N | Sobrescribe N veces (por defecto 3). || Overwrite N times instead of the default (3).
 -z --zero | Añade una última pasada de ceros para ocultar el borrado. || Add a final overwrite with zeros to hide shredding.
 -v --verbose | Muestra el progreso. || Show progress.
-tip: En discos SSD, sistemas con journaling o copy-on-write shred no garantiza el borrado seguro.
+tip: En discos SSD, sistemas con journaling o copy-on-write shred no garantiza el borrado seguro. || On SSDs, journaling or copy-on-write filesystems shred does not guarantee secure deletion.

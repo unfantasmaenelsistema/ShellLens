@@ -36,7 +36,7 @@ pos: ARCHIVO... | Archivo(s) donde buscar. Sin archivos lee la entrada estándar
 --exclude-dir=GLOB | Con -r, omite los directorios que coincidan. || With -r, skip directories that match.
 --color[=WHEN] | Resalta las coincidencias (always, auto, never). || Surround the matched strings with colour markers.
 -z --null-data | Las «líneas» terminan en byte nulo. || Treat input and output data as sequences of lines terminated by a zero byte.
-tip: Comillas simples para el patrón: «grep 'a.*b'» evita que la shell interprete * ? $ antes que grep.
+tip: Comillas simples para el patrón: «grep 'a.*b'» evita que la shell interprete * ? $ antes que grep. || Use single quotes for the pattern: "grep 'a.*b'" keeps the shell from interpreting * ? $ before grep does.
 
 @@ sed
 es: editor de flujo: transforma texto línea a línea (buscar y reemplazar, borrar, imprimir…)
@@ -53,7 +53,7 @@ pos: ARCHIVO... | Archivo(s) a procesar (o la entrada estándar). || File(s) to 
 -z --null-data | Separa las líneas con byte nulo. || Separate lines by NUL characters.
 -u --unbuffered | Sin búfer: lee y escribe lo mínimo. || Load minimal amounts of data and flush output more often.
 --debug | Anota y explica el programa mientras se ejecuta. || Annotate program execution.
-tip: Con -i sed edita el archivo sin preguntar: prueba antes sin -i o usa -i.bak.
+tip: Con -i sed edita el archivo sin preguntar: prueba antes sin -i o usa -i.bak. || With -i sed edits the file without asking: try without -i first or use -i.bak.
 
 @@ awk gawk mawk nawk
 es: lenguaje de procesamiento de texto por campos y patrones
@@ -63,7 +63,7 @@ pos: ARCHIVO... | Archivo(s) de entrada (o la entrada estándar). || Input file(
 -F --field-separator=SEP | Separador de campos (por defecto, espacios y tabuladores). Ej.: -F: o -F',' . || Field separator (default: blanks). E.g. -F: or -F','.
 -v --assign=VAR=VALOR | Define una variable antes de empezar. || Assign a variable before the program starts.
 -f --file=ARCHIVO | Lee el programa de un archivo. || Read the program from a file.
-tip: En awk, $1 es la primera columna, $NF la última, $0 la línea entera, NR el número de línea y NF el número de campos.
+tip: En awk, $1 es la primera columna, $NF la última, $0 la línea entera, NR el número de línea y NF el número de campos. || In awk, $1 is the first column, $NF the last, $0 the whole line, NR the line number and NF the number of fields.
 
 @@ sudo
 es: ejecuta un comando con los privilegios de otro usuario (por defecto root)
@@ -96,7 +96,7 @@ tags: priv exec
 -s --shell=SHELL | Usa esa shell en vez de la del usuario. || Run the specified shell instead of the user's default.
 -m -p --preserve-environment | Conserva las variables de entorno actuales. || Preserve the current environment.
 -g --group=GRUPO | Especifica el grupo primario. || Specify the primary group.
-tip: «su -» pide la contraseña del usuario destino (root); «sudo -i» pide la tuya.
+tip: «su -» pide la contraseña del usuario destino (root); «sudo -i» pide la tuya. || "su -" asks for the target user's password (root); "sudo -i" asks for yours.
 
 @@ passwd
 es: cambia la contraseña de un usuario o gestiona su estado
@@ -239,7 +239,7 @@ style: bsdfirst
 -H | Muestra la jerarquía de procesos. || Show process hierarchy.
 -T | Muestra los hilos de ejecución. || Show threads.
 -w | Salida ancha (no recorta líneas). || Wide output.
-tip: «ps aux» (BSD) y «ps -ef» (UNIX) listan todo; en la salida, PID = identificador, PPID = proceso padre, STAT = estado (R ejecutando, S dormido, Z zombi).
+tip: «ps aux» (BSD) y «ps -ef» (UNIX) listan todo; en la salida, PID = identificador, PPID = proceso padre, STAT = estado (R ejecutando, S dormido, Z zombi). || "ps aux" (BSD) and "ps -ef" (UNIX) list everything; in the output PID = identifier, PPID = parent process, STAT = state (R running, S sleeping, Z zombie).
 
 @@ top
 es: muestra los procesos en tiempo real, ordenados por uso de CPU
@@ -250,7 +250,7 @@ tags: read
 -b | Modo por lotes (sin interfaz): útil para redirigir a un archivo. || Starts top in Batch mode.
 -n=N | Se detiene tras N actualizaciones. || Specifies the maximum number of iterations.
 -H | Muestra hilos. || Instructs top to display individual threads.
-tip: Dentro de top: q sale, k mata un proceso, M ordena por memoria, P por CPU, 1 muestra cada núcleo.
+tip: Dentro de top: q sale, k mata un proceso, M ordena por memoria, P por CPU, 1 muestra cada núcleo. || Inside top: q quits, k kills a process, M sorts by memory, P by CPU, 1 shows each core.
 
 @@ htop
 es: monitor de procesos interactivo y con colores (mejor que top)
@@ -407,7 +407,7 @@ tags: write system
 -i | Con -r, pide confirmación. || Prompt before deleting.
 -u=USUARIO | Actúa sobre las tareas de otro usuario (requiere root). || Specify the name of the user whose crontab is to be modified.
 pos: ARCHIVO? | Instala este archivo como crontab; «-» lee de la entrada estándar. || Install this file as the crontab; "-" reads standard input.
-tip: Formato de una línea: «minuto hora día-del-mes mes día-de-la-semana comando». Ejemplo: «30 2 * * 1 /ruta/script.sh» = lunes a las 02:30.
+tip: Formato de una línea: «minuto hora día-del-mes mes día-de-la-semana comando». Ejemplo: «30 2 * * 1 /ruta/script.sh» = lunes a las 02:30. || One-line format: "minute hour day-of-month month day-of-week command". Example: "30 2 * * 1 /path/script.sh" = Mondays at 02:30.
 
 @@ at
 es: programa un comando para ejecutarlo UNA vez en un momento dado
@@ -548,7 +548,7 @@ pos: PUNTO_DE_MONTAJE | Directorio (vacío) donde quedará accesible. || Directo
 -w --rw --read-write | Monta en lectura-escritura. || Mount the filesystem read/write.
 --bind | Hace visible un directorio en otro sitio. || Remount a subtree somewhere else.
 -v --verbose | Muestra lo que hace. || Verbose mode.
-tip: Sin argumentos, «mount» lista lo que está montado. «mount -o remount,rw /» cambia las opciones de un montaje en vivo.
+tip: Sin argumentos, «mount» lista lo que está montado. «mount -o remount,rw /» cambia las opciones de un montaje en vivo. || With no arguments, "mount" lists what is mounted. "mount -o remount,rw /" changes the options of a live mount.
 
 @@ umount
 es: desmonta un sistema de archivos

@@ -39,7 +39,7 @@ pos: ARCHIVO?... | Con -x: archivos concretos a extraer (sin ellos, todo). Con -
 --numeric-owner | Usa UID/GID numéricos en vez de nombres. || Always use numbers for user/group names.
 --xattrs | Guarda atributos extendidos. || Enable extended attributes support.
 --acls | Guarda las ACL. || Enable POSIX ACLs support.
-tip: Receta: crear «tar -czvf copia.tar.gz carpeta/», listar «tar -tzvf copia.tar.gz», extraer «tar -xzvf copia.tar.gz -C /destino». Mnemotecnia: c=crear, x=extraer, t=listar, z=gzip, v=verboso, f=archivo.
+tip: Receta: crear «tar -czvf copia.tar.gz carpeta/», listar «tar -tzvf copia.tar.gz», extraer «tar -xzvf copia.tar.gz -C /destino». Mnemotecnia: c=crear, x=extraer, t=listar, z=gzip, v=verboso, f=archivo. || Recipes: create "tar -czvf backup.tar.gz folder/", list "tar -tzvf backup.tar.gz", extract "tar -xzvf backup.tar.gz -C /dest". Mnemonic: c=create, x=extract, t=list, z=gzip, v=verbose, f=file.
 
 @@ gzip gunzip zcat
 es: comprime y descomprime archivos con gzip (.gz)
@@ -164,7 +164,7 @@ pos: PAQUETE... | Paquete(s) sobre los que actúa. || Package(s) it acts on.
 -V --verbose-versions | Muestra versiones completas. || Show full versions.
 --installed | Con list: solo los instalados. || With list: only installed ones.
 --upgradable | Con list: solo los actualizables. || With list: only upgradable ones.
-tip: «apt update» refresca la lista; «apt upgrade» instala las novedades. Son dos pasos distintos.
+tip: «apt update» refresca la lista; «apt upgrade» instala las novedades. Son dos pasos distintos. || "apt update" refreshes the list; "apt upgrade" installs the news. They are two different steps.
 
 @@ dpkg
 es: gestor de bajo nivel de paquetes .deb
@@ -262,7 +262,7 @@ tags: install net write
 --legacy-peer-deps | Ignora conflictos de dependencias entre pares. || Ignore peer dependency conflicts.
 --force | Fuerza la operación. || Force the operation.
 --ignore-scripts | No ejecuta los scripts de instalación (más seguro con paquetes desconocidos). || Do not run install scripts (safer with unknown packages).
-tip: Los scripts de instalación de un paquete npm se ejecutan en tu equipo: con paquetes desconocidos usa --ignore-scripts.
+tip: Los scripts de instalación de un paquete npm se ejecutan en tu equipo: con paquetes desconocidos usa --ignore-scripts. || An npm package's install scripts run on your machine: with unknown packages use --ignore-scripts.
 
 @@ npx
 es: ejecuta un paquete de npm sin instalarlo de forma permanente
@@ -388,7 +388,7 @@ tags: exec read
 @@ ldd
 es: muestra las bibliotecas dinámicas que necesita un ejecutable
 tags: read
-tip: No uses ldd con binarios que no son de confianza: algunas versiones ejecutan el programa para obtener la lista.
+tip: No uses ldd con binarios que no son de confianza: algunas versiones ejecutan el programa para obtener la lista. || Do not use ldd on untrusted binaries: some versions run the program to get the list.
 
 @@ objdump
 es: muestra información de archivos objeto y desensambla código
@@ -445,7 +445,7 @@ tags: read
 -d --decode | DECODIFICA (por defecto codifica). || Decode data.
 -w --wrap=COLS | Parte las líneas a COLS caracteres (0 = sin partir). || Wrap encoded lines after COLS character.
 -i --ignore-garbage | Al decodificar, ignora caracteres no válidos. || When decoding, ignore non-alphabet characters.
-tip: Base64 NO es cifrado: cualquiera puede decodificarlo.
+tip: Base64 NO es cifrado: cualquiera puede decodificarlo. || Base64 is NOT encryption: anyone can decode it.
 
 @@ md5sum sha1sum sha256sum sha512sum
 es: calcula o comprueba sumas de verificación (hash) de archivos
@@ -454,7 +454,7 @@ tags: read
 -b --binary | Lee en modo binario. || Read in binary mode.
 --status | No imprime nada al comprobar: solo el código de salida. || Don't output anything, status code shows success.
 -w --warn | Avisa de líneas mal formateadas. || Warn about improperly formatted checksum lines.
-tip: MD5 y SHA-1 ya no son seguros para firmas; para integridad de descargas usa sha256sum.
+tip: MD5 y SHA-1 ya no son seguros para firmas; para integridad de descargas usa sha256sum. || MD5 and SHA-1 are no longer safe for signatures; for download integrity use sha256sum.
 
 @@ gpg gpg2
 es: cifrado, firma y gestión de claves OpenPGP
@@ -491,7 +491,7 @@ tags: write
 -c=COMANDO | Ejecuta un comando de vim al abrir. || Execute Ex command after the first file has been read.
 -u=ARCHIVO | Usa otro archivo de configuración. || Use the commands in the file instead of the vimrc.
 -d | Modo diff: compara archivos. || Start in diff mode.
-tip: Para salir: Esc y luego «:q» (salir), «:wq» (guardar y salir), «:q!» (salir sin guardar). i = insertar, / = buscar, dd = borrar línea.
+tip: Para salir: Esc y luego «:q» (salir), «:wq» (guardar y salir), «:q!» (salir sin guardar). i = insertar, / = buscar, dd = borrar línea. || To quit: Esc then ":q" (quit), ":wq" (save and quit), ":q!" (quit without saving). i = insert, / = search, dd = delete line.
 
 @@ nano
 es: editor de texto sencillo para la terminal
@@ -500,7 +500,7 @@ tags: write
 -l --linenumbers | Muestra números de línea. || Display line numbers to the left of the text area.
 -c --constantshow | Muestra siempre la posición del cursor. || Constantly show the cursor position.
 -B --backup | Guarda copia de seguridad. || When saving a file, back up the previous version of it.
-tip: Ctrl+O guarda, Ctrl+X sale, Ctrl+W busca, Ctrl+K corta una línea, Ctrl+U pega.
+tip: Ctrl+O guarda, Ctrl+X sale, Ctrl+W busca, Ctrl+K corta una línea, Ctrl+U pega. || Ctrl+O saves, Ctrl+X exits, Ctrl+W searches, Ctrl+K cuts a line, Ctrl+U pastes.
 
 @@ tmux
 es: multiplexor de terminales: varias sesiones y paneles que sobreviven a la desconexión
@@ -515,7 +515,7 @@ tags: exec
 -s=NOMBRE | Nombre de la sesión. || Session name.
 -t=OBJETIVO | Sesión, ventana o panel de destino. || Target session, window or pane.
 -d | Se desconecta de otros clientes / crea en segundo plano. || Detach other clients / create in background.
-tip: Prefijo por defecto: Ctrl+B. Luego d = desconectar, c = ventana nueva, % y " = dividir, flechas = moverse.
+tip: Prefijo por defecto: Ctrl+B. Luego d = desconectar, c = ventana nueva, % y " = dividir, flechas = moverse. || Default prefix: Ctrl+B. Then d = detach, c = new window, % and " = split, arrows = move.
 
 @@ screen
 es: multiplexor de terminales clásico: sesiones que sobreviven a la desconexión
@@ -525,7 +525,7 @@ tags: exec
 -ls -list | Lista las sesiones. || Do not start screen, but simply print a list of sessions.
 -d | Desconecta una sesión. || Detach the elsewhere running screen.
 -dmS=NOMBRE | Crea una sesión desconectada. || Start screen in detached mode with name.
-tip: Prefijo: Ctrl+A. Luego d = desconectar.
+tip: Prefijo: Ctrl+A. Luego d = desconectar. || Prefix: Ctrl+A. Then d = detach.
 
 @@ man
 es: muestra el manual de un comando

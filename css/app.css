@@ -57,7 +57,8 @@ kbd { font: .72rem var(--mono); border: 1px solid var(--line); border-bottom-wid
 .out { margin-top: 14px; display: grid; gap: 14px; }
 .hist { margin-top: 22px; color: var(--muted); font-size: .9rem; }
 .hist h3 { font-size: .95rem; margin: 0 0 8px; color: var(--muted); }
-.hist ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
+.hist ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; grid-template-columns: minmax(0, 1fr); }
+.hist li { min-width: 0; }
 .hist li button { background: none; border: 0; color: var(--link); font: .85rem var(--mono); cursor: pointer; text-align: left; padding: 2px 0; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block; }
 
 /* veredicto */
@@ -157,9 +158,12 @@ kbd { font: .72rem var(--mono); border: 1px solid var(--line); border-bottom-wid
 .foot-in { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding-top: 14px; padding-bottom: 14px; }
 .legend { display: flex; gap: 12px; flex-wrap: wrap; font-size: .8rem; color: var(--muted); margin-top: 4px; }
 .legend i { font-style: normal; font-family: var(--mono); font-weight: 700; }
+@media (hover: none) { .btn .kb { display: none; } }
 @media (max-width: 760px) {
+  .top-in { gap: 8px; } .brand { flex: 1; min-width: 0; } .tools { order: 2; } .tabs { order: 3; flex-basis: 100%; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .tabs button { white-space: nowrap; padding: 6px 10px; }
+  .brand small { display: none; } .chip:nth-child(n+5) { display: none; }
   .cat { grid-template-columns: 1fr; } .cat-list { position: static; } .cat-list ul { max-height: 220px; }
   .row { grid-template-columns: 1fr; gap: 4px; } .anno { font-size: .95rem; }
-  .status { margin-left: 0; width: 100%; } .tabs { order: 3; flex-basis: 100%; }
+  .status { margin-left: 0; width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

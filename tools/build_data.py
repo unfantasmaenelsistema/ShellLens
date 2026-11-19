@@ -134,7 +134,8 @@ def parse_curated():
                     a, b = kv.split("=")
                     cur["subalias"][a] = b
             elif k == "tip":
-                cur["tip"].append(v)
+                tes, ten = split_langs(v)
+                cur["tip"].append({"es": tes, **({"en": ten} if ten else {})})
             elif k == "pos":
                 if "|" not in v:
                     raise SystemExit(f"{where}: pos sin « | »")

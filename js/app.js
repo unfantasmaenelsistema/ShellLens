@@ -287,8 +287,9 @@
   function fillCat() {
     const q = $('#catQ').value.trim().toLowerCase();
     let list = data.names;
+    const rank = (c) => { const n = c[0].toLowerCase(); return n === q ? 0 : n.startsWith(q) ? 1 : n.includes(q) ? 2 : 3; };
     if (q) list = list.filter(c => c[0].toLowerCase().includes(q) || (c[2] || '').toLowerCase().includes(q));
-    list = list.slice().sort((a, b) => (b[3] - a[3]) || a[0].localeCompare(b[0]));
+    list = list.slice().sort((a, b) => (q ? rank(a) - rank(b) : 0) || (b[3] - a[3]) || a[0].localeCompare(b[0]));
     const shown = list.slice(0, 400);
     $('#catUl').innerHTML = shown.length ? shown.map(c => '<li><button data-n="' + esc(c[0]) + '"' + (c[0] === catSel ? ' aria-current="true"' : '') + '><span>' + (c[3] ? '● ' : '') + esc(c[0]) + '</span><small>' + c[4] + '</small></button></li>').join('') + (list.length > 400 ? '<li><small style="padding:6px 8px;display:block;color:var(--muted)">' + esc(t('catShown')) + ' 400 / ' + list.length + '</small></li>' : '') : '<li><small style="padding:8px;display:block;color:var(--muted)">' + esc(t('catNone')) + '</small></li>';
   }
@@ -301,7 +302,7 @@
     let h = '<h2>' + esc(rec.n) + '</h2><p>' + esc(sum) + (en ? ' <span class="badge en" title="' + esc(t('enTip')) + '">EN</span>' : '') + '</p>';
     if (rec.al && rec.al.length) h += '<p class="lead" style="margin:0 0 6px">' + esc(t('catAlias')) + ': <code>' + esc(rec.al.join(', ')) + '</code></p>';
     if (rec.syn) h += '<div class="syn">' + esc(rec.syn.split(' ⏎ ').join('\n')) + '</div>';
-    if (rec.tip && rec.tip.length) h += '<p class="tips" style="border:0;padding:0"><b>' + esc(t('tips')) + ':</b> ' + rec.tip.map(esc).join(' · ') + '</p>';
+    if (rec.tip && rec.tip.length) h += '<p class="tips" style="border:0;padding:0"><b>' + esc(t('tips')) + ':</b> ' + rec.tip.map(x => esc(typeof x === 'string' ? x : (lang === 'en' ? (x.en || x.es) : x.es))).join(' · ') + '</p>';
     h += '<input id="catF" type="search" placeholder="' + esc(t('catFilter')) + ' (' + rec.o.length + ' ' + esc(t('catOpts')) + ')" aria-label="' + esc(t('catFilter')) + '" style="margin-top:8px"><table class="otable"><tbody id="catRows"></tbody></table>';
     $('#catDet').innerHTML = h;
     $('#catDet').dataset.rec = name;

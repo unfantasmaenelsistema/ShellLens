@@ -486,7 +486,7 @@
       if (sumTxt) headTok.items.push({ label: unit.name, desc: sentence(sumTxt), en: lang === 'es' && !rec.s.es });
       if (res.kind === 'sys') headTok.items.push({ label: res.path, desc: T('Ruta absoluta: ejecuta exactamente ese programa, sin buscarlo en el PATH.', 'Absolute path: runs exactly that program, without PATH lookup.') });
       (rec.tg || []).forEach(t => unit.effects.add(t));
-      unit.rec = rec; unit.tips = rec.tip || [];
+      unit.rec = rec; unit.tips = (rec.tip || []).map(tipTxt);
 
       const sp = SPEC.get(rec.x || rec.n);
       const pctx = { pendingArgs: [], sub: null };
@@ -499,7 +499,7 @@
       const m = await matchArgs(rec, wsUse, pctx);
       unit.matched = m;
       m.used.forEach(f => unit.opts.add(f));
-      unit.subName = m.subName; unit.sub2 = m.sub2; if (m.subName) { unit.display = unit.name + ' ' + m.subName + (m.sub2 ? ' ' + m.sub2 : ''); unit.subRec = m.subRec; if (m.subRec) { (m.subRec.tg || []).forEach(t => unit.effects.add(t)); unit.tips = (m.subRec.tip || []).concat(unit.tips); } }
+      unit.subName = m.subName; unit.sub2 = m.sub2; if (m.subName) { unit.display = unit.name + ' ' + m.subName + (m.sub2 ? ' ' + m.sub2 : ''); unit.subRec = m.subRec; if (m.subRec) { (m.subRec.tg || []).forEach(t => unit.effects.add(t)); unit.tips = (m.subRec.tip || []).map(tipTxt).concat(unit.tips); } }
       unit.tokens.push(...m.tokens);
       // roles de operandos
       const main = m.subRec || rec;
@@ -584,6 +584,7 @@
       return explainSubCommand(node, ctx, depth, label, '');
     }
 
+    function tipTxt(x) { return typeof x === 'string' ? x : (lang === 'en' ? (x.en || x.es) : x.es); }
     function capitalize(s) { s = (s || '').trim(); return s ? s[0].toUpperCase() + s.slice(1) : s; }
     function sentence(s) { s = capitalize(s); return s && !/[.!?…]$/.test(s) ? s + '.' : s; }
 

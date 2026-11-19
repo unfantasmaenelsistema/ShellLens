@@ -1,0 +1,1 @@
+{"n":"dos2unix","s":{"en":"convert line endings between Windows (CRLF) and Unix (LF)","es":"convierte los saltos de línea entre Windows (CRLF) y Unix (LF)"},"al":["unix2dos"],"st":"gnu","tg":["write"],"o":[]}

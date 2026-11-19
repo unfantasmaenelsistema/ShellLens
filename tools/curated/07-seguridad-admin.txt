@@ -638,7 +638,7 @@ tags: net read write
 -p=PUERTO | Puerto. || Server port.
 -a=CLAVE | Contraseña (¡visible!). || Password to use when connecting to the server.
 --scan | Recorre claves con SCAN. || List all keys using the SCAN command.
-tip: Un Redis expuesto sin contraseña permite leer y escribir todos los datos (y a veces ejecutar código).
+tip: Un Redis expuesto sin contraseña permite leer y escribir todos los datos (y a veces ejecutar código). || An exposed Redis with no password lets anyone read and write all data (and sometimes run code).
 
 @@ jq
 es: procesa y filtra JSON desde la línea de comandos

@@ -1,0 +1,334 @@
+# Nube, VPN, descubrimiento de red y utilidades varias
+
+@@ terraform tofu
+es: define y aplica infraestructura como código (nube, redes, servidores)
+tags: net write
+> init | Inicializa el directorio: descarga proveedores y módulos. || Initialise the directory: download providers and modules.
+> plan | Muestra qué cambiaría, sin tocar nada. || Show what would change, without touching anything.
+> apply | APLICA los cambios: crea, modifica o destruye recursos reales (y puede costar dinero). || APPLY the changes: creates, modifies or destroys real resources (and may cost money).
+> destroy | DESTRUYE toda la infraestructura gestionada. || DESTROY all managed infrastructure.
+> validate | Comprueba la sintaxis de la configuración. || Check the configuration syntax.
+> fmt | Da formato al código. || Format the code.
+> output | Muestra las salidas definidas. || Show the defined outputs.
+> state | Gestiona el archivo de estado. || Manage the state file.
+> import | Importa un recurso existente al estado. || Import an existing resource into the state.
+> workspace | Gestiona entornos de trabajo. || Manage workspaces.
+-auto-approve | Aplica sin pedir confirmación (¡peligroso con apply/destroy!). || Apply without asking for confirmation (dangerous with apply/destroy!).
+-var=CLAVE=VALOR | Define una variable. || Set a variable.
+-var-file=ARCHIVO | Archivo con variables. || File with variables.
+-target=RECURSO | Limita la operación a un recurso. || Limit the operation to a resource.
+-out=ARCHIVO | Guarda el plan en un archivo. || Save the plan to a file.
+-chdir=DIR | Ejecuta en otro directorio. || Run in another directory.
+-lock=BOOL | Bloquea el estado durante la operación. || Lock the state during the operation.
+
+@@ ansible
+es: ejecuta tareas puntuales en muchos equipos a la vez por SSH
+tags: net exec
+-i --inventory=ARCHIVO | Inventario de equipos. || Inventory of hosts.
+-m --module-name=MÓDULO | Módulo a ejecutar (ping, shell, copy, apt…). || Module to run (ping, shell, copy, apt…).
+-a --args=ARGUMENTOS | Argumentos del módulo. || Module arguments.
+-b --become | Escala privilegios (como sudo). || Escalate privileges (like sudo).
+-u --user=USUARIO | Usuario remoto. || Remote user.
+-k --ask-pass | Pide la contraseña SSH. || Ask for the SSH password.
+-K --ask-become-pass | Pide la contraseña de sudo. || Ask for the sudo password.
+-f --forks=N | Procesos en paralelo. || Parallel processes.
+-l --limit=PATRÓN | Limita a ciertos equipos. || Limit to certain hosts.
+
+@@ ansible-playbook
+es: ejecuta un playbook de Ansible: automatiza la configuración de muchos equipos
+tags: net exec
+-i --inventory=ARCHIVO | Inventario de equipos. || Inventory of hosts.
+-b --become | Escala privilegios (como sudo). || Escalate privileges (like sudo).
+-K --ask-become-pass | Pide la contraseña de sudo. || Ask for the sudo password.
+-k --ask-pass | Pide la contraseña SSH. || Ask for the SSH password.
+-u --user=USUARIO | Usuario remoto. || Remote user.
+-l --limit=PATRÓN | Limita a ciertos equipos. || Limit to certain hosts.
+-C --check | Modo simulación: no cambia nada. || Dry-run mode: changes nothing.
+-D --diff | Muestra las diferencias que aplicaría. || Show the differences it would apply.
+-e --extra-vars=VARS | Variables extra (clave=valor o @archivo). || Extra variables (key=value or @file).
+-t --tags=ETIQUETAS | Ejecuta solo tareas con esas etiquetas. || Only run tasks with these tags.
+--syntax-check | Solo comprueba la sintaxis. || Only check the syntax.
+-v | Detallado (-vvv más). || Verbose (-vvv for more).
+--vault-password-file=ARCHIVO | Archivo con la contraseña de Ansible Vault. || File with the Ansible Vault password.
+
+@@ aws
+es: línea de comandos de Amazon Web Services
+tags: net write
+> s3 | Gestiona buckets y objetos de S3 (ls, cp, sync, rm, mb…). || Manage S3 buckets and objects (ls, cp, sync, rm, mb…).
+> ec2 | Gestiona máquinas virtuales y redes de EC2. || Manage EC2 virtual machines and networking.
+> iam | Gestiona usuarios, roles y permisos. || Manage users, roles and permissions.
+> sts | Servicio de tokens (p. ej. get-caller-identity: quién soy). || Token service (e.g. get-caller-identity: who am I).
+> configure | Configura credenciales y región. || Configure credentials and region.
+> lambda | Gestiona funciones Lambda. || Manage Lambda functions.
+> rds | Gestiona bases de datos RDS. || Manage RDS databases.
+> cloudformation | Gestiona pilas de CloudFormation. || Manage CloudFormation stacks.
+> ecr | Registro de contenedores. || Container registry.
+> eks | Clústeres Kubernetes gestionados. || Managed Kubernetes clusters.
+> ssm | Systems Manager (parámetros, sesiones). || Systems Manager (parameters, sessions).
+> logs | Registros de CloudWatch. || CloudWatch logs.
+--profile=NOMBRE | Perfil de credenciales a usar. || Credentials profile to use.
+--region=REGIÓN | Región de AWS. || AWS region.
+--output=FORMATO | Formato de salida (json, text, table, yaml). || Output format (json, text, table, yaml).
+--query=EXPRESIÓN | Filtra la salida con JMESPath. || Filter output with JMESPath.
+--recursive | Opera sobre todo el contenido recursivamente (¡con rm borra todo!). || Operate on all contents recursively (with rm it deletes everything!).
+--dryrun | Simula sin ejecutar. || Simulate without running.
+--delete | Con sync: borra en destino lo que no esté en origen. || With sync: delete at the destination what is not in the source.
+--no-sign-request | Peticiones anónimas (sin credenciales). || Anonymous requests (no credentials).
+--endpoint-url=URL | Usa otro endpoint (LocalStack, MinIO…). || Use another endpoint (LocalStack, MinIO…).
+--debug | Depuración detallada. || Detailed debugging.
+
+@@ gcloud
+es: línea de comandos de Google Cloud
+tags: net write
+> compute | Máquinas virtuales y redes. || Virtual machines and networking.
+> auth | Credenciales y autenticación. || Credentials and authentication.
+> config | Configuración de la CLI. || CLI configuration.
+> projects | Gestión de proyectos. || Project management.
+> container | Clústeres de GKE. || GKE clusters.
+> storage | Cloud Storage. || Cloud Storage.
+> iam | Permisos. || Permissions.
+--project=PROYECTO | Proyecto de GCP. || GCP project.
+--format=FORMATO | Formato de salida. || Output format.
+--quiet -q | No pide confirmaciones. || No prompts.
+
+@@ az
+es: línea de comandos de Microsoft Azure
+tags: net write
+> login | Inicia sesión. || Log in.
+> group | Gestiona grupos de recursos. || Manage resource groups.
+> vm | Gestiona máquinas virtuales. || Manage virtual machines.
+> storage | Almacenamiento. || Storage.
+> account | Suscripciones. || Subscriptions.
+> aks | Kubernetes gestionado. || Managed Kubernetes.
+> network | Redes. || Networking.
+> ad | Microsoft Entra ID (Azure AD). || Microsoft Entra ID (Azure AD).
+> keyvault | Almacén de secretos. || Secrets vault.
+--output -o=FORMATO | Formato de salida. || Output format.
+--subscription=ID | Suscripción a usar. || Subscription to use.
+--yes -y | No pide confirmación. || No confirmation.
+--query=EXPRESIÓN | Filtra con JMESPath. || Filter with JMESPath.
+
+@@ openvpn
+es: crea túneles VPN cifrados (cliente y servidor)
+tags: net priv
+--config=ARCHIVO | Archivo de configuración .ovpn. || Configuration .ovpn file.
+--daemon | Se ejecuta en segundo plano. || Run in the background.
+--auth-user-pass=ARCHIVO | Archivo con usuario y contraseña. || File with username and password.
+--remote=HOST | Servidor VPN. || VPN server.
+--verb=N | Nivel de detalle del registro. || Log verbosity level.
+--script-security=N | Permite ejecutar scripts (2 o 3: solo con configuraciones de confianza). || Allow running scripts (2 or 3: only with trusted configs).
+
+@@ wg wg-quick
+es: configura y levanta túneles VPN WireGuard
+tags: net priv
+> up | Levanta la interfaz definida en un archivo de configuración. || Bring up the interface defined in a config file.
+> down | La baja. || Bring it down.
+> show | Muestra el estado de los túneles. || Show tunnel status.
+> genkey | Genera una clave privada. || Generate a private key.
+> pubkey | Obtiene la clave pública de la privada. || Derive the public key from the private key.
+> set | Cambia parámetros de la interfaz. || Change interface parameters.
+
+@@ sshpass
+es: pasa la contraseña de SSH por la línea de comandos (inseguro: queda visible)
+tags: net exec
+-p=CLAVE | Contraseña (¡visible en el historial y en ps!). || Password (visible in history and ps!).
+-f=ARCHIVO | Lee la contraseña de un archivo. || Read the password from a file.
+-e | Lee la contraseña de la variable SSHPASS. || Read the password from the SSHPASS variable.
+
+@@ masscan
+es: escáner de puertos masivo y muy rápido (puede escanear Internet entera)
+tags: net priv
+-p=PUERTOS | Puertos a escanear. || Ports to scan.
+--rate=N | Paquetes por segundo (¡valores altos pueden tumbar redes!). || Packets per second (high values can knock networks down!).
+-oX=ARCHIVO | Salida XML. || XML output.
+-oL=ARCHIVO | Salida en lista. || List output.
+-oJ=ARCHIVO | Salida JSON. || JSON output.
+--excludefile=ARCHIVO | Lista de exclusiones. || Exclusion list.
+--banners | Recoge las cabeceras de los servicios. || Grab service banners.
+-e=IFACE | Interfaz de red. || Network interface.
+--top-ports=N | Los N puertos más comunes. || The N most common ports.
+
+@@ arp-scan
+es: descubre equipos de la red local mediante peticiones ARP
+tags: net priv
+-l --localnet | Escanea toda la red local. || Scan the whole local network.
+-I --interface=IFACE | Interfaz de red. || Network interface.
+-r --retry=N | Reintentos. || Retries.
+
+@@ netdiscover
+es: descubre equipos de la red local con ARP (activo o pasivo)
+tags: net priv
+-r=RANGO | Rango a escanear (192.168.1.0/24). || Range to scan (192.168.1.0/24).
+-i=IFACE | Interfaz. || Interface.
+-p | Modo pasivo (solo escucha). || Passive mode (listen only).
+
+@@ dnsrecon dnsenum fierce
+es: enumeración DNS: registros, subdominios, transferencias de zona
+tags: net
+-d --domain=DOMINIO | Dominio objetivo. || Target domain.
+-t --type=TIPO | Tipo de enumeración (std, brt, axfr…). || Enumeration type (std, brt, axfr…).
+-D --dictionary=ARCHIVO | Diccionario de subdominios. || Subdomain wordlist.
+
+@@ amass
+es: enumeración de subdominios y mapeo de la superficie de ataque externa
+tags: net
+> enum | Enumera subdominios. || Enumerate subdomains.
+> intel | Recopila información de inteligencia. || Gather intelligence data.
+-d=DOMINIO | Dominio objetivo. || Target domain.
+-passive | Solo fuentes pasivas (sin contactar con el objetivo). || Passive sources only (no contact with the target).
+-o=ARCHIVO | Guarda el resultado. || Save the output.
+
+@@ nuclei
+es: escáner de vulnerabilidades basado en plantillas
+tags: net
+-u=URL | Objetivo. || Target.
+-l=ARCHIVO | Lista de objetivos. || List of targets.
+-t=PLANTILLAS | Plantillas o carpeta. || Templates or folder.
+-severity -s=NIVELES | Filtra por gravedad (info, low, medium, high, critical). || Filter by severity (info, low, medium, high, critical).
+-o=ARCHIVO | Guarda el resultado. || Save the output.
+-rl=N | Peticiones por segundo. || Requests per second.
+-silent | Solo resultados. || Results only.
+
+@@ showmount
+es: muestra los recursos NFS exportados por un servidor
+tags: net read
+-e --exports | Lista las exportaciones del servidor. || Show the server's export list.
+
+@@ snmpwalk
+es: recorre toda la información SNMP de un dispositivo (¡a veces con la comunidad «public»!)
+tags: net
+-v=VERSIÓN | Versión de SNMP (1, 2c, 3). || SNMP version (1, 2c, 3).
+-c=COMUNIDAD | Cadena de comunidad (equivale a una contraseña). || Community string (like a password).
+
+@@ ldapsearch
+es: consulta un directorio LDAP / Active Directory
+tags: net read
+-H=URI | Servidor (ldap://host o ldaps://host). || Server (ldap://host or ldaps://host).
+-b=BASE | Base de búsqueda (dc=ejemplo,dc=com). || Search base (dc=example,dc=com).
+-x | Autenticación simple (sin SASL). || Simple authentication (no SASL).
+-D=DN | DN con el que autenticarse. || Bind DN.
+-w=CLAVE | Contraseña (¡visible!). || Password (visible!).
+-W | Pide la contraseña. || Prompt for the password.
+-s=ÁMBITO | Ámbito: base, one, sub. || Scope: base, one, sub.
+-LLL | Salida LDIF sin comentarios. || LDIF output without comments.
+
+@@ chroot
+es: ejecuta un comando con otro directorio como raíz del sistema
+tags: exec priv
+pos: RAÍZ | Directorio que pasará a ser «/». || Directory that becomes "/".
+pos: COMANDO... | Comando a ejecutar dentro (por defecto, una shell). || Command to run inside (default: a shell).
+--userspec=USUARIO:GRUPO | Ejecuta como ese usuario. || Run as that user.
+
+@@ bc
+es: calculadora de precisión arbitraria
+tags: read
+-l --mathlib | Carga la biblioteca matemática y 20 decimales (scale=20). || Load the math library and 20 decimals (scale=20).
+-q --quiet | Sin mensaje de bienvenida. || No welcome banner.
+tip: «echo "scale=2; 10/3" | bc» → 3.33 || «echo "scale=2; 10/3" | bc» → 3.33
+
+@@ expr
+es: evalúa expresiones aritméticas y de texto
+tags: read
+
+@@ iconv
+es: convierte textos entre codificaciones de caracteres (UTF-8, Latin-1…)
+tags: read write
+-f --from-code=CODIF | Codificación de entrada. || Input encoding.
+-t --to-code=CODIF | Codificación de salida. || Output encoding.
+-c | Omite los caracteres que no se puedan convertir. || Omit characters that cannot be converted.
+-l --list | Lista las codificaciones disponibles. || List the available encodings.
+
+@@ dos2unix unix2dos
+es: convierte los saltos de línea entre Windows (CRLF) y Unix (LF)
+tags: write
+
+@@ xclip xsel
+es: copia y pega con el portapapeles desde la línea de comandos
+tags: read write
+-selection=SEL | Portapapeles a usar (clipboard, primary). || Clipboard to use (clipboard, primary).
+-i -in | Lee de la entrada estándar y copia. || Read from standard input and copy.
+-o -out | Pega a la salida estándar. || Paste to standard output.
+
+@@ lsb_release
+es: muestra la distribución Linux y su versión
+tags: read
+-a --all | Toda la información. || All information.
+-d --description | Descripción de la distribución. || Distribution description.
+
+@@ systemd-analyze
+es: analiza el tiempo de arranque y la configuración de systemd
+tags: read
+> blame | Lista los servicios por tiempo de arranque. || List services by startup time.
+> critical-chain | Cadena crítica del arranque. || Critical chain of the boot.
+> security | Evalúa la seguridad de las unidades. || Assess the security of units.
+> verify | Comprueba archivos de unidad. || Verify unit files.
+
+@@ go
+es: herramientas del lenguaje Go (compilar, probar, gestionar módulos)
+tags: exec write net
+> build | Compila el paquete. || Compile the package.
+> run | Compila y ejecuta. || Compile and run.
+> test | Ejecuta las pruebas. || Run the tests.
+> get | Descarga dependencias. || Download dependencies.
+> mod | Gestiona módulos (init, tidy…). || Manage modules (init, tidy…).
+> install | Compila e instala el binario. || Compile and install the binary.
+> fmt | Da formato al código. || Format the code.
+> vet | Busca errores comunes. || Look for common errors.
+-o=SALIDA | Nombre del ejecutable. || Output binary name.
+-v | Detallado. || Verbose.
+-ldflags=FLAGS | Opciones del enlazador (-s -w reduce tamaño). || Linker flags (-s -w shrinks size).
+
+@@ cargo
+es: gestor de paquetes y compilación de Rust
+tags: exec write net
+> build | Compila el proyecto. || Build the project.
+> run | Compila y ejecuta. || Build and run.
+> test | Ejecuta las pruebas. || Run the tests.
+> new | Crea un proyecto. || Create a project.
+> add | Añade una dependencia. || Add a dependency.
+> install | Instala un binario desde crates.io. || Install a binary from crates.io.
+> check | Comprueba que compila sin generar binario. || Check that it compiles without producing a binary.
+> clippy | Analiza el código con avisos extra. || Lint the code.
+--release | Compila optimizado. || Build optimised.
+
+@@ java
+es: máquina virtual de Java: ejecuta programas .class y .jar
+tags: exec
+-jar=ARCHIVO | Ejecuta un archivo .jar. || Run a .jar file.
+-cp -classpath=RUTA | Ruta de clases y bibliotecas. || Class path.
+-version | Muestra la versión. || Show the version.
+-Xmx=TAMAÑO | Memoria máxima del heap (p. ej. -Xmx2g). || Maximum heap size (e.g. -Xmx2g).
+-Xms=TAMAÑO | Memoria inicial del heap. || Initial heap size.
+-D=PROP | Define una propiedad del sistema (-Dclave=valor). || Define a system property (-Dkey=value).
+
+@@ mvn
+es: gestor de construcción y dependencias de Java (Maven)
+tags: exec write net
+> clean | Borra la carpeta target. || Delete the target folder.
+> package | Compila y empaqueta (jar/war). || Compile and package (jar/war).
+> install | Instala el artefacto en el repositorio local. || Install the artifact in the local repository.
+> test | Ejecuta las pruebas. || Run the tests.
+> compile | Compila. || Compile.
+> deploy | PUBLICA el artefacto en un repositorio remoto. || PUBLISH the artifact to a remote repository.
+-DskipTests | Omite las pruebas. || Skip the tests.
+-U | Fuerza la actualización de dependencias. || Force dependency updates.
+-o --offline | Trabaja sin red. || Work offline.
+-P=PERFIL | Perfil a activar. || Profile to activate.
+
+@@ pandoc
+es: convierte documentos entre formatos (Markdown, HTML, Word, PDF…)
+tags: read write
+-f --from=FORMATO | Formato de entrada. || Input format.
+-t --to=FORMATO | Formato de salida. || Output format.
+-o --output=ARCHIVO | Archivo de salida. || Output file.
+-s --standalone | Genera un documento completo. || Produce a standalone document.
+--toc | Añade tabla de contenidos. || Add a table of contents.
+
+@@ convert magick
+es: convierte, redimensiona y retoca imágenes (ImageMagick)
+tags: read write
+-resize=TAMAÑO | Cambia el tamaño (50%, 800x600). || Resize (50%, 800x600).
+-quality=N | Calidad JPEG 1-100. || JPEG quality 1-100.
+-rotate=GRADOS | Gira la imagen. || Rotate the image.
+-crop=GEOMETRÍA | Recorta. || Crop.
+-strip | Elimina metadatos y perfiles. || Remove metadata and profiles.
