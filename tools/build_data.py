@@ -35,7 +35,7 @@ def parse_forms(spec):
     """'-f --file=ARCHIVE --color[=WHEN]' -> (forms, arg, optional)"""
     forms, arg, opt = [], "", False
     for tok in spec.split():
-        m = re.match(r"^((?:-{1,2}|~)[^=\[\s]+)(\[=([^\]]*)\]|=(.*))?$", tok)
+        m = re.match(r"^((?:-{1,2}|~|\+)[^=\[\s]+)(\[=([^\]]*)\]|=(.*))?$", tok)
         if not m:
             raise ValueError("forma de opción no válida: " + tok)
         forms.append(m.group(1))
@@ -98,7 +98,7 @@ def parse_curated():
                 for one in nm.split():
                     cur["sd"][one] = {"es": es, **({"en": en} if en else {})}
                 continue
-            if line[0] in "-~":
+            if line[0] in "-~+":
                 if "|" not in line:
                     raise SystemExit(f"{where}: opción sin « | »: {line}")
                 spec, desc = line.split("|", 1)
@@ -150,6 +150,17 @@ def parse_curated():
                 if re.search(r"\?(?!unless)", nm) or nm.endswith("?"):
                     role["opt"] = 1
                 cur["pos"].append(role)
+    # resumenes en ingles que no estan en las man pages (archivo TSV)
+    tsv = os.path.join(CUR, "en-summaries.tsv")
+    TAB = chr(9)
+    if os.path.exists(tsv):
+        for ln in open(tsv, encoding="utf-8"):
+            ln = ln.rstrip(chr(10))
+            if TAB in ln:
+                k, v = ln.split(TAB, 1)
+                for c in cmds.values():
+                    if k == c["n"] or k in c["al"]:
+                        c["en"] = c["en"] or v
     return cmds
 
 
@@ -218,8 +229,7 @@ def main():
                         if fm not in o["f"] and fm not in seen_forms:
                             o["f"].append(fm)
                     if "a" not in o and "a" in m and not o.get("_noarg"):
-                        o["a"] = m["a"]
-                        if m.get("ao"): o["ao"] = 1
+                        print(f"  aviso arg: {name} {' '.join(o['f'])}  (man: {m['a']})", file=sys.stderr)
                 if "en" not in o:
                     o["en"] = ""
                 o.pop("_noarg", None)

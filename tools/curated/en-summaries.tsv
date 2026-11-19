@@ -1,0 +1,81 @@
+apachectl	control the Apache web server
+at	schedule a command to run once at a given time
+cal	display a calendar
+certbot	obtain and renew free Let's Encrypt HTTPS certificates
+cewl	generate a wordlist from the words of a website
+chkrootkit	look for rootkits and signs of compromise
+clamscan	ClamAV antivirus: scan files and directories
+crackmapexec	enumerate and attack Windows/Active Directory networks
+crunch	generate password wordlists from a pattern or character set
+cryptsetup	manage LUKS and dm-crypt encrypted disks
+enum4linux	enumerate Windows/Samba hosts (users, groups, shares)
+ettercap	man-in-the-middle attack suite (ARP spoofing, sniffing, injection)
+exiftool	read and edit metadata in images, documents and other files
+fail2ban-client	control Fail2ban, which bans IPs after failed attempts
+ffmpeg	convert, trim and process audio and video
+ffuf	very fast web fuzzer (paths, parameters, headers, subdomains)
+file	determine a file's type from its content
+ftp	FTP file transfer client (unencrypted)
+gcc	C/C++ compiler
+gdb	GNU debugger: run programs step by step and inspect their memory
+getfacl	show a file's access control lists (ACLs)
+hashid	identify the type of a hash (MD5, SHA-1, bcrypt…)
+hdparm	read or tune disk parameters (also benchmarks speed)
+helm	package manager (charts) for Kubernetes
+htop	interactive, colourful process monitor
+iostat	CPU and disk usage statistics
+iptables	packet filtering and NAT in the kernel (Linux firewall)
+iwconfig	configure wireless interfaces (legacy tool)
+jq	process and filter JSON on the command line
+kubectl	control Kubernetes clusters
+last	show login history (reads /var/log/wtmp)
+lastlog	show each user's last login
+lspci	list PCI devices (graphics, network, controllers…)
+ltrace	show the dynamic-library calls a program makes
+lvcreate	create an LVM logical volume
+lvextend	extend an LVM logical volume
+lvremove	REMOVE an LVM logical volume, group or physical volume (destroys data)
+lynis	security auditing for Linux systems
+mdadm	manage Linux software RAID
+msfconsole	console of the Metasploit exploitation framework
+msfvenom	generate Metasploit payloads in several formats
+mtr	traceroute and ping combined in real time
+nginx	nginx web server and reverse proxy
+nmcli	manage NetworkManager: connections, WiFi and devices
+node	JavaScript interpreter (Node.js)
+npm	Node.js package manager
+npx	run an npm package without installing it permanently
+php	PHP interpreter (also serves a dev server with -S)
+psql	interactive PostgreSQL client
+pvcreate	prepare a disk or partition as an LVM physical volume
+pvs	show LVM physical volumes, groups and logical volumes
+responder	poison LLMNR/NBT-NS/mDNS requests to capture Windows hashes
+rpm	low-level .rpm package manager
+ruby	Ruby interpreter
+scp	copy files between hosts over SSH
+screen	classic terminal multiplexer: sessions that survive disconnection
+setfacl	set access control lists (per-user or per-group permissions)
+sftp	interactive file transfer over SSH
+smartctl	query the SMART health status of hard disks and SSDs
+snap	snap package manager (Ubuntu)
+sqlite3	SQLite command-line client
+ssh	connect to another machine securely (remote shell or command execution)
+ssh-add	add private keys to the SSH agent
+ssh-agent	keep your decrypted private keys in memory for the session
+ssh-copy-id	install your public key on a server to log in without a password
+ssh-keygen	generate, manage and convert SSH authentication keys
+ssh-keyscan	collect public keys from SSH servers
+steghide	hide data inside images and audio (steganography) or extract it
+strace	show the system calls a program makes
+telnet	unencrypted remote-access client (also used to test ports)
+theHarvester	collect emails, subdomains and names from public sources (OSINT)
+tmux	terminal multiplexer: sessions and panes that survive disconnection
+traceroute	show the route (hops) packets take to a destination
+ufw	simple firewall for Ubuntu/Debian (layer over iptables)
+vgcreate	create an LVM volume group from physical volumes
+visudo	edit /etc/sudoers with syntax checking (the safe way)
+volatility	forensic analysis of RAM memory dumps
+wfuzz	web fuzzer: replaces FUZZ with each entry of a wordlist
+wpa_supplicant	manage authentication to WiFi networks (WPA/WPA2/WPA3)
+xxd	show a file in hexadecimal (or rebuild it from hex)
+yum	package manager for Red Hat, Fedora, CentOS and Rocky

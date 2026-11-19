@@ -1,0 +1,540 @@
+# Compresión, copias, paquetes y lenguajes
+
+@@ tar bsdtar
+es: crea, extrae y lista archivos .tar (con o sin compresión)
+tags: read write
+style: bsdfirst
+pos: ARCHIVO?... | Con -x: archivos concretos a extraer (sin ellos, todo). Con -c: archivos o carpetas a incluir. || With -x: specific members to extract (none = all). With -c: files or folders to include.
+-c --create | CREA un archivo nuevo con lo que indiques. || CREATE a new archive from what you list.
+-x --extract --get | EXTRAE los archivos del archivo comprimido. || EXTRACT files from an archive.
+-t --list | LISTA el contenido sin extraer. || LIST the contents without extracting.
+-r --append | Añade archivos al final de un .tar existente (sin comprimir). || Append files to the end of an existing (uncompressed) .tar.
+-u --update | Añade solo los que sean más nuevos que los del archivo. || Append only files newer than the archive copy.
+-d --diff --compare | Compara el archivo con el sistema de archivos. || Find differences between archive and file system.
+-f --file=ARCHIVO | Archivo .tar con el que se trabaja (¡debe ir justo antes del nombre!). «-» = entrada/salida estándar. || The .tar file to work with (must come right before the name!). "-" = standard input/output.
+-v --verbose | Muestra cada archivo que procesa. || Verbosely list files processed.
+-z --gzip --gunzip | Comprime/descomprime con gzip (.tar.gz, .tgz). || Filter through gzip (.tar.gz, .tgz).
+-j --bzip2 | Comprime/descomprime con bzip2 (.tar.bz2). || Filter through bzip2 (.tar.bz2).
+-J --xz | Comprime/descomprime con xz (.tar.xz). || Filter through xz (.tar.xz).
+--zstd | Comprime/descomprime con zstd. || Filter through zstd.
+-a --auto-compress | Elige la compresión según la extensión del archivo. || Use the archive suffix to determine the compression program.
+-C --directory=DIR | Cambia a DIR antes de crear o extraer (extrae allí). || Change to DIR before performing any operations (extracts there).
+-p --preserve-permissions | Conserva los permisos al extraer. || Extract information about file permissions.
+--same-owner | Al extraer como root, conserva el propietario. || Try extracting files with the same ownership as exists in the archive.
+-P --absolute-names | No quita la «/» inicial de las rutas (¡puede sobrescribir archivos del sistema!). || Don't strip leading slashes from file names (may overwrite system files!).
+--exclude=PATRÓN | Excluye lo que coincida con el patrón. || Exclude files matching PATTERN.
+-X --exclude-from=ARCHIVO | Lee patrones de exclusión de un archivo. || Exclude files matching patterns listed in FILE.
+-T --files-from=ARCHIVO | Lee los nombres a incluir de un archivo. || Get names to extract or create from FILE.
+--strip-components=N | Al extraer, quita N niveles de directorio de cada ruta. || Strip NUMBER leading components from file names on extraction.
+--wildcards | Interpreta comodines en los nombres a extraer. || Use wildcards when matching member names.
+-k --keep-old-files | No sobrescribe archivos existentes al extraer. || Don't replace existing files when extracting.
+--overwrite | Sobrescribe archivos existentes al extraer. || Overwrite existing files when extracting.
+--remove-files | Borra los archivos originales tras añadirlos al archivo. || Remove files after adding them to the archive.
+-h --dereference | Archiva el destino de los enlaces simbólicos, no el enlace. || Follow symlinks; archive and dump the files they point to.
+-O --to-stdout | Extrae a la salida estándar (en vez de a archivos). || Extract files to standard output.
+-W --verify | Verifica el archivo tras escribirlo. || Attempt to verify the archive after writing it.
+-S --sparse | Maneja eficientemente archivos dispersos. || Handle sparse files efficiently.
+--one-file-system | No cruza a otros sistemas de archivos. || Stay in local file system when creating archive.
+-N --newer=FECHA | Solo archivos modificados después de esa fecha. || Only store files newer than DATE.
+--numeric-owner | Usa UID/GID numéricos en vez de nombres. || Always use numbers for user/group names.
+--xattrs | Guarda atributos extendidos. || Enable extended attributes support.
+--acls | Guarda las ACL. || Enable POSIX ACLs support.
+tip: Receta: crear «tar -czvf copia.tar.gz carpeta/», listar «tar -tzvf copia.tar.gz», extraer «tar -xzvf copia.tar.gz -C /destino». Mnemotecnia: c=crear, x=extraer, t=listar, z=gzip, v=verboso, f=archivo.
+
+@@ gzip gunzip zcat
+es: comprime y descomprime archivos con gzip (.gz)
+tags: write
+-d --decompress --uncompress | Descomprime (como gunzip). || Decompress.
+-k --keep | Conserva el archivo original (por defecto lo borra). || Keep (don't delete) input files.
+-c --stdout --to-stdout | Escribe en la salida estándar sin tocar el original. || Write output on standard output; keep original files unchanged.
+-r --recursive | Procesa directorios recursivamente. || Travel the directory structure recursively.
+-v --verbose | Muestra el porcentaje de compresión. || Display the name and percentage reduction for each file.
+-l --list | Muestra información de archivos comprimidos. || For each compressed file, list the compressed and uncompressed sizes.
+-t --test | Comprueba la integridad. || Check the compressed file integrity.
+-1 --fast | Compresión más rápida (menos compresión). || Compress faster (less compression).
+-9 --best | Máxima compresión (más lento). || Compress better (slower).
+-f --force | Fuerza la sobrescritura. || Force compression or decompression even if the file has multiple links.
+
+@@ bzip2 bunzip2
+es: comprime y descomprime archivos con bzip2 (.bz2)
+tags: write
+-d --decompress | Descomprime. || Force decompression.
+-k --keep | Conserva el original. || Keep (don't delete) input files during compression or decompression.
+-c --stdout | Escribe en la salida estándar. || Compress or decompress to standard output.
+-z --compress | Fuerza la compresión. || The complement to -d: forces compression.
+-1 | Bloque más pequeño (más rápido). || Smallest block size.
+-9 | Bloque más grande (mejor compresión). || Largest block size.
+
+@@ xz unxz xzcat
+es: comprime y descomprime archivos con xz/LZMA (.xz): muy buena compresión
+tags: write
+-d --decompress | Descomprime. || Decompress.
+-k --keep | Conserva el original. || Don't delete the input files.
+-c --stdout | Escribe en la salida estándar. || Write the compressed or decompressed data to standard output.
+-0 -9 | Nivel de compresión (0 rápido … 9 máximo). || Compression preset level (0 fast … 9 max).
+-T --threads=N | Usa N hilos (0 = todos los núcleos). || Specify the number of worker threads to use.
+-l --list | Información del archivo. || Print information about compressed files.
+
+@@ zip
+es: crea archivos comprimidos .zip
+tags: write
+pos: ARCHIVO.zip | Nombre del .zip que se crea o actualiza. || Name of the .zip file created or updated.
+pos: ARCHIVO... | Archivos o carpetas a incluir. || Files or folders to include.
+-r --recurse-paths | Incluye directorios recursivamente. || Travel the directory structure recursively.
+-e --encrypt | Cifra con contraseña (cifrado débil ZipCrypto: no lo uses para secretos). || Encrypt with a password (weak ZipCrypto cipher: do not use it for secrets).
+-P=CLAVE | Pone la contraseña en la línea de comandos (¡visible!). || Use password on the command line (visible!).
+-q --quiet | Silencioso. || Quiet mode.
+-x --exclude | Excluye los archivos que sigan. || Explicitly exclude the following names.
+-9 | Máxima compresión. || Better compression.
+-0 | Sin compresión (solo empaqueta). || Store only.
+-u --update | Actualiza solo lo que haya cambiado. || Replace (update) an existing entry in the zip archive only if it has been modified more recently.
+-d --delete | Borra entradas del .zip. || Remove (delete) entries from a zip archive.
+-j --junk-paths | No guarda las rutas de directorios. || Store just the name of a saved file, and do not store directory names.
+-s --split-size=TAMAÑO | Divide el .zip en partes. || Enable creating a split archive.
+
+@@ unzip
+es: extrae y lista archivos .zip
+tags: write
+pos: ARCHIVO.zip | El .zip con el que se trabaja. || The .zip file to work with.
+-l | Lista el contenido sin extraer. || List archive files (short format).
+-d=DIR | Extrae en este directorio. || An optional directory to which to extract files.
+-o | Sobrescribe sin preguntar. || Overwrite existing files without prompting.
+-n | No sobrescribe nada. || Never overwrite existing files.
+-q | Silencioso. || Perform operations quietly.
+-t | Comprueba la integridad. || Test archive files.
+-P=CLAVE | Contraseña en la línea de comandos (¡visible!). || Use password to decrypt encrypted zipfile entries (visible!).
+-j | Ignora las rutas: todo va al mismo directorio. || Junk paths.
+-x | Excluye los archivos que sigan. || An optional list of archive members to be excluded.
+-p | Extrae a la salida estándar. || Extract files to pipe (stdout).
+-Z | Modo zipinfo (listado detallado). || zipinfo(1) mode.
+
+@@ 7z 7za 7zr
+es: archivador 7-Zip: comprime y extrae .7z, .zip y muchos más formatos
+tags: write
+> a | AÑADE archivos a un archivo comprimido (lo crea si no existe). || ADD files to an archive (creating it if needed).
+> x | EXTRAE conservando la estructura de directorios. || EXTRACT with full paths.
+> e | Extrae todo en un único directorio, sin rutas. || Extract flattening all paths.
+> l | Lista el contenido. || List contents.
+> t | Comprueba la integridad. || Test integrity.
+> d | Borra archivos del archivo comprimido. || Delete files from the archive.
+> u | Actualiza archivos. || Update files.
+-p=CLAVE | Contraseña (¡visible en la línea de comandos!). || Password (visible on the command line!).
+-o=DIR | Directorio de salida (sin espacio: -o/ruta). || Output directory (no space: -o/path).
+-mx=NIVEL | Nivel de compresión 0-9. || Compression level 0-9.
+-mhe=on | Cifra también los nombres de archivo. || Also encrypt file names.
+-y | Responde «sí» a todas las preguntas. || Assume Yes on all queries.
+
+@@ cpio
+es: crea y extrae archivos cpio (usado en initramfs y paquetes RPM)
+tags: read write
+-i --extract | Extrae de la entrada estándar. || Extract files from an archive.
+-o --create | Crea un archivo con la lista de nombres que recibe por la entrada estándar. || Create the archive from names read on standard input.
+-t --list | Lista el contenido. || Print a table of contents of the input.
+-d --make-directories | Crea los directorios necesarios al extraer. || Create leading directories where needed.
+-v --verbose | Detallado. || Verbosely list the files processed.
+-H --format=FORMATO | Formato del archivo (newc, crc, tar…). || Use given archive FORMAT.
+
+@@ apt apt-get
+es: gestor de paquetes de Debian/Ubuntu/Kali
+tags: install priv net write
+pos: PAQUETE... | Paquete(s) sobre los que actúa. || Package(s) it acts on.
+> update | Actualiza la LISTA de paquetes disponibles (no instala nada). || Refresh the LIST of available packages (installs nothing).
+> upgrade | Instala las versiones nuevas de los paquetes ya instalados (sin quitar ni añadir otros). || Install newer versions of installed packages (without removing or adding others).
+> full-upgrade dist-upgrade | Actualiza todo, pudiendo añadir o quitar paquetes si hace falta. || Upgrade everything, adding or removing packages if needed.
+> install | Instala paquetes (y sus dependencias). || Install packages (and their dependencies).
+> reinstall | Reinstala paquetes. || Reinstall packages.
+> remove | Desinstala paquetes (deja los archivos de configuración). || Remove packages (keeps config files).
+> purge | Desinstala paquetes Y borra sus archivos de configuración. || Remove packages AND delete their config files.
+> autoremove | Quita las dependencias que ya no necesita nadie. || Remove dependencies no longer needed by anything.
+> autoclean clean | Limpia la caché de paquetes descargados. || Clean the cache of downloaded packages.
+> search | Busca paquetes por nombre o descripción. || Search packages by name or description.
+> show | Muestra la información de un paquete. || Show package information.
+> list | Lista paquetes (--installed, --upgradable). || List packages (--installed, --upgradable).
+> policy | Muestra versiones disponibles y de dónde vienen. || Show available versions and where they come from.
+> download | Descarga el .deb sin instalarlo. || Download the .deb without installing it.
+> source | Descarga el código fuente. || Download the source code.
+> edit-sources | Edita la lista de repositorios. || Edit the repository list.
+-y --yes --assume-yes | Responde «sí» a todo: no pide confirmación. || Assume yes to all prompts: no confirmation.
+-q --quiet | Salida reducida. || Quiet output.
+-s --simulate --dry-run | Simula sin instalar ni quitar nada. || Simulate without installing or removing anything.
+-f --fix-broken | Intenta reparar dependencias rotas. || Attempt to fix broken dependencies.
+-d --download-only | Solo descarga, sin instalar. || Download only, do not install.
+--no-install-recommends | No instala los paquetes «recomendados». || Do not install recommended packages.
+--allow-unauthenticated | Acepta paquetes SIN firma verificada (inseguro). || Accept packages WITHOUT verified signatures (insecure).
+-V --verbose-versions | Muestra versiones completas. || Show full versions.
+--installed | Con list: solo los instalados. || With list: only installed ones.
+--upgradable | Con list: solo los actualizables. || With list: only upgradable ones.
+tip: «apt update» refresca la lista; «apt upgrade» instala las novedades. Son dos pasos distintos.
+
+@@ dpkg
+es: gestor de bajo nivel de paquetes .deb
+tags: install priv
+-i --install | Instala un .deb (no resuelve dependencias). || Install a .deb (does not resolve dependencies).
+-r --remove | Desinstala un paquete (conserva configuración). || Remove a package (keeps configuration).
+-P --purge | Desinstala y borra la configuración. || Remove and purge configuration.
+-l --list | Lista los paquetes instalados. || List installed packages.
+-L --listfiles | Lista los archivos que instaló un paquete. || List files installed by a package.
+-S --search | Dice a qué paquete pertenece un archivo. || Search for the package that owns a file.
+-s --status | Muestra el estado de un paquete. || Report the status of a package.
+-c --contents | Lista el contenido de un .deb. || List contents of a .deb.
+-x --extract | Extrae el contenido de un .deb. || Extract the files contained by the package.
+--configure | Termina de configurar paquetes a medio instalar. || Configure a package which has been unpacked but not yet configured.
+-a --pending | Con --configure, procesa todo lo pendiente. || Process all packages which are pending.
+--force-all | Fuerza todo (¡peligroso!). || Force all options (dangerous!).
+
+@@ yum dnf
+es: gestor de paquetes de Red Hat, Fedora, CentOS y Rocky
+tags: install priv net
+> install | Instala paquetes. || Install packages.
+> remove erase | Desinstala paquetes. || Remove packages.
+> update upgrade | Actualiza paquetes. || Update packages.
+> search | Busca paquetes. || Search packages.
+> info | Información de un paquete. || Package information.
+> list | Lista paquetes. || List packages.
+> makecache | Actualiza la caché de metadatos. || Refresh the metadata cache.
+> clean | Limpia cachés. || Clean caches.
+> provides whatprovides | Qué paquete aporta un archivo. || Which package provides a file.
+-y --assumeyes | Responde «sí» a todo. || Automatically answer yes for all questions.
+--nogpgcheck | No comprueba firmas GPG (inseguro). || Skip the GPG signature check (insecure).
+
+@@ rpm
+es: gestor de bajo nivel de paquetes .rpm
+tags: install priv
+-i --install | Instala un .rpm. || Install a package.
+-U --upgrade | Instala o actualiza. || Upgrade or install.
+-e --erase | Desinstala. || Erase (uninstall) package.
+-q --query | Consulta paquetes instalados. || Query packages.
+-a --all | Con -q: todos los paquetes. || With -q: all packages.
+-l --list | Con -q: archivos del paquete. || With -q: list files in package.
+-V --verify | Verifica archivos del paquete frente al original. || Verify a package.
+-v --verbose | Detallado. || Print verbose information.
+-h --hash | Muestra una barra de progreso con #. || Print 50 hash marks as the package archive is unpacked.
+
+@@ snap
+es: gestor de paquetes snap (Ubuntu)
+tags: install priv net
+
+@@ pip pip3
+es: instala y gestiona paquetes de Python (PyPI)
+tags: install net write
+> install | Instala paquetes desde PyPI (o un archivo local). || Install packages from PyPI (or a local file).
+> uninstall | Desinstala paquetes. || Uninstall packages.
+> list | Lista los paquetes instalados. || List installed packages.
+> freeze | Lista los instalados en formato requirements. || Output installed packages in requirements format.
+> show | Información de un paquete. || Show package information.
+> search | Busca en PyPI. || Search PyPI.
+> download | Descarga paquetes sin instalarlos. || Download packages without installing.
+> check | Comprueba dependencias. || Verify installed packages have compatible dependencies.
+> cache | Gestiona la caché. || Inspect and manage pip's wheel cache.
+> config | Gestiona la configuración. || Manage local and global configuration.
+-r --requirement=ARCHIVO | Instala desde un archivo de requisitos. || Install from the given requirements file.
+-U --upgrade | Actualiza a la última versión. || Upgrade all specified packages to the newest available version.
+--user | Instala solo para tu usuario (no toca el sistema). || Install to the Python user install directory.
+-e --editable=RUTA | Instalación editable (desarrollo). || Install a project in editable mode.
+-q --quiet | Silencioso. || Give less output.
+--break-system-packages | Salta la protección que impide tocar los paquetes del sistema (peligroso). || Skip the protection against modifying system-managed packages (dangerous).
+--no-cache-dir | No usa ni guarda caché. || Disable the cache.
+-i --index-url=URL | Usa otro índice de paquetes. || Base URL of the Python Package Index.
+--trusted-host=HOST | Confía en un host sin HTTPS (inseguro). || Mark this host as trusted, even though it does not have valid or any HTTPS.
+-t --target=DIR | Instala en este directorio. || Install packages into DIR.
+--no-deps | No instala dependencias. || Don't install package dependencies.
+--pre | Incluye versiones preliminares. || Include pre-release and development versions.
+
+@@ npm
+es: gestor de paquetes de Node.js
+tags: install net write
+> install i | Instala las dependencias de package.json o el paquete indicado. || Install dependencies from package.json or the given package.
+> uninstall remove rm | Desinstala un paquete. || Uninstall a package.
+> update up | Actualiza paquetes. || Update packages.
+> run run-script | Ejecuta un script de package.json. || Run a script from package.json.
+> start | Ejecuta el script «start». || Run the "start" script.
+> test t | Ejecuta el script «test». || Run the "test" script.
+> init | Crea un package.json. || Create a package.json.
+> ci | Instalación limpia y reproducible desde package-lock.json. || Clean, reproducible install from package-lock.json.
+> audit | Busca vulnerabilidades conocidas en las dependencias. || Scan dependencies for known vulnerabilities.
+> publish | PUBLICA el paquete en el registro (público por defecto). || PUBLISH the package to the registry (public by default).
+> list ls | Lista los paquetes instalados. || List installed packages.
+> outdated | Muestra paquetes desactualizados. || Show outdated packages.
+> exec | Ejecuta un binario de un paquete. || Run a command from a package.
+-g --global | Instala o actúa a nivel global (en el sistema). || Operate globally (system-wide).
+-D --save-dev | Guarda como dependencia de desarrollo. || Save as a development dependency.
+-S --save | Guarda como dependencia (por defecto). || Save as a dependency (default).
+--legacy-peer-deps | Ignora conflictos de dependencias entre pares. || Ignore peer dependency conflicts.
+--force | Fuerza la operación. || Force the operation.
+--ignore-scripts | No ejecuta los scripts de instalación (más seguro con paquetes desconocidos). || Do not run install scripts (safer with unknown packages).
+tip: Los scripts de instalación de un paquete npm se ejecutan en tu equipo: con paquetes desconocidos usa --ignore-scripts.
+
+@@ npx
+es: ejecuta un paquete de npm sin instalarlo de forma permanente
+tags: exec net install
+
+@@ python python3 python2
+es: intérprete de Python
+tags: exec
+-c=PROGRAMA | Ejecuta el programa que sigue como texto. || Execute the Python code given as a string.
+-m=MÓDULO | Ejecuta un módulo como script (python3 -m http.server, -m venv, -m pip…). || Run a library module as a script (python3 -m http.server, -m venv, -m pip…).
+-i | Entra en modo interactivo tras ejecutar el guion. || Inspect interactively after running the script.
+-u | Salida sin búfer. || Force the stdout and stderr streams to be unbuffered.
+-V --version | Muestra la versión. || Print the Python version number and exit.
+-O | Optimiza (quita asserts). || Remove assert statements.
+-B | No escribe archivos .pyc. || Don't write .pyc files on import.
+-W=ACCIÓN | Controla los avisos (ignore, error…). || Warning control.
+-I | Modo aislado (ignora variables de entorno y el directorio actual). || Isolated mode (ignores environment variables and the current directory).
+pos: GUION? | Archivo .py a ejecutar. || .py file to run.
+
+@@ node nodejs
+es: intérprete de JavaScript (Node.js)
+tags: exec
+-e --eval=PROGRAMA | Ejecuta el texto como JavaScript. || Evaluate the argument as JavaScript.
+-p --print=PROGRAMA | Ejecuta e imprime el resultado. || Identical to -e but prints the result.
+-v --version | Muestra la versión. || Print node's version.
+
+@@ perl
+es: intérprete de Perl
+tags: exec
+-e=PROGRAMA | Ejecuta el programa que sigue. || Execute the program given as argument.
+-n | Aplica el programa a cada línea de la entrada. || Wrap the program in a loop reading each line.
+-p | Como -n pero imprime cada línea tras procesarla. || Like -n but prints each line after processing.
+-i=SUFIJO | Edita los archivos en el sitio (con SUFIJO guarda copia). || Edit files in place (with SUFFIX keeps a backup).
+-l | Gestiona los saltos de línea automáticamente. || Chomp input line terminators.
+-a | Divide cada línea en campos (@F). || Autosplit mode.
+-F=PATRÓN | Separador de campos para -a. || Specifies the pattern to split on for -a.
+-w | Activa avisos. || Prints warnings.
+
+@@ ruby
+es: intérprete de Ruby
+tags: exec
+
+@@ php
+es: intérprete de PHP (también sirve un servidor de desarrollo con -S)
+tags: exec
+-r=CÓDIGO | Ejecuta PHP sin etiquetas <?php ?>. || Run PHP code without using script tags.
+-S=DIR:PUERTO | Servidor web de desarrollo. || Start built-in web server.
+-f=ARCHIVO | Ejecuta un archivo. || Parse and execute file.
+-l=ARCHIVO | Solo comprueba la sintaxis. || Syntax check only (lint).
+
+@@ make
+es: ejecuta las recetas de un Makefile (compilación y tareas)
+tags: exec write
+pos: OBJETIVO... | Tarea del Makefile que se ejecuta (por defecto, la primera). || Makefile target to run (default: the first one).
+-j --jobs=N | Ejecuta N tareas en paralelo. || Specifies the number of jobs (commands) to run simultaneously.
+-C --directory=DIR | Cambia a ese directorio antes de leer el Makefile. || Change to directory before reading the makefiles.
+-f --file=ARCHIVO | Usa otro Makefile. || Use file as a makefile.
+-n --dry-run | Muestra los comandos sin ejecutarlos. || Print the commands that would be executed, but do not execute them.
+-k --keep-going | Sigue aunque falle una tarea. || Continue as much as possible after an error.
+-B --always-make | Rehace todo aunque esté actualizado. || Unconditionally make all targets.
+-s --silent | No muestra los comandos. || Silent operation; do not print the recipes.
+
+@@ gcc cc g++ clang
+es: compilador de C/C++
+tags: write exec
+style: multi
+-o=SALIDA | Nombre del ejecutable de salida. || Place the output into file.
+-c | Solo compila a objeto (.o), sin enlazar. || Compile or assemble the source files, but do not link.
+-S | Genera ensamblador (.s). || Stop after the stage of compilation proper.
+-E | Solo preprocesa. || Stop after the preprocessing stage.
+-g | Incluye información de depuración (para gdb). || Produce debugging information.
+-O0 | Sin optimización. || Reduce compilation time and make debugging produce the expected results.
+-O2 | Optimización recomendada. || Optimize even more.
+-O3 | Optimización agresiva. || Optimize yet more.
+-Wall | Activa los avisos más habituales. || Turns on all the common warnings.
+-Wextra | Avisos adicionales. || Enable some extra warning flags.
+-Werror | Trata los avisos como errores. || Make all warnings into errors.
+-I=DIR | Directorio donde buscar cabeceras (.h). || Add the directory to the list of directories to be searched for header files.
+-L=DIR | Directorio donde buscar bibliotecas. || Add directory to the list of directories to be searched for -l.
+-l=BIBLIOTECA | Enlaza con la biblioteca (-lm = libm). || Search the library named when linking.
+-D=MACRO | Define una macro (-DDEBUG o -DVAL=1). || Define a macro.
+-std=ESTÁNDAR | Estándar del lenguaje (c11, c17, c++17…). || Determine the language standard.
+-static | Enlaza estáticamente (sin dependencias dinámicas). || Link statically.
+-shared | Genera una biblioteca compartida. || Produce a shared object.
+-fPIC | Código independiente de la posición (para bibliotecas). || Generate position-independent code.
+-fsanitize=TIPO | Activa comprobaciones en ejecución (address, undefined…). || Enable runtime sanitizers.
+-fno-stack-protector | Desactiva la protección de pila (típico en laboratorios de exploits). || Disable stack protection (typical in exploit labs).
+-z=OPCIÓN | Opción para el enlazador (execstack, norelro…). || Linker option (execstack, norelro…).
+-m32 | Compila para 32 bits. || Generate code for 32-bit.
+-pthread | Soporte de hilos. || Link with the POSIX threads library.
+-march=ARQ | Arquitectura de destino (native = esta CPU). || Target architecture (native = this CPU).
+-v | Detallado. || Print the commands executed.
+
+@@ ld
+es: enlazador de GNU: une objetos y bibliotecas en un ejecutable
+tags: write
+
+@@ gdb
+es: depurador de GNU: ejecuta programas paso a paso y examina su memoria
+tags: exec
+-q --quiet | No muestra el mensaje de bienvenida. || Do not print the introductory and copyright messages.
+-x --command=ARCHIVO | Ejecuta los comandos de gdb de un archivo. || Execute GDB commands from file.
+-p --pid=PID | Se engancha a un proceso en marcha. || Attach to process ID.
+--args | Lo que sigue es el programa y sus argumentos. || Arguments after executable-file are passed to inferior.
+-batch | Modo no interactivo. || Run in batch mode.
+
+@@ strace
+es: muestra las llamadas al sistema que hace un programa
+tags: exec read
+-f --follow-forks | Sigue también a los procesos hijo. || Trace child processes as they are created.
+-p --attach=PID | Se engancha a un proceso en marcha. || Attach to the process with the process ID.
+-o --output=ARCHIVO | Escribe la traza en un archivo. || Write the trace output to the file.
+-e --trace=EXPR | Filtra qué llamadas mostrar (trace=openat, network…). || Specify a qualifying expression.
+-c --summary-only | Solo muestra un resumen estadístico. || Count time, calls, and errors for each system call.
+-s --string-limit=N | Longitud máxima de las cadenas mostradas. || Specify the maximum string size to print.
+-t | Antepone la hora a cada línea. || Prefix each line of the trace with the wall clock time.
+-T --syscall-times | Muestra cuánto tarda cada llamada. || Show the time spent in system calls.
+
+@@ ltrace
+es: muestra las llamadas a bibliotecas dinámicas que hace un programa
+tags: exec read
+
+@@ ldd
+es: muestra las bibliotecas dinámicas que necesita un ejecutable
+tags: read
+tip: No uses ldd con binarios que no son de confianza: algunas versiones ejecutan el programa para obtener la lista.
+
+@@ objdump
+es: muestra información de archivos objeto y desensambla código
+tags: read
+-d --disassemble | Desensambla las secciones con código. || Display the assembler mnemonics for the machine instructions.
+-D --disassemble-all | Desensambla todo. || Disassemble the contents of all sections.
+-M=OPCIONES | Opciones del desensamblador (intel para sintaxis Intel). || Pass target specific information to the disassembler.
+-t --syms | Muestra la tabla de símbolos. || Print the symbol table entries.
+-h --section-headers | Muestra las cabeceras de sección. || Display summary information from the section headers.
+-s --full-contents | Vuelca el contenido de las secciones. || Display the full contents of any sections requested.
+-x --all-headers | Toda la información de cabeceras. || Display all available header information.
+
+@@ nm
+es: lista los símbolos de un archivo objeto o ejecutable
+tags: read
+
+@@ readelf
+es: muestra información de archivos ELF (cabeceras, secciones, símbolos)
+tags: read
+-h --file-header | Cabecera del ELF. || Displays the information contained in the ELF header.
+-S --section-headers | Cabeceras de sección. || Displays the information contained in the file's section headers.
+-l --program-headers | Cabeceras de programa (segmentos). || Displays the information contained in the file's segment headers.
+-s --syms | Tabla de símbolos. || Displays the entries in symbol table section.
+-d --dynamic | Sección dinámica. || Displays the contents of the file's dynamic section.
+-a --all | Todo. || Equivalent to specifying --file-header, --program-headers, --sections, --symbols, --relocs, --dynamic.
+
+@@ strings
+es: extrae las cadenas de texto imprimibles de un archivo binario
+tags: read
+-n --bytes=N | Longitud mínima de las cadenas (por defecto 4). || Print sequences of characters that are at least N characters long.
+-a --all | Busca en todo el archivo. || Scan the whole file.
+-e --encoding=FORMATO | Codificación: s (7 bits), l (UTF-16 LE), b (UTF-16 BE). || Select the character encoding of the strings.
+-t --radix=BASE | Muestra la posición (o, d, x). || Print the offset within the file before each string.
+
+@@ xxd
+es: muestra un archivo en hexadecimal (o lo reconstruye desde hexadecimal)
+tags: read
+-r | Revierte: convierte un volcado hexadecimal en binario. || Reverse operation: convert (or patch) hexdump into binary.
+-p | Volcado plano, solo hexadecimal. || Output in postscript continuous hexdump style.
+-l=N | Muestra solo N bytes. || Stop after writing length octets.
+-s=N | Empieza en el byte N. || Start at offset.
+-c=N | Bytes por línea. || Format octets per line.
+-b | Muestra en binario. || Switch to bits (binary digits) dump.
+-i | Genera una matriz de C. || Output in C include file style.
+
+@@ hexdump od
+es: muestra el contenido de un archivo en hexadecimal, octal u otros formatos
+tags: read
+-C --canonical | Hexadecimal y ASCII lado a lado. || Canonical hex+ASCII display.
+
+@@ base64
+es: codifica o decodifica datos en Base64
+tags: read
+-d --decode | DECODIFICA (por defecto codifica). || Decode data.
+-w --wrap=COLS | Parte las líneas a COLS caracteres (0 = sin partir). || Wrap encoded lines after COLS character.
+-i --ignore-garbage | Al decodificar, ignora caracteres no válidos. || When decoding, ignore non-alphabet characters.
+tip: Base64 NO es cifrado: cualquiera puede decodificarlo.
+
+@@ md5sum sha1sum sha256sum sha512sum
+es: calcula o comprueba sumas de verificación (hash) de archivos
+tags: read
+-c --check | Comprueba las sumas de un archivo de sumas. || Read checksums from the FILEs and check them.
+-b --binary | Lee en modo binario. || Read in binary mode.
+--status | No imprime nada al comprobar: solo el código de salida. || Don't output anything, status code shows success.
+-w --warn | Avisa de líneas mal formateadas. || Warn about improperly formatted checksum lines.
+tip: MD5 y SHA-1 ya no son seguros para firmas; para integridad de descargas usa sha256sum.
+
+@@ gpg gpg2
+es: cifrado, firma y gestión de claves OpenPGP
+tags: read write
+-c --symmetric | Cifra con contraseña (sin claves). || Encrypt with a symmetric cipher using a passphrase.
+-e --encrypt | Cifra para un destinatario (-r). || Encrypt data to one or more public keys.
+-d --decrypt | Descifra. || Decrypt the file given.
+-s --sign | Firma. || Make a signature.
+--verify | Verifica una firma. || Assume that the first argument is a signed file and verify it.
+-r --recipient=ID | Destinatario del cifrado. || Encrypt for user id name.
+-a --armor | Salida en texto ASCII. || Create ASCII armored output.
+-o --output=ARCHIVO | Archivo de salida. || Write output to file.
+--gen-key --generate-key | Genera un par de claves. || Generate a new key pair.
+--import | Importa claves. || Import/merge keys.
+--export | Exporta claves públicas. || Export all keys from all keyrings.
+--export-secret-keys | Exporta claves PRIVADAS (¡cuidado!). || Export secret keys (careful!).
+-k --list-keys | Lista claves públicas. || List the specified keys.
+-K --list-secret-keys | Lista claves privadas. || List the specified secret keys.
+--delete-keys | Borra claves públicas. || Remove key from the public keyring.
+--delete-secret-keys | Borra claves PRIVADAS (irreversible). || Remove key from the secret keyring.
+--fingerprint | Muestra huellas. || List all keys with their fingerprints.
+--recv-keys=ID | Descarga una clave de un servidor de claves. || Import the keys with the given key IDs from a keyserver.
+--keyserver=URL | Servidor de claves a usar. || Use name as your keyserver.
+--batch | Modo no interactivo. || Use batch mode.
+--passphrase=FRASE | Frase de paso en la línea de comandos (¡visible!). || Use string as the passphrase.
+--list-packets | Muestra la estructura de un mensaje OpenPGP. || List only the sequence of packets.
+
+@@ vim vi nvim
+es: editor de texto modal (muy usado en servidores)
+tags: write
+-R | Modo solo lectura. || Read-only mode.
+-O | Abre varios archivos en ventanas verticales. || Open N windows side by side.
+-p | Abre varios archivos en pestañas. || Open N tab pages.
+-c=COMANDO | Ejecuta un comando de vim al abrir. || Execute Ex command after the first file has been read.
+-u=ARCHIVO | Usa otro archivo de configuración. || Use the commands in the file instead of the vimrc.
+-d | Modo diff: compara archivos. || Start in diff mode.
+tip: Para salir: Esc y luego «:q» (salir), «:wq» (guardar y salir), «:q!» (salir sin guardar). i = insertar, / = buscar, dd = borrar línea.
+
+@@ nano
+es: editor de texto sencillo para la terminal
+tags: write
+-w --nowrap | No parte las líneas largas. || Disable the hard-wrapping of long lines.
+-l --linenumbers | Muestra números de línea. || Display line numbers to the left of the text area.
+-c --constantshow | Muestra siempre la posición del cursor. || Constantly show the cursor position.
+-B --backup | Guarda copia de seguridad. || When saving a file, back up the previous version of it.
+tip: Ctrl+O guarda, Ctrl+X sale, Ctrl+W busca, Ctrl+K corta una línea, Ctrl+U pega.
+
+@@ tmux
+es: multiplexor de terminales: varias sesiones y paneles que sobreviven a la desconexión
+tags: exec
+> new new-session | Crea una sesión nueva (-s nombre). || Create a new session (-s name).
+> attach attach-session a | Se conecta a una sesión (-t nombre). || Attach to a session (-t name).
+> ls list-sessions | Lista las sesiones. || List sessions.
+> kill-session | Cierra una sesión (-t nombre). || Kill a session (-t name).
+> kill-server | Cierra tmux entero. || Kill the whole tmux server.
+> split-window | Divide el panel actual. || Split the current pane.
+> send-keys | Envía teclas a un panel. || Send keys to a pane.
+-s=NOMBRE | Nombre de la sesión. || Session name.
+-t=OBJETIVO | Sesión, ventana o panel de destino. || Target session, window or pane.
+-d | Se desconecta de otros clientes / crea en segundo plano. || Detach other clients / create in background.
+tip: Prefijo por defecto: Ctrl+B. Luego d = desconectar, c = ventana nueva, % y " = dividir, flechas = moverse.
+
+@@ screen
+es: multiplexor de terminales clásico: sesiones que sobreviven a la desconexión
+tags: exec
+-S=NOMBRE | Nombre de la sesión. || Specify a meaningful session name.
+-r=SESIÓN | Reconecta a una sesión. || Reattach to a detached screen process.
+-ls -list | Lista las sesiones. || Do not start screen, but simply print a list of sessions.
+-d | Desconecta una sesión. || Detach the elsewhere running screen.
+-dmS=NOMBRE | Crea una sesión desconectada. || Start screen in detached mode with name.
+tip: Prefijo: Ctrl+A. Luego d = desconectar.
+
+@@ man
+es: muestra el manual de un comando
+tags: read
+pos: COMANDO | Comando del que se quiere el manual. || Command whose manual you want.
+-k --apropos | Busca páginas por palabra clave (como apropos). || Search the manual page names and descriptions.
+-f --whatis | Descripción de una línea (como whatis). || Display a short description from the manual page.
+-a --all | Muestra todas las páginas que coincidan. || Display all matching manual pages.
+-w --where --path | Muestra la ruta de la página sin abrirla. || Do not actually display the manual pages, but do print the location.
+
+@@ clear
+es: limpia la pantalla de la terminal

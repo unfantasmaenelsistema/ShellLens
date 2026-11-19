@@ -34,7 +34,7 @@ pos: ARCHIVO... | Archivo(s) donde buscar. Sin archivos lee la entrada estándar
 --include=GLOB | Con -r, busca solo en archivos cuyo nombre coincida (p. ej. "*.log"). || With -r, search only files whose name matches (e.g. "*.log").
 --exclude=GLOB | Con -r, omite los archivos que coincidan. || With -r, skip files whose name matches.
 --exclude-dir=GLOB | Con -r, omite los directorios que coincidan. || With -r, skip directories that match.
---color=WHEN | Resalta las coincidencias (always, auto, never). || Surround the matched strings with colour markers.
+--color[=WHEN] | Resalta las coincidencias (always, auto, never). || Surround the matched strings with colour markers.
 -z --null-data | Las «líneas» terminan en byte nulo. || Treat input and output data as sequences of lines terminated by a zero byte.
 tip: Comillas simples para el patrón: «grep 'a.*b'» evita que la shell interprete * ? $ antes que grep.
 
@@ -47,7 +47,7 @@ pos: ARCHIVO... | Archivo(s) a procesar (o la entrada estándar). || File(s) to 
 -n --quiet --silent | No imprime cada línea automáticamente: solo lo que pidas con «p». || Suppress automatic printing of pattern space.
 -e --expression=SCRIPT | Añade SCRIPT a las órdenes (se puede repetir). || Add the script to the commands to be executed.
 -f --file=ARCHIVO | Lee las órdenes de un archivo. || Add the contents of the script file to the commands.
--i --in-place=SUFIJO | MODIFICA el archivo original; con SUFIJO (p. ej. -i.bak) guarda antes una copia. || EDIT the original file in place; with SUFFIX (e.g. -i.bak) a backup is kept.
+-i --in-place[=SUFIJO] | MODIFICA el archivo original; con SUFIJO (p. ej. -i.bak) guarda antes una copia. || EDIT the original file in place; with SUFFIX (e.g. -i.bak) a backup is kept.
 -E -r --regexp-extended | Expresiones regulares extendidas (grupos () + ? | sin barra invertida). || Use extended regular expressions (groups () + ? | without backslash).
 -s --separate | Trata cada archivo por separado (los números de línea reinician). || Consider files as separate rather than as a single continuous stream.
 -z --null-data | Separa las líneas con byte nulo. || Separate lines by NUL characters.
@@ -383,7 +383,7 @@ pos: +FORMATO? | Formato de salida, p. ej. +%Y-%m-%d_%H:%M:%S. || Output format,
 -u --utc --universal | Usa la hora universal (UTC). || Print or set Coordinated Universal Time (UTC).
 -s --set=TEXTO | CAMBIA la fecha del sistema (requiere root). || Set time described by STRING (needs root).
 -R --rfc-email | Formato RFC 5322 (cabeceras de correo). || Output date and time in RFC 5322 format.
--I --iso-8601=SPEC | Formato ISO 8601 (date, hours, minutes, seconds). || Output date/time in ISO 8601 format.
+-I --iso-8601[=SPEC] | Formato ISO 8601 (date, hours, minutes, seconds). || Output date/time in ISO 8601 format.
 -r --reference=ARCHIVO | Muestra la fecha de modificación de un archivo. || Display the last modification time of FILE.
 
 @@ cal

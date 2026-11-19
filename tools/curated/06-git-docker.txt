@@ -1,0 +1,518 @@
+# Git, contenedores y orquestación
+
+@@ git
+es: sistema de control de versiones distribuido
+tags: read write net
+sub: add commit push pull clone checkout switch restore branch merge rebase log diff status stash reset revert tag remote fetch init show cherry-pick clean config blame bisect grep mv rm submodule worktree reflog describe shortlog apply format-patch archive gc fsck
+subalias: ci=commit co=checkout br=branch st=status
+-C=DIR | Ejecuta git como si se hubiera iniciado en DIR. || Run as if git was started in DIR.
+-c=CLAVE=VALOR | Fija una opción de configuración solo para este comando. || Pass a configuration parameter for this command only.
+--no-pager | No usa paginador. || Do not pipe Git output into a pager.
+--version | Muestra la versión. || Show the version.
+-p --paginate | Usa paginador. || Pipe all output into less.
+--git-dir=RUTA | Ruta del repositorio (.git). || Set the path to the repository.
+--work-tree=RUTA | Ruta del árbol de trabajo. || Set the path to the working tree.
+--exec-path[=RUTA] | Muestra o fija la ruta de los programas de git. || Path to wherever your core Git programs are installed.
+
+@@ git-init
+es: crea un repositorio de git vacío en el directorio actual
+tags: write
+-b --initial-branch=NOMBRE | Nombre de la rama inicial (p. ej. main). || Use the specified name for the initial branch.
+--bare | Crea un repositorio «desnudo» (sin árbol de trabajo, para servidores). || Create a bare repository.
+
+@@ git-clone
+es: copia un repositorio remoto a un directorio nuevo
+tags: net write
+pos: URL | Repositorio a clonar (https://…, git@host:usuario/repo.git). || Repository to clone (https://…, git@host:user/repo.git).
+pos: DIRECTORIO? | Carpeta de destino (por defecto, el nombre del repo). || Destination folder (default: the repo name).
+--depth=N | Clon superficial: solo los últimos N commits (más rápido y pequeño). || Shallow clone: only the last N commits (faster, smaller).
+-b --branch=RAMA | Clona esa rama (o etiqueta) en vez de la principal. || Clone that branch (or tag) instead of the default.
+--recursive --recurse-submodules | Clona también los submódulos. || Also clone submodules.
+--single-branch | Clona solo una rama. || Clone only the history leading to a single branch.
+--mirror | Réplica exacta (todas las referencias). || Set up a mirror of the source repository.
+-o --origin=NOMBRE | Nombre del remoto (por defecto origin). || Instead of using origin as the name of the remote, use NAME.
+--bare | Repositorio desnudo. || Make a bare Git repository.
+
+@@ git-status
+es: muestra el estado del árbol de trabajo (cambios, archivos sin seguimiento)
+tags: read
+-s --short | Salida resumida. || Give the output in the short-format.
+-b --branch | Muestra también la rama. || Show the branch and tracking info.
+--ignored | Muestra también los ignorados. || Show ignored files as well.
+
+@@ git-add
+es: añade cambios al área de preparación (stage) para el próximo commit
+tags: write
+pos: RUTA... | Archivos o carpetas a preparar; «.» = todo lo del directorio actual. || Files or folders to stage; "." = everything in the current directory.
+-A --all | Prepara todo: nuevos, modificados y borrados de todo el repositorio. || Stage everything: new, modified and deleted across the whole repo.
+-p --patch | Elige interactivamente qué trozos (hunks) preparar. || Interactively choose hunks to stage.
+-u --update | Prepara solo los ya seguidos (modificados y borrados). || Stage only already-tracked files (modified and deleted).
+-n --dry-run | Simula. || Don't actually add the files, just show if they exist.
+-f --force | Permite añadir archivos ignorados. || Allow adding otherwise ignored files.
+-N --intent-to-add | Registra la intención de añadir un archivo nuevo. || Record only the fact that the path will be added later.
+-v --verbose | Detallado. || Be verbose.
+
+@@ git-commit
+es: guarda los cambios preparados como un commit en el historial
+tags: write
+-m --message=MENSAJE | Mensaje del commit (sin esta opción se abre el editor). || Commit message (without it the editor opens).
+-a --all | Prepara automáticamente todo lo modificado y borrado (no los archivos nuevos) antes de confirmar. || Automatically stage everything modified and deleted (not new files) before committing.
+--amend | REESCRIBE el último commit (cambia mensaje o contenido). No lo hagas si ya está publicado. || REWRITE the last commit (message or content). Don't do it if already pushed.
+--no-edit | Con --amend, mantiene el mensaje. || With --amend, keep the message.
+-v --verbose | Muestra el diff en el editor del mensaje. || Show unified diff in the commit message editor.
+-s --signoff | Añade la línea «Signed-off-by». || Add Signed-off-by trailer.
+-S --gpg-sign[=ID] | Firma el commit con GPG. || GPG-sign commits.
+--no-verify -n | Se salta los hooks (pre-commit, commit-msg). || Bypass the pre-commit and commit-msg hooks.
+--allow-empty | Permite un commit sin cambios. || Allow creating a commit with no changes.
+--author=AUTOR | Cambia el autor («Nombre <correo>»). || Override the commit author.
+-F --file=ARCHIVO | Toma el mensaje de un archivo. || Take the commit message from the given file.
+--fixup=COMMIT | Crea un commit «fixup» para un commit anterior (para rebase --autosquash). || Create a fixup commit for an earlier commit.
+-e --edit | Edita el mensaje antes de confirmar. || Edit the message before committing.
+-p --patch | Elige interactivamente los trozos. || Use the interactive patch selection interface.
+
+@@ git-push
+es: sube commits al repositorio remoto
+tags: net write
+pos: REMOTO? | Nombre del remoto (normalmente origin). || Name of the remote (usually origin).
+pos: RAMA? | Rama (o referencia) a subir. || Branch (or ref) to push.
+-u --set-upstream | Enlaza la rama local con la remota (así bastará «git push»/«git pull» después). || Link the local branch with the remote (so plain "git push"/"git pull" work afterwards).
+-f --force | FUERZA la subida: sobrescribe la historia remota (puede borrar commits de otros). || FORCE the push: overwrites remote history (can erase others' commits).
+--force-with-lease | Fuerza solo si nadie más ha subido cambios desde tu última descarga (más seguro que -f). || Force only if nobody else pushed since your last fetch (safer than -f).
+--tags | Sube también todas las etiquetas. || All refs under refs/tags are pushed.
+--delete -d | BORRA la rama o etiqueta remota. || DELETE the remote branch or tag.
+--all | Sube todas las ramas. || Push all branches.
+-n --dry-run | Simula. || Do everything except actually send the updates.
+--no-verify | Se salta el hook pre-push. || Bypass the pre-push hook.
+--follow-tags | Sube también las etiquetas anotadas de los commits subidos. || Push all the refs that would be pushed without this option, and also push annotated tags in refs/tags.
+--prune | Borra las ramas remotas que no existan localmente. || Remove remote branches that don't have a local counterpart.
+
+@@ git-pull
+es: trae los cambios del remoto y los integra en tu rama (fetch + merge o rebase)
+tags: net write
+--rebase -r | Reaplica tus commits sobre lo descargado en lugar de crear un merge. || Reapply your commits on top of what was fetched instead of creating a merge.
+--no-rebase | Fuerza el comportamiento de merge. || Force merge behaviour.
+--ff-only | Solo avanza si puede hacerlo sin merge (falla si hay divergencia). || Only fast-forward; fail if the branches diverged.
+--no-ff | Crea siempre un commit de merge. || Create a merge commit even when fast-forward is possible.
+-p --prune | Elimina referencias remotas que ya no existen. || Remove any remote-tracking references that no longer exist on the remote.
+--autostash | Guarda y recupera automáticamente los cambios locales. || Automatically create a temporary stash before the operation begins.
+--tags | Descarga también todas las etiquetas. || Fetch all tags from the remote.
+
+@@ git-fetch
+es: descarga novedades del remoto sin tocar tu trabajo ni tus ramas locales
+tags: net write
+--all | Descarga de todos los remotos. || Fetch all remotes.
+-p --prune | Elimina referencias remotas obsoletas. || Before fetching, remove any remote-tracking references that no longer exist on the remote.
+--tags | Descarga todas las etiquetas. || Fetch all tags from the remote.
+--depth=N | Limita la historia a N commits. || Limit fetching to the specified number of commits.
+
+@@ git-checkout
+es: cambia de rama o restaura archivos (orden antigua; hoy se prefiere switch y restore)
+tags: write
+-b=RAMA | Crea la rama nueva y se cambia a ella. || Create a new branch and switch to it.
+-B=RAMA | Crea o REINICIA la rama indicada. || Create or reset the branch.
+-f --force | Descarta los cambios locales al cambiar. || When switching branches, proceed even if the index or the working tree differs from HEAD.
+--orphan=RAMA | Crea una rama sin historia. || Create a new orphan branch.
+-t --track | Crea una rama que sigue a la remota. || Create a local branch tracking the remote one.
+tip: «git checkout -- archivo» DESCARTA tus cambios en ese archivo sin posibilidad de recuperarlos.
+
+@@ git-switch
+es: cambia de rama
+tags: write
+-c --create=RAMA | Crea la rama y se cambia a ella. || Create a new branch named and switch to it.
+-C --force-create=RAMA | Crea o reinicia la rama. || Similar to --create except that if the branch already exists, it is reset.
+-d --detach | Se desconecta de las ramas (apunta a un commit). || Switch to a commit for inspection and discardable experiments.
+-f --force | Descarta cambios locales. || Throw away local modifications.
+
+@@ git-restore
+es: restaura archivos del árbol de trabajo o del área de preparación
+tags: write
+-S --staged | Saca los archivos del área de preparación (no toca tu trabajo). || Unstage files (does not touch your work).
+-W --worktree | Restaura el árbol de trabajo (descarta tus cambios). || Restore the working tree (discards your changes).
+-s --source=COMMIT | Restaura desde ese commit. || Restore the working tree files with the content from the given tree.
+-p --patch | Elige trozos interactivamente. || Interactively select hunks.
+
+@@ git-branch
+es: lista, crea o borra ramas
+tags: write
+-a --all | Lista ramas locales y remotas. || List both remote-tracking branches and local branches.
+-r --remotes | Lista solo las remotas. || List or delete (if used with -d) the remote-tracking branches.
+-d --delete | Borra una rama ya fusionada. || Delete a branch (only if fully merged).
+-D | BORRA la rama aunque no esté fusionada (puedes perder commits). || DELETE the branch even if not merged (commits may be lost).
+-m --move | Renombra una rama. || Move/rename a branch.
+-v --verbose | Muestra el último commit de cada rama. || When in list mode, show sha1 and commit subject line for each head.
+-u --set-upstream-to=REMOTA/RAMA | Fija la rama remota a seguir. || Set up tracking information.
+--merged | Solo ramas ya fusionadas. || Only list branches whose tips are reachable from the specified commit.
+--show-current | Muestra la rama actual. || Print the name of the current branch.
+
+@@ git-merge
+es: integra otra rama en la actual
+tags: write
+--no-ff | Crea siempre un commit de merge. || Create a merge commit even when the merge resolves as a fast-forward.
+--ff-only | Solo avanza si es posible sin merge. || Refuse to merge unless the current HEAD is already up-to-date or the merge can be resolved as a fast-forward.
+--squash | Junta todos los cambios en uno (sin crear el commit de merge). || Produce the working tree and index state as if a real merge happened, but do not make a commit.
+--abort | Cancela un merge con conflictos y vuelve al estado anterior. || Abort the current conflict resolution process.
+--continue | Termina el merge tras resolver conflictos. || After a merge stops due to conflicts you can conclude the merge.
+-m --message=MENSAJE | Mensaje del commit de merge. || Set the commit message to be used for the merge commit.
+-X=ESTRATEGIA | Opción de estrategia (ours, theirs). || Pass merge strategy specific option.
+
+@@ git-rebase
+es: reaplica tus commits sobre otra base (REESCRIBE la historia)
+tags: write
+-i --interactive | Modo interactivo: reordenar, unir (squash), editar o borrar commits. || Interactive mode: reorder, squash, edit or drop commits.
+--onto=BASE | Traslada una serie de commits a otra base. || Starting point at which to create the new commits.
+--continue | Continúa tras resolver un conflicto. || Restart the rebasing process after having resolved a merge conflict.
+--abort | Cancela y vuelve al estado anterior. || Abort the rebase operation and reset HEAD to the original branch.
+--skip | Salta el commit conflictivo. || Restart the rebasing process by skipping the current patch.
+--autosquash | Aplica automáticamente los commits fixup. || Automatically squash commits with specially formatted messages.
+--autostash | Guarda y recupera tus cambios locales. || Automatically create a temporary stash entry before the operation begins.
+tip: No hagas rebase de commits que ya has publicado y otros han descargado.
+
+@@ git-log
+es: muestra el historial de commits
+tags: read
+--oneline | Un commit por línea (hash corto y mensaje). || Shorthand for --pretty=oneline --abbrev-commit.
+--graph | Dibuja el grafo de ramas. || Draw a text-based graphical representation of the commit history.
+--all | Muestra todas las ramas. || Pretend as if all the refs in refs/ are listed on the command line.
+-p --patch | Muestra los cambios de cada commit. || Generate patch.
+-n --max-count=NUM | Limita a NUM commits (-5). || Limit the number of commits to output.
+--author=PATRÓN | Solo commits de ese autor. || Limit the commits output to ones with author header lines that match the specified pattern.
+--since --after=FECHA | Desde una fecha («2 weeks ago», 2025-01-01). || Show commits more recent than a specific date.
+--until --before=FECHA | Hasta una fecha. || Show commits older than a specific date.
+--grep=PATRÓN | Solo commits cuyo mensaje coincida. || Limit the commits output to ones with log message that matches the specified pattern.
+--stat | Muestra qué archivos cambiaron y cuánto. || Generate a diffstat.
+--name-only | Muestra solo los nombres de los archivos cambiados. || Show only names of changed files.
+--follow | Sigue el historial de un archivo aunque se renombre. || Continue listing the history of a file beyond renames.
+--pretty --format=FORMATO | Formato de salida (oneline, short, full, o personalizado). || Pretty-print the contents of the commit logs in a given format.
+-S=TEXTO | Commits que añaden o quitan ese texto (la «piqueta» de git). || Look for differences that change the number of occurrences of the specified string.
+--decorate | Muestra ramas y etiquetas junto a cada commit. || Print out the ref names of any commits that are shown.
+
+@@ git-diff
+es: muestra diferencias entre commits, ramas, el árbol de trabajo y el área de preparación
+tags: read
+--staged --cached | Diferencias de lo ya preparado (lo que se va a confirmar). || View the changes you staged for the next commit.
+--stat | Resumen de cambios por archivo. || Generate a diffstat.
+--name-only | Solo nombres de archivos. || Show only names of changed files.
+--name-status | Nombres y estado (A añadido, M modificado, D borrado). || Show only names and status of changed files.
+-w --ignore-all-space | Ignora los espacios en blanco. || Ignore whitespace when comparing lines.
+--no-index | Compara dos rutas que no están en un repositorio. || Compare the given two paths on the filesystem.
+--color-words | Resalta palabras cambiadas, no líneas. || Show colored word diff.
+-U=N | Líneas de contexto. || Generate diffs with N lines of context.
+
+@@ git-stash
+es: guarda temporalmente los cambios sin confirmar para limpiar el árbol de trabajo
+tags: write
+> push save | Guarda los cambios (por defecto). || Save changes (default).
+> pop | Recupera el último stash y lo borra de la lista. || Reapply the last stash and remove it from the list.
+> apply | Recupera un stash sin borrarlo. || Reapply a stash without removing it.
+> list | Lista los stashes. || List stashes.
+> drop | BORRA un stash. || DELETE a stash.
+> clear | BORRA todos los stashes. || DELETE all stashes.
+> show | Muestra el contenido de un stash. || Show a stash's content.
+-u --include-untracked | Incluye también los archivos nuevos sin seguimiento. || Include untracked files.
+-m --message=MENSAJE | Mensaje descriptivo. || Use the given message.
+
+@@ git-reset
+es: mueve la rama actual a otro commit (y opcionalmente cambia el área de preparación y tu trabajo)
+tags: write
+--soft | Mueve la rama; conserva todo preparado. || Move the branch; keep everything staged.
+--mixed | Mueve la rama y vacía el área de preparación; conserva tus archivos (por defecto). || Move the branch and unstage; keep your files (default).
+--hard | Mueve la rama Y DESCARTA todos los cambios del árbol de trabajo (irreversible). || Move the branch AND DISCARD all working tree changes (irreversible).
+-p --patch | Elige trozos interactivamente. || Interactively select hunks.
+tip: «git reset --hard» pierde cambios sin confirmar. Los commits «perdidos» suelen poder recuperarse con «git reflog».
+
+@@ git-revert
+es: crea un commit nuevo que DESHACE otro commit (no reescribe la historia)
+tags: write
+-n --no-commit | Aplica la reversión sin crear el commit. || Don't automatically commit.
+-m --mainline=N | Padre a conservar al revertir un merge. || Specify the parent number for reverting a merge commit.
+--no-edit | No abre el editor del mensaje. || Use the auto-generated message.
+
+@@ git-tag
+es: crea, lista o borra etiquetas (marcas de versión)
+tags: write
+-a --annotate | Crea una etiqueta anotada (con autor, fecha y mensaje). || Make an unsigned, annotated tag object.
+-m --message=MENSAJE | Mensaje de la etiqueta anotada. || Use the given tag message.
+-d --delete | Borra la etiqueta. || Delete existing tags.
+-l --list | Lista etiquetas (admite patrón). || List tags.
+-s --sign | Firma la etiqueta con GPG. || Make a GPG-signed tag.
+-f --force | Reemplaza una etiqueta existente. || Replace an existing tag with the given name.
+
+@@ git-remote
+es: gestiona los repositorios remotos enlazados
+tags: write net
+> add | Añade un remoto: «add origin URL». || Add a remote: "add origin URL".
+> remove rm | Quita un remoto. || Remove a remote.
+> rename | Renombra un remoto. || Rename a remote.
+> set-url | Cambia la URL de un remoto. || Change a remote's URL.
+> show | Muestra detalles de un remoto. || Show details of a remote.
+-v --verbose | Muestra las URL. || Be a little more verbose and show remote url after name.
+
+@@ git-clean
+es: BORRA archivos sin seguimiento del árbol de trabajo
+tags: delete
+-n --dry-run | Simulacro: muestra qué borraría (úsalo primero). || Don't actually remove anything, just show what would be done.
+-f --force | Necesario para borrar de verdad. || Required to actually delete.
+-d | Incluye directorios sin seguimiento. || Normally, when no path is specified, git clean will not recurse into untracked directories.
+-x | Incluye también los archivos ignorados. || Don't use the standard ignore rules.
+-X | Borra SOLO los ignorados. || Remove only files ignored by Git.
+-i --interactive | Pregunta qué borrar. || Show what would be done and clean files interactively.
+
+@@ git-cherry-pick
+es: aplica en tu rama los cambios de uno o varios commits concretos
+tags: write
+-x | Añade al mensaje de qué commit procede. || When recording the commit, append a line that says "(cherry picked from commit …)".
+-n --no-commit | Aplica sin crear el commit. || Apply changes without making any commit.
+--continue | Continúa tras resolver un conflicto. || Continue the operation in progress.
+--abort | Cancela la operación. || Cancel the operation and return to the pre-sequence state.
+
+@@ git-config
+es: consulta o cambia la configuración de git
+tags: write
+--global | Configuración del usuario (~/.gitconfig). || For writing options: write to global ~/.gitconfig file.
+--local | Configuración de este repositorio. || For writing options: write to the repository .git/config file.
+--system | Configuración de todo el sistema. || For writing options: write to system-wide gitconfig file.
+-l --list | Lista toda la configuración. || List all variables set in config file.
+-e --edit | Abre el archivo en el editor. || Opens an editor to modify the specified config file.
+--unset | Quita una clave. || Remove the line matching the key.
+
+@@ git-blame
+es: muestra quién modificó por última vez cada línea de un archivo
+tags: read
+-L=RANGO | Solo ese rango de líneas (-L 10,20). || Annotate only the line range given.
+-w | Ignora cambios de espacios en blanco. || Ignore whitespace when comparing the parent's version.
+
+@@ git-bisect
+es: busca por bisección el commit que introdujo un fallo
+tags: write
+> start | Inicia la búsqueda. || Start the search.
+> good | Marca el commit actual como bueno. || Mark current commit as good.
+> bad | Marca el commit actual como malo. || Mark current commit as bad.
+> reset | Termina y vuelve a donde estabas. || Finish and return to where you were.
+> run | Automatiza la búsqueda con un script. || Automate the search with a script.
+
+@@ git-show
+es: muestra un commit, etiqueta u otro objeto con sus cambios
+tags: read
+--stat | Resumen de cambios. || Generate a diffstat.
+--name-only | Solo nombres de archivos. || Show only names of changed files.
+-s --no-patch | Suprime el diff. || Suppress diff output.
+
+@@ git-reflog
+es: muestra el historial de movimientos de HEAD (salvavidas para recuperar commits «perdidos»)
+tags: read
+
+@@ git-submodule
+es: gestiona repositorios anidados (submódulos)
+tags: write net
+> add | Añade un submódulo. || Add a submodule.
+> update | Actualiza los submódulos. || Update the submodules.
+> init | Inicializa los submódulos. || Initialize the submodules.
+> status | Muestra el estado. || Show the status.
+--init | Con update, inicializa los que falten. || Initialize all submodules for which git submodule init has not been called.
+--recursive | Recursivo. || Traverse submodules recursively.
+
+@@ docker podman
+es: crea, ejecuta y gestiona contenedores
+tags: exec net
+sub: run build ps images pull push exec logs stop start restart rm rmi compose volume network inspect cp tag login logout system
+> run | Crea e INICIA un contenedor nuevo a partir de una imagen. || Create AND START a new container from an image.
+> build | Construye una imagen a partir de un Dockerfile. || Build an image from a Dockerfile.
+> ps | Lista contenedores (-a incluye los detenidos). || List containers (-a includes stopped ones).
+> images | Lista las imágenes locales. || List local images.
+> pull | Descarga una imagen. || Download an image.
+> push | Sube una imagen a un registro. || Upload an image to a registry.
+> exec | Ejecuta un comando dentro de un contenedor que ya está en marcha. || Run a command inside an already running container.
+> logs | Muestra los registros de un contenedor. || Show a container's logs.
+> stop | Detiene un contenedor (SIGTERM y luego SIGKILL). || Stop a container (SIGTERM then SIGKILL).
+> start | Inicia un contenedor detenido. || Start a stopped container.
+> restart | Reinicia un contenedor. || Restart a container.
+> rm | BORRA contenedores (detenidos; con -f también en marcha). || REMOVE containers (stopped; with -f also running).
+> rmi | BORRA imágenes. || REMOVE images.
+> inspect | Muestra la información detallada en JSON. || Show detailed information as JSON.
+> cp | Copia archivos entre el contenedor y el anfitrión. || Copy files between the container and the host.
+> tag | Pone otra etiqueta a una imagen. || Tag an image.
+> login | Inicia sesión en un registro (guarda credenciales en ~/.docker/config.json). || Log in to a registry (stores credentials in ~/.docker/config.json).
+> logout | Cierra sesión en un registro. || Log out of a registry.
+> compose | Gestiona aplicaciones de varios contenedores (docker-compose.yml). || Manage multi-container applications (docker-compose.yml).
+> volume | Gestiona volúmenes (datos persistentes). || Manage volumes (persistent data).
+> network | Gestiona redes de contenedores. || Manage container networks.
+> system | Gestiona el sistema Docker (prune, df, info). || Manage Docker itself (prune, df, info).
+> stats | Uso de recursos en vivo. || Live resource usage.
+> top | Procesos de un contenedor. || Processes of a container.
+> kill | Envía una señal a un contenedor. || Send a signal to a container.
+> pause | Congela los procesos de un contenedor. || Freeze a container's processes.
+> save | Guarda una imagen en un .tar. || Save an image to a .tar.
+> load | Carga una imagen desde un .tar. || Load an image from a .tar.
+> prune | Borra datos sin usar. || Remove unused data.
+> info | Información del sistema Docker. || Docker system information.
+> version | Versión de cliente y servidor. || Client and server version.
+-H --host=SOCKET | Demonio al que conectar. || Daemon socket to connect to.
+-v --version | Muestra la versión. || Print version.
+
+@@ docker-run
+es: crea un contenedor nuevo y ejecuta un comando en él
+tags: exec net
+pos: IMAGEN | Imagen de la que se crea el contenedor (nginx, ubuntu:22.04, usuario/app:1.0). || Image to create the container from (nginx, ubuntu:22.04, user/app:1.0).
+pos: COMANDO... | Comando (y argumentos) a ejecutar dentro, en vez del que trae la imagen. || Command (and arguments) to run inside, instead of the image's default.
+-d --detach | Segundo plano: no ocupa tu terminal. || Detached: does not occupy your terminal.
+-i --interactive | Mantiene la entrada estándar abierta. || Keep STDIN open.
+-t --tty | Asigna una terminal. || Allocate a pseudo-TTY.
+--rm | Borra el contenedor automáticamente al terminar. || Automatically remove the container when it exits.
+--name=NOMBRE | Nombre del contenedor. || Assign a name to the container.
+-p --publish=ANFITRIÓN:CONTENEDOR | Publica un puerto: -p 8080:80 abre el 8080 de tu equipo hacia el 80 del contenedor. || Publish a port: -p 8080:80 opens port 8080 on your host to port 80 in the container.
+-P --publish-all | Publica todos los puertos expuestos en puertos aleatorios. || Publish all exposed ports to random ports.
+-v --volume=ORIGEN:DESTINO[:OPC] | Monta una ruta o volumen del anfitrión en el contenedor (:ro = solo lectura). || Mount a host path or volume in the container (:ro = read-only).
+--mount=ESPEC | Montaje detallado (type=bind,source=…,target=…). || Detailed mount (type=bind,source=…,target=…).
+-e --env=CLAVE=VALOR | Define una variable de entorno. || Set an environment variable.
+--env-file=ARCHIVO | Lee variables de un archivo. || Read in a file of environment variables.
+-w --workdir=DIR | Directorio de trabajo dentro del contenedor. || Working directory inside the container.
+-u --user=USUARIO | Usuario con el que se ejecuta dentro (por defecto root). || User to run as inside (default root).
+--network --net=RED | Red a la que se conecta (bridge, host, none o una propia). || Network to connect to (bridge, host, none or a custom one).
+--restart=POLÍTICA | Política de reinicio: no, on-failure, always, unless-stopped. || Restart policy: no, on-failure, always, unless-stopped.
+--privileged | Da al contenedor casi todos los permisos del anfitrión (¡peligroso!). || Gives the container nearly all host privileges (dangerous!).
+--cap-add=CAP | Añade una capacidad de Linux (p. ej. NET_ADMIN). || Add a Linux capability (e.g. NET_ADMIN).
+--cap-drop=CAP | Quita una capacidad. || Drop a Linux capability.
+--pid=MODO | Espacio de procesos (--pid=host comparte los del anfitrión: peligroso). || PID namespace (--pid=host shares the host's: dangerous).
+--device=DISPOSITIVO | Da acceso a un dispositivo del anfitrión. || Add a host device to the container.
+--memory -m=TAMAÑO | Límite de memoria (512m, 2g). || Memory limit (512m, 2g).
+--cpus=N | Límite de CPU (1.5). || Number of CPUs.
+--read-only | Sistema de archivos raíz de solo lectura. || Mount the container's root filesystem as read only.
+--security-opt=OPC | Opciones de seguridad (seccomp, apparmor, no-new-privileges). || Security options (seccomp, apparmor, no-new-privileges).
+--entrypoint=CMD | Cambia el programa de entrada de la imagen. || Overwrite the default ENTRYPOINT of the image.
+--hostname -h=NOMBRE | Nombre de host dentro del contenedor. || Container host name.
+--dns=IP | Servidor DNS. || Set custom DNS servers.
+--add-host=HOST:IP | Añade una entrada a /etc/hosts del contenedor. || Add a custom host-to-IP mapping.
+-l --label=CLAVE=VALOR | Etiqueta del contenedor. || Set meta data on a container.
+--platform=PLATAFORMA | Plataforma (linux/amd64, linux/arm64). || Set platform if server is multi-platform capable.
+--pull=POLÍTICA | Cuándo descargar la imagen (always, missing, never). || Pull image before running.
+--init | Ejecuta un proceso init como PID 1. || Run an init inside the container.
+--shm-size=TAMAÑO | Tamaño de /dev/shm. || Size of /dev/shm.
+--tmpfs=RUTA | Monta un tmpfs (memoria). || Mount a tmpfs directory.
+--ulimit=LÍMITE | Límite de recursos. || Ulimit options.
+--userns=MODO | Espacio de nombres de usuario. || User namespace to use.
+tip: «-p 8080:80» = PUERTO_DEL_ANFITRIÓN:PUERTO_DEL_CONTENEDOR. Montar «/var/run/docker.sock» o «/» dentro de un contenedor equivale a darle control del anfitrión.
+
+@@ docker-exec
+es: ejecuta un comando dentro de un contenedor en marcha
+tags: exec
+pos: CONTENEDOR | Nombre o ID del contenedor. || Container name or ID.
+pos: COMANDO... | Comando a ejecutar dentro (p. ej. bash, sh, ls /app). || Command to run inside (e.g. bash, sh, ls /app).
+-i --interactive | Entrada estándar abierta. || Keep STDIN open.
+-t --tty | Asigna terminal. || Allocate a pseudo-TTY.
+-u --user=USUARIO | Usuario dentro del contenedor. || Username or UID.
+-e --env=CLAVE=VALOR | Variable de entorno. || Set environment variables.
+-w --workdir=DIR | Directorio de trabajo. || Working directory inside the container.
+-d --detach | En segundo plano. || Detached mode: run command in the background.
+--privileged | Ejecuta con privilegios ampliados. || Give extended privileges to the command.
+
+@@ docker-build
+es: construye una imagen a partir de un Dockerfile
+tags: write net
+pos: CONTEXTO | Directorio con el Dockerfile y los archivos que se copian (normalmente «.»). || Directory with the Dockerfile and the files to copy (usually ".").
+-t --tag=NOMBRE:ETIQUETA | Nombre y etiqueta de la imagen resultante. || Name and tag of the resulting image.
+-f --file=ARCHIVO | Dockerfile a usar (por defecto ./Dockerfile). || Dockerfile to use (default ./Dockerfile).
+--no-cache | No usa la caché de capas. || Do not use cache when building the image.
+--build-arg=CLAVE=VALOR | Variable de construcción (¡no pongas secretos: quedan en la imagen!). || Build-time variable (don't put secrets: they end up in the image!).
+--target=ETAPA | Construye solo hasta esa etapa de un Dockerfile multietapa. || Set the target build stage to build.
+--pull | Descarga siempre la imagen base más reciente. || Always attempt to pull a newer version of the image.
+--platform=PLATAFORMA | Plataforma de destino. || Set platform if server is multi-platform capable.
+-q --quiet | Solo muestra el ID de la imagen. || Suppress the build output.
+
+@@ docker-ps
+es: lista contenedores
+tags: read
+-a --all | Incluye los detenidos. || Show all containers (default shows just running).
+-q --quiet | Solo los ID. || Only display container IDs.
+-f --filter=FILTRO | Filtra (status=exited, name=web…). || Filter output based on conditions provided.
+--format=PLANTILLA | Formato de salida. || Format output using a custom template.
+-s --size | Muestra tamaños. || Display total file sizes.
+-n --last=N | Los N últimos. || Show n last created containers.
+
+@@ docker-logs
+es: muestra los registros de un contenedor
+tags: read
+-f --follow | Sigue los registros nuevos. || Follow log output.
+--tail -n=N | Solo las últimas N líneas. || Number of lines to show from the end of the logs.
+--since=TIEMPO | Desde un momento (10m, 2024-01-01). || Show logs since timestamp.
+-t --timestamps | Muestra la hora de cada línea. || Show timestamps.
+
+@@ docker-rm
+es: elimina contenedores
+tags: delete
+-f --force | Elimina aunque esté en marcha. || Force the removal of a running container.
+-v --volumes | También borra los volúmenes anónimos asociados. || Remove anonymous volumes associated with the container.
+
+@@ docker-rmi
+es: elimina imágenes
+tags: delete
+-f --force | Fuerza el borrado. || Force removal of the image.
+
+@@ docker-compose
+es: gestiona aplicaciones de varios contenedores definidas en un archivo compose
+tags: exec net
+> up | Crea e inicia los servicios (-d en segundo plano). || Create and start the services (-d in background).
+> down | Detiene y ELIMINA contenedores y redes (con -v también los volúmenes). || Stop and REMOVE containers and networks (with -v also volumes).
+> ps | Lista los contenedores del proyecto. || List the project's containers.
+> logs | Muestra los registros. || View output from containers.
+> build | Construye las imágenes de los servicios. || Build or rebuild services.
+> pull | Descarga las imágenes. || Pull service images.
+> restart | Reinicia servicios. || Restart service containers.
+> stop | Detiene servicios. || Stop services.
+> start | Inicia servicios. || Start services.
+> exec | Ejecuta un comando en un servicio en marcha. || Execute a command in a running service container.
+> run | Ejecuta un comando puntual en un servicio nuevo. || Run a one-off command on a service.
+> config | Valida y muestra el archivo compose final. || Parse, resolve and render compose file.
+-f --file=ARCHIVO | Archivo compose a usar. || Compose configuration files.
+-p --project-name=NOMBRE | Nombre del proyecto. || Project name.
+-d --detach | En segundo plano. || Detached mode: run containers in the background.
+--build | Reconstruye las imágenes antes de iniciar. || Build images before starting containers.
+-v --volumes | Con down: también borra los volúmenes. || With down: also remove volumes.
+--force-recreate | Recrea los contenedores aunque no hayan cambiado. || Recreate containers even if their configuration hasn't changed.
+--remove-orphans | Elimina contenedores huérfanos. || Remove containers for services not defined in the Compose file.
+
+@@ kubectl
+es: controla clústeres de Kubernetes
+tags: net exec
+> get | Lista recursos (pods, svc, deploy, nodes…). || List resources (pods, svc, deploy, nodes…).
+> describe | Muestra los detalles y eventos de un recurso. || Show details and events of a resource.
+> apply | Crea o actualiza recursos desde un archivo (-f). || Create or update resources from a file (-f).
+> create | Crea un recurso. || Create a resource.
+> delete | BORRA recursos. || DELETE resources.
+> logs | Muestra los registros de un pod. || Print the logs of a pod.
+> exec | Ejecuta un comando dentro de un pod. || Run a command inside a pod.
+> port-forward | Reenvía un puerto local a un pod. || Forward a local port to a pod.
+> scale | Cambia el número de réplicas. || Change the number of replicas.
+> rollout | Gestiona despliegues (status, undo, restart). || Manage rollouts (status, undo, restart).
+> edit | Edita un recurso en vivo. || Edit a live resource.
+> config | Gestiona contextos y credenciales de kubeconfig. || Manage contexts and credentials in kubeconfig.
+> cp | Copia archivos entre pod y equipo. || Copy files between pod and host.
+> top | Uso de recursos de pods o nodos. || Resource usage of pods or nodes.
+> run | Ejecuta un pod a partir de una imagen. || Run a pod from an image.
+> cordon | Marca un nodo como no programable. || Mark a node as unschedulable.
+> drain | Vacía un nodo de pods para mantenimiento. || Drain a node of pods for maintenance.
+> label | Añade o cambia etiquetas. || Add or update labels.
+> patch | Modifica un recurso con un parche. || Patch a resource.
+> auth | Comprueba permisos (auth can-i). || Check permissions (auth can-i).
+-n --namespace=NS | Espacio de nombres. || Namespace.
+-A --all-namespaces | Todos los espacios de nombres. || All namespaces.
+-f --filename=ARCHIVO | Archivo o URL con el recurso. || File or URL with the resource.
+-o --output=FORMATO | Formato de salida (wide, yaml, json, name, jsonpath=…). || Output format (wide, yaml, json, name, jsonpath=…).
+-l --selector=ETIQUETAS | Filtra por etiquetas. || Selector (label query) to filter on.
+--context=CONTEXTO | Contexto de kubeconfig a usar. || The name of the kubeconfig context to use.
+--all | Todos los recursos del tipo. || Select all resources in the namespace.
+--dry-run=MODO | Simula (client o server). || Must be "none", "server", or "client".
+-w --watch | Observa los cambios en vivo. || Watch for changes.
+--force | Fuerza la operación. || Force operation.
+--grace-period=N | Segundos de gracia al borrar. || Period of time in seconds given to the resource to terminate gracefully.
+-c --container=NOMBRE | Contenedor dentro del pod. || Container name.
+-it | Terminal interactiva (en exec). || Interactive terminal (in exec).
+
+@@ helm
+es: gestor de paquetes (charts) para Kubernetes
+tags: net exec
+> install | Instala un chart. || Install a chart.
+> upgrade | Actualiza una release. || Upgrade a release.
+> uninstall | Desinstala una release. || Uninstall a release.
+> list | Lista las releases. || List releases.
+> repo | Gestiona repositorios de charts. || Manage chart repositories.
+> template | Genera los manifiestos sin instalar. || Render manifests without installing.

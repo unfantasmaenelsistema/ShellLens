@@ -1,0 +1,615 @@
+# Redes, acceso remoto y cortafuegos
+
+@@ ssh
+es: conecta con otro equipo de forma cifrada (shell remota o ejecución de un comando)
+tags: net exec
+pos: DESTINO | [usuario@]equipo al que conectarse. || [user@]host to connect to.
+pos: COMANDO... | Comando que se ejecuta en el equipo remoto en vez de abrir una shell interactiva. || Command to run on the remote host instead of opening an interactive shell.
+-p=PUERTO | Puerto del servidor SSH (por defecto 22). || Port of the SSH server (default 22).
+-i=ARCHIVO | Clave privada (identidad) con la que autenticarse. || Private key (identity file) to authenticate with.
+-l=USUARIO | Usuario remoto (alternativa a usuario@equipo). || Remote user (alternative to user@host).
+-L=ESPEC | Túnel LOCAL: -L 8080:destino:80 abre el puerto 8080 aquí y lo reenvía a destino:80 desde el servidor. || LOCAL tunnel: -L 8080:target:80 opens port 8080 here and forwards it to target:80 from the server.
+-R=ESPEC | Túnel REMOTO: -R 9000:localhost:3000 abre el puerto 9000 en el servidor y lo reenvía a tu puerto 3000. || REMOTE tunnel: -R 9000:localhost:3000 opens port 9000 on the server and forwards it to your port 3000.
+-D=PUERTO | Proxy SOCKS dinámico en un puerto local (todo el tráfico sale por el servidor). || Dynamic SOCKS proxy on a local port (all traffic exits via the server).
+-N | No ejecuta ningún comando: solo mantiene los túneles. || Do not execute a remote command: just keep the tunnels.
+-f | Pasa a segundo plano antes de ejecutar el comando. || Go to background just before command execution.
+-T | No asigna terminal (para guiones o túneles). || Disable pseudo-terminal allocation.
+-t | Fuerza terminal (para comandos interactivos remotos como sudo o top). || Force pseudo-terminal allocation (for interactive remote commands like sudo or top).
+-v | Modo detallado (-vv, -vvv más) para depurar. || Verbose mode (-vv, -vvv for more) for debugging.
+-q | Modo silencioso. || Quiet mode.
+-o=OPCIÓN | Opción de configuración como en ssh_config (p. ej. -o StrictHostKeyChecking=no). || Configuration option as in ssh_config (e.g. -o StrictHostKeyChecking=no).
+-A | Reenvía el agente de claves (¡úsalo solo con servidores de confianza!). || Forward the key agent (only with trusted servers!).
+-X | Reenvía X11 (ventanas gráficas). || Enable X11 forwarding.
+-J=SALTO | Salta a través de un host intermedio (bastión): -J usuario@bastion. || Jump through an intermediate host (bastion): -J user@bastion.
+-C | Comprime la conexión. || Compress the connection.
+-4 | Solo IPv4. || Use IPv4 only.
+-6 | Solo IPv6. || Use IPv6 only.
+-F=ARCHIVO | Usa otro archivo de configuración en vez de ~/.ssh/config. || Use another config file instead of ~/.ssh/config.
+-g | Permite que otros equipos usen los puertos reenviados locales. || Allow remote hosts to connect to local forwarded ports.
+-K | Autenticación GSSAPI (Kerberos). || Enables GSSAPI-based authentication.
+-s | Pide un subsistema (p. ej. sftp). || Request a subsystem (e.g. sftp).
+tip: Con -L el puerto local es el de ESTE equipo; el destino se resuelve DESDE el servidor SSH.
+
+@@ ssh-keygen
+es: genera, gestiona y convierte claves de autenticación SSH
+tags: write
+-t=TIPO | Tipo de clave: ed25519 (recomendada), rsa, ecdsa. || Key type: ed25519 (recommended), rsa, ecdsa.
+-b=BITS | Tamaño en bits (RSA: 4096). || Number of bits (RSA: 4096).
+-C=COMENTARIO | Comentario de la clave (suele ser el correo). || Comment of the key (usually an email).
+-f=ARCHIVO | Archivo de salida de la clave. || Output key file.
+-N=FRASE | Frase de paso de la clave (con «» = sin frase: menos seguro). || Passphrase for the key ("" = none: less secure).
+-p | Cambia la frase de paso de una clave existente. || Change the passphrase of an existing key.
+-l | Muestra la huella (fingerprint) de una clave. || Show the fingerprint of a key.
+-R=HOST | Elimina un host de known_hosts (cuando cambió su clave). || Remove a host from known_hosts (when its key changed).
+-y | Imprime la clave pública a partir de la privada. || Read a private key and print the public key.
+-F=HOST | Busca un host en known_hosts. || Search for a host in known_hosts.
+
+@@ ssh-copy-id
+es: instala tu clave pública en un servidor para entrar sin contraseña
+tags: net write
+-i=ARCHIVO | Clave pública a instalar. || Public key file to install.
+-p=PUERTO | Puerto SSH. || Port of the SSH server.
+
+@@ ssh-agent
+es: guarda tus claves privadas descifradas en memoria durante la sesión
+tags: exec
+
+@@ ssh-add
+es: añade claves privadas al agente SSH
+tags: exec
+-l | Lista las claves cargadas. || Lists fingerprints of all identities currently represented by the agent.
+-D | Elimina todas las claves del agente. || Deletes all identities from the agent.
+-t=SEGUNDOS | Tiempo de vida de la clave en el agente. || Set a maximum lifetime when adding identities.
+
+@@ scp
+es: copia archivos entre equipos por SSH
+tags: net read write
+pos: ORIGEN... | Origen: ruta local o [usuario@]host:ruta remota. || Source: local path or [user@]host:remote path.
+pos: DESTINO@last | Destino: ruta local o [usuario@]host:ruta remota. || Destination: local path or [user@]host:remote path.
+-r | Copia directorios recursivamente. || Recursively copy entire directories.
+-P=PUERTO | Puerto SSH (¡mayúscula! ssh usa -p). || SSH port (uppercase! ssh uses -p).
+-i=ARCHIVO | Clave privada. || Selects the identity file.
+-p | Conserva fechas y permisos. || Preserve modification times, access times, and modes.
+-C | Comprime los datos. || Compression enable.
+-q | Silencioso (sin barra de progreso). || Quiet mode.
+-v | Detallado. || Verbose mode.
+-J=SALTO | Salta por un host intermedio. || Connect to the target host by first making an scp connection to the jump host.
+-o=OPCIÓN | Opción de ssh_config. || Can be used to pass options to ssh in the format used in ssh_config.
+-3 | Copia entre dos equipos remotos pasando por el tuyo. || Copies between two remote hosts are transferred through the local host.
+
+@@ sftp
+es: transferencia interactiva de archivos sobre SSH
+tags: net read write
+-P=PUERTO | Puerto SSH. || Specifies the port to connect to on the remote host.
+-i=ARCHIVO | Clave privada. || Selects the file from which the identity is read.
+-b=ARCHIVO | Ejecuta los comandos de un archivo por lotes. || Batch mode reads a series of commands from an input batchfile.
+-r | Copia directorios recursivamente. || Recursively copy entire directories when uploading and downloading.
+
+@@ rsync
+es: sincroniza archivos y directorios (local o remoto) copiando solo las diferencias
+tags: net read write
+pos: ORIGEN... | Origen. Con barra final («dir/») copia el CONTENIDO; sin barra («dir») copia el directorio entero. || Source. With a trailing slash ("dir/") copies the CONTENTS; without ("dir") copies the whole directory.
+pos: DESTINO@last | Destino local o [usuario@]host:ruta. || Local destination or [user@]host:path.
+-a --archive | Modo archivo: recursivo y conserva enlaces, permisos, fechas, propietario y grupo (= -rlptgoD). || Archive mode: recursive, preserving symlinks, permissions, times, owner and group (= -rlptgoD).
+-v --verbose | Muestra los archivos que transfiere. || Increase verbosity.
+-z --compress | Comprime los datos durante la transferencia. || Compress file data during the transfer.
+-r --recursive | Recursivo (incluido en -a). || Recurse into directories.
+-P | Atajo de --partial --progress: muestra el progreso y conserva los archivos parciales. || Same as --partial --progress.
+--progress | Muestra el progreso de cada archivo. || Show progress during transfer.
+--delete | BORRA en el destino lo que no exista en el origen (¡espejo exacto!). || DELETE files in the destination that do not exist in the source (exact mirror!).
+-n --dry-run | Simulacro: muestra lo que haría sin hacer nada (úsalo antes de --delete). || Dry run: show what would be done without doing it (use before --delete).
+-e --rsh=COMANDO | Shell remota a usar (p. ej. -e "ssh -p 2222"). || The remote shell to use (e.g. -e "ssh -p 2222").
+-h --human-readable | Tamaños legibles. || Output numbers in a human-readable format.
+-u --update | No sobrescribe archivos más nuevos en el destino. || Skip files that are newer on the receiver.
+--exclude=PATRÓN | Excluye lo que coincida con el patrón. || Exclude files matching PATTERN.
+--include=PATRÓN | Incluye lo que coincida (se combina con --exclude). || Don't exclude files matching PATTERN.
+--exclude-from=ARCHIVO | Lee patrones de exclusión de un archivo. || Read exclude patterns from FILE.
+-c --checksum | Compara por suma de comprobación en vez de por fecha y tamaño. || Skip based on checksum, not mod-time and size.
+--bwlimit=KBPS | Limita el ancho de banda. || Limit I/O bandwidth.
+--remove-source-files | Borra los archivos del origen tras transferirlos correctamente. || Sender removes synchronized files.
+--backup | Hace copia de seguridad de lo que se sobrescribe o borra. || Make backups.
+-x --one-file-system | No cruza a otros sistemas de archivos. || Don't cross filesystem boundaries.
+-A --acls | Conserva las ACL. || Preserve ACLs.
+-X --xattrs | Conserva atributos extendidos. || Preserve extended attributes.
+--stats | Muestra estadísticas de la transferencia. || Give some file-transfer stats.
+--info=FLAGS | Ajusta qué información se muestra (progress2…). || Fine-grained informational verbosity.
+--rsync-path=PROG | Ruta de rsync en el remoto (p. ej. "sudo rsync"). || Specify the rsync to run on the remote machine.
+--log-file=ARCHIVO | Escribe un registro en el archivo. || Log what we're doing to the specified FILE.
+tip: Primero ejecuta con -n (simulacro), sobre todo si usas --delete.
+
+@@ curl
+es: transfiere datos desde o hacia una URL (HTTP, HTTPS, FTP…)
+tags: net
+pos: URL... | Dirección a la que se conecta. || Address to connect to.
+-s --silent | Modo silencioso: sin barra de progreso ni mensajes de error. || Silent mode: no progress meter or error messages.
+-S --show-error | Con -s, sigue mostrando los errores. || When used with -s, show an error message if it fails.
+-L --location | Sigue las redirecciones HTTP (301/302). || Follow HTTP redirects.
+-o --output=ARCHIVO | Guarda la respuesta en ARCHIVO en vez de mostrarla. || Write output to FILE instead of stdout.
+-O --remote-name | Guarda con el mismo nombre que tiene en el servidor. || Write output to a file named as the remote file.
+-X --request=MÉTODO | Método HTTP: GET, POST, PUT, DELETE, PATCH… || HTTP method to use: GET, POST, PUT, DELETE, PATCH…
+-H --header=CABECERA | Añade una cabecera: -H "Content-Type: application/json". || Add a header: -H "Content-Type: application/json".
+-d --data=DATOS | Cuerpo de la petición (implica POST). Con @archivo lo lee de un archivo. || Request body (implies POST). With @file reads it from a file.
+--data-raw=DATOS | Como -d pero sin interpretar el carácter @. || Like -d but without interpreting the @ character.
+--data-urlencode=DATOS | Codifica el dato para URL. || URL-encode the data.
+-F --form=CAMPO=VALOR | Envía formulario multipart; con campo=@archivo sube un archivo. || Send a multipart form; with field=@file uploads a file.
+-u --user=USUARIO:CLAVE | Credenciales de autenticación básica (¡quedan en el historial!). || Basic-auth credentials (they stay in history!).
+-A --user-agent=TEXTO | Cambia el User-Agent. || Send User-Agent to the server.
+-e --referer=URL | Cabecera Referer. || Referrer URL.
+-b --cookie=DATOS | Envía cookies (texto o archivo). || Pass the data to the HTTP server in the Cookie header.
+-c --cookie-jar=ARCHIVO | Guarda las cookies recibidas en un archivo. || Write all cookies to this file after the operation.
+-k --insecure | NO verifica el certificado TLS del servidor (inseguro). || Do not verify the server TLS certificate (insecure).
+-i --include | Incluye las cabeceras de respuesta en la salida. || Include the HTTP response headers in the output.
+-I --head | Solo cabeceras (petición HEAD). || Fetch the headers only.
+-v --verbose | Muestra todo el intercambio (petición y respuesta). || Make curl verbose during the operation.
+-f --fail | Falla en silencio si el servidor devuelve error HTTP (≥ 400). || Fail fast with no output at all on server errors.
+-w --write-out=FORMATO | Muestra datos tras la transferencia (%{http_code}, %{time_total}…). || Display information on stdout after a completed transfer.
+-x --proxy=PROXY | Usa un proxy. || Use the specified proxy.
+-m --max-time=SEG | Tiempo máximo total de la operación. || Maximum time allowed for the transfer.
+--connect-timeout=SEG | Tiempo máximo para conectar. || Maximum time allowed for the connection.
+-C --continue-at=OFFSET | Reanuda una descarga interrumpida («-C -»). || Resumed transfer offset.
+-T --upload-file=ARCHIVO | Sube un archivo (PUT). || Upload the specified local file to the remote URL.
+-4 --ipv4 | Resuelve solo a IPv4. || Resolve names to IPv4 addresses only.
+--retry=NUM | Reintenta NUM veces ante fallos transitorios. || Retry request NUM times if transient problems occur.
+--compressed | Pide respuesta comprimida y la descomprime. || Request a compressed response.
+--cacert=ARCHIVO | Certificado de la CA con el que verificar el servidor. || Use the specified certificate file to verify the peer.
+--cert=ARCHIVO | Certificado de cliente. || Use the specified client certificate file.
+-Z --parallel | Descargas en paralelo. || Make curl perform transfers in parallel.
+--resolve=HOST:PUERTO:DIRECCIÓN | Fuerza la resolución de un nombre a una IP. || Provide a custom address for a specific host and port pair.
+-g --globoff | Desactiva el uso de [] y {} en la URL. || Switch off the URL globbing function.
+--json=DATOS | Envía JSON con las cabeceras correctas (curl ≥ 7.82). || Send JSON with the appropriate headers (curl ≥ 7.82).
+tip: Para ver una API: «curl -s URL | jq». Descargar y ejecutar («curl … | sh») es peligroso si no has leído el guion.
+
+@@ wget
+es: descarga archivos de la web (HTTP, HTTPS, FTP), también recursivamente
+tags: net write
+pos: URL... | Dirección(es) a descargar. || URL(s) to download.
+-O --output-document=ARCHIVO | Guarda en ARCHIVO; con «-» lo envía a la salida estándar. || Write documents to FILE; "-" sends to standard output.
+-P --directory-prefix=DIR | Guarda las descargas en el directorio DIR. || Save all files under DIR.
+-q --quiet | Silencioso. || Turn off Wget's output.
+-c --continue | Reanuda una descarga interrumpida. || Continue getting a partially-downloaded file.
+-r --recursive | Descarga recursivamente (sigue enlaces). || Turn on recursive retrieving.
+-np --no-parent | No sube a directorios superiores al recursivo. || Do not ever ascend to the parent directory when retrieving recursively.
+-l --level=N | Profundidad máxima de recursividad. || Specify recursion maximum depth level.
+-m --mirror | Espejo del sitio (-r -N -l inf). || Turn on options suitable for mirroring.
+-k --convert-links | Convierte los enlaces para verlo sin conexión. || Convert links for local viewing.
+-p --page-requisites | Descarga también imágenes y CSS necesarios para la página. || Download all the files that are necessary to properly display a given HTML page.
+-b --background | Pasa a segundo plano. || Go to background immediately after startup.
+-i --input-file=ARCHIVO | Lee las URL de un archivo. || Read URLs from a local or external file.
+-nc --no-clobber | No descarga si el archivo ya existe. || Do not download if the file already exists.
+-N --timestamping | Descarga solo si el remoto es más nuevo. || Turn on time-stamping.
+-t --tries=N | Número de reintentos. || Set number of retries.
+-T --timeout=SEG | Tiempo de espera. || Set the network timeout.
+--limit-rate=VELOCIDAD | Limita la velocidad de descarga. || Limit the download speed.
+-U --user-agent=TEXTO | Cambia el User-Agent. || Identify as agent-string to the HTTP server.
+--no-check-certificate | NO verifica el certificado del servidor (inseguro). || Don't check the server certificate.
+--header=CABECERA | Añade una cabecera. || Send header-line along with the rest of the headers.
+--user=USUARIO | Usuario para autenticación. || Specify the username for HTTP or FTP retrieval.
+--password=CLAVE | Contraseña (¡queda en el historial!). || Specify the password for HTTP or FTP retrieval.
+--spider | No descarga: solo comprueba que existe. || Behave as a Web spider: do not download the pages.
+-e --execute=COMANDO | Ejecuta un comando de configuración (robots=off…). || Execute command as if it were a part of .wgetrc.
+-nv --no-verbose | Salida reducida. || Turn off verbose without being completely quiet.
+
+@@ nc ncat netcat
+es: «navaja suiza» de red: abre conexiones TCP/UDP o se pone a la escucha
+tags: net
+pos: HOST | Equipo al que conectar. || Host to connect to.
+pos: PUERTO | Puerto. || Port.
+-l --listen | Modo servidor: se pone a la escucha en un puerto. || Listen for an incoming connection rather than initiating one.
+-v --verbose | Muestra detalles de la conexión. || Verbose output.
+-n | No resuelve nombres (solo IP). || Do not do any DNS or service lookups.
+-p --source-port=PUERTO | Puerto de origen (o de escucha). || Specifies the source port nc should use.
+-u --udp | Usa UDP en lugar de TCP. || Use UDP instead of the default option of TCP.
+-z | Solo comprueba si el puerto está abierto, sin enviar datos (escaneo). || Only scan for listening daemons, without sending any data.
+-w=SEGUNDOS | Tiempo de espera. || Connections which cannot be established time out.
+-e --exec=PROGRAMA | EJECUTA un programa al conectar (¡entrega una shell!). || Execute the given command after connection.
+-c --sh-exec=COMANDO | Como -e pero con la shell: ¡entrega una shell! || Execute the given command via /bin/sh.
+-k --keep-open | Sigue escuchando tras cada conexión. || Accept multiple connections in listen mode.
+-4 | Solo IPv4. || Use IPv4 only.
+-6 | Solo IPv6. || Use IPv6 only.
+-N | Cierra al llegar a fin de archivo en la entrada. || Shutdown the network socket after EOF on the input.
+
+@@ socat
+es: conecta dos flujos de datos cualesquiera (sockets, archivos, tuberías, procesos…)
+tags: net exec
+
+@@ telnet
+es: cliente de acceso remoto sin cifrar (también sirve para probar puertos)
+tags: net
+
+@@ ftp
+es: cliente de transferencia de archivos FTP (sin cifrar)
+tags: net read write
+
+@@ ping
+es: comprueba si un equipo responde enviándole paquetes ICMP echo
+tags: net
+pos: DESTINO | Equipo (nombre o IP) al que se hace ping. || Host (name or IP) to ping.
+-c --count=NUM | Envía solo NUM paquetes y termina (sin -c no para hasta Ctrl+C). || Stop after sending NUM packets.
+-i --interval=SEG | Segundos entre paquetes. || Wait SEG seconds between sending each packet.
+-s --size=BYTES | Tamaño de los datos del paquete. || Specifies the number of data bytes to be sent.
+-t --ttl=N | Tiempo de vida del paquete (saltos). || Set the IP Time to Live.
+-W --timeout=SEG | Segundos de espera por cada respuesta. || Time to wait for a response, in seconds.
+-w --deadline=SEG | Tiempo total máximo. || Specify a timeout, in seconds, before ping exits.
+-4 | Solo IPv4. || Use IPv4 only.
+-6 | Solo IPv6. || Use IPv6 only.
+-q --quiet | Solo muestra el resumen final. || Quiet output.
+-n --numeric | No resuelve nombres. || Numeric output only.
+-f --flood | Modo inundación (envía lo más rápido posible; solo root). || Flood ping (root only).
+-I --interface=IFACE | Interfaz o dirección de origen. || Set the source address or interface.
+-M=DO | Control de fragmentación (do = no fragmentar, para probar MTU). || Select Path MTU Discovery strategy.
+-b | Permite hacer ping a una dirección de difusión (broadcast). || Allow pinging a broadcast address.
+
+@@ traceroute tracepath
+es: muestra la ruta (saltos) que siguen los paquetes hasta un destino
+tags: net
+-n | No resuelve nombres (más rápido). || Do not try to map IP addresses to host names.
+-m --max-hops=N | Máximo de saltos. || Set the max number of hops.
+-I --icmp | Usa ICMP en lugar de UDP. || Use ICMP ECHO for probes.
+-T --tcp | Usa TCP SYN (atraviesa más cortafuegos). || Use TCP SYN for probes.
+-p --port=PUERTO | Puerto de destino. || Destination port.
+-w --wait=SEG | Tiempo de espera por sondeo. || Set the time to wait for a response to a probe.
+-q --queries=N | Sondeos por salto. || Sets the number of probe packets per hop.
+
+@@ mtr
+es: traceroute y ping combinados en tiempo real
+tags: net
+-r --report | Modo informe: ejecuta y muestra un resumen. || Report mode.
+-c --report-cycles=N | Número de sondeos. || Use this option to set the number of pings sent.
+-n --no-dns | No resuelve nombres. || Do not try to resolve host names.
+-b --show-ips | Muestra nombres e IP. || Display both the host names and IP numbers.
+
+@@ nslookup
+es: consulta servidores DNS (resolución de nombres)
+tags: net
+pos: NOMBRE | Nombre a resolver. || Name to resolve.
+pos: SERVIDOR? | Servidor DNS al que consultar. || DNS server to query.
+-type=TIPO | Tipo de registro: A, AAAA, MX, NS, TXT, CNAME, SOA, PTR, ANY. || Record type: A, AAAA, MX, NS, TXT, CNAME, SOA, PTR, ANY.
+
+@@ dig
+es: consulta DNS detallada (registros, servidores, trazado de delegación)
+tags: net
+pos: NOMBRE? | Nombre a consultar (y opcionalmente @servidor y tipo: A, MX, TXT…). || Name to query (and optionally @server and type: A, MX, TXT…).
++short | Respuesta mínima: solo los datos. || Short answer: only the data.
++trace | Sigue la delegación desde los servidores raíz. || Trace the delegation path from the root servers.
++noall | Oculta todas las secciones (se combina con +answer). || Clear all display flags.
++answer | Muestra la sección de respuesta. || Show the answer section.
+-x=IP | Consulta inversa (IP → nombre). || Reverse lookup (IP → name).
+-t=TIPO | Tipo de registro. || Type of query.
+-p=PUERTO | Puerto del servidor DNS. || Port number to query.
+-4 | Solo IPv4. || Use IPv4 only.
+-6 | Solo IPv6. || Use IPv6 only.
+
+@@ host
+es: consulta DNS sencilla (nombre ↔ IP)
+tags: net
+-t=TIPO | Tipo de registro. || Specifies the query type.
+-a | Consulta de tipo ANY con salida detallada. || Equivalent to setting the -v option and asking host to make a query of type ANY.
+
+@@ whois
+es: consulta la información de registro de un dominio o una IP
+tags: net
+
+@@ ip
+es: configura y consulta interfaces, direcciones, rutas y vecinos de red (sustituye a ifconfig y route)
+tags: net system
+style: gnu
+subalias: addr=address a=address ad=address l=link r=route ro=route n=neigh neighbor=neigh neighbour=neigh ru=rule
+> address | Direcciones IP de las interfaces. || IP addresses of the interfaces.
+> link | Interfaces de red (nivel de enlace: estado, MAC, MTU). || Network interfaces (link layer: state, MAC, MTU).
+> route | Tabla de rutas (hacia dónde se envía cada tráfico). || Routing table (where each traffic goes).
+> neigh | Tabla de vecinos ARP/NDP (IP ↔ MAC). || ARP/NDP neighbour table (IP ↔ MAC).
+> rule | Reglas de política de enrutamiento. || Routing policy rules.
+> netns | Espacios de nombres de red (aislamiento). || Network namespaces (isolation).
+> tunnel | Túneles IP. || IP tunnels.
+> maddress | Direcciones multicast. || Multicast addresses.
+> monitor | Vigila cambios de red en directo. || Watch network changes live.
+-4 | Solo familia IPv4. || IPv4 family only.
+-6 | Solo familia IPv6. || IPv6 family only.
+-br --brief | Salida resumida en tabla. || Brief tabular output.
+-c --color | Colorea la salida. || Use color output.
+-s --stats | Muestra estadísticas (con -s -s, más detalle). || Output more information (statistics).
+-j --json | Salida en JSON. || Output in JSON.
+-o --oneline | Cada registro en una línea. || Output each record on a single line.
+-d --details | Más detalles. || Output more detailed information.
+-a --all | Incluye todo. || Executes specified command over all objects.
+
+@@ ip-address
+es: gestiona las direcciones IP de las interfaces
+tags: net system
+> show | Muestra las direcciones (por defecto). || Show the addresses (default).
+> add | AÑADE una dirección a una interfaz (no persiste tras reiniciar). || ADD an address to an interface (not persistent after reboot).
+> del | QUITA una dirección de una interfaz. || REMOVE an address from an interface.
+> flush | Borra TODAS las direcciones (de una interfaz o filtro). || Delete ALL addresses (of an interface or filter).
+> replace | Cambia o añade una dirección. || Change or add an address.
+pos: ARGUMENTOS... | Dirección/prefijo (192.168.1.10/24) y «dev interfaz». || Address/prefix (192.168.1.10/24) and "dev interface".
+
+@@ ip-route
+es: gestiona la tabla de rutas
+tags: net system
+> show | Muestra la tabla de rutas (por defecto). || Show the routing table (default).
+> add | AÑADE una ruta (p. ej. «add default via 192.168.1.1»). || ADD a route (e.g. "add default via 192.168.1.1").
+> del | QUITA una ruta. || REMOVE a route.
+> replace | Cambia o añade una ruta. || Change or add a route.
+> flush | Borra rutas (¡puede cortar la conexión!). || Delete routes (may cut the connection!).
+> get | Muestra qué ruta se usaría para un destino. || Show which route would be used for a destination.
+
+@@ ip-link
+es: gestiona las interfaces de red a nivel de enlace
+tags: net system
+> show | Muestra las interfaces (por defecto). || Show the interfaces (default).
+> set | Cambia propiedades: up/down, mtu, name, address, promisc on/off… || Change properties: up/down, mtu, name, address, promisc on/off…
+> add | Crea una interfaz virtual (bridge, vlan, veth…). || Create a virtual interface (bridge, vlan, veth…).
+> delete | Elimina una interfaz virtual. || Delete a virtual interface.
+
+@@ ifconfig
+es: configura y muestra interfaces de red (herramienta antigua; hoy se usa ip)
+tags: net system
+
+@@ netstat
+es: muestra conexiones de red, puertos en escucha y tablas de rutas (antigua; hoy se usa ss)
+tags: net read
+-t --tcp | Conexiones TCP. || Show TCP connections.
+-u --udp | Conexiones UDP. || Show UDP connections.
+-l --listening | Solo sockets en escucha. || Show only listening sockets.
+-n --numeric | Direcciones y puertos numéricos (sin resolver nombres). || Show numerical addresses instead of trying to determine symbolic host, port or user names.
+-p --program | Muestra el proceso (PID/nombre) de cada socket; necesita root. || Show the PID and name of the program to which each socket belongs.
+-a --all | Todos los sockets (escucha y establecidos). || Show both listening and non-listening sockets.
+-r --route | Tabla de rutas. || Display the kernel routing tables.
+-i --interfaces | Estadísticas de interfaces. || Display a table of all network interfaces.
+-s --statistics | Estadísticas por protocolo. || Display summary statistics for each protocol.
+-c --continuous | Se actualiza cada segundo. || This will cause netstat to print the selected information every second continuously.
+tip: «netstat -tulpn» = TCP y UDP en escucha, numérico y con el programa. Hoy: «ss -tulpn».
+
+@@ ss
+es: muestra sockets y conexiones de red (sustituye a netstat; más rápido)
+tags: net read
+-t --tcp | Sockets TCP. || Display TCP sockets.
+-u --udp | Sockets UDP. || Display UDP sockets.
+-l --listening | Solo los que están en escucha. || Display only listening sockets.
+-n --numeric | No resuelve nombres. || Do not try to resolve service names.
+-p --processes | Muestra el proceso propietario (necesita root para ver los de otros). || Show process using socket.
+-a --all | Todos los sockets. || Display both listening and non-listening sockets.
+-s --summary | Resumen de estadísticas. || Print summary statistics.
+-4 --ipv4 | Solo IPv4. || Display only IP version 4 sockets.
+-6 --ipv6 | Solo IPv6. || Display only IP version 6 sockets.
+-o --options | Muestra temporizadores. || Show timer information.
+-e --extended | Información extendida (UID, inodo). || Show detailed socket information.
+-H --no-header | Sin cabecera. || Suppress header line.
+tip: «ss -tulpn» = TCP/UDP, en escucha, numérico, con proceso.
+
+@@ arp
+es: consulta o modifica la tabla ARP (IP ↔ dirección MAC)
+tags: net
+-a | Muestra todas las entradas. || Display all entries.
+-n | Sin resolver nombres. || Show numerical addresses instead of symbolic ones.
+-d=HOST | Borra una entrada. || Remove any entry for the specified host.
+-s=HOST | Añade una entrada estática. || Manually create an ARP address mapping entry.
+
+@@ route
+es: muestra o cambia la tabla de rutas (antigua; hoy se usa ip route)
+tags: net system
+-n | Direcciones numéricas. || Show numerical addresses instead of trying to determine symbolic host names.
+
+@@ iptables ip6tables
+es: filtra paquetes y hace NAT en el núcleo (cortafuegos de Linux)
+tags: net system priv
+-A --append=CADENA | AÑADE una regla al FINAL de la cadena (INPUT, OUTPUT, FORWARD…). || APPEND a rule at the END of the chain (INPUT, OUTPUT, FORWARD…).
+-I --insert=CADENA | INSERTA una regla al principio (o en la posición indicada). || INSERT a rule at the beginning (or at the given position).
+-D --delete=CADENA | BORRA una regla (por especificación o por número). || DELETE a rule (by specification or by number).
+-R --replace=CADENA | Reemplaza una regla por su número. || Replace a rule by its number.
+-L --list=CADENA | Lista las reglas. || List the rules.
+-S --list-rules | Muestra las reglas como comandos reutilizables. || Print the rules as reusable commands.
+-F --flush | VACÍA todas las reglas de la cadena (o de todas). || FLUSH all rules of the chain (or all of them).
+-X --delete-chain | Borra una cadena vacía definida por el usuario. || Delete a user-defined empty chain.
+-N --new-chain=CADENA | Crea una cadena nueva. || Create a new user-defined chain.
+-P --policy=CADENA | Política por defecto: ACCEPT o DROP. || Set the default policy: ACCEPT or DROP.
+-Z --zero | Pone a cero los contadores. || Zero the packet and byte counters.
+-t --table=TABLA | Tabla: filter (por defecto), nat, mangle, raw. || Table: filter (default), nat, mangle, raw.
+-p --protocol=PROTO | Protocolo: tcp, udp, icmp, all. || Protocol: tcp, udp, icmp, all.
+-s --source=DIR | Dirección de origen (admite /máscara). || Source address (/mask allowed).
+-d --destination=DIR | Dirección de destino. || Destination address.
+-i --in-interface=IFACE | Interfaz de entrada. || Name of an interface via which a packet was received.
+-o --out-interface=IFACE | Interfaz de salida. || Name of an interface via which a packet is going to be sent.
+--dport --destination-port=PUERTO | Puerto de destino (con -p tcp/udp). || Destination port (with -p tcp/udp).
+--sport --source-port=PUERTO | Puerto de origen. || Source port.
+-j --jump=ACCIÓN | Qué hacer con el paquete: ACCEPT (dejar pasar), DROP (descartar en silencio), REJECT (rechazar con aviso), LOG, DNAT, SNAT, MASQUERADE… || What to do with the packet: ACCEPT, DROP (silently discard), REJECT (refuse with notice), LOG, DNAT, SNAT, MASQUERADE…
+-m --match=MÓDULO | Carga un módulo de coincidencia (state, conntrack, multiport, limit…). || Load a match module (state, conntrack, multiport, limit…).
+--state=ESTADOS | Con -m state: NEW, ESTABLISHED, RELATED, INVALID. || With -m state: NEW, ESTABLISHED, RELATED, INVALID.
+--ctstate=ESTADOS | Con -m conntrack: estado de la conexión. || With -m conntrack: connection state.
+--to-destination=DIR | Con DNAT: nueva dirección:puerto de destino. || With DNAT: new destination address:port.
+--to-ports=PUERTOS | Con REDIRECT: puerto al que se redirige. || With REDIRECT: port to redirect to.
+-n --numeric | Muestra direcciones y puertos numéricos. || Numeric output of addresses and ports.
+-v --verbose | Muestra contadores e interfaces. || Verbose output (counters and interfaces).
+--line-numbers | Numera las reglas al listarlas (para poder borrarlas por número). || Add line numbers to the rules when listing.
+-C --check | Comprueba si existe una regla. || Check whether a rule exists.
+-w --wait | Espera el bloqueo de xtables. || Wait for the xtables lock.
+tip: Antes de «-P INPUT DROP» o «-F» por SSH, asegúrate de tener una regla que permita tu propia sesión (ESTABLISHED) o te quedarás fuera.
+
+@@ nft
+es: cortafuegos nftables (sustituto moderno de iptables)
+tags: net system priv
+> list | Muestra el conjunto de reglas. || Show the ruleset.
+> add | Añade una tabla, cadena o regla. || Add a table, chain or rule.
+> delete | Borra una tabla, cadena o regla. || Delete a table, chain or rule.
+> flush | VACÍA reglas. || FLUSH rules.
+-f --file=ARCHIVO | Carga las reglas de un archivo. || Read input from a file.
+-a --handle | Muestra los identificadores de regla. || Show rule handles in output.
+
+@@ ufw
+es: cortafuegos sencillo para Ubuntu/Debian (capa sobre iptables)
+tags: net system priv
+> enable | Activa el cortafuegos (y al arrancar). || Enable the firewall (also at boot).
+> disable | DESACTIVA el cortafuegos. || DISABLE the firewall.
+> status | Estado y reglas (con «verbose» o «numbered» más detalle). || State and rules (with "verbose" or "numbered" for more).
+> allow | Permite tráfico: «allow 22/tcp», «allow from 10.0.0.0/8 to any port 22». || Allow traffic: "allow 22/tcp", "allow from 10.0.0.0/8 to any port 22".
+> deny | Bloquea tráfico en silencio (descarta). || Silently block traffic (drop).
+> reject | Bloquea tráfico avisando al origen. || Block traffic, notifying the sender.
+> limit | Permite pero limita intentos (protección frente a fuerza bruta). || Allow but rate-limit attempts (brute-force protection).
+> delete | Borra una regla. || Delete a rule.
+> reset | RESTABLECE el cortafuegos (borra todas las reglas). || RESET the firewall (deletes every rule).
+> reload | Recarga las reglas. || Reload the rules.
+> default | Política por defecto: «default deny incoming». || Default policy: "default deny incoming".
+> logging | Activa o desactiva el registro. || Toggle logging.
+> app | Gestiona perfiles de aplicación. || Manage application profiles.
+
+@@ tcpdump
+es: captura y muestra paquetes de red (sniffer de línea de comandos)
+tags: net read priv
+pos: FILTRO... | Filtro BPF: host 1.2.3.4, port 443, tcp, src net 10.0.0.0/8, «not port 22»… || BPF filter: host 1.2.3.4, port 443, tcp, src net 10.0.0.0/8, "not port 22"…
+-i=INTERFAZ | Interfaz a escuchar (any = todas). || Interface to listen on (any = all).
+-n | No resuelve nombres de host. || Don't convert host addresses to names.
+-nn | No resuelve nombres de host ni de puerto. || Don't resolve host or port names.
+-w=ARCHIVO | Guarda los paquetes en un archivo pcap (para Wireshark). || Write the raw packets to a pcap file (for Wireshark).
+-r=ARCHIVO | Lee paquetes de un archivo pcap. || Read packets from a pcap file.
+-c=NUM | Se detiene tras NUM paquetes. || Exit after receiving count packets.
+-v | Salida detallada (-vv, -vvv más). || Verbose output (-vv, -vvv for more).
+-A | Muestra el contenido de los paquetes en ASCII. || Print each packet in ASCII.
+-X | Muestra el contenido en hexadecimal y ASCII. || Print the data of each packet in hex and ASCII.
+-s=BYTES | Bytes a capturar por paquete (0 = todo). || Snarf bytes of data from each packet (0 = all).
+-e | Muestra las cabeceras Ethernet (direcciones MAC). || Print the link-level header on each dump line.
+-q | Salida resumida. || Quick output.
+-t | No muestra marca de tiempo. || Don't print a timestamp on each dump line.
+-D | Lista las interfaces disponibles. || Print the list of the network interfaces available.
+-Z=USUARIO | Cambia a este usuario tras abrir la captura. || Drops privileges to user.
+-l | Salida con búfer de línea. || Make stdout line buffered.
+
+@@ nmap
+es: escáner de red: descubre equipos, puertos abiertos, servicios y sistemas operativos
+tags: net
+pos: OBJETIVO... | Equipo(s) a escanear: IP, nombre, rango (10.0.0.1-50) o red (192.168.1.0/24). || Host(s) to scan: IP, name, range (10.0.0.1-50) or network (192.168.1.0/24).
+style: multi
+-sS | Escaneo SYN (semiabierto, «sigiloso»): envía SYN y no completa la conexión. Requiere root. || SYN scan (half-open, "stealth"): sends SYN and does not complete the connection. Needs root.
+-sT | Escaneo TCP connect: completa la conexión (no necesita root, más ruidoso). || TCP connect scan: completes the connection (no root needed, noisier).
+-sU | Escaneo UDP (lento). || UDP scan (slow).
+-sV | Detecta el servicio y la versión de cada puerto abierto. || Probe open ports to determine service/version info.
+-sC | Ejecuta los scripts NSE por defecto (equivale a --script=default). || Run the default NSE scripts (same as --script=default).
+-sn | Solo descubre equipos activos (ping scan), sin escanear puertos. || Only discover live hosts (ping scan), no port scan.
+-sA | Escaneo ACK: sirve para mapear reglas de cortafuegos. || ACK scan: used to map firewall rulesets.
+-sN -sF -sX | Escaneos NULL, FIN y Xmas: banderas TCP inusuales para saltarse filtros simples. || NULL, FIN and Xmas scans: unusual TCP flags to slip past simple filters.
+-sI=ZOMBI | Escaneo «idle» a través de un equipo zombi (no ves tu IP en el objetivo). || Idle scan via a zombie host (your IP is not seen by the target).
+-sL | Solo lista los objetivos sin enviar nada. || List targets only without sending anything.
+-O | Intenta detectar el sistema operativo. || Enable OS detection.
+-A | Modo agresivo: -O -sV -sC y traceroute. || Aggressive mode: -O -sV -sC and traceroute.
+-p=PUERTOS | Puertos a escanear: 80; 22,80,443; 1-1024; U:53,T:21-25. || Ports to scan: 80; 22,80,443; 1-1024; U:53,T:21-25.
+-p- | Todos los puertos (1-65535). || All ports (1-65535).
+-F | Escaneo rápido: los 100 puertos más comunes. || Fast: scan the 100 most common ports.
+--top-ports=N | Escanea los N puertos más comunes. || Scan the N most common ports.
+-Pn | No hace ping previo: trata todos los equipos como activos (útil si bloquean ICMP). || Skip host discovery: treat all hosts as up (useful when ICMP is blocked).
+-n | No resuelve DNS (más rápido y menos ruido). || Never do DNS resolution.
+-R | Resuelve DNS siempre. || Always resolve DNS.
+-T=NIVEL | Velocidad (plantilla de tiempos): 0 paranoico … 3 normal … 4 agresivo, 5 loco. || Timing template: 0 paranoid … 3 normal … 4 aggressive, 5 insane.
+-oN=ARCHIVO | Guarda el resultado en texto normal. || Save output in normal format.
+-oX=ARCHIVO | Guarda el resultado en XML. || Save output in XML format.
+-oG=ARCHIVO | Guarda en formato «grepable». || Save in grepable format.
+-oA=BASE | Guarda en los tres formatos (BASE.nmap, .xml y .gnmap). || Save in all three formats (BASE.nmap, .xml and .gnmap).
+-v | Más detalle (-vv aún más). || Increase verbosity level.
+-d | Depuración (-dd aún más). || Increase debugging level.
+-iL=ARCHIVO | Lee los objetivos de un archivo. || Input from list of hosts/networks.
+--exclude=HOSTS | Excluye equipos o redes del escaneo. || Exclude hosts/networks.
+--open | Muestra solo los puertos abiertos. || Only show open (or possibly open) ports.
+--reason | Muestra por qué se considera cada puerto en ese estado. || Display the reason a port is in a particular state.
+--script=SCRIPTS | Ejecuta scripts NSE: nombres, categorías (vuln, safe, auth, exploit, brute…) o rutas. || Run NSE scripts: names, categories (vuln, safe, auth, exploit, brute…) or paths.
+--script-args=ARGS | Argumentos para los scripts NSE. || Provide arguments to NSE scripts.
+--traceroute | Traza la ruta hasta cada equipo. || Trace hop path to each host.
+-e=IFACE | Usa esta interfaz de red. || Use specified interface.
+-D=SEÑUELOS | Disfraza el escaneo con direcciones señuelo. || Cloak a scan with decoys.
+-S=IP | Suplanta la dirección de origen. || Spoof source address.
+-g --source-port=PUERTO | Usa ese puerto de origen (para saltar filtros). || Use given port number as source.
+-f | Fragmenta los paquetes (para evadir detección). || Fragment packets.
+--mtu=N | MTU personalizado para la fragmentación. || Use specified MTU for fragmentation.
+--data-length=N | Añade N bytes aleatorios a los paquetes. || Append random data to sent packets.
+--randomize-hosts | Mezcla el orden de los objetivos. || Randomize target scan order.
+--min-rate=N | Envía al menos N paquetes por segundo. || Send packets no slower than N per second.
+--max-rate=N | Envía como mucho N paquetes por segundo. || Send packets no faster than N per second.
+--max-retries=N | Reintentos por puerto. || Caps number of port scan probe retransmissions.
+--host-timeout=TIEMPO | Abandona un equipo tras ese tiempo. || Give up on target after this long.
+--scan-delay=TIEMPO | Espera entre sondeos (evita detección). || Adjust delay between probes.
+-6 | Escaneo IPv6. || Enable IPv6 scanning.
+-PE | Descubrimiento con ICMP echo. || ICMP echo discovery probes.
+-PS=PUERTOS | Descubrimiento con TCP SYN a esos puertos. || TCP SYN discovery to given ports.
+-PA=PUERTOS | Descubrimiento con TCP ACK. || TCP ACK discovery to given ports.
+-PU=PUERTOS | Descubrimiento con UDP. || UDP discovery to given ports.
+-PR | Descubrimiento ARP (solo red local). || ARP discovery (local network only).
+-b=FTP | Escaneo de rebote FTP. || FTP bounce scan.
+-r | No aleatoriza el orden de los puertos. || Scan ports consecutively - don't randomize.
+--resume=ARCHIVO | Reanuda un escaneo interrumpido. || Resume an aborted scan.
+--stylesheet=RUTA | Hoja de estilo XSL para el XML. || Use XSL stylesheet to transform XML output.
+-V --version | Muestra la versión. || Print version number.
+tip: Escanear redes que no son tuyas sin permiso escrito es ilegal. Para empezar: «nmap -sV -T4 equipo».
+
+@@ openssl
+es: caja de herramientas criptográfica: certificados, claves, cifrado y conexiones TLS
+tags: read write net
+> s_client | Cliente TLS de prueba: abre una conexión TLS y muestra el certificado. || Test TLS client: opens a TLS connection and shows the certificate.
+> x509 | Muestra o convierte certificados X.509. || Display or convert X.509 certificates.
+> req | Crea solicitudes de certificado (CSR) y certificados autofirmados. || Create certificate signing requests (CSR) and self-signed certificates.
+> genrsa | Genera una clave privada RSA. || Generate an RSA private key.
+> genpkey | Genera una clave privada (RSA, EC…). || Generate a private key (RSA, EC…).
+> rsa | Procesa claves RSA. || Process RSA keys.
+> enc | Cifra o descifra con un algoritmo simétrico (AES…). || Encrypt or decrypt with a symmetric cipher (AES…).
+> dgst | Calcula resúmenes (hash) y firmas. || Compute digests (hashes) and signatures.
+> rand | Genera bytes aleatorios. || Generate random bytes.
+> passwd | Genera hashes de contraseñas. || Generate password hashes.
+> verify | Verifica una cadena de certificados. || Verify a certificate chain.
+> pkcs12 | Crea o lee archivos PKCS#12 (.p12/.pfx). || Create or read PKCS#12 files (.p12/.pfx).
+> ca | Mini autoridad certificadora. || Minimal certificate authority.
+> speed | Mide el rendimiento de algoritmos. || Benchmark algorithms.
+-in=ARCHIVO | Archivo de entrada. || Input file.
+-out=ARCHIVO | Archivo de salida. || Output file.
+-connect=HOST:PUERTO | Con s_client: servidor al que conectar. || With s_client: server to connect to.
+-servername=NOMBRE | Con s_client: nombre SNI. || With s_client: SNI name.
+-showcerts | Con s_client: muestra toda la cadena de certificados. || With s_client: show the whole certificate chain.
+-noout | No imprime la versión codificada del objeto. || Do not print the encoded version.
+-text | Muestra el contenido en texto legible. || Print the content in text form.
+-dates | Muestra las fechas de validez. || Print the validity dates.
+-subject | Muestra el sujeto. || Print the subject.
+-issuer | Muestra el emisor. || Print the issuer.
+-fingerprint | Muestra la huella digital. || Print the fingerprint.
+-days=N | Días de validez del certificado. || Number of days the certificate is valid.
+-newkey=ALG | Genera una clave nueva (rsa:4096). || Generate a new key (rsa:4096).
+-nodes | No cifra la clave privada resultante. || Do not encrypt the output private key.
+-x509 | Genera un certificado autofirmado en vez de una CSR. || Output a self-signed certificate instead of a CSR.
+-aes-256-cbc | Cifra con AES-256 en modo CBC. || Use AES-256 in CBC mode.
+-d | Descifra. || Decrypt.
+-a -base64 | Codifica en base64. || Base64 process the data.
+-pbkdf2 | Deriva la clave con PBKDF2 (recomendado). || Use PBKDF2 for key derivation (recommended).
+-salt | Usa sal aleatoria. || Use salt in the key derivation routines.
+-sha256 | Resumen SHA-256. || Digest SHA-256.
+-md5 | Resumen MD5 (inseguro). || Digest MD5 (insecure).
+-sign=CLAVE | Firma con una clave privada. || Sign the digest with a private key.
+-verify=CLAVE | Verifica con una clave pública. || Verify a signature.
+
+@@ nmcli
+es: gestiona NetworkManager: conexiones, WiFi y dispositivos
+tags: net system
+> device | Dispositivos de red (estado, WiFi…). || Network devices (status, WiFi…).
+> connection | Conexiones guardadas (activar, crear, editar). || Saved connections (activate, create, edit).
+> general | Estado general de NetworkManager. || General NetworkManager status.
+> radio | Activa o desactiva WiFi y datos móviles. || Enable or disable WiFi and mobile data.
+> networking | Activa o desactiva toda la red. || Enable or disable all networking.
+-t --terse | Salida compacta para guiones. || Terse output mode.
+-p --pretty | Salida legible. || Pretty output mode.
+-f --fields=CAMPOS | Campos a mostrar. || Specify a comma-separated list of field names.
+
+@@ ethtool
+es: consulta o cambia parámetros de la tarjeta de red (velocidad, dúplex, Wake-on-LAN…)
+tags: net system
+-s=IFACE | Cambia ajustes (speed, duplex, autoneg, wol…). || Allows changing some or all settings of the specified network device.
+-i=IFACE | Información del controlador. || Show driver information.
+-S=IFACE | Estadísticas de la interfaz. || Show adapter statistics.
+
+@@ iw
+es: configura y consulta interfaces WiFi
+tags: net system
+
+@@ iwconfig
+es: configura interfaces WiFi (herramienta antigua)
+tags: net system
+
+@@ wpa_supplicant
+es: gestiona la autenticación a redes WiFi (WPA/WPA2/WPA3)
+tags: net system
+
+@@ ssh-keyscan
+es: obtiene las claves públicas de servidores SSH
+tags: net

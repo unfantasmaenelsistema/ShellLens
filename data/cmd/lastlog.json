@@ -1,1 +1,1 @@
-{"n":"lastlog","s":{"en":"","es":"muestra el último inicio de sesión de cada usuario"},"st":"gnu","tg":["read"],"o":[]}
+{"n":"lastlog","s":{"en":"show each user's last login","es":"muestra el último inicio de sesión de cada usuario"},"st":"gnu","tg":["read"],"o":[]}

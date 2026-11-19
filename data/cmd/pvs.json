@@ -1,0 +1,1 @@
+{"n":"pvs","s":{"en":"show LVM physical volumes, groups and logical volumes","es":"muestra volúmenes físicos, grupos y volúmenes lógicos de LVM"},"al":["vgs","lvs","pvdisplay","vgdisplay","lvdisplay"],"st":"gnu","tg":["read"],"o":[]}

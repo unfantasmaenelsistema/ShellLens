@@ -18,7 +18,7 @@ pos: RUTA... | Archivo o directorio a listar. Sin argumento lista el directorio 
 -n --numeric-uid-gid | Como -l pero con UID y GID numéricos. || Like -l but with numeric UID and GID.
 -F --classify | Añade un indicador: / directorio, * ejecutable, @ enlace simbólico. || Append an indicator: / directory, * executable, @ symlink.
 -s --size | Muestra el tamaño de cada archivo en bloques. || Print the allocated size of each file in blocks.
---color=WHEN | Colorea la salida (always, auto o never). || Colorize output (always, auto or never).
+--color[=WHEN] | Colorea la salida (always, auto o never). || Colorize output (always, auto or never).
 -X | Ordena por extensión. || Sort by extension.
 -L --dereference | Muestra la información del destino de los enlaces simbólicos. || Show info of the file a symlink points to.
 -Z --context | Muestra el contexto de seguridad SELinux. || Show the SELinux security context.
@@ -40,7 +40,7 @@ pos: DESTINO@last | Dónde se copia: un archivo nuevo, o un directorio existente
 -s --symbolic-link | En vez de copiar, crea enlaces simbólicos. || Make symbolic links instead of copying.
 -t --target-directory=DIR | Copia todo dentro del directorio DIR (el destino va antes que los orígenes). || Copy everything into DIR (destination given before the sources).
 -T --no-target-directory | Trata el destino siempre como archivo, no como directorio. || Always treat the destination as a file, not a directory.
---backup | Hace copia de seguridad de cada archivo destino que se sobrescriba. || Make a backup of each existing destination file.
+--backup[=CONTROL] | Hace copia de seguridad de cada archivo destino que se sobrescriba. || Make a backup of each existing destination file.
 --preserve=ATTR_LIST | Conserva los atributos indicados (mode, ownership, timestamps, links, all…). || Preserve the listed attributes (mode, ownership, timestamps, links, all…).
 --parents | Usa la ruta completa del origen bajo el directorio destino. || Use the full source path under the destination directory.
 --reflink=WHEN | Copia «ligera» (copy-on-write) en sistemas que la admiten. || Lightweight copy-on-write on supporting filesystems.
@@ -57,7 +57,7 @@ pos: DESTINO@last | Nuevo nombre, o directorio de destino si hay varios orígene
 -v --verbose | Muestra qué se mueve. || Explain what is being done.
 -t --target-directory=DIR | Mueve todo dentro del directorio DIR. || Move everything into DIR.
 -T --no-target-directory | Trata el destino siempre como archivo. || Always treat the destination as a file.
---backup | Hace copia de seguridad de lo que se sobrescriba. || Make a backup of each overwritten file.
+--backup[=CONTROL] | Hace copia de seguridad de lo que se sobrescriba. || Make a backup of each overwritten file.
 
 @@ rm
 es: borra archivos y directorios (sin papelera: no se puede deshacer)
@@ -399,7 +399,8 @@ es: compara dos archivos (o directorios) línea a línea
 tags: read
 pos: ARCHIVO1 | Primer archivo (o directorio). || First file (or directory).
 pos: ARCHIVO2 | Segundo archivo (o directorio). || Second file (or directory).
--u -U=NUM --unified | Formato unificado (el de git: - líneas quitadas, + líneas añadidas). || Unified format (as in git: - removed lines, + added lines).
+-u --unified | Formato unificado (el de git: - líneas quitadas, + líneas añadidas). || Unified format (as in git: - removed lines, + added lines).
+-U=NUM | Formato unificado con NUM líneas de contexto. || Unified format with NUM lines of context.
 -r --recursive | Compara directorios recursivamente. || Recursively compare any subdirectories found.
 -q --brief | Solo indica si difieren, sin detallar. || Report only when files differ.
 -y --side-by-side | Muestra las dos versiones en columnas. || Output in two columns.
@@ -407,7 +408,7 @@ pos: ARCHIVO2 | Segundo archivo (o directorio). || Second file (or directory).
 -w --ignore-all-space | Ignora todos los espacios en blanco. || Ignore all white space.
 -B --ignore-blank-lines | Ignora las líneas vacías. || Ignore changes where lines are all blank.
 -N --new-file | Trata los archivos ausentes como vacíos. || Treat absent files as empty.
---color=WHEN | Colorea la salida. || Colorize the output.
+--color[=WHEN] | Colorea la salida. || Colorize the output.
 -c | Formato de contexto. || Output a context diff.
 
 @@ cmp

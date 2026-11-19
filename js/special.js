@@ -475,6 +475,19 @@
     },
   };
 
+
+  const RRTYPES = new Set(['A', 'AAAA', 'MX', 'NS', 'TXT', 'CNAME', 'SOA', 'PTR', 'SRV', 'CAA', 'ANY', 'AXFR', 'DNSKEY', 'DS', 'RRSIG', 'NAPTR', 'TLSA']);
+  REG.dig = {
+    post({ T, unit, operandToks }) {
+      for (const t of operandToks) {
+        const v = t.value || '';
+        if (v[0] === '@') t.items[0] = { label: T('servidor DNS', 'DNS server'), desc: T('Servidor al que se hace la consulta («' + v.slice(1) + '») en vez del configurado en el sistema.', 'Server to query ("' + v.slice(1) + '") instead of the system-configured one.') };
+        else if (RRTYPES.has(v.toUpperCase())) t.items[0] = { label: T('tipo de registro', 'record type'), desc: ({ A: T('direcciones IPv4', 'IPv4 addresses'), AAAA: T('direcciones IPv6', 'IPv6 addresses'), MX: T('servidores de correo', 'mail servers'), NS: T('servidores de nombres', 'name servers'), TXT: T('textos (SPF, DKIM, verificaciones…)', 'text records (SPF, DKIM, verifications…)'), CNAME: T('alias de otro nombre', 'alias of another name'), SOA: T('inicio de autoridad de la zona', 'zone start of authority'), PTR: T('nombre inverso de una IP', 'reverse name of an IP'), ANY: T('todos los tipos (muchos servidores ya no lo permiten)', 'all types (many servers no longer allow it)'), AXFR: T('transferencia de zona completa (intento de volcar toda la zona DNS)', 'full zone transfer (attempt to dump the whole DNS zone)') }[v.toUpperCase()] || T('Tipo de registro DNS a consultar.', 'DNS record type to query.')) };
+        else if (!t.items[0].label || t.items[0].label === 'NOMBRE' || t.items[0].label === 'argumento') t.items[0] = { label: T('nombre', 'name'), desc: T('Nombre de dominio (o IP con -x) que se consulta.', 'Domain name (or IP with -x) being queried.') };
+      }
+    },
+  };
+
   function get(name) { return REG[name] || null; }
   const api = { get, wrapper, explainRegex, explainMode, explainSed, REG, WRAP, SHELLS };
   if (isNode) module.exports = api; else root.CmdSpecial = api;

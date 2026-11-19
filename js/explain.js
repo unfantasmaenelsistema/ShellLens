@@ -125,6 +125,7 @@
       const style = rec.st || 'gnu';
       const optFlag = (wi) => wi.lit != null && wi.lit.length > 1 && wi.lit[0] === '-' && wi.lit !== '--';
       let bsdTried = false;
+      const m2 = { name: null };
       const stopFirst = !!(SPEC.WRAP[rec.n] || SPEC.SHELLS.has(rec.n) || rec.n === 'ssh' || rec.n === 'su' || rec.n === 'exec' || rec.n === 'eval');
       let stopped = false;
 
@@ -223,6 +224,11 @@
           }
           continue;
         }
+        // opciones con «+» (dig +short)
+        if (!endOpts && s && s[0] === '+' && s.length > 1) {
+          const hp = lookupForm(recs, s.includes('=') ? s.slice(0, s.indexOf('=')) : s);
+          if (hp) { tokens.push({ start: wi.start, end: wi.end, text: wi.raw, role: 'opt', items: [pushOpt(wi, s, hp.o)] }); hp.o.f.forEach(f => used.add(f)); continue; }
+        }
         // operando
         // ¿subcomando?
         if (!endOpts && !subName && s != null && (rec.sub || rec.sa || data.has(rec.n + '-' + s) || true)) {
@@ -240,8 +246,15 @@
             continue;
           }
         }
+        // segundo nivel: ip addr add, docker compose up…
+        if (!endOpts && subName && !m2.name && s != null && operands.length === 0 && subRec && subRec.sd && subRec.sd[s]) {
+          const d2 = subRec.sd[s];
+          m2.name = s;
+          tokens.push({ start: wi.start, end: wi.end, text: wi.raw, role: 'subcmd', items: [{ label: s, desc: sentence(lang === 'es' ? d2.es : (d2.en || d2.es)) }] });
+          continue;
+        }
         // bsdfirst: tar xzvf, ps aux
-        if (style === 'bsdfirst' && !bsdTried && operands.length === 0 && s && /^[A-Za-z]+$/.test(s) && tokens.every(t => t.role !== 'subcmd')) {
+        if (style === 'bsdfirst' && !bsdTried && i === 0 && operands.length === 0 && s && /^[A-Za-z]+$/.test(s) && tokens.every(t => t.role !== 'subcmd')) {
           bsdTried = true;
           const ok = [...s].every(c => lookupForm(recs, '~' + c) || lookupForm(recs, '-' + c));
           if (ok) {
@@ -267,7 +280,7 @@
         operands.push({ wi, idx: i });
         if (stopFirst && !(rec.n === 'ssh' && operands.length === 1) && !(SPEC.WRAP[rec.n] && SPEC.WRAP[rec.n].skip >= operands.length)) stopped = true;
       }
-      return { tokens, operands, used, subRec, subName, recs };
+      return { tokens, operands, used, subRec, subName, sub2: m2.name, recs };
     }
 
     /* ---------- expansiones dentro de una palabra ---------- */
@@ -486,7 +499,7 @@
       const m = await matchArgs(rec, wsUse, pctx);
       unit.matched = m;
       m.used.forEach(f => unit.opts.add(f));
-      unit.subName = m.subName; if (m.subName) { unit.display = unit.name + ' ' + m.subName; unit.subRec = m.subRec; if (m.subRec) { (m.subRec.tg || []).forEach(t => unit.effects.add(t)); unit.tips = (m.subRec.tip || []).concat(unit.tips); } }
+      unit.subName = m.subName; unit.sub2 = m.sub2; if (m.subName) { unit.display = unit.name + ' ' + m.subName + (m.sub2 ? ' ' + m.sub2 : ''); unit.subRec = m.subRec; if (m.subRec) { (m.subRec.tg || []).forEach(t => unit.effects.add(t)); unit.tips = (m.subRec.tip || []).concat(unit.tips); } }
       unit.tokens.push(...m.tokens);
       // roles de operandos
       const main = m.subRec || rec;

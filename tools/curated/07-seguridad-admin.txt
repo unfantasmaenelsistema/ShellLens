@@ -1,0 +1,679 @@
+# Seguridad ofensiva/defensiva y administración avanzada (usar solo con autorización)
+
+@@ hydra
+es: fuerza bruta de credenciales contra muchos servicios (SSH, FTP, HTTP, RDP…)
+tags: net
+pos: OBJETIVO | Equipo o servicio: ssh://10.0.0.5, ftp://host o «host servicio». || Host or service: ssh://10.0.0.5, ftp://host or "host service".
+-l=USUARIO | Un único usuario a probar. || A single login name to try.
+-L=ARCHIVO | Lista de usuarios. || File with logins to try.
+-p=CLAVE | Una única contraseña a probar. || A single password to try.
+-P=ARCHIVO | Diccionario de contraseñas (p. ej. rockyou.txt). || Password wordlist (e.g. rockyou.txt).
+-C=ARCHIVO | Lista «usuario:clave». || Colon-separated "login:pass" format.
+-t=N | Tareas (hilos) en paralelo. || Run N connects in parallel.
+-s=PUERTO | Puerto del servicio. || Service port if not default.
+-f | Se detiene al encontrar la primera credencial válida. || Exit after the first found login/password pair.
+-F | Como -f pero por equipo. || Exit after the first found pair per host.
+-V | Muestra cada intento. || Show login+pass for each attempt.
+-vV | Muy detallado. || Very verbose.
+-o=ARCHIVO | Guarda los resultados. || Write found logins/passwords to FILE.
+-e=nsr | Prueba también contraseña vacía (n), igual al usuario (s) e invertida (r). || Try null password (n), login as pass (s), reversed login (r).
+-M=ARCHIVO | Lista de objetivos. || File containing target servers.
+-w=SEGUNDOS | Tiempo de espera de respuesta. || Wait time for responses.
+-u | Recorre usuarios en el bucle interior (en vez de contraseñas). || Loop around users, not passwords.
+-I | Ignora el archivo de reanudación. || Ignore an existing restore file.
+-R | Reanuda una sesión interrumpida. || Restore a previous aborted/crashed session.
+-4 -6 | Fuerza IPv4 o IPv6. || Prefer IPv4 or IPv6.
+
+@@ john
+es: John the Ripper: crackea contraseñas a partir de hashes
+tags: read write
+--wordlist=ARCHIVO | Prueba las palabras de un diccionario. || Wordlist mode, read words from FILE.
+--format=FORMATO | Tipo de hash (sha512crypt, md5crypt, NT, raw-md5, bcrypt…). || Force hash type.
+--rules[=REGLAS] | Aplica reglas de mutación al diccionario. || Enable word mangling rules.
+--show | Muestra las contraseñas ya crackeadas. || Show cracked passwords.
+--incremental[=MODO] | Fuerza bruta por caracteres. || "Incremental" mode.
+--single | Usa los datos del usuario (nombre, etc.) como candidatos. || "Single crack" mode.
+--list=QUÉ | Lista formatos, reglas… (--list=formats). || List capabilities.
+--fork=N | Usa N procesos. || Fork N processes.
+--session=NOMBRE | Nombre de la sesión (para reanudar). || Give a new session the name.
+--restore[=NOMBRE] | Reanuda una sesión. || Continue an interrupted session.
+--pot=ARCHIVO | Archivo de contraseñas crackeadas. || Pot file to use.
+--stdin | Lee candidatos de la entrada estándar. || Read words from stdin.
+
+@@ hashcat
+es: crackeo de hashes acelerado por GPU
+tags: read write
+-m --hash-type=N | Tipo de hash por número (0 MD5, 100 SHA1, 1000 NTLM, 1800 sha512crypt, 3200 bcrypt…). || Hash type by number (0 MD5, 100 SHA1, 1000 NTLM, 1800 sha512crypt, 3200 bcrypt…).
+-a --attack-mode=N | Modo de ataque: 0 diccionario, 1 combinación, 3 fuerza bruta (máscara), 6/7 híbridos. || Attack mode: 0 straight, 1 combination, 3 brute-force (mask), 6/7 hybrid.
+-o --outfile=ARCHIVO | Guarda los resultados. || Define outfile for recovered hash.
+-r --rules-file=ARCHIVO | Archivo de reglas de mutación. || Multiple-Rule: Apply multiple rules.
+--show | Muestra los hashes ya crackeados. || Compare hashlist with potfile; show cracked hashes.
+--force | Ignora avisos (puede dar resultados incorrectos). || Ignore warnings.
+-O --optimized-kernel-enable | Usa kernels optimizados (limita la longitud de contraseña). || Enable optimized kernels (limits password length).
+-w --workload-profile=N | Perfil de carga 1-4. || Enable a specific workload profile.
+-1 --custom-charset1=CJTO | Juego de caracteres personalizado 1. || User-defined charset 1.
+--increment | Prueba longitudes crecientes en máscara. || Enable mask increment mode.
+-D --opencl-device-types=TIPOS | Tipos de dispositivo (1 CPU, 2 GPU). || OpenCL device-types to use.
+--status | Muestra el estado automáticamente. || Enable automatic update of the status screen.
+--username | Los hashes llevan «usuario:» delante. || Enable ignoring of usernames in hashfile.
+--potfile-disable | No usa el archivo pot. || Do not write potfile.
+
+@@ sqlmap
+es: detecta y explota inyecciones SQL automáticamente
+tags: net exec
+-u=URL | URL objetivo con parámetros (p. ej. "http://x/p.php?id=1"). || Target URL with parameters.
+-r=ARCHIVO | Petición HTTP guardada (de Burp) a probar. || Load HTTP request from a file.
+--data=DATOS | Cuerpo POST. || Data string to be sent through POST.
+-p=PARÁMETRO | Parámetro a probar. || Testable parameter(s).
+--cookie=COOKIE | Cookie a enviar. || HTTP Cookie header value.
+--dbs | Lista las bases de datos. || Enumerate DBMS databases.
+-D=BD | Base de datos a usar. || DBMS database to enumerate.
+-T=TABLA | Tabla a usar. || DBMS database table(s) to enumerate.
+-C=COLUMNA | Columna(s) a usar. || DBMS database table column(s) to enumerate.
+--tables | Lista las tablas. || Enumerate DBMS database tables.
+--columns | Lista las columnas. || Enumerate DBMS database table columns.
+--dump | VUELCA el contenido de las tablas (extrae datos). || Dump DBMS database table entries.
+--dump-all | Vuelca TODAS las bases de datos. || Dump all DBMS databases tables entries.
+--batch | Responde por defecto a todas las preguntas (no interactivo). || Never ask for user input, use the default behavior.
+--level=N | Nivel de pruebas 1-5. || Level of tests to perform.
+--risk=N | Riesgo de las pruebas 1-3 (3 puede modificar datos). || Risk of tests to perform.
+--os-shell | Intenta abrir una shell del sistema operativo en el servidor. || Prompt for an interactive operating system shell.
+--sql-shell | Shell SQL interactiva. || Prompt for an interactive SQL shell.
+--random-agent | User-Agent aleatorio. || Use randomly selected HTTP User-Agent header value.
+--tamper=SCRIPT | Scripts de evasión de filtros. || Use given script(s) for tampering injection data.
+--proxy=URL | Pasa por un proxy (p. ej. Burp). || Use a proxy to connect to the target URL.
+--technique=TÉCNICAS | Técnicas: B (booleana), E (error), U (UNION), S (apilada), T (tiempo). || SQL injection techniques to use.
+--threads=N | Hilos. || Max number of concurrent HTTP(s) requests.
+--current-user | Usuario actual de la base de datos. || Retrieve DBMS current user.
+--passwords | Extrae hashes de contraseñas. || Enumerate DBMS users password hashes.
+-v=N | Nivel de detalle 0-6. || Verbosity level.
+--forms | Analiza los formularios de la página. || Parse and test forms on target URL.
+--crawl=N | Rastrea el sitio hasta profundidad N. || Crawl the website starting from the target URL.
+
+@@ gobuster
+es: fuerza bruta de rutas web, subdominios, DNS y buckets
+tags: net
+> dir | Descubre directorios y archivos web. || Discover web directories and files.
+> dns | Descubre subdominios por DNS. || Discover subdomains via DNS.
+> vhost | Descubre hosts virtuales. || Discover virtual hosts.
+> fuzz | Fuzzing con la palabra FUZZ. || Fuzz using the FUZZ keyword.
+> s3 | Descubre buckets de S3. || Discover S3 buckets.
+-u --url=URL | URL objetivo. || The target URL.
+-w --wordlist=ARCHIVO | Diccionario de palabras. || Path to the wordlist.
+-x --extensions=LISTA | Extensiones a probar (php,txt,html). || File extension(s) to search for.
+-t --threads=N | Hilos. || Number of concurrent threads.
+-o --output=ARCHIVO | Guarda el resultado. || Output file to write results to.
+-s --status-codes=LISTA | Códigos HTTP que se consideran válidos. || Positive status codes.
+-b --status-codes-blacklist=LISTA | Códigos HTTP que se descartan. || Negative status codes.
+-k --no-tls-validation | No valida el certificado TLS. || Skip TLS certificate verification.
+-q --quiet | No muestra la cabecera ni el progreso. || Don't print the banner and other noise.
+-r --follow-redirect | Sigue redirecciones. || Follow redirects.
+-d --domain=DOMINIO | Con dns: dominio a probar. || With dns: the target domain.
+-e --expanded | Muestra la URL completa. || Expanded mode, print full URLs.
+-a --useragent=TEXTO | User-Agent. || Set the User-Agent string.
+-c --cookies=COOKIES | Cookies a enviar. || Cookies to use for the requests.
+-H --headers=CABECERA | Cabecera a enviar. || Specify HTTP headers.
+--delay=TIEMPO | Espera entre peticiones. || Time each thread waits between requests.
+--timeout=TIEMPO | Tiempo de espera HTTP. || HTTP Timeout.
+-p --proxy=URL | Proxy. || Proxy to use.
+
+@@ ffuf
+es: fuzzer web muy rápido (rutas, parámetros, cabeceras, subdominios)
+tags: net
+-u=URL | URL con la palabra FUZZ donde se inyecta cada entrada. || URL containing the FUZZ keyword where each entry is injected.
+-w=DICCIONARIO[:CLAVE] | Diccionario (opcionalmente con palabra clave distinta de FUZZ). || Wordlist (optionally with a keyword other than FUZZ).
+-H=CABECERA | Cabecera (admite FUZZ). || Header "Name: Value" (supports FUZZ).
+-X=MÉTODO | Método HTTP. || HTTP method to use.
+-d=DATOS | Cuerpo de la petición. || POST data.
+-mc=CÓDIGOS | Muestra solo estos códigos HTTP. || Match HTTP status codes.
+-fc=CÓDIGOS | Oculta estos códigos HTTP. || Filter HTTP status codes.
+-fs=TAMAÑO | Oculta respuestas de este tamaño. || Filter HTTP response size.
+-fw=N | Oculta respuestas con N palabras. || Filter by amount of words in response.
+-fl=N | Oculta respuestas con N líneas. || Filter by amount of lines in response.
+-ms=TAMAÑO | Muestra solo respuestas de este tamaño. || Match HTTP response size.
+-t=N | Hilos. || Number of concurrent threads.
+-p=SEGUNDOS | Pausa entre peticiones. || Seconds of delay between requests.
+-o=ARCHIVO | Guarda el resultado. || Write output to file.
+-of=FORMATO | Formato de salida (json, csv, html…). || Output file format.
+-e=EXTENSIONES | Extensiones a añadir a cada palabra. || Comma separated list of extensions.
+-recursion | Recorre recursivamente lo encontrado. || Scan recursively.
+-rate=N | Límite de peticiones por segundo. || Rate of requests per second.
+-ac | Calibra filtros automáticamente. || Automatically calibrate filtering options.
+-c | Colorea la salida. || Colorize output.
+-s | Modo silencioso. || Do not print additional information.
+-k | No valida TLS. || TLS identity verification: skip.
+-r | Sigue redirecciones. || Follow redirects.
+-timeout=SEG | Tiempo de espera. || HTTP request timeout in seconds.
+
+@@ nikto
+es: escáner de vulnerabilidades de servidores web
+tags: net
+-h --host=OBJETIVO | Servidor o URL a escanear. || Target host/URL.
+-p --port=PUERTOS | Puertos. || TCP port(s) to target.
+-ssl | Fuerza SSL/TLS. || Force ssl mode on port.
+-o --output=ARCHIVO | Guarda el informe. || Write output to this file.
+-Format=FORMATO | Formato del informe (htm, csv, txt, xml). || Save file format.
+-Tuning=TIPOS | Tipos de pruebas a ejecutar. || Scan tuning.
+-evasion=TÉCNICAS | Técnicas de evasión de IDS. || Encoding technique.
+-useragent=TEXTO | User-Agent. || Override the default useragent.
+-id=USUARIO:CLAVE | Credenciales HTTP. || Host authentication to use.
+
+@@ wpscan
+es: escáner de seguridad de WordPress (versión, plugins, temas, usuarios)
+tags: net
+--url=URL | Sitio WordPress a escanear. || The URL of the blog to scan.
+-e --enumerate=OPCIONES | Qué enumerar: u (usuarios), p (plugins), vp (plugins vulnerables), t (temas), ap… || What to enumerate: u (users), p (plugins), vp (vulnerable plugins), t (themes), ap…
+--api-token=TOKEN | Token de la API de WPScan (vulnerabilidades). || The WPScan API Token.
+-P --passwords=ARCHIVO | Diccionario para fuerza bruta de contraseñas. || List of passwords to use during the password attack.
+-U --usernames=LISTA | Usuarios para fuerza bruta. || List of usernames to use during the password attack.
+--random-user-agent --rua | User-Agent aleatorio. || Return a random user-agent.
+--disable-tls-checks | No valida TLS. || Disables SSL/TLS certificate verification.
+
+@@ msfvenom
+es: genera cargas útiles (payloads) de Metasploit en distintos formatos
+tags: write
+-p --payload=PAYLOAD | Carga útil (p. ej. windows/x64/meterpreter/reverse_tcp). || Payload to use (e.g. windows/x64/meterpreter/reverse_tcp).
+-f --format=FORMATO | Formato de salida (exe, elf, raw, python, c…). || Output format (exe, elf, raw, python, c…).
+-o --out=ARCHIVO | Guarda el resultado en un archivo. || Save the payload to a file.
+-e --encoder=CODIFICADOR | Codificador para ofuscar. || The encoder to use.
+-i --iterations=N | Iteraciones del codificador. || The number of times to encode the payload.
+-b --bad-chars=CARACTERES | Caracteres a evitar. || The list of characters to avoid.
+-a --arch=ARQ | Arquitectura. || The architecture to use.
+--platform=PLATAFORMA | Plataforma. || The platform of the payload.
+-l --list=TIPO | Lista payloads, encoders, formats… || List all modules for type.
+-x --template=ARCHIVO | Usa un ejecutable como plantilla. || Specify a custom executable file to use as a template.
+-k --keep | Conserva el comportamiento de la plantilla. || Preserve the template behavior.
+
+@@ msfconsole
+es: consola del framework de explotación Metasploit
+tags: net exec
+-q --quiet | Sin banner. || Do not print the banner on startup.
+-x --execute-command=COMANDO | Ejecuta comandos de msfconsole al arrancar. || Execute the specified console commands.
+-r --resource=ARCHIVO | Ejecuta un script de recursos. || Execute the specified resource file.
+
+@@ searchsploit
+es: busca exploits en la base local de Exploit-DB
+tags: read
+-m --mirror=ID | Copia un exploit al directorio actual. || Mirror (aka copies) an exploit to the current working directory.
+-x --examine=ID | Muestra el código de un exploit. || Examine (aka opens) the exploit using $PAGER.
+-w --www | Muestra la URL de Exploit-DB. || Show URLs to Exploit-DB.
+-t --title | Busca solo en el título. || Search just the exploit title.
+-e --exact | Coincidencia exacta. || Perform an exact match on exploit title.
+-j --json | Salida en JSON. || Show result in JSON format.
+-u --update | Actualiza la base. || Check for and install any exploitdb package updates.
+--nmap=XML | Busca a partir de un XML de nmap. || Checks all results in Nmap's XML output with service version.
+
+@@ smbclient
+es: cliente SMB/CIFS tipo FTP para recursos compartidos de Windows
+tags: net read write
+-L --list=HOST | Lista los recursos compartidos del servidor. || List the shares available on the server.
+-U --user=USUARIO[%CLAVE] | Usuario (y contraseña, ¡visible!). || Username (and password, visible!).
+-N --no-pass | Sin contraseña (sesión nula/anónima). || Don't ask for a password.
+-c --command=ÓRDENES | Ejecuta órdenes y sale. || Execute semicolon separated commands.
+-W --workgroup=GRUPO | Grupo de trabajo o dominio. || Set the SMB domain of the username.
+-p --port=PUERTO | Puerto. || Port to connect to.
+-m --max-protocol=PROTO | Protocolo SMB máximo. || Set the max protocol level.
+
+@@ enum4linux enum4linux-ng
+es: enumera información de equipos Windows/Samba (usuarios, grupos, recursos compartidos)
+tags: net
+-a | Toda la enumeración simple. || Do all simple enumeration.
+-U | Lista usuarios. || Get userlist.
+-S | Lista recursos compartidos. || Get sharelist.
+-P | Política de contraseñas. || Get password policy information.
+-G | Grupos y miembros. || Get group and member list.
+-u=USUARIO | Usuario. || Specify username to use.
+-p=CLAVE | Contraseña. || Specify password to use.
+-v | Detallado. || Verbose.
+
+@@ crackmapexec netexec nxc
+es: enumeración y ataque de redes Windows/Active Directory (SMB, WinRM, LDAP, SSH…)
+tags: net
+-u=USUARIO | Usuario(s). || Username(s) or file(s) containing usernames.
+-p=CLAVE | Contraseña(s). || Password(s) or file(s) containing passwords.
+-H --hash=HASH | Autenticación pass-the-hash. || NTLM hash(es) or file(s) containing NTLM hashes.
+-d=DOMINIO | Dominio. || Domain to authenticate to.
+--shares | Lista los recursos compartidos. || Enumerate shares and access.
+--users | Lista usuarios. || Enumerate domain users.
+--pass-pol | Política de contraseñas. || Dump password policy.
+--local-auth | Autenticación local, no de dominio. || Authenticate locally to each target.
+-x=COMANDO | Ejecuta un comando de cmd. || Execute the specified command.
+-X=COMANDO | Ejecuta un comando de PowerShell. || Execute the specified powershell command.
+--continue-on-success | Sigue tras un acierto. || Continue authentication attempts even after successes.
+
+@@ aircrack-ng
+es: crackea claves WEP/WPA2-PSK a partir de capturas de handshake
+tags: read
+-w=DICCIONARIO | Diccionario de contraseñas. || Path to a wordlist or "-" without quotes for standard in.
+-b --bssid=MAC | Filtra por la MAC del punto de acceso. || Select the target network based on the access point's MAC address.
+-e --essid=NOMBRE | Filtra por nombre de red. || Select the target network based on the ESSID.
+-a=TIPO | Fuerza el tipo de ataque (1 WEP, 2 WPA). || Force the attack mode, 1 or wep for WEP and 2 or wpa for WPA-PSK.
+-l=ARCHIVO | Guarda la clave encontrada. || Write the key into a file.
+-p=N | Núcleos de CPU. || Set the number of CPU to use.
+
+@@ airodump-ng
+es: captura paquetes WiFi y lista redes y clientes cercanos
+tags: net read priv
+-c --channel=CANAL | Canal a vigilar. || Indicate the channel(s) to listen to.
+--bssid=MAC | Filtra por punto de acceso. || Filter APs by BSSID.
+-w --write=PREFIJO | Guarda la captura con ese prefijo. || Dump file prefix.
+--band=BANDA | Bandas (a, b, g). || Band on which airodump-ng should hop.
+--essid=NOMBRE | Filtra por nombre de red. || Filter APs by ESSID.
+--output-format=FORMATOS | Formatos de salida (pcap, csv…). || Define the output format.
+
+@@ aireplay-ng
+es: inyecta tráfico WiFi: desautenticaciones, reinyección y otros ataques
+tags: net priv
+-0 --deauth=N | Desautenticación: expulsa clientes de la red (N paquetes; 0 = sin fin). || Deauthentication: kicks clients off the network (N packets; 0 = endless).
+-1 --fakeauth=N | Falsa autenticación. || Fake authentication with the AP.
+-3 --arpreplay | Reinyección de peticiones ARP. || Standard ARP-request replay.
+-a=MAC | MAC del punto de acceso. || Set Access Point MAC address.
+-c=MAC | MAC del cliente. || Set destination MAC address.
+-e=NOMBRE | Nombre de la red. || Set target AP SSID.
+
+@@ airmon-ng
+es: pone la tarjeta WiFi en modo monitor (y la devuelve al modo normal)
+tags: system priv
+> start | Activa el modo monitor. || Enable monitor mode.
+> stop | Desactiva el modo monitor. || Disable monitor mode.
+> check | Detecta procesos que interfieren. || Check for interfering processes.
+
+@@ tshark
+es: versión de línea de comandos de Wireshark: captura y analiza protocolos
+tags: net read priv
+-i=INTERFAZ | Interfaz de captura. || Name or idx of interface.
+-r=ARCHIVO | Lee un archivo de captura. || Read packet data from infile.
+-w=ARCHIVO | Guarda la captura. || Write raw packet data to outfile.
+-f=FILTRO | Filtro de captura (BPF). || Set the capture filter expression.
+-Y=FILTRO | Filtro de visualización de Wireshark (http.request, ip.addr==…). || Cause the specified filter to be applied before printing a decoded form of packets.
+-T=FORMATO | Formato de salida (fields, json, text…). || Set the format of the output when viewing decoded packet data.
+-e=CAMPO | Con -T fields: campo a mostrar. || Add a field to the list of fields to display.
+-c=N | Se detiene tras N paquetes. || Set the maximum number of packets to read.
+-q | Silencioso. || Be quiet.
+-z=ESTADÍSTICA | Genera estadísticas (conv,tcp; io,phs…). || Collect statistics.
+-V | Muestra el árbol de detalle de cada paquete. || Cause tshark to print a view of the packet details.
+-n | No resuelve nombres. || Disable network object name resolution.
+-D | Lista interfaces. || Print a list of the interfaces on which TShark can capture.
+
+@@ ettercap bettercap
+es: suite de ataques «hombre en el medio» (ARP spoofing, sniffing, inyección)
+tags: net priv
+
+@@ responder
+es: envenena peticiones LLMNR/NBT-NS/mDNS para capturar hashes de Windows
+tags: net priv
+-I --interface=IFACE | Interfaz de red. || Network interface to use.
+-A --analyze | Solo analiza, sin envenenar. || Analyze mode: see requests without poisoning.
+-w --wpad | Servidor WPAD. || Start the WPAD rogue proxy server.
+-d --dhcp | Respuestas DHCP. || Enable answers for DHCP broadcast requests.
+
+@@ binwalk
+es: analiza y extrae archivos incrustados y firmas de firmware o imágenes
+tags: read write
+-e --extract | Extrae los archivos encontrados. || Automatically extract known file types.
+-M --matryoshka | Extracción recursiva. || Recursively scan extracted files.
+-E --entropy | Análisis de entropía (detecta cifrado/compresión). || Plot file entropy.
+-y --include=FIRMA | Solo firmas que coincidan. || Only search for matches that have this signature.
+-B --signature | Busca firmas de archivos. || Scan target file(s) for common file signatures.
+-A --opcodes | Busca instrucciones de CPU. || Scan target file(s) for common executable opcode signatures.
+-C --directory=DIR | Directorio de extracción. || Extract files/folders to a custom directory.
+-D --dd=TIPO | Extrae por tipo. || Extract signatures by type and run extension.
+
+@@ exiftool
+es: lee y edita metadatos de imágenes, documentos y otros archivos
+tags: read write
+-all= | Borra TODOS los metadatos. || Delete all metadata.
+-a --duplicates | Muestra etiquetas duplicadas. || Allow duplicate tags to be extracted.
+-g --groupHeadings | Agrupa por familia. || Organize output by tag group.
+-j --json | Salida JSON. || Use JSON formatting for output.
+-r | Recursivo. || Recursively process files in subdirectories.
+-overwrite_original | No deja copia _original al modificar. || Overwrite the original file instead of making a backup.
+-gps:all | Muestra las etiquetas GPS. || Show all GPS tags.
+-s | Nombres de etiquetas cortos. || Short output format.
+
+@@ steghide
+es: oculta datos dentro de imágenes y audio (esteganografía) o los extrae
+tags: read write
+> embed | Oculta un archivo dentro de una imagen. || Hide a file inside an image.
+> extract | Extrae datos ocultos. || Extract hidden data.
+> info | Muestra información de un archivo. || Show file information.
+-cf --coverfile=ARCHIVO | Archivo «portador» (la imagen). || Cover file.
+-ef --embedfile=ARCHIVO | Archivo que se oculta. || Embed file.
+-sf --stegofile=ARCHIVO | Archivo con datos ocultos. || Stego file.
+-p --passphrase=FRASE | Contraseña (¡visible!). || Passphrase.
+-xf --extractfile=ARCHIVO | Dónde guardar lo extraído. || Extract file name.
+-f --force | Sobrescribe sin preguntar. || Overwrite existing files.
+
+@@ hashid hash-identifier
+es: identifica el tipo de un hash (MD5, SHA-1, bcrypt…)
+tags: read
+-m --mode | Muestra el modo de hashcat. || Include corresponding hashcat mode.
+-j --john | Muestra el formato de John. || Include corresponding JohnTheRipper format.
+
+@@ volatility vol vol3 volatility3
+es: análisis forense de volcados de memoria RAM
+tags: read
+-f --filename=ARCHIVO | Volcado de memoria a analizar. || The memory image to analyse.
+-r --renderer=FORMATO | Formato de salida (quick, csv, json, pretty). || Determines how to render the output.
+-o --output-dir=DIR | Directorio de salida. || Directory in which to output any generated files.
+
+@@ theHarvester
+es: recoge correos, subdominios y nombres de fuentes públicas (OSINT)
+tags: net
+-d --domain=DOMINIO | Dominio objetivo. || Company name or domain to search.
+-b --source=FUENTES | Fuentes (google, bing, crtsh, all…). || Source: baidu, bing, google, crtsh…
+-l --limit=N | Límite de resultados. || Limit the number of search results.
+-f --filename=ARCHIVO | Guarda el informe (XML y JSON). || Save the results to an XML and JSON file.
+
+@@ wfuzz
+es: fuzzer web: sustituye FUZZ por cada entrada de un diccionario
+tags: net
+-w=DICCIONARIO | Diccionario de payloads. || Specify a wordlist file.
+-u=URL | URL con FUZZ. || Specify a URL for the request.
+-c | Salida en color. || Output with colors.
+--hc=CÓDIGOS | Oculta estos códigos HTTP. || Hide responses with the specified code.
+--hl=N | Oculta respuestas con N líneas. || Hide responses with the specified number of lines.
+-z=PAYLOAD | Define un payload. || Specify a payload for each FUZZ keyword.
+-d=DATOS | Cuerpo POST. || Use post data.
+-H=CABECERA | Cabecera. || Use header.
+-t=N | Hilos. || Specify the number of concurrent connections.
+
+@@ dirb dirbuster
+es: fuerza bruta de directorios y archivos web con diccionario
+tags: net
+-a=TEXTO | User-Agent. || Specify your custom USER_AGENT.
+-o=ARCHIVO | Guarda la salida. || Save output to disk.
+-X=EXTENSIONES | Extensiones a probar. || Append each word with this extensions.
+-r | No busca recursivamente. || Don't search recursively.
+-S | Modo silencioso. || Silent Mode.
+
+@@ cewl
+es: genera un diccionario a partir de las palabras de una web
+tags: net write
+-d --depth=N | Profundidad de rastreo. || Depth to spider to.
+-m --min_word_length=N | Longitud mínima de palabra. || Minimum word length.
+-w --write=ARCHIVO | Guarda el diccionario. || Write the output to the file.
+-e --email | Incluye correos encontrados. || Include email addresses.
+
+@@ crunch
+es: genera diccionarios de contraseñas por patrón o combinación de caracteres
+tags: write
+-o=ARCHIVO | Guarda en un archivo (puede ocupar muchísimo). || Write output to file.
+-t=PATRÓN | Patrón: @ minúscula, , mayúscula, % número, ^ símbolo. || Specifies a pattern: @ lowercase, , uppercase, % number, ^ symbol.
+-s=TEXTO | Empieza por este texto. || Specifies a starting string.
+
+@@ proxychains proxychains4
+es: fuerza a un programa a usar proxies (SOCKS/HTTP/Tor) sin que lo sepa
+tags: net exec
+-q | Silencioso. || Quiet mode.
+-f=ARCHIVO | Archivo de configuración. || Read configuration from file.
+
+@@ fail2ban-client
+es: controla Fail2ban, que bloquea IP tras intentos fallidos
+tags: system priv
+> status | Estado general o de una «jail». || Overall or per-jail status.
+> reload | Recarga la configuración. || Reload the configuration.
+> set | Cambia parámetros (set sshd unbanip IP…). || Change parameters (set sshd unbanip IP…).
+
+@@ lynis
+es: auditoría de seguridad de sistemas Linux
+tags: read
+> audit | Ejecuta la auditoría (audit system). || Run the audit (audit system).
+
+@@ chkrootkit rkhunter
+es: busca rootkits y signos de compromiso en el sistema
+tags: read
+-c --check | Realiza las comprobaciones (rkhunter). || Check the local system.
+--sk --skip-keypress | No espera pulsaciones de tecla (rkhunter). || Don't wait for a keypress after each test.
+
+@@ clamscan clamdscan
+es: antivirus ClamAV: analiza archivos y directorios
+tags: read
+-r --recursive | Recursivo. || Scan subdirectories recursively.
+-i --infected | Muestra solo los infectados. || Only print infected files.
+--remove | BORRA los archivos infectados. || Remove infected files. BE CAREFUL.
+--move=DIR | Mueve los infectados a un directorio. || Move infected files into DIRECTORY.
+-l --log=ARCHIVO | Escribe un registro. || Save scan report to FILE.
+
+@@ lsattr
+es: muestra los atributos especiales de archivos (inmutable, solo añadir…)
+tags: read
+
+@@ chattr
+es: cambia atributos especiales de archivos (+i = inmutable: ni root puede modificarlo)
+tags: write priv
+-R | Recursivo. || Recursively change attributes of directories and their contents.
+
+@@ getfacl
+es: muestra las listas de control de acceso (ACL) de un archivo
+tags: read
+
+@@ setfacl
+es: define listas de control de acceso (permisos por usuario o grupo concretos)
+tags: write priv
+-m --modify=ACL | Añade o modifica entradas (u:usuario:rwx). || Modify the ACL of a file or directory.
+-x --remove=ACL | Quita entradas. || Remove entries from the ACL.
+-b --remove-all | Quita TODAS las ACL. || Remove all extended ACL entries.
+-R --recursive | Recursivo. || Apply operations to all files and directories recursively.
+-d --default | Opera sobre la ACL por defecto de un directorio. || All operations apply to the default ACL.
+
+@@ getent
+es: consulta bases de datos del sistema (passwd, group, hosts…) por NSS
+tags: read
+
+@@ loginctl
+es: gestiona sesiones y usuarios de systemd-logind
+tags: system
+
+@@ timedatectl
+es: consulta o cambia la fecha, hora y zona horaria del sistema
+tags: system priv
+
+@@ smartctl
+es: consulta el estado SMART (salud) de discos duros y SSD
+tags: read
+-a --all | Toda la información SMART. || Prints all SMART information about the disk.
+-H --health | Resultado de la comprobación de salud. || Prints the health status of the device.
+-t --test=TIPO | Lanza una prueba (short, long). || Executes tests in either captive or off-line mode.
+-i --info | Datos del dispositivo. || Prints the device model number, serial number, firmware version.
+
+@@ hdparm
+es: lee o ajusta parámetros de discos (también mide la velocidad)
+tags: system priv
+-I | Información detallada del disco. || Request identification info directly from the drive.
+-t | Mide la velocidad de lectura del disco. || Perform timings of device reads.
+-T | Mide la velocidad de la caché. || Perform timings of cache reads.
+
+@@ mdadm
+es: gestiona RAID por software en Linux
+tags: system priv
+--create | CREA una matriz RAID (¡destruye los datos de los discos que uses!). || CREATE a RAID array (destroys data on the disks you use!).
+--assemble | Ensambla una matriz existente. || Assemble the components of a previously created array.
+--detail | Detalles de una matriz. || Print details of one or more md devices.
+--stop | Detiene una matriz. || Deactivate array.
+--fail | Marca un disco como fallido. || Mark listed devices as faulty.
+--remove | Quita un disco. || Remove listed devices.
+--add | Añade un disco. || Add listed devices.
+--zero-superblock | Borra los metadatos RAID del disco. || Zero the superblock on the given devices.
+-l --level=N | Nivel RAID (0, 1, 5, 6, 10). || Set RAID level.
+-n --raid-devices=N | Número de discos activos. || Specify the number of active devices.
+-D | Atajo de --detail. || Shorthand for --detail.
+
+@@ pvcreate
+es: prepara un disco o partición como volumen físico de LVM
+tags: system priv
+
+@@ vgcreate
+es: crea un grupo de volúmenes LVM a partir de volúmenes físicos
+tags: system priv
+
+@@ lvcreate
+es: crea un volumen lógico LVM
+tags: system priv
+-L --size=TAMAÑO | Tamaño del volumen (10G, 500M). || Gives the size to allocate for the new logical volume.
+-l --extents=N | Tamaño en extensiones (o %FREE, %VG). || Gives the number of logical extents to allocate.
+-n --name=NOMBRE | Nombre del volumen. || The name for the new logical volume.
+-s --snapshot | Crea una instantánea (snapshot). || Create a snapshot.
+
+@@ lvextend
+es: amplía un volumen lógico LVM
+tags: system priv
+-L --size=TAMAÑO | Nuevo tamaño (o +5G para añadir). || Specify the new size (or +5G to add).
+-r --resizefs | Amplía también el sistema de archivos. || Resize underlying filesystem together with the LV.
+
+@@ lvremove vgremove pvremove
+es: ELIMINA un volumen lógico, un grupo o un volumen físico de LVM (destruye los datos)
+tags: system priv delete
+-f --force | No pide confirmación. || Override various checks, confirmations and protections.
+
+@@ pvs vgs lvs pvdisplay vgdisplay lvdisplay
+es: muestra volúmenes físicos, grupos y volúmenes lógicos de LVM
+tags: read
+
+@@ cryptsetup
+es: gestiona discos cifrados LUKS y dm-crypt
+tags: system priv
+> luksFormat | FORMATEA un dispositivo con LUKS (destruye los datos). || FORMAT a device with LUKS (destroys data).
+> luksOpen open | Abre (descifra) el dispositivo con su contraseña. || Open (decrypt) the device with its passphrase.
+> luksClose close | Cierra el dispositivo descifrado. || Close the decrypted device.
+> luksAddKey | Añade una clave o contraseña. || Add a key or passphrase.
+> luksRemoveKey | Quita una clave. || Remove a key.
+> luksErase | BORRA todas las claves (los datos quedan irrecuperables). || ERASE all keys (data becomes unrecoverable).
+> luksDump | Muestra la cabecera LUKS. || Dump the LUKS header.
+> status | Estado de un dispositivo. || Device status.
+-v --verbose | Detallado. || Print more information on command execution.
+-y --verify-passphrase | Pide la contraseña dos veces. || Query for passphrase twice.
+
+@@ swapon
+es: activa el espacio de intercambio (swap)
+tags: system priv
+
+@@ swapoff
+es: desactiva el espacio de intercambio (swap)
+tags: system priv
+
+@@ mkswap
+es: prepara una partición o archivo como swap (FORMATEA)
+tags: system priv
+
+@@ certbot
+es: obtiene y renueva certificados HTTPS gratuitos de Let's Encrypt
+tags: net system priv
+> certonly | Solo obtiene el certificado, sin tocar el servidor web. || Obtain a certificate only, without touching the web server.
+> renew | Renueva los certificados a punto de caducar. || Renew certificates close to expiry.
+> certificates | Lista los certificados gestionados. || List managed certificates.
+> delete | BORRA un certificado. || DELETE a certificate.
+--nginx | Usa el plugin de nginx. || Use the nginx plugin.
+--apache | Usa el plugin de Apache. || Use the Apache plugin.
+-d --domains=LISTA | Dominios del certificado. || Domain names to apply.
+--dry-run | Prueba la renovación sin guardar nada. || Test a certificate renewal without saving any certificates.
+--standalone | Usa un servidor web propio temporal. || Run a standalone webserver for authentication.
+-m --email=CORREO | Correo de contacto. || Email used for registration and recovery contact.
+--agree-tos | Acepta los términos de servicio. || Agree to the ACME server's Subscriber Agreement.
+-n --non-interactive | No hace preguntas. || Run without ever asking for user input.
+
+@@ nginx
+es: servidor web y proxy inverso nginx
+tags: net system priv
+-t | Comprueba la sintaxis de la configuración y sale. || Test the configuration file and exit.
+-T | Como -t pero además muestra la configuración. || Same as -t but also dump the configuration.
+-s=SEÑAL | Envía una señal al proceso maestro: reload, reopen, stop, quit. || Send a signal to the master process: reload, reopen, stop, quit.
+-c=ARCHIVO | Usa otro archivo de configuración. || Use an alternative configuration file.
+-v | Muestra la versión. || Print version.
+-V | Versión y opciones de compilación. || Print version, compiler version and configure parameters.
+
+@@ apachectl apache2ctl
+es: controla el servidor web Apache
+tags: net system priv
+> start | Inicia Apache. || Start Apache.
+> stop | Detiene Apache. || Stop Apache.
+> restart | Reinicia Apache. || Restart Apache.
+> graceful | Recarga sin cortar conexiones activas. || Reload without dropping active connections.
+> configtest | Comprueba la sintaxis de la configuración. || Check configuration syntax.
+
+@@ mysql mariadb
+es: cliente de línea de comandos de MySQL/MariaDB
+tags: net read write
+-u --user=USUARIO | Usuario. || User name to use when connecting.
+-p --password[=CLAVE] | Contraseña: sin valor la pide; con -pCLAVE queda visible en el historial. || Password: without value it prompts; -pPASS stays visible in history.
+-h --host=HOST | Servidor. || Connect to host.
+-P --port=PUERTO | Puerto. || TCP/IP port number to use for the connection.
+-e --execute=SENTENCIA | Ejecuta una sentencia SQL y sale. || Execute the statement and quit.
+-D --database=BD | Base de datos a usar. || The database to use.
+-N --skip-column-names | Sin nombres de columna. || Do not write column names in results.
+-B --batch | Salida separada por tabuladores. || Print results using tab as the column separator.
+
+@@ mysqldump
+es: vuelca bases de datos MySQL/MariaDB a un archivo SQL (copia de seguridad)
+tags: net read
+-u --user=USUARIO | Usuario. || User for login.
+-p --password[=CLAVE] | Contraseña. || Password to use when connecting to server.
+--all-databases -A | Vuelca todas las bases de datos. || Dump all tables in all databases.
+--single-transaction | Copia consistente sin bloquear tablas (InnoDB). || Issue a BEGIN SQL statement before dumping data from the server.
+--routines -R | Incluye procedimientos y funciones. || Include stored routines.
+--no-data -d | Solo la estructura, sin datos. || Do not write any table row information.
+-h --host=HOST | Servidor. || Connect to the MySQL server on the given host.
+
+@@ psql
+es: cliente interactivo de PostgreSQL
+tags: net read write
+-U --username=USUARIO | Usuario. || Connect to the database as the user.
+-h --host=HOST | Servidor. || Specifies the host name of the machine on which the server is running.
+-p --port=PUERTO | Puerto. || Specifies the TCP port.
+-d --dbname=BD | Base de datos. || Specifies the name of the database to connect to.
+-c --command=SENTENCIA | Ejecuta una orden y sale. || Specifies that psql is to execute the given command string.
+-f --file=ARCHIVO | Ejecuta un archivo de órdenes. || Read commands from the file.
+-l --list | Lista las bases de datos. || List all available databases, then exit.
+-W --password | Fuerza a pedir la contraseña. || Force psql to prompt for a password.
+-t --tuples-only | Sin cabeceras ni pie. || Turn off printing of column names and result row count footers.
+
+@@ sqlite3
+es: cliente de línea de comandos de SQLite
+tags: read write
+
+@@ redis-cli
+es: cliente de línea de comandos de Redis
+tags: net read write
+-h=HOST | Servidor. || Server hostname.
+-p=PUERTO | Puerto. || Server port.
+-a=CLAVE | Contraseña (¡visible!). || Password to use when connecting to the server.
+--scan | Recorre claves con SCAN. || List all keys using the SCAN command.
+tip: Un Redis expuesto sin contraseña permite leer y escribir todos los datos (y a veces ejecutar código).
+
+@@ jq
+es: procesa y filtra JSON desde la línea de comandos
+tags: read
+-r --raw-output | Imprime cadenas sin comillas. || Output raw strings, not JSON texts.
+-c --compact-output | Salida JSON en una sola línea. || Compact instead of pretty-printed output.
+-e --exit-status | El código de salida refleja el último resultado. || Set the exit status to 0 if the last output was neither false nor null.
+-s --slurp | Lee toda la entrada como un array. || Read all inputs into an array.
+-n --null-input | No lee entrada. || Don't read any input at all.
+-S --sort-keys | Ordena las claves. || Output the fields of each object with the keys in sorted order.
+--arg=NOMBRE | Define una variable. || Pass a value to the jq program as a predefined variable.
+
+@@ ffmpeg
+es: convierte, recorta y procesa audio y vídeo
+tags: read write
+-i=ENTRADA | Archivo de entrada. || Input file URL.
+-c --codec=CÓDIGO | Códec (copy = sin recodificar). || Select an encoder or decoder (copy = no re-encoding).
+-vf=FILTRO | Filtros de vídeo (scale, crop…). || Create the filtergraph specified by filtergraph.
+-ss=TIEMPO | Empieza en ese instante. || Seek to the given time position.
+-t=DURACIÓN | Duración a procesar. || Limit the duration of data read/written.
+-an | Sin audio. || Disable audio.
+-vn | Sin vídeo. || Disable video.
+-y | Sobrescribe la salida sin preguntar. || Overwrite output files without asking.
+-n | No sobrescribe nunca. || Do not overwrite output files.
+-b:v=BITRATE | Tasa de bits del vídeo. || Video bitrate.
+-r=FPS | Fotogramas por segundo. || Set frame rate.
+
+@@ ldconfig
+es: actualiza la caché de bibliotecas dinámicas del sistema
+tags: system priv
+
+@@ update-alternatives
+es: gestiona los enlaces simbólicos «alternativos» (qué python, java, editor se usa)
+tags: system priv
+--config=NOMBRE | Elige interactivamente la alternativa. || Show available alternatives for a name and let the user select interactively.
+--set=NOMBRE | Fija una alternativa. || Set the program as alternative for name.
+--install | Registra una alternativa nueva. || Add a group of alternatives to the system.
+--display=NOMBRE | Muestra la información. || Display information about the link group.
