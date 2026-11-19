@@ -1,0 +1,1 @@
+{"n":"tc-simple","s":{"en":"basic example action"},"al":["simple"],"syn":"tc ... action simple [ sdata STRING ] [ index INDEX ] [ CONTROL ] ⏎ CONTROL := { reclassify | pipe | drop | continue | ok }","st":"gnu","o":[]}

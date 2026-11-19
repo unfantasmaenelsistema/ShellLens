@@ -1,0 +1,1 @@
+{"n":"gcc-nm-16","s":{"en":"a wrapper around nm adding the --plugin option"},"al":["gcc-nm"],"syn":"gcc-nm [OPTION] ... [ARGS...]","st":"gnu","o":[]}

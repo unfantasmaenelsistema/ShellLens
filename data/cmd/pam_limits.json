@@ -1,0 +1,1 @@
+{"n":"pam_limits","s":{"en":"PAM module to limit resources"},"syn":"pam_limits.so [conf=/path/to/limits.conf] [debug] [set_all] [utmp_early] [noaudit]","st":"gnu","o":[]}

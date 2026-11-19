@@ -1,0 +1,1 @@
+{"n":"docker-kill","s":{"en":"Kill one or more running containers"},"syn":"docker kill [OPTIONS] CONTAINER [CONTAINER...]","st":"gnu","o":[{"f":["-s","--signal"],"en":"Signal to send to the container"}]}

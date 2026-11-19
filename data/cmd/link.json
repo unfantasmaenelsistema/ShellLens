@@ -1,0 +1,1 @@
+{"n":"link","s":{"en":"call the link function to create a link to a file"},"syn":"link FILE1 FILE2 ⏎ link OPTION","st":"gnu","o":[{"f":["--help"],"en":"display this help and exit"},{"f":["--version"],"en":"output version information and exit"}]}

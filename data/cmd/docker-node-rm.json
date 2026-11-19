@@ -1,0 +1,1 @@
+{"n":"docker-node-rm","s":{"en":"Remove one or more nodes from the swarm"},"syn":"docker node rm [OPTIONS] NODE [NODE...]","st":"gnu","o":[{"f":["-f","--force"],"en":"Force remove a node from the swarm","a":"false","ao":1}]}

@@ -1,0 +1,1 @@
+{"n":"pip3-hash","s":{"en":"description of pip3 hash command"},"st":"gnu","o":[{"f":["-a","--algorithm"],"en":"The hash algorithm to use: one of sha256, sha384, sha512 (environment variable: PIP_ALGORITHM)","a":"algorithm"}]}

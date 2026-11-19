@@ -1,0 +1,1 @@
+{"n":"devlink-sb","s":{"en":"devlink shared buffer configuration"},"syn":"devlink [ OPTIONS ] sb { COMMAND | help } ⏎ OPTIONS := { -V[ersion] | -n[no-nice-names] } ⏎ devlink sb show [ DEV [ sb SB_INDEX ] ] ⏎ devlink sb pool show [ DEV [ sb SB_INDEX ] ⏎ pool POOL_INDEX ] ⏎ devlink sb pool set DEV [ sb SB_INDEX ]","st":"gnu","o":[]}

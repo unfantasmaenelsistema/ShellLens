@@ -1,0 +1,1 @@
+{"n":"bg","s":{"en":"resume a stopped job in the background","es":"reanuda una tarea detenida y la deja en segundo plano"},"st":"gnu","p":[{"n":"%TAREA","es":"Número de tarea (%1, %2…). Sin argumento, la última.","en":"Job number (%1, %2…). With none, the most recent.","opt":1}],"o":[]}

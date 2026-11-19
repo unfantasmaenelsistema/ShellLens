@@ -1,0 +1,1 @@
+{"n":"systemd-user-sessions.service","s":{"en":"Permit user logins after boot, prohibit user logins at shutdown"},"al":["systemd-user-sessions"],"syn":"systemd-user-sessions.service ⏎ /usr/lib/systemd/systemd-user-sessions","st":"gnu","o":[]}

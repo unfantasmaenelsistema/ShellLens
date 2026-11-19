@@ -1,0 +1,1 @@
+{"n":"ptardiff","s":{"en":"program that diffs an extracted archive against an unextracted one"},"syn":"ptardiff ARCHIVE_FILE ⏎ ptardiff -h ⏎ $ tar -xzf Acme-Buffy-1.3.tar.gz ⏎ $ vi Acme-Buffy-1.3/README ⏎ [...] ⏎ $ ptardiff Acme-Buffy-1.3.tar.gz > README.patch","st":"gnu","o":[]}

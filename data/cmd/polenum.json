@@ -1,0 +1,1 @@
+{"n":"polenum","s":{"en":"Extracts the password policy from a Windows system"},"al":["POLENUM"],"syn":"polenum [username[:password]@]<address> [--protocols [protocol list...]]","st":"gnu","o":[]}

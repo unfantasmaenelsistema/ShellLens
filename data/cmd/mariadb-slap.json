@@ -1,0 +1,1 @@
+{"n":"mariadb-slap","s":{"en":"load emulation client (mariadb-slap is now a symlink to mariadb-slap)"},"syn":"mariadb-slap [options]","st":"gnu","o":[{"f":["--create"],"en":""},{"f":["--query"],"en":""},{"f":["--number-int-cols"],"en":"","a":"2"},{"f":["--auto-generate-sql"],"en":""},{"f":["--iterations"],"en":"","a":"5"},{"f":["--delimiter"],"en":""}]}

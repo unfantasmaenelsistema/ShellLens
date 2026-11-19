@@ -1,0 +1,1 @@
+{"n":"docker-network-rm","s":{"en":"Remove one or more networks"},"syn":"docker network rm NETWORK [NETWORK...]","st":"gnu","o":[{"f":["-f","--force"],"en":"Do not error if the network does not exist","a":"false","ao":1}]}

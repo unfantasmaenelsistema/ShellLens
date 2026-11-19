@@ -1,0 +1,1 @@
+{"n":"groups","s":{"en":"print the groups a user is in","es":"muestra los grupos a los que pertenece un usuario"},"syn":"groups [OPTION]... [USERNAME]...","st":"gnu","tg":["read"],"o":[{"f":["--help"],"en":"display this help and exit"},{"f":["--version"],"en":"output version information and exit"}]}

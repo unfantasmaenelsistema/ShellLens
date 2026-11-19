@@ -1,0 +1,1 @@
+{"n":"key.dns_resolver","s":{"en":"upcall for request-key to handle dns_resolver keys"},"syn":"/sbin/key.dns_resolver <key> ⏎ /sbin/key.dns_resolver --dump-config [-c <configfile>] ⏎ /sbin/key.dns_resolver -D [-v] [-v] [-c <configfile>] <desc> ⏎ <calloutinfo>","st":"gnu","o":[]}

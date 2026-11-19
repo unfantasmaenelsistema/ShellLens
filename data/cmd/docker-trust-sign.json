@@ -1,0 +1,1 @@
+{"n":"docker-trust-sign","s":{"en":"Sign an image"},"syn":"docker trust sign IMAGE:TAG","st":"gnu","o":[{"f":["--local"],"en":"Sign a locally tagged image","a":"false","ao":1}]}

@@ -1,0 +1,1 @@
+{"n":"git-init-db","s":{"en":"Creates an empty Git repository"},"syn":"git init-db [-q | --quiet] [--bare] [--template=<template-directory>] [--separate-git-dir <git-dir>] [--shared[=<permissions>]]","st":"gnu","o":[]}

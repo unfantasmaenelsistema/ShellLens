@@ -1,0 +1,1 @@
+{"n":"tc-ets","s":{"en":"Enhanced Transmission Selection scheduler"},"al":["ETS"],"syn":"tc qdisc ... ets [ bands number ] [ strict number ] [ quanta bytes bytes bytes... ] [ priomap band band band... ] ⏎ tc class ... ets [ quantum bytes ]","st":"gnu","o":[]}

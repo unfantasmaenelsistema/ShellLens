@@ -1,0 +1,1 @@
+{"n":"git-shell","s":{"en":"Restricted login shell for Git-only SSH access"},"syn":"chsh -s $(command -v git-shell) <user> ⏎ git clone <user>@localhost:/path/to/repo.git ⏎ ssh <user>@localhost","st":"gnu","o":[]}

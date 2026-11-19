@@ -1,0 +1,1 @@
+{"n":"tc-sfq","s":{"en":"Stochastic Fairness Queueing"},"al":["sfq"],"syn":"tc qdisc ... [ divisor hashtablesize ] [ limit packets ] [ perturb seconds ] [ quantum bytes ] [ flows number ] [ depth number ] [ headdrop ] [ redflowlimit bytes ] [ min bytes ] [ max bytes ] [ avpkt bytes ] [ burst packets ] [ probability P ] [ ecn ] [ harddrop ]","st":"gnu","o":[]}

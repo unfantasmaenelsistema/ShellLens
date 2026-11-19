@@ -1,0 +1,1 @@
+{"n":"docker-context-create","s":{"en":"Create a context"},"syn":"docker context create [OPTIONS] CONTEXT","st":"gnu","o":[{"f":["--description"],"en":"Description of the context"},{"f":["--docker"],"en":"set the docker endpoint"},{"f":["--from"],"en":"create context from a named context"}]}

@@ -1,0 +1,1 @@
+{"n":"docker-stop","s":{"en":"Stop one or more running containers"},"syn":"docker stop [OPTIONS] CONTAINER [CONTAINER...]","st":"gnu","o":[{"f":["-s","--signal"],"en":"Signal to send to the container"},{"f":["-t","--timeout"],"en":"Seconds to wait before killing the container","a":"0"}]}

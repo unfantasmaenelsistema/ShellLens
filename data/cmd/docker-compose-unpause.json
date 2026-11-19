@@ -1,0 +1,1 @@
+{"n":"docker-compose-unpause","s":{"en":"Unpause services"},"syn":"docker compose unpause [SERVICE...]","st":"gnu","o":[{"f":["-h","--help"],"en":"help for unpause","a":"false","ao":1},{"f":["--dry-run"],"en":"Execute command in dry run mode","a":"false","ao":1}]}

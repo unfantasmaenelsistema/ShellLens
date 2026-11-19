@@ -1,0 +1,1 @@
+{"n":"git-update-ref","s":{"en":"Update the object name stored in a ref safely"},"syn":"git update-ref [-m <reason>] [--no-deref] -d <ref> [<old-oid>] ⏎ git update-ref [-m <reason>] [--no-deref] [--create-reflog] <ref> <new-oid> [<old-oid>] ⏎ git update-ref [-m <reason>] [--no-deref] --stdin [-z] [--batch-updates]","st":"gnu","o":[]}

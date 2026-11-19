@@ -1,0 +1,1 @@
+{"n":"expand","s":{"en":"convert tabs to spaces"},"syn":"expand [OPTION]... [FILE]...","st":"gnu","o":[{"f":["-i","--initial"],"en":"do not convert tabs after non blanks"},{"f":["-t","--tabs"],"en":"have tabs N characters apart, not 8","a":"N"},{"f":["--help"],"en":"display this help and exit"},{"f":["--version"],"en":"output version information and exit"}]}

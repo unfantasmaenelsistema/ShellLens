@@ -1,0 +1,1 @@
+{"n":"docker-trust-revoke","s":{"en":"Remove trust for an image"},"syn":"docker trust revoke [OPTIONS] IMAGE[:TAG]","st":"gnu","o":[{"f":["-y","--yes"],"en":"Do not prompt for confirmation","a":"false","ao":1}]}

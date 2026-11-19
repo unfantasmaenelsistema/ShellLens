@@ -1,0 +1,1 @@
+{"n":"cramfsswap","s":{"en":"swap endianness of a cram filesystem (cramfs)"},"syn":"cramfsswap <infile> <outfile>","st":"gnu","o":[]}

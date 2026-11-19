@@ -1,0 +1,1 @@
+{"n":"pam_xauth","s":{"en":"PAM module to forward xauth keys between users"},"syn":"pam_xauth.so [debug] [xauthpath=/path/to/xauth] [systemuser=UID] [targetuser=UID]","st":"gnu","o":[]}

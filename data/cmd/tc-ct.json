@@ -1,0 +1,1 @@
+{"n":"tc-ct","s":{"en":"tc connection tracking action"},"al":["ct"],"syn":"tc ... action ct commit [ force ] [ zone ZONE ] [ mark MASKED_MARK ] [ label MASKED_LABEL ] [ nat NAT_SPEC ] ⏎ tc ... action ct [ nat ] [ zone ZONE ] ⏎ tc ... action ct clear","st":"gnu","o":[]}

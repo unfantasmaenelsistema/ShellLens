@@ -1,0 +1,1 @@
+{"n":"mkhomedir_helper","s":{"en":"Helper binary that creates home directories"},"syn":"mkhomedir_helper {user} [umask [ path-to-skel [ home_mode ] ]]","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"ip-maddress","s":{"en":"multicast addresses management"},"syn":"ip [ OPTIONS ] maddress { COMMAND | help } ⏎ ip maddress [ add | del ] MULTIADDR dev NAME ⏎ ip maddress show [ dev NAME ]","st":"gnu","o":[]}

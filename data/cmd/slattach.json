@@ -1,0 +1,1 @@
+{"n":"slattach","s":{"en":"attach a network interface to a serial line"},"syn":"slattach [-dehlLmnqv] [-c command] [-p proto] [-s speed] [tty]","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"tc-cbs","s":{"en":"Credit Based Shaper (CBS) Qdisc"},"al":["CBS"],"syn":"tc qdisc ... dev dev parent classid [ handle major: ] cbs idleslope idleslope sendslope sendslope hicredit hicredit locredit locredit [ offload 0|1 ]","st":"gnu","o":[]}

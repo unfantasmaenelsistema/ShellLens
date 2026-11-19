@@ -1,0 +1,1 @@
+{"n":"docker-compose-bridge-transformations","s":{"en":"Manage transformation images"},"syn":"docker compose bridge transformations CMD [OPTIONS]","st":"gnu","o":[{"f":["-h","--help"],"en":"help for transformations","a":"false","ao":1},{"f":["--dry-run"],"en":"Execute command in dry run mode","a":"false","ao":1}]}

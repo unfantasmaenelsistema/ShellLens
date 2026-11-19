@@ -1,0 +1,1 @@
+{"n":"pip3-cache","s":{"en":"description of pip3 cache command"},"st":"gnu","o":[{"f":["--format"],"en":"Select the output format among: human (default) or abspath (environment variable: PIP_FORMAT)","a":"list_format"}]}

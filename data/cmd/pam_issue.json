@@ -1,0 +1,1 @@
+{"n":"pam_issue","s":{"en":"PAM module to add issue file to user prompt"},"syn":"pam_issue.so [noesc] [issue=issue-file-name]","st":"gnu","o":[]}

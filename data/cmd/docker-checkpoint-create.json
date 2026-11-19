@@ -1,0 +1,1 @@
+{"n":"docker-checkpoint-create","s":{"en":"Create a checkpoint from a running container"},"syn":"docker checkpoint create [OPTIONS] CONTAINER CHECKPOINT","st":"gnu","o":[{"f":["--checkpoint-dir"],"en":"Use a custom checkpoint storage directory"},{"f":["--leave-running"],"en":"Leave the container running after checkpoint","a":"false","ao":1}]}

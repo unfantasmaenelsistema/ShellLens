@@ -1,0 +1,1 @@
+{"n":"pam_localuser","s":{"en":"require users to be listed in /etc/passwd"},"syn":"pam_localuser.so [debug] [file=/path/passwd]","st":"gnu","o":[]}

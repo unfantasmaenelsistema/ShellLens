@@ -1,0 +1,1 @@
+{"n":"docker-trust-signer-remove","s":{"en":"Remove a signer"},"syn":"docker trust signer remove [OPTIONS] NAME REPOSITORY [REPOSITORY...]","st":"gnu","o":[{"f":["-f","--force"],"en":"Do not prompt for confirmation before removing the most recent signer","a":"false","ao":1}]}

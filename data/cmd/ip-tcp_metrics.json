@@ -1,0 +1,1 @@
+{"n":"ip-tcp_metrics","s":{"en":"management for TCP Metrics"},"syn":"ip [ OPTIONS ] tcp_metrics { COMMAND | help } ⏎ ip tcp_metrics { show | flush } SELECTOR ⏎ ip tcp_metrics delete [ address ] ADDRESS ⏎ SELECTOR := [ [ address ] PREFIX ]","st":"gnu","o":[]}

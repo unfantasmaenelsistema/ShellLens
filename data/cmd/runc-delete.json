@@ -1,0 +1,1 @@
+{"n":"runc-delete","s":{"en":"delete any resources held by the container"},"syn":"runc delete [--force|-f] container-id","st":"gnu","o":[]}

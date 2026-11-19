@@ -1,0 +1,1 @@
+{"n":"docker-manifest-rm","s":{"en":"Delete one or more manifest lists from local storage"},"syn":"docker manifest rm MANIFEST_LIST [MANIFEST_LIST...]","st":"gnu","o":[]}

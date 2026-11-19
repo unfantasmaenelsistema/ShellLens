@@ -1,0 +1,1 @@
+{"n":"git-version","s":{"en":"Display version information about Git"},"syn":"git version [--build-options]","st":"gnu","o":[{"f":["--build-options"],"en":"Include additional information about how git was built for diagnostic purposes. The libraries used to implement the SHA-1 and SHA-256 algorithms are displayed in the form SHA-1: <option> and SHA-256: <option>."}]}

@@ -1,0 +1,1 @@
+{"n":"docker-buildx-history","s":{"en":"Commands to work on build records"},"syn":"docker buildx history","st":"gnu","o":[{"f":["-h","--help"],"en":"help for history","a":"false","ao":1},{"f":["--builder"],"en":"Override the configured builder instance"},{"f":["-D","--debug"],"en":"Enable debug logging","a":"false","ao":1}]}

@@ -1,0 +1,1 @@
+{"n":"vfs_nfs4acl_xattr","s":{"en":"Save NTFS-ACLs as NFS4 encoded blobs in extended attributes"},"syn":"vfs objects = nfs4acl_xattr","st":"gnu","o":[]}

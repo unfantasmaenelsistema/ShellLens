@@ -1,0 +1,1 @@
+{"n":"docker-export","s":{"en":"Export a container's filesystem as a tar archive"},"syn":"docker export [OPTIONS] CONTAINER","st":"gnu","o":[{"f":["-o","--output"],"en":"Write to a file, instead of STDOUT"}]}

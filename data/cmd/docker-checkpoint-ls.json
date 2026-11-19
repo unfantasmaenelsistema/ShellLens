@@ -1,0 +1,1 @@
+{"n":"docker-checkpoint-ls","s":{"en":"List checkpoints for a container"},"syn":"docker checkpoint ls [OPTIONS] CONTAINER","st":"gnu","o":[{"f":["--checkpoint-dir"],"en":"Use a custom checkpoint storage directory"}]}

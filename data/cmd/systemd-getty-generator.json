@@ -1,0 +1,1 @@
+{"n":"systemd-getty-generator","s":{"en":"Generator for enabling getty instances on the console"},"syn":"/usr/lib/systemd/system-generators/systemd-getty-generator","st":"gnu","o":[]}

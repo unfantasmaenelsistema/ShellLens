@@ -1,0 +1,1 @@
+{"n":"docker-plugin-disable","s":{"en":"Disable a plugin"},"syn":"docker plugin disable [OPTIONS] PLUGIN","st":"gnu","o":[{"f":["-f","--force"],"en":"Force the disable of an active plugin","a":"false","ao":1}]}

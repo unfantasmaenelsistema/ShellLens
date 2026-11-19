@@ -1,0 +1,1 @@
+{"n":"shift","s":{"en":"shift positional parameters left ($2 becomes $1…)","es":"desplaza los parámetros posicionales hacia la izquierda ($2 pasa a $1…)"},"st":"gnu","p":[{"n":"N","es":"Cuántas posiciones desplazar (por defecto 1).","en":"How many positions to shift (default 1).","opt":1}],"o":[]}

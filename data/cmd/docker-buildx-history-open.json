@@ -1,0 +1,1 @@
+{"n":"docker-buildx-history-open","s":{"en":"Open a build record in Docker Desktop"},"syn":"docker buildx history open [OPTIONS] [REF]","st":"gnu","o":[{"f":["-h","--help"],"en":"help for open","a":"false","ao":1},{"f":["--builder"],"en":"Override the configured builder instance"},{"f":["-D","--debug"],"en":"Enable debug logging","a":"false","ao":1}]}

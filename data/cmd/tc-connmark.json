@@ -1,0 +1,1 @@
+{"n":"tc-connmark","s":{"en":"netfilter connmark retriever action"},"al":["connmark"],"syn":"tc ... action connmark [ zone u16_zone_index ] [ CONTROL ] [ index u32_index ] ⏎ CONTROL := { reclassify | pipe | drop | continue | ok }","st":"gnu","o":[]}

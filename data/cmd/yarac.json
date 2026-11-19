@@ -1,0 +1,1 @@
+{"n":"yarac","s":{"en":"compile rules to yara"},"syn":"yarac [OPTION]... [RULE_FILE]... OUTPUT_FILE","st":"gnu","o":[{"f":["-d"],"en":"define external variable."},{"f":["-w"],"en":"--no-warnings Disable warnings. --fail-on-warnings Treat warnings as errors. Has no effect if used with --no-warnings."},{"f":["-v"],"en":"--version Show version information."}]}

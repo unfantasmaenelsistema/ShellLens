@@ -1,0 +1,1 @@
+{"n":"mysqldump","s":{"en":"a database backup program (mariadb-dump is now a symlink to mariadb-dump)"},"al":["mariadb-dump"],"syn":"mariadb-dump [options] [db_name [tbl_name ...]]","st":"gnu","o":[{"f":["--where"],"en":""}]}

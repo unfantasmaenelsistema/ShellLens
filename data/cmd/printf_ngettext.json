@@ -1,0 +1,1 @@
+{"n":"printf_ngettext","s":{"en":"translate format string and apply it"},"syn":"printf_ngettext [OPTION] FORMAT FORMAT-PLURAL COUNT [ARGUMENT]...","st":"gnu","o":[{"f":["-c","--context"],"en":"specify context for FORMAT","a":"CONTEXT"},{"f":["-h","--help"],"en":"display this help and exit"},{"f":["-V","--version"],"en":"display version information and exit"}]}

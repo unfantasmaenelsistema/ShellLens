@@ -1,0 +1,1 @@
+{"n":"blkdeactivate","s":{"en":""},"syn":"blkdeactivate [-d dm_options] [-e] [-h] [-l lvm_options] [-m mpath_options] [-r mdraid_options] [-o vdo_options] [-u] [-v] [device]","st":"gnu","o":[{"f":["-v","--verbose"],"en":"Run in verbose mode. Use -vv for even more verbose mode."}]}

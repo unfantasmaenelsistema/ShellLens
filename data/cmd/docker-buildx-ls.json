@@ -1,0 +1,1 @@
+{"n":"docker-buildx-ls","s":{"en":"List builder instances"},"syn":"docker buildx ls","st":"gnu","o":[{"f":["--format"],"en":"Format the output"},{"f":["-h","--help"],"en":"help for ls","a":"false","ao":1},{"f":["--no-trunc"],"en":"Don't truncate output","a":"false","ao":1},{"f":["-D","--debug"],"en":"Enable debug logging","a":"false","ao":1}]}

@@ -1,0 +1,1 @@
+{"n":"sq-network","s":{"en":"Retrieve and publish certificates over the network"},"syn":"sq network search [OPTIONS] QUERY ⏎ sq network keyserver [OPTIONS] SUBCOMMAND ⏎ sq network wkd [OPTIONS] SUBCOMMAND ⏎ sq network dane [OPTIONS] SUBCOMMAND","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"pam_namespace","s":{"en":"PAM module for configuring namespace for a session"},"syn":"pam_namespace.so [debug] [unmnt_remnt] [unmnt_only] [require_selinux] [gen_hash] [ignore_config_error] [ignore_instance_parent_mode] [unmount_on_close] [use_current_context] [use_default_context] [mount_private]","st":"gnu","o":[]}

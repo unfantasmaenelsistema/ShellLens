@@ -1,0 +1,1 @@
+{"n":"docker-compose-scale","s":{"en":"Scale services"},"syn":"docker compose scale [SERVICE=REPLICAS...]","st":"gnu","o":[{"f":["-h","--help"],"en":"help for scale","a":"false","ao":1},{"f":["--no-deps"],"en":"Don't start linked services","a":"false","ao":1},{"f":["--dry-run"],"en":"Execute command in dry run mode","a":"false","ao":1}]}

@@ -1,0 +1,1 @@
+{"n":"tc-stab","s":{"en":"Generic size table manipulations"},"syn":"tc qdisc add ... stab ⏎ [ mtu BYTES ] [ tsize SLOTS ] ⏎ [ mpu BYTES ] [ overhead BYTES ] ⏎ [ linklayer { adsl | atm | ethernet } ] ...","st":"gnu","o":[]}

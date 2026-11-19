@@ -1,0 +1,1 @@
+{"n":"readonly","s":{"en":"mark variables as read-only","es":"marca variables como de solo lectura"},"st":"gnu","o":[{"f":["-p"],"es":"Lista las variables de solo lectura.","en":"List read-only variables."}]}

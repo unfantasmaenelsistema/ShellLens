@@ -1,0 +1,1 @@
+{"n":"ip-tunnel","s":{"en":"tunnel configuration"},"syn":"ip tunnel help ⏎ ip [ OPTIONS ] tunnel { add | change | del | show | prl | 6rd } [ NAME ] ⏎ [ mode MODE ] [ remote ADDR ] [ local ADDR ] ⏎ [ [i|o]seq ] [ [i|o]key KEY ] [ [i|o]csum ] ] ⏎ [ encaplimit ELIM ] [ ttl|hoplimit TTL ] ⏎ [ tos TOS ] [ flowlabel FLOWLABEL ]","st":"gnu","o":[]}

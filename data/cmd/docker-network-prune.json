@@ -1,0 +1,1 @@
+{"n":"docker-network-prune","s":{"en":"Remove all unused networks"},"syn":"docker network prune [OPTIONS]","st":"gnu","o":[{"f":["--filter"],"en":"Provide filter values (e.g. \"until=\")"},{"f":["-f","--force"],"en":"Do not prompt for confirmation","a":"false","ao":1}]}

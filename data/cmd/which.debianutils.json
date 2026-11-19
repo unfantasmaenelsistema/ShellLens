@@ -1,0 +1,1 @@
+{"n":"which.debianutils","s":{"en":"locate a command"},"al":["which"],"syn":"which [-as] filename ...","st":"gnu","o":[{"f":["-a"],"en":"print all matching pathnames of each argument"},{"f":["-s"],"en":"silently return 0 if all of the executables were found or 1 otherwise"}]}

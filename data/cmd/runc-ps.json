@@ -1,0 +1,1 @@
+{"n":"runc-ps","s":{"en":"display the processes inside a container"},"syn":"runc ps [option ...] container-id [ps-option ...]","st":"gnu","o":[]}

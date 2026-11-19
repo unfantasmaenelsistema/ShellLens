@@ -1,0 +1,1 @@
+{"n":"systemd-fsck-usr.service","s":{"en":"File system checker logic"},"al":["systemd-fsck@.service","systemd-fsck-root.service","systemd-fsck"],"syn":"systemd-fsck@.service ⏎ systemd-fsck-root.service ⏎ systemd-fsck-usr.service ⏎ /usr/lib/systemd/systemd-fsck","st":"gnu","o":[]}

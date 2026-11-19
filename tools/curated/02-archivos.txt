@@ -1,0 +1,533 @@
+# Archivos, directorios y texto (coreutils, findutils, util-linux)
+
+@@ ls dir vdir
+es: lista el contenido de un directorio
+tags: read
+pos: RUTA... | Archivo o directorio a listar. Sin argumento lista el directorio actual. || File or directory to list. With none, lists the current directory.
+-l | Formato largo: permisos, propietario, grupo, tamaño, fecha y nombre. || Long format: permissions, owner, group, size, date and name.
+-a --all | Incluye los archivos ocultos (los que empiezan por punto), también «.» y «..». || Include hidden files (starting with a dot), also "." and "..".
+-A --almost-all | Como -a pero sin «.» ni «..». || Like -a but without "." and "..".
+-h --human-readable | Tamaños legibles (K, M, G) en vez de bytes. Se usa con -l. || Human-readable sizes (K, M, G) instead of bytes. Used with -l.
+-R --recursive | Lista también los subdirectorios, recursivamente. || Also list subdirectories, recursively.
+-t | Ordena por fecha de modificación, los más nuevos primero. || Sort by modification time, newest first.
+-S | Ordena por tamaño, los más grandes primero. || Sort by size, largest first.
+-r --reverse | Invierte el orden. || Reverse the sort order.
+-1 | Un archivo por línea. || One file per line.
+-d --directory | Muestra el propio directorio en lugar de su contenido. || List the directory itself instead of its contents.
+-i --inode | Muestra el número de inodo de cada archivo. || Print each file's inode number.
+-n --numeric-uid-gid | Como -l pero con UID y GID numéricos. || Like -l but with numeric UID and GID.
+-F --classify | Añade un indicador: / directorio, * ejecutable, @ enlace simbólico. || Append an indicator: / directory, * executable, @ symlink.
+-s --size | Muestra el tamaño de cada archivo en bloques. || Print the allocated size of each file in blocks.
+--color=WHEN | Colorea la salida (always, auto o never). || Colorize output (always, auto or never).
+-X | Ordena por extensión. || Sort by extension.
+-L --dereference | Muestra la información del destino de los enlaces simbólicos. || Show info of the file a symlink points to.
+-Z --context | Muestra el contexto de seguridad SELinux. || Show the SELinux security context.
+
+@@ cp
+es: copia archivos y directorios
+tags: read write
+pos: ORIGEN... | Archivo(s) o directorio(s) a copiar. || File(s) or directory(ies) to copy.
+pos: DESTINO@last | Dónde se copia: un archivo nuevo, o un directorio existente si hay varios orígenes. || Where it is copied: a new file, or an existing directory when there are several sources.
+-r -R --recursive | Copia directorios con todo su contenido. || Copy directories with all their contents.
+-a --archive | Copia «de archivo»: recursivo y conserva permisos, propietario, fechas y enlaces (= -dR --preserve=all). || "Archive" copy: recursive and preserves permissions, owner, timestamps and links (= -dR --preserve=all).
+-i --interactive | Pregunta antes de sobrescribir. || Prompt before overwriting.
+-f --force | Si no se puede abrir el destino, lo borra e inténtalo de nuevo. || If the destination cannot be opened, remove it and try again.
+-n --no-clobber | No sobrescribe archivos que ya existan. || Do not overwrite an existing file.
+-u --update | Copia solo si el origen es más nuevo que el destino o este no existe. || Copy only when the source is newer than the destination or the destination is missing.
+-v --verbose | Muestra qué se copia. || Explain what is being done.
+-p | Conserva modo, propietario y fechas. || Preserve mode, ownership and timestamps.
+-l --link | En vez de copiar, crea enlaces duros. || Hard-link files instead of copying.
+-s --symbolic-link | En vez de copiar, crea enlaces simbólicos. || Make symbolic links instead of copying.
+-t --target-directory=DIR | Copia todo dentro del directorio DIR (el destino va antes que los orígenes). || Copy everything into DIR (destination given before the sources).
+-T --no-target-directory | Trata el destino siempre como archivo, no como directorio. || Always treat the destination as a file, not a directory.
+--backup | Hace copia de seguridad de cada archivo destino que se sobrescriba. || Make a backup of each existing destination file.
+--preserve=ATTR_LIST | Conserva los atributos indicados (mode, ownership, timestamps, links, all…). || Preserve the listed attributes (mode, ownership, timestamps, links, all…).
+--parents | Usa la ruta completa del origen bajo el directorio destino. || Use the full source path under the destination directory.
+--reflink=WHEN | Copia «ligera» (copy-on-write) en sistemas que la admiten. || Lightweight copy-on-write on supporting filesystems.
+
+@@ mv
+es: mueve o renombra archivos y directorios
+tags: write delete
+pos: ORIGEN... | Lo que se mueve o renombra. || What is moved or renamed.
+pos: DESTINO@last | Nuevo nombre, o directorio de destino si hay varios orígenes. || New name, or destination directory if there are several sources.
+-i --interactive | Pregunta antes de sobrescribir. || Prompt before overwriting.
+-f --force | Sobrescribe sin preguntar. || Overwrite without prompting.
+-n --no-clobber | No sobrescribe lo que ya exista. || Do not overwrite an existing file.
+-u --update | Mueve solo si el origen es más nuevo. || Move only when the source is newer.
+-v --verbose | Muestra qué se mueve. || Explain what is being done.
+-t --target-directory=DIR | Mueve todo dentro del directorio DIR. || Move everything into DIR.
+-T --no-target-directory | Trata el destino siempre como archivo. || Always treat the destination as a file.
+--backup | Hace copia de seguridad de lo que se sobrescriba. || Make a backup of each overwritten file.
+
+@@ rm
+es: borra archivos y directorios (sin papelera: no se puede deshacer)
+tags: delete
+pos: RUTA... | Archivos o directorios a borrar. || Files or directories to delete.
+-r -R --recursive | Borra directorios y todo su contenido. || Delete directories and everything inside.
+-f --force | No pregunta, ignora lo que no exista y no da error. || Never prompt, ignore nonexistent files.
+-i | Pregunta antes de cada borrado. || Prompt before every removal.
+-I | Pregunta una sola vez si va a borrar más de 3 archivos o a borrar recursivamente. || Prompt once before removing more than 3 files or recursively.
+-v --verbose | Muestra cada archivo que borra. || Explain what is being done.
+-d --dir | Borra también directorios vacíos. || Remove empty directories.
+--no-preserve-root | Desactiva la protección que impide borrar «/» (¡peligroso!). || Do not treat "/" specially (dangerous!).
+--preserve-root | No permite borrar «/» (comportamiento por defecto). || Do not remove "/" (default).
+--one-file-system | Al borrar recursivamente, no cruza a otros sistemas de archivos. || When removing recursively, skip directories on different file systems.
+
+@@ mkdir
+es: crea directorios
+tags: write
+pos: DIRECTORIO... | Directorio(s) a crear. || Directory(ies) to create.
+-p --parents | Crea también los directorios padre que falten, y no da error si ya existe. || Create missing parent directories, and no error if it exists.
+-m --mode=MODE | Fija los permisos del directorio al crearlo (p. ej. 755). || Set file mode (as in chmod) at creation.
+-v --verbose | Muestra cada directorio creado. || Print a message for each created directory.
+
+@@ rmdir
+es: borra directorios VACÍOS
+tags: delete
+pos: DIRECTORIO... | Directorio(s) vacío(s) a borrar. || Empty director(ies) to delete.
+-p --parents | Borra también los padres si quedan vacíos. || Remove the parents too if they become empty.
+-v --verbose | Muestra cada directorio borrado. || Print a message for each removed directory.
+
+@@ touch
+es: crea archivos vacíos o actualiza la fecha de modificación
+tags: write
+pos: ARCHIVO... | Archivo(s) a crear o actualizar. || File(s) to create or update.
+-a | Cambia solo la fecha de último acceso. || Change only the access time.
+-m | Cambia solo la fecha de modificación. || Change only the modification time.
+-c --no-create | No crea el archivo si no existe. || Do not create any files.
+-d --date=STRING | Usa la fecha indicada en vez de la actual. || Use the given date instead of now.
+-r --reference=FILE | Copia las fechas de otro archivo. || Use the times of another file.
+-t=STAMP | Usa la fecha [[CC]AA]MMDDhhmm[.ss]. || Use the time [[CC]YY]MMDDhhmm[.ss].
+
+@@ cat
+es: muestra, concatena y crea contenido de archivos
+tags: read
+pos: ARCHIVO... | Archivo(s) a mostrar, en orden. Sin argumento (o con «-») lee la entrada estándar. || File(s) to print, in order. With none (or "-") reads standard input.
+-n --number | Numera todas las líneas. || Number all output lines.
+-b --number-nonblank | Numera solo las líneas que no están vacías. || Number nonempty output lines.
+-A --show-all | Muestra caracteres invisibles: fin de línea ($), tabuladores (^I) y de control. || Show invisible characters: line ends ($), tabs (^I) and control characters.
+-E --show-ends | Marca el final de cada línea con $. || Display $ at the end of each line.
+-T --show-tabs | Muestra los tabuladores como ^I. || Display TAB characters as ^I.
+-s --squeeze-blank | Reduce varias líneas vacías seguidas a una. || Suppress repeated empty output lines.
+
+@@ tac
+es: muestra un archivo con las líneas en orden inverso (de la última a la primera)
+tags: read
+
+@@ head
+es: muestra las primeras líneas de un archivo
+tags: read
+pos: ARCHIVO... | Archivo(s) a leer (o la entrada estándar). || File(s) to read (or standard input).
+-n --lines=NUM | Muestra NUM líneas (por defecto 10); con -NUM negativo, todas menos las últimas NUM. || Show NUM lines (default 10); with a negative NUM, all but the last NUM.
+-c --bytes=NUM | Muestra los primeros NUM bytes. || Show the first NUM bytes.
+-q --quiet | No escribe cabeceras con el nombre del archivo. || Never print headers giving file names.
+-v --verbose | Escribe siempre la cabecera con el nombre. || Always print headers giving file names.
+
+@@ tail
+es: muestra las últimas líneas de un archivo (y puede seguir leyendo lo que se añada)
+tags: read
+pos: ARCHIVO... | Archivo(s) a leer (o la entrada estándar). || File(s) to read (or standard input).
+-n --lines=NUM | Muestra las últimas NUM líneas (por defecto 10); con +NUM, desde la línea NUM. || Show the last NUM lines (default 10); with +NUM, from line NUM.
+-f --follow | Sigue el archivo y muestra lo que se vaya añadiendo (ideal para logs). Ctrl+C para salir. || Keep reading and show data as the file grows (great for logs). Ctrl+C to quit.
+-F | Como -f --retry: sigue el archivo aunque se rote o se recree. || Like -f --retry: keeps following even if the file is rotated or recreated.
+-c --bytes=NUM | Muestra los últimos NUM bytes. || Show the last NUM bytes.
+-q --quiet | No escribe cabeceras con el nombre del archivo. || Never print headers giving file names.
+-s --sleep-interval=N | Con -f, espera N segundos entre comprobaciones. || With -f, sleep N seconds between checks.
+
+@@ less
+es: visor paginado de archivos o de la salida de otro comando
+tags: read
+-N --LINE-NUMBERS | Muestra números de línea. || Show line numbers.
+-S --chop-long-lines | No ajusta las líneas largas: se desplazan lateralmente. || Do not wrap long lines: scroll sideways.
+-i --ignore-case | Búsquedas sin distinguir mayúsculas (si el patrón está en minúsculas). || Case-insensitive searches (if the pattern is lowercase).
+-F --quit-if-one-screen | Sale solo si todo cabe en una pantalla. || Quit if the whole file fits on one screen.
+-R --RAW-CONTROL-CHARS | Muestra los colores ANSI en vez de los códigos. || Output ANSI colour sequences as colour instead of raw codes.
+-X --no-init | No borra la pantalla al salir. || Do not clear the screen on exit.
+tip: Dentro de less: espacio = avanzar, b = retroceder, /texto = buscar, n = siguiente coincidencia, g/G = inicio/final, q = salir.
+
+@@ more
+es: visor paginado sencillo (solo avanza; less es más completo)
+tags: read
+
+@@ wc
+es: cuenta líneas, palabras y bytes
+tags: read
+pos: ARCHIVO... | Archivo(s) a contar (o la entrada estándar). || File(s) to count (or standard input).
+-l --lines | Cuenta líneas. || Print the newline counts.
+-w --words | Cuenta palabras. || Print the word counts.
+-c --bytes | Cuenta bytes. || Print the byte counts.
+-m --chars | Cuenta caracteres. || Print the character counts.
+-L --max-line-length | Longitud de la línea más larga. || Print the maximum display width.
+
+@@ sort
+es: ordena líneas de texto
+tags: read
+pos: ARCHIVO... | Archivo(s) a ordenar (o la entrada estándar). || File(s) to sort (or standard input).
+-n --numeric-sort | Orden numérico (no alfabético): 2 va antes que 10. || Numeric order (not alphabetical): 2 comes before 10.
+-r --reverse | Orden inverso. || Reverse the result.
+-u --unique | Elimina líneas repetidas (deja la primera). || Output only the first of equal lines.
+-k --key=KEYDEF | Ordena por un campo: -k2 = segunda columna; -k2,2 = solo esa columna; -k2n = numérico. || Sort by a key: -k2 = second column; -k2,2 = only that column; -k2n = numeric.
+-t --field-separator=SEP | Separador de campos para -k (por defecto, espacio en blanco). || Field separator for -k (default: blank).
+-h --human-numeric-sort | Ordena tamaños legibles (1K, 2M, 3G). || Compare human-readable numbers (1K, 2M, 3G).
+-f --ignore-case | Ignora mayúsculas/minúsculas. || Fold lower case to upper case.
+-V --version-sort | Orden «natural» de versiones (1.2 < 1.10). || Natural sort of version numbers (1.2 < 1.10).
+-o --output=FILE | Escribe el resultado en FILE (puede ser el mismo archivo de entrada). || Write the result to FILE (may be the input file).
+-R --random-sort | Orden aleatorio. || Sort by random hash of keys.
+-m --merge | Mezcla archivos que YA están ordenados. || Merge already sorted files.
+-c --check | Solo comprueba si ya está ordenado. || Check whether the input is sorted; do not sort.
+-b --ignore-leading-blanks | Ignora los espacios iniciales. || Ignore leading blanks.
+-s --stable | Orden estable: no reordena líneas iguales. || Stabilize sort by disabling last-resort comparison.
+
+@@ uniq
+es: elimina o cuenta líneas CONSECUTIVAS repetidas (suele usarse tras sort)
+tags: read
+-c --count | Antepone el número de repeticiones a cada línea. || Prefix lines by the number of occurrences.
+-d --repeated | Muestra solo las líneas repetidas (una vez cada una). || Only print duplicate lines, one for each group.
+-u --unique | Muestra solo las líneas que no se repiten. || Only print unique lines.
+-i --ignore-case | Ignora mayúsculas/minúsculas al comparar. || Ignore differences in case when comparing.
+-f --skip-fields=N | Ignora los primeros N campos al comparar. || Avoid comparing the first N fields.
+
+@@ cut
+es: extrae columnas o campos de cada línea
+tags: read
+pos: ARCHIVO... | Archivo(s) de entrada (o la entrada estándar). || Input file(s) (or standard input).
+-d --delimiter=DELIM | Carácter que separa los campos (por defecto, tabulador). || Character separating the fields (default: tab).
+-f --fields=LIST | Campos que se muestran: 1, 1,3, 2-4, 3-. || Fields to print: 1, 1,3, 2-4, 3-.
+-c --characters=LIST | Posiciones de caracteres que se muestran. || Character positions to print.
+-b --bytes=LIST | Posiciones de bytes que se muestran. || Byte positions to print.
+--complement | Muestra todo MENOS lo seleccionado. || Print everything except the selected parts.
+-s --only-delimited | Omite las líneas sin delimitador. || Do not print lines without delimiters.
+--output-delimiter=STRING | Separador de salida distinto del de entrada. || Use STRING as the output delimiter.
+
+@@ tr
+es: traduce, comprime o borra caracteres de la entrada estándar
+tags: read
+pos: CONJUNTO1 | Caracteres a buscar (admite rangos a-z y clases como [:upper:]). || Characters to look for (ranges a-z and classes like [:upper:] allowed).
+pos: CONJUNTO2? | Caracteres por los que se sustituyen, uno a uno. || Characters they are replaced with, one by one.
+-d --delete | Borra los caracteres del conjunto 1. || Delete characters in SET1.
+-s --squeeze-repeats | Comprime repeticiones consecutivas en una sola. || Replace each repeated character by a single one.
+-c -C --complement | Usa el complemento del conjunto 1 (todo lo que NO esté en él). || Use the complement of SET1.
+-t --truncate-set1 | Recorta el conjunto 1 a la longitud del 2. || First truncate SET1 to length of SET2.
+tip: tr solo lee de la entrada estándar: «cat f | tr a-z A-Z» o «tr a-z A-Z < f».
+
+@@ tee
+es: copia la entrada estándar a la salida Y a uno o más archivos
+tags: write
+pos: ARCHIVO... | Archivo(s) donde también se guarda lo que pasa. || File(s) also receiving the data.
+-a --append | Añade al final del archivo en vez de sobrescribirlo. || Append to the files instead of overwriting.
+-i --ignore-interrupts | Ignora Ctrl+C. || Ignore interrupt signals.
+tip: «comando | sudo tee archivo» es la forma de escribir en un archivo protegido, porque «sudo comando > archivo» no funciona.
+
+@@ ln
+es: crea enlaces entre archivos (duros o simbólicos)
+tags: write
+pos: DESTINO | Archivo o directorio al que apunta el enlace. || File or directory the link points to.
+pos: NOMBRE_ENLACE?@last | Nombre del enlace que se crea. || Name of the link to create.
+-s --symbolic | Crea un enlace simbólico (acceso directo); sin -s crea un enlace duro. || Make symbolic links instead of hard links.
+-f --force | Sustituye el enlace de destino si ya existe. || Remove existing destination files.
+-n --no-dereference | Trata un enlace simbólico a directorio como si fuera un archivo normal. || Treat the destination as a normal file if it is a symlink to a directory.
+-v --verbose | Muestra el enlace que crea. || Print the name of each linked file.
+-r --relative | Con -s, crea enlaces con ruta relativa. || With -s, create links relative to the link location.
+tip: Orden de argumentos: «ln -s DESTINO NOMBRE_ENLACE» (primero a lo que apunta, después el nombre del enlace).
+
+@@ stat
+es: muestra información detallada de un archivo (inodo, permisos, fechas, tamaño)
+tags: read
+pos: ARCHIVO... | Archivo(s) a consultar. || File(s) to inspect.
+-c --format=FORMAT | Formato de salida personalizado (%n nombre, %s tamaño, %a permisos octal, %U propietario…). || Custom output format (%n name, %s size, %a octal permissions, %U owner…).
+-f --file-system | Muestra el estado del sistema de archivos, no del archivo. || Display file system status instead of file status.
+-L --dereference | Sigue los enlaces simbólicos. || Follow links.
+-t --terse | Salida compacta en una línea. || Print the information in terse form.
+
+@@ file
+es: determina el tipo de un archivo por su contenido (no por la extensión)
+tags: read
+-b --brief | No escribe el nombre del archivo, solo el tipo. || Do not prepend filenames to output.
+-i --mime | Muestra el tipo MIME (p. ej. text/plain; charset=utf-8). || Output MIME type strings.
+-L --dereference | Sigue los enlaces simbólicos. || Follow symlinks.
+-z --uncompress | Mira dentro de archivos comprimidos. || Try to look inside compressed files.
+
+@@ basename
+es: quita el directorio (y opcionalmente la extensión) de una ruta
+tags: read
+pos: RUTA | Ruta de la que se extrae el nombre final. || Path to extract the final name from.
+pos: SUFIJO? | Sufijo que también se elimina (p. ej. .txt). || Suffix to remove as well (e.g. .txt).
+-a --multiple | Admite varias rutas. || Support multiple arguments.
+-s --suffix=SUFFIX | Quita el sufijo SUFFIX (implica -a). || Remove a trailing SUFFIX (implies -a).
+
+@@ dirname
+es: quita el último componente de una ruta, dejando solo el directorio
+tags: read
+
+@@ readlink
+es: muestra a dónde apunta un enlace simbólico
+tags: read
+-f --canonicalize | Resuelve la ruta completa siguiendo todos los enlaces (el destino debe existir salvo el último componente). || Canonicalize by following every symlink.
+-e --canonicalize-existing | Como -f pero todos los componentes deben existir. || Like -f but every component must exist.
+
+@@ realpath
+es: muestra la ruta absoluta real, resolviendo «..», «.» y enlaces
+tags: read
+
+@@ du
+es: muestra cuánto espacio ocupan archivos y directorios
+tags: read
+pos: RUTA... | Archivo(s) o directorio(s) a medir. Sin argumento, el actual. || File(s) or directory(ies) to measure. With none, the current one.
+-h --human-readable | Tamaños legibles (K, M, G). || Print sizes in human-readable format.
+-s --summarize | Solo el total de cada argumento. || Display only a total for each argument.
+-a --all | Muestra también archivos, no solo directorios. || Write counts for all files, not just directories.
+-c --total | Añade una línea con el total general. || Produce a grand total.
+-d --max-depth=N | Muestra solo hasta N niveles de profundidad. || Print totals only for directories N or fewer levels deep.
+-x --one-file-system | No cruza a otros sistemas de archivos. || Skip directories on different file systems.
+--exclude=PATTERN | Excluye lo que coincida con el patrón. || Exclude files that match the pattern.
+-k | Tamaños en kibibytes. || Like --block-size=1K.
+-m | Tamaños en mebibytes. || Like --block-size=1M.
+--apparent-size | Tamaño aparente (lo que tendría el archivo) y no el espacio real en disco. || Print apparent sizes rather than disk usage.
+
+@@ df
+es: muestra el espacio libre y usado de los sistemas de archivos montados
+tags: read
+-h --human-readable | Tamaños legibles (K, M, G). || Print sizes in powers of 1024 (e.g. 1023M).
+-T --print-type | Muestra el tipo de sistema de archivos (ext4, xfs, tmpfs…). || Print file system type.
+-i --inodes | Muestra el uso de inodos en lugar de bloques. || List inode information instead of block usage.
+-a --all | Incluye también los sistemas de archivos de tamaño 0 (virtuales). || Include pseudo, duplicate, inaccessible file systems.
+-x --exclude-type=TYPE | Excluye un tipo de sistema de archivos (p. ej. tmpfs). || Limit listing to file systems not of type TYPE.
+-t --type=TYPE | Muestra solo ese tipo. || Limit listing to file systems of type TYPE.
+
+@@ find
+es: busca archivos y directorios recorriendo un árbol según condiciones
+tags: read
+style: multi
+pos: RUTA... | Dónde empezar a buscar (uno o varios directorios). Sin ruta busca en el actual. || Where to start searching (one or more directories). With none, searches the current one.
+-name=PATRÓN | Nombre que coincide con el patrón (distingue mayúsculas; usa comillas para que la shell no expanda el *). || Name matching the pattern (case-sensitive; quote it so the shell does not expand the *).
+-iname=PATRÓN | Como -name pero sin distinguir mayúsculas. || Like -name but case-insensitive.
+-path=PATRÓN | La ruta completa coincide con el patrón. || The whole path matches the pattern.
+-regex=EXPR | La ruta completa coincide con la expresión regular. || The whole path matches the regular expression.
+-type=TIPO | Tipo: f archivo, d directorio, l enlace simbólico, b/c dispositivo, p tubería, s socket. || Type: f file, d directory, l symlink, b/c device, p pipe, s socket.
+-size=TAMAÑO | Tamaño: +100M (mayor de 100 MB), -10k (menor de 10 KB), 0 (vacío). || Size: +100M (larger than 100 MB), -10k (smaller than 10 KB), 0 (empty).
+-mtime=DÍAS | Modificado hace n días: +7 (más de 7 días), -1 (menos de 1 día). || Modified n days ago: +7 (more than 7 days), -1 (less than 1 day).
+-atime=DÍAS | Accedido hace n días. || Accessed n days ago.
+-ctime=DÍAS | Cambio de metadatos hace n días. || Metadata changed n days ago.
+-mmin=MIN | Modificado hace n minutos. || Modified n minutes ago.
+-newer=ARCHIVO | Modificado después que el archivo indicado. || Modified more recently than the given file.
+-user=USUARIO | Pertenece al usuario. || Owned by the user.
+-group=GRUPO | Pertenece al grupo. || Belongs to the group.
+-perm=MODO | Permisos: 644 exacto, -644 «al menos estos», /222 «alguno de estos». Ej. -4000 = setuid. || Permissions: 644 exact, -644 "at least these", /222 "any of these". E.g. -4000 = setuid.
+-maxdepth=N | Desciende como máximo N niveles. || Descend at most N levels.
+-mindepth=N | No actúa en los primeros N niveles. || Do not act on the first N levels.
+-empty | Archivo o directorio vacío. || File or directory is empty.
+-executable | Archivo ejecutable por ti. || File is executable by you.
+-readable | Archivo legible por ti. || File is readable by you.
+-writable | Archivo escribible por ti. || File is writable by you.
+-print | Imprime la ruta (acción por defecto). || Print the path (default action).
+-print0 | Imprime la ruta terminada en byte nulo (para xargs -0, seguro con espacios). || Print the path terminated by a null byte (for xargs -0, safe with spaces).
+-delete | ¡BORRA lo encontrado! Colócalo siempre al final de las condiciones. || DELETES what is found! Always place it last among the tests.
+-exec=COMANDO | Ejecuta un comando sobre lo encontrado; {} es el archivo; termina con \; (uno a uno) o + (todos juntos). || Run a command on what is found; {} is the file; end with \; (one by one) or + (all together).
+-execdir=COMANDO | Como -exec pero ejecuta desde el directorio del archivo (más seguro). || Like -exec but runs from the file's directory (safer).
+-ok=COMANDO | Como -exec pero pide confirmación antes de cada ejecución. || Like -exec but asks for confirmation each time.
+-prune | No entra en el directorio que coincide (para excluir carpetas). || Do not descend into the matched directory (to exclude folders).
+-not=- | Niega la condición siguiente (igual que «!»). || Negate the next test (same as "!").
+-and=- -a=- | Y lógico (por defecto entre condiciones). || Logical AND (default between tests).
+-or=- -o=- | O lógico. || Logical OR.
+-L=- | Sigue los enlaces simbólicos. || Follow symbolic links.
+-xdev | No cruza a otros sistemas de archivos. || Do not cross to other file systems.
+-ls | Lista cada resultado en formato largo tipo «ls -dils». || List each result in "ls -dils" format.
+-user=USUARIO | Pertenece al usuario indicado. || Owned by the given user.
+-nouser | Archivos cuyo propietario ya no existe. || Files whose owner no longer exists.
+-samefile=ARCHIVO | Mismo inodo que el archivo dado (enlaces duros). || Same inode as the given file (hard links).
+tip: Las condiciones se evalúan de izquierda a derecha: pon «-delete» o «-exec» al final, nunca antes de las pruebas.
+
+@@ xargs
+es: construye y ejecuta comandos a partir de la entrada estándar
+tags: exec
+-0 --null | Los elementos de la entrada vienen separados por un byte nulo (par de «find -print0»); seguro con espacios. || Input items are separated by a null byte (pairs with "find -print0"); safe with spaces.
+-n --max-args=N | Pasa como máximo N argumentos por ejecución. || Use at most N arguments per command line.
+-I=REEMPLAZO | Ejecuta una vez por elemento y sustituye REEMPLAZO (p. ej. {}) por él. || Run once per item, replacing REPLACE (e.g. {}) with it.
+-P --max-procs=N | Ejecuta hasta N procesos en paralelo. || Run up to N processes at a time.
+-r --no-run-if-empty | No ejecuta el comando si la entrada está vacía. || Do not run the command if input is empty.
+-t --verbose | Muestra cada comando antes de ejecutarlo. || Print the command line before executing it.
+-p --interactive | Pregunta antes de ejecutar cada comando. || Prompt the user before running each command.
+-d --delimiter=DELIM | Usa DELIM como separador de elementos. || Input items are terminated by DELIM.
+-a --arg-file=FILE | Lee los elementos de FILE en lugar de la entrada estándar. || Read items from FILE instead of standard input.
+tip: Por defecto xargs separa por espacios: con nombres que contengan espacios usa «find … -print0 | xargs -0 …».
+
+@@ locate
+es: busca archivos por nombre en una base de datos indexada (muy rápido)
+tags: read
+-i --ignore-case | Ignora mayúsculas/minúsculas. || Ignore case distinctions.
+-c --count | Solo muestra cuántas coincidencias hay. || Only print the number of matches.
+-n --limit=N | Muestra como máximo N resultados. || Limit output to N entries.
+-b --basename | Casa solo contra el nombre del archivo, no la ruta. || Match only the base name.
+-r --regexp=REGEXP | Busca con expresión regular. || Search using a regular expression.
+tip: La base se actualiza con «sudo updatedb»: los archivos recientes pueden no aparecer.
+
+@@ chmod
+es: cambia los permisos de archivos y directorios
+tags: write
+pos: MODO | Permisos nuevos: numérico (755) o simbólico (u+x, go-w). || New permissions: numeric (755) or symbolic (u+x, go-w).
+pos: ARCHIVO... | Archivo(s) o directorio(s) a modificar. || File(s) or directory(ies) to change.
+-R --recursive | Aplica el cambio a todo el contenido de los directorios. || Change files and directories recursively.
+-v --verbose | Muestra cada archivo procesado. || Output a diagnostic for every file processed.
+-c --changes | Como -v pero solo cuando hay cambio. || Like verbose but report only when a change is made.
+-f --silent --quiet | Suprime la mayoría de los errores. || Suppress most error messages.
+--reference=RFILE | Copia el modo de otro archivo. || Use RFILE's mode instead of a mode value.
+--preserve-root | No actúa recursivamente sobre «/». || Fail to operate recursively on "/".
+tip: Lectura=4, escritura=2, ejecución=1; las tres cifras son propietario, grupo y resto. 644 = rw-r--r--, 755 = rwxr-xr-x, 600 = rw-------.
+
+@@ chown
+es: cambia el propietario y/o el grupo de archivos
+tags: write priv
+pos: PROPIETARIO[:GRUPO] | Nuevo usuario (y opcionalmente grupo): usuario, usuario:grupo, :grupo. || New user (and optionally group): user, user:group, :group.
+pos: ARCHIVO... | Archivo(s) o directorio(s) a modificar. || File(s) or directory(ies) to change.
+-R --recursive | Aplica el cambio a todo el contenido de los directorios. || Operate on files and directories recursively.
+-v --verbose | Muestra cada archivo procesado. || Output a diagnostic for every file processed.
+-c --changes | Como -v pero solo cuando hay cambio. || Like verbose but report only when a change is made.
+-h --no-dereference | Cambia el enlace simbólico en sí, no su destino. || Affect symbolic links instead of any referenced file.
+--from=USUARIO:GRUPO | Cambia solo si el propietario actual coincide. || Change only if the current owner matches.
+--reference=RFILE | Copia el propietario de otro archivo. || Use RFILE's owner and group.
+
+@@ chgrp
+es: cambia el grupo propietario de archivos
+tags: write priv
+pos: GRUPO | Nuevo grupo propietario. || New owning group.
+pos: ARCHIVO... | Archivo(s) o directorio(s) a modificar. || File(s) or directory(ies) to change.
+-R --recursive | Recursivo. || Operate recursively.
+-v --verbose | Muestra cada archivo procesado. || Output a diagnostic for every file processed.
+
+@@ diff
+es: compara dos archivos (o directorios) línea a línea
+tags: read
+pos: ARCHIVO1 | Primer archivo (o directorio). || First file (or directory).
+pos: ARCHIVO2 | Segundo archivo (o directorio). || Second file (or directory).
+-u -U=NUM --unified | Formato unificado (el de git: - líneas quitadas, + líneas añadidas). || Unified format (as in git: - removed lines, + added lines).
+-r --recursive | Compara directorios recursivamente. || Recursively compare any subdirectories found.
+-q --brief | Solo indica si difieren, sin detallar. || Report only when files differ.
+-y --side-by-side | Muestra las dos versiones en columnas. || Output in two columns.
+-i --ignore-case | Ignora mayúsculas/minúsculas. || Ignore case differences in file contents.
+-w --ignore-all-space | Ignora todos los espacios en blanco. || Ignore all white space.
+-B --ignore-blank-lines | Ignora las líneas vacías. || Ignore changes where lines are all blank.
+-N --new-file | Trata los archivos ausentes como vacíos. || Treat absent files as empty.
+--color=WHEN | Colorea la salida. || Colorize the output.
+-c | Formato de contexto. || Output a context diff.
+
+@@ cmp
+es: compara dos archivos byte a byte
+tags: read
+-s --quiet --silent | No escribe nada: solo devuelve el código de salida (0 = iguales). || Suppress all normal output; only the exit status.
+-l --verbose | Lista todas las diferencias (posición y valores). || Output byte numbers and differing byte values.
+
+@@ patch
+es: aplica un parche (salida de diff) a archivos
+tags: write
+-p=NUM | Quita NUM niveles de directorio de las rutas del parche. || Strip NUM leading path components from file names.
+-i --input=PATCHFILE | Lee el parche de este archivo en vez de la entrada estándar. || Read the patch from PATCHFILE instead of stdin.
+-R --reverse | Deshace un parche ya aplicado. || Assume patches were created with old and new files swapped.
+--dry-run | Simula sin modificar nada. || Print the results of applying the patches without actually changing any files.
+-b --backup | Hace copia de seguridad de cada archivo modificado. || Make backup files.
+
+@@ split
+es: divide un archivo en trozos
+tags: write
+-l --lines=NUM | Trozos de NUM líneas. || Put NUM lines per output file.
+-b --bytes=SIZE | Trozos de SIZE bytes (admite K, M, G). || Put SIZE bytes per output file.
+-d --numeric-suffixes | Sufijos numéricos en vez de letras. || Use numeric suffixes instead of alphabetic.
+
+@@ paste
+es: une líneas de varios archivos en columnas
+tags: read
+-d --delimiters=LIST | Separador entre columnas (por defecto, tabulador). || Reuse characters from LIST instead of TABs.
+-s --serial | Pega cada archivo en una sola línea. || Paste one file at a time instead of in parallel.
+
+@@ join
+es: une líneas de dos archivos ordenados por un campo común
+tags: read
+
+@@ comm
+es: compara dos archivos ORDENADOS: líneas solo en uno, solo en otro y en ambos
+tags: read
+-1 | No muestra las líneas únicas del primer archivo. || Suppress lines unique to FILE1.
+-2 | No muestra las líneas únicas del segundo archivo. || Suppress lines unique to FILE2.
+-3 | No muestra las líneas comunes a ambos. || Suppress lines that appear in both files.
+
+@@ column
+es: formatea la entrada en columnas (por ejemplo, en tabla)
+tags: read
+-t --table | Crea una tabla alineando las columnas. || Determine the number of columns the input contains and create a table.
+-s --separator=SEP | Carácter separador de columnas en la entrada. || Specify the possible input item delimiters.
+
+@@ fold
+es: parte las líneas largas a un ancho fijo
+tags: read
+-w --width=N | Ancho en caracteres. || Use N columns instead of 80.
+-s --spaces | Parte en los espacios, no en mitad de palabra. || Break at spaces.
+
+@@ nl
+es: numera las líneas de un archivo
+tags: read
+
+@@ rev
+es: invierte el orden de los caracteres de cada línea
+tags: read
+
+@@ shuf
+es: baraja líneas al azar (o elige algunas aleatoriamente)
+tags: read
+-n --head-count=COUNT | Muestra como máximo COUNT líneas. || Output at most COUNT lines.
+-e --echo | Trata los argumentos como las líneas de entrada. || Treat each ARG as an input line.
+-i --input-range=LO-HI | Trata los números LO a HI como líneas. || Treat each number LO through HI as an input line.
+
+@@ seq
+es: genera una secuencia de números
+tags: read
+pos: NÚMERO... | seq FIN; seq INICIO FIN; seq INICIO PASO FIN. || seq LAST; seq FIRST LAST; seq FIRST INCREMENT LAST.
+-s --separator=STRING | Separador entre números (por defecto, salto de línea). || Use STRING to separate numbers.
+-w --equal-width | Rellena con ceros a la izquierda para igualar el ancho. || Equalize width by padding with leading zeroes.
+
+@@ yes
+es: repite una cadena sin parar (por defecto «y»); útil para responder «sí» automáticamente
+tags: write
+tip: Se corta con Ctrl+C o cuando el comando que lo recibe termina («yes | comando»).
+
+@@ sleep
+es: espera un tiempo antes de continuar
+pos: TIEMPO | Duración: segundos, o con sufijo s, m, h, d (5m = cinco minutos). || Duration: seconds, or with suffix s, m, h, d (5m = five minutes).
+
+@@ tree
+es: muestra el contenido de directorios como un árbol
+tags: read
+-a | Incluye archivos ocultos. || All files are listed.
+-d | Solo directorios. || List directories only.
+-L=NIVEL | Profundidad máxima. || Max display depth of the directory tree.
+-I=PATRÓN | Excluye lo que coincida con el patrón. || Do not list files that match the given pattern.
+-h | Muestra tamaños legibles. || Print the size in a more human readable way.
+-f | Muestra la ruta completa de cada archivo. || Print the full path prefix for each file.
+
+@@ mktemp
+es: crea un archivo o directorio temporal con nombre único y seguro
+tags: write
+-d --directory | Crea un directorio en lugar de un archivo. || Create a directory, not a file.
+-p=DIR | Lo crea dentro de DIR. || Use DIR as a prefix.
+-u --dry-run | Solo muestra el nombre, no lo crea (inseguro). || Do not create anything; merely print a name (unsafe).
+
+@@ install
+es: copia archivos fijando permisos y propietario a la vez (muy usado en instalaciones)
+tags: write
+-m --mode=MODE | Permisos del destino (por defecto rwxr-xr-x). || Set permission mode.
+-o --owner=OWNER | Propietario del destino. || Set ownership (super-user only).
+-g --group=GROUP | Grupo del destino. || Set group ownership.
+-d --directory | Crea directorios en lugar de copiar. || Treat all arguments as directory names; create all components.
+-D | Crea los directorios padre del destino. || Create all leading components of DEST.
+
+@@ truncate
+es: cambia el tamaño de un archivo (lo recorta o lo rellena con ceros)
+tags: write
+-s --size=SIZE | Tamaño nuevo (admite K, M, G; con + o - es relativo). || Set or adjust the file size by SIZE bytes.
+
+@@ shred
+es: sobrescribe un archivo varias veces para dificultar su recuperación
+tags: delete
+-u --remove | Borra el archivo después de sobrescribirlo. || Deallocate and remove file after overwriting.
+-n --iterations=N | Sobrescribe N veces (por defecto 3). || Overwrite N times instead of the default (3).
+-z --zero | Añade una última pasada de ceros para ocultar el borrado. || Add a final overwrite with zeros to hide shredding.
+-v --verbose | Muestra el progreso. || Show progress.
+tip: En discos SSD, sistemas con journaling o copy-on-write shred no garantiza el borrado seguro.

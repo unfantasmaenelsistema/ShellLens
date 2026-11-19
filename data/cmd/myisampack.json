@@ -1,0 +1,1 @@
+{"n":"myisampack","s":{"en":"generate compressed, read-only MyISAM tables"},"syn":"myisampack [options] file_name ...","st":"gnu","o":[{"f":["-rw-rw-r--"],"en":"1 monty my 994128 Apr 17 19:00 station.MYD"}]}

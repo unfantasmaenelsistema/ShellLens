@@ -1,0 +1,1 @@
+{"n":"sq-network-keyserver","s":{"en":"Retrieve and publishes certificates via key servers"},"syn":"sq network keyserver search [OPTIONS] QUERY ⏎ sq network keyserver publish [OPTIONS]","st":"gnu","o":[]}

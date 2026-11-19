@@ -1,0 +1,1 @@
+{"n":"sq-keyring-merge","s":{"en":"Merge keys or keyrings into a single keyring"},"syn":"sq keyring merge [OPTIONS] FILE","st":"gnu","o":[{"f":["--output"],"en":"Write to FILE or stdout if omitted [default: -] FILE Read from FILE or stdin if omitted","a":"FILE"}]}

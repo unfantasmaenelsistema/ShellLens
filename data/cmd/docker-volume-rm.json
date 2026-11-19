@@ -1,0 +1,1 @@
+{"n":"docker-volume-rm","s":{"en":"Remove one or more volumes"},"syn":"docker volume rm [OPTIONS] VOLUME [VOLUME...]","st":"gnu","o":[{"f":["-f","--force"],"en":"Force the removal of one or more volumes","a":"false","ao":1}]}

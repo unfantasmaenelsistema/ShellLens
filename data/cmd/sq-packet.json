@@ -1,0 +1,1 @@
+{"n":"sq-packet","s":{"en":"Low-level packet manipulation"},"syn":"sq packet armor [OPTIONS] FILE ⏎ sq packet dearmor [OPTIONS] FILE ⏎ sq packet dump [OPTIONS] FILE ⏎ sq packet decrypt [OPTIONS] FILE ⏎ sq packet split [OPTIONS] FILE ⏎ sq packet join [OPTIONS] FILE","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"dbus-cleanup-sockets","s":{"en":"clean up leftover sockets in a directory"},"syn":"dbus-cleanup-sockets [DIRECTORY]","st":"gnu","o":[]}

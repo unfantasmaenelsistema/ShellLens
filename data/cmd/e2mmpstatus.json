@@ -1,0 +1,1 @@
+{"n":"e2mmpstatus","s":{"en":"Check MMP status of an ext4 file system"},"syn":"e2mmpstatus [-i] <filesystem>","st":"gnu","o":[{"f":["-i"],"en":"prints out the MMP information rather than check it."}]}

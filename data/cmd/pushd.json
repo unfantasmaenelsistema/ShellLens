@@ -1,0 +1,1 @@
+{"n":"pushd","s":{"en":"push the current directory on a stack and change to another","es":"guarda el directorio actual en una pila y cambia a otro"},"st":"gnu","p":[{"n":"DIRECTORIO","es":"Directorio al que ir.","en":"Directory to go to.","opt":1}],"o":[]}

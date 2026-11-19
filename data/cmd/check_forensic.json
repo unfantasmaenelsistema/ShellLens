@@ -1,0 +1,1 @@
+{"n":"check_forensic","s":{"en":"tool to extract mod_log_forensic output from apache log files"},"syn":"check_forensic <log_file>","st":"gnu","o":[]}

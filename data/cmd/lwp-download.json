@@ -1,0 +1,1 @@
+{"n":"lwp-download","s":{"en":"Fetch large files from the web"},"syn":"lwp-download [-a] [-s] <url> [<local path>] ⏎ Options: ⏎ -a save the file in ASCII mode ⏎ -s use HTTP headers to guess output filename","st":"gnu","o":[]}

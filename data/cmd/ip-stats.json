@@ -1,0 +1,1 @@
+{"n":"ip-stats","s":{"en":"manage and show interface statistics"},"syn":"ip stats { COMMAND | help } ⏎ ip stats show [ dev DEV ] [ group GROUP [ subgroup SUBGROUP [ suite SUITE ] ... ] ... ] ... ⏎ ip stats set dev DEV l3_stats { on | off }","st":"gnu","o":[]}

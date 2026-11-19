@@ -1,0 +1,1 @@
+{"n":"docker-wait","s":{"en":"Block until one or more containers stop, then print their exit codes"},"syn":"docker wait CONTAINER [CONTAINER...]","st":"gnu","o":[]}

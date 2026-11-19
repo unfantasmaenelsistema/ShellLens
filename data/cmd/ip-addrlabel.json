@@ -1,0 +1,1 @@
+{"n":"ip-addrlabel","s":{"en":"protocol address label management"},"syn":"ip addrlabel { COMMAND | help } ⏎ ip addrlabel { add | del } prefix PREFIX [ dev DEV ] [ label NUMBER ] ⏎ ip addrlabel { list | flush }","st":"gnu","o":[]}

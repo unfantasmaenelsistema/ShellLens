@@ -1,0 +1,1 @@
+{"n":"docker-config-create","s":{"en":"Create a config from a file or STDIN"},"syn":"docker config create [OPTIONS] CONFIG file|-","st":"gnu","o":[{"f":["-l","--label"],"en":"Config labels"},{"f":["--template-driver"],"en":"Template driver"}]}

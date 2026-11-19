@@ -1,0 +1,1 @@
+{"n":"tc-dualpi2","s":{"en":"Dual Queue Proportional Integral Controller AQM - Improved with a square"},"al":["DUALPI2"],"syn":"tc qdisc ... dualpi2 ⏎ [ limit PACKETS ] ⏎ [ memlimit BYTES ] ⏎ [ coupling_factor NUMBER ] ⏎ [ step_thresh TIME|PACKETS ] ⏎ [ min_qlen_step PACKETS ]","st":"gnu","o":[]}

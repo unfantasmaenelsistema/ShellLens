@@ -1,0 +1,1 @@
+{"n":"docker-config-rm","s":{"en":"Remove one or more configs"},"syn":"docker config rm CONFIG [CONFIG...]","st":"gnu","o":[]}

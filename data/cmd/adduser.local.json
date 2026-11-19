@@ -1,0 +1,1 @@
+{"n":"adduser.local","s":{"en":"hook for local actions in adduser and deluser"},"al":["deluser.local"],"syn":"adduser.local [username] [uid] [gid] [home-directory] ⏎ deluser.local [username] [uid] [gid] [home-directory]","st":"gnu","o":[]}

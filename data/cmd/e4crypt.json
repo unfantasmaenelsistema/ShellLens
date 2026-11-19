@@ -1,0 +1,1 @@
+{"n":"e4crypt","s":{"en":"ext4 file system encryption utility"},"syn":"e4crypt add_key -S [ -k keyring ] [-v] [-q] [ -p pad ] [ path ... ] ⏎ e4crypt new_session ⏎ e4crypt get_policy path ... ⏎ e4crypt set_policy [ -p pad ] policy path ...","st":"gnu","o":[]}

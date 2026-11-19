@@ -1,0 +1,1 @@
+{"n":"ts_verify","s":{"en":"A basic test routine for tslib's API."},"syn":"ts_print_mt [OPTION]","st":"gnu","o":[{"f":["-i","--idev"],"en":"Explicitly choose the original input event device for tslib to use. Default: the environment variable TSLIB_TSDEVICE's value. -h, --help Print usage help and exit."}]}

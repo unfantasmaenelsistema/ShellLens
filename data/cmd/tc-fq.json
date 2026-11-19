@@ -1,0 +1,1 @@
+{"n":"tc-fq","s":{"en":"Fair Queue traffic policing"},"al":["FQ"],"syn":"tc qdisc ... fq [ limit PACKETS ] [ flow_limit PACKETS ] [ quantum BYTES ] [ initial_quantum BYTES ] [ maxrate RATE ] [ buckets NUMBER ] [ orphan_mask NUMBER ] [ pacing | nopacing ] [ ce_threshold TIME ]","st":"gnu","o":[]}

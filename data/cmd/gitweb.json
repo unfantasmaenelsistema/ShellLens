@@ -1,0 +1,1 @@
+{"n":"gitweb","s":{"en":"Git web interface (web frontend to Git repositories)"},"syn":"To get started with gitweb, run git-instaweb(1) from a Git repository. This will configure and start your web server, and run a web browser pointing to gitweb.","st":"gnu","o":[]}

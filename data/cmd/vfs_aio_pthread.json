@@ -1,0 +1,1 @@
+{"n":"vfs_aio_pthread","s":{"en":"implement async open in Samba vfs using a pthread pool"},"syn":"vfs objects = aio_pthread","st":"gnu","o":[]}

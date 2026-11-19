@@ -1,0 +1,1 @@
+{"n":"tc-skbedit","s":{"en":"SKB editing action"},"al":["skbedit"],"syn":"tc ... action skbedit [ queue_mapping QUEUE_MAPPING ] [ priority PRIORITY ] [ mark MARK[/MASK] ] [ ptype PTYPE ] [ inheritdsfield ]","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"dcb-dcbx","s":{"en":"show / manipulate port DCBX (Data Center Bridging eXchange)"},"syn":"dcb [ OPTIONS ] dcbx { COMMAND | help } ⏎ dcb dcbx show dev DEV ⏎ dcb dcbx set dev DEV [ host ] [ lld-managed ] [ cee ] [ ieee ] [ static ]","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"activate-global-python-argcomplete","s":{"en":"activate-global-python-argcomplete - argcomplete utility script"},"st":"gnu","o":[{"f":["-h","--help"],"en":"show this help message and exit"},{"f":["--dest"],"en":"Specify the shell completion modules directory to install into, or \"-\" for stdout","a":"DEST"},{"f":["--user"],"en":"Install into user directory"}]}

@@ -1,0 +1,1 @@
+{"n":"docker-manifest-create","s":{"en":"Create a local manifest list for annotating and pushing to a registry"},"syn":"docker manifest create MANIFEST_LIST MANIFEST [MANIFEST...]","st":"gnu","o":[{"f":["-a","--amend"],"en":"Amend an existing manifest list","a":"false","ao":1},{"f":["--insecure"],"en":"Allow communication with an insecure registry","a":"false","ao":1}]}

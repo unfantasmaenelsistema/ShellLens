@@ -1,0 +1,1 @@
+{"n":"docker-swarm-leave","s":{"en":"Leave the swarm"},"syn":"docker swarm leave [OPTIONS]","st":"gnu","o":[{"f":["-f","--force"],"en":"Force this node to leave the swarm, ignoring warnings","a":"false","ao":1}]}

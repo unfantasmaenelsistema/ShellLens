@@ -1,0 +1,1 @@
+{"n":"tc-skbprio","s":{"en":"SKB Priority Queue"},"al":["skbprio"],"syn":"tc qdisc ... add skbprio [ limit packets ]","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"tipc-socket","s":{"en":"show TIPC socket (port) information"},"syn":"tipc socket list","st":"gnu","o":[{"f":["-h","--help"],"en":"Show help about last valid command. For example tipc socket --help will show socket help and tipc --help will show general help. The position of the option in the string is irrelevant."}]}

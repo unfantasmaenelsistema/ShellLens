@@ -1,0 +1,1 @@
+{"n":"tc-csum","s":{"en":"checksum update action"},"al":["csum"],"syn":"tc ... action csum UPDATE ⏎ UPDATE := TARGET [ UPDATE ] ⏎ TARGET := { ip4h | icmp | igmp | tcp | udp | udplite | sctp | SWEETS } ⏎ SWEETS := { and | or | + }","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"docker-swarm-unlock-key","s":{"en":"Manage the unlock key"},"syn":"docker swarm unlock-key [OPTIONS]","st":"gnu","o":[{"f":["-q","--quiet"],"en":"Only display token","a":"false","ao":1},{"f":["--rotate"],"en":"Rotate unlock key","a":"false","ao":1}]}

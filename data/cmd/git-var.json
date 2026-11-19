@@ -1,0 +1,1 @@
+{"n":"git-var","s":{"en":"Show a Git logical variable"},"syn":"git var (-l | <variable>)","st":"gnu","o":[{"f":["-l"],"en":"Display the logical variables. In addition, all the variables of the Git configuration file .git/config are listed as well. (However, the configuration variables listing functionality is deprecated in favor of git config -l.)"}]}

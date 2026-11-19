@@ -1,0 +1,1 @@
+{"n":"tc-ctinfo","s":{"en":"tc connmark processing action"},"al":["ctinfo"],"syn":"tc ... action ctinfo [ dscp MASK [STATEMASK] ] [ cpmark [MASK] ] [ zone ZONE ] [ CONTROL ] [ index <INDEX> ]","st":"gnu","o":[{"f":["--mark"],"en":"","a":"0x00000000/0x01000000"}]}

@@ -1,0 +1,1 @@
+{"n":"systemd-tpm2-generator","s":{"en":"Generator for inserting TPM2 synchronization point in the boot process"},"syn":"/usr/lib/systemd/system-generators/systemd-tpm2-generator","st":"gnu","o":[]}

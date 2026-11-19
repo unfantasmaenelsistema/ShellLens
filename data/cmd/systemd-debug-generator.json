@@ -1,0 +1,1 @@
+{"n":"systemd-debug-generator","s":{"en":"Generator for enabling a runtime debug shell and masking specific units at boot"},"syn":"/usr/lib/systemd/system-generators/systemd-debug-generator","st":"gnu","o":[]}

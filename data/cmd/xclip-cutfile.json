@@ -1,0 +1,1 @@
+{"n":"xclip-cutfile","s":{"en":"copy and move files via the X clipboard"},"al":["xclip-copyfile","xclip-pastefile"],"syn":"xclip-copyfile [-p] FILES... ⏎ xclip-cutfile [-p] FILES... ⏎ xclip-pastefile","st":"gnu","o":[{"f":["-p"],"en":"preserve path formation"}]}

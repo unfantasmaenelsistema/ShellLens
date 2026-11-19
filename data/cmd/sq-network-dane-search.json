@@ -1,0 +1,1 @@
+{"n":"sq-network-dane-search","s":{"en":"Retrieve certificates using DANE"},"syn":"sq network dane search [OPTIONS] ADDRESS","st":"gnu","o":[{"f":["--all"],"en":"Fetch updates for all known certificates"},{"f":["--output"],"en":"Write to FILE (or stdout when omitted) instead of importing into the certificate store ADDRESS Retrieve certificate(s) for ADDRESS","a":"FILE"}]}

@@ -1,0 +1,1 @@
+{"n":"tc-mirred","s":{"en":"mirror/redirect action"},"al":["mirred"],"syn":"tc ... action mirred DIRECTION ACTION [ index INDEX ] TARGET ⏎ DIRECTION := { ingress | egress } ⏎ TARGET := { DEV | BLOCK } ⏎ DEV := dev DEVICENAME ⏎ BLOCK := blockid BLOCKID ⏎ ACTION := { mirror | redirect }","st":"gnu","o":[]}

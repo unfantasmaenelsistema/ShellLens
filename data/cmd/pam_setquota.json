@@ -1,0 +1,1 @@
+{"n":"pam_setquota","s":{"en":"PAM module to set or modify disk quotas on session start"},"syn":"pam_setquota.so [fs=/home] [overwrite=0] [debug=0] [startuid=1000] [enduid=0] [bsoftlimit=19000] [bhardlimit=20000] [isoftlimit=3000] [ihardlimit=4000]","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"runc-spec","s":{"en":"create a new specification file"},"syn":"runc spec [option ...]","st":"gnu","o":[{"f":["--rootless"],"en":"Generate a configuration for a rootless container. Note this option is entirely different from the global --rootless option."}]}

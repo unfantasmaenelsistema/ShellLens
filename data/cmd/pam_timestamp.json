@@ -1,0 +1,1 @@
+{"n":"pam_timestamp","s":{"en":"Authenticate using cached successful authentication attempts"},"syn":"pam_timestamp.so [timestampdir=directory] [timestamp_timeout=number] [verbose] [debug]","st":"gnu","o":[]}

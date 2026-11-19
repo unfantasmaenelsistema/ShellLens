@@ -1,0 +1,1 @@
+{"n":"nameif","s":{"en":"name network interfaces based on MAC addresses"},"syn":"nameif [-c configfile] [-s] ⏎ nameif [-c configfile] [-s] {interface macaddress}","st":"gnu","o":[]}

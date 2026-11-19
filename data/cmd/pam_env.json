@@ -1,0 +1,1 @@
+{"n":"pam_env","s":{"en":"PAM module to set/unset environment variables"},"syn":"pam_env.so [debug] [conffile=conf-file] [envfile=env-file] [readenv=0|1] [user_envfile=env-file] [user_readenv=0|1]","st":"gnu","o":[]}

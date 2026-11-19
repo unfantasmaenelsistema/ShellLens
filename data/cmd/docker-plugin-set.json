@@ -1,0 +1,1 @@
+{"n":"docker-plugin-set","s":{"en":"Change settings for a plugin"},"syn":"docker plugin set PLUGIN KEY=VALUE [KEY=VALUE...]","st":"gnu","o":[]}

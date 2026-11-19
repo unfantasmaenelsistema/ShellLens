@@ -1,0 +1,1 @@
+{"n":"pam_mkhomedir","s":{"en":"PAM module to create users home directory"},"syn":"pam_mkhomedir.so [silent] [debug] [umask=mode] [skel=skeldir]","st":"gnu","o":[]}

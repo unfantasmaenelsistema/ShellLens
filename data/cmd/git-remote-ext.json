@@ -1,0 +1,1 @@
+{"n":"git-remote-ext","s":{"en":"Bridge smart transport to external command."},"syn":"git remote add <nick> \"ext::<command>[ <arguments>...]\"","st":"gnu","o":[]}

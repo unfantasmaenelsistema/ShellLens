@@ -1,0 +1,1 @@
+{"n":"aa-remove-unknown","s":{"en":"remove unknown AppArmor profiles"},"syn":"aa-remove-unknown [option]","st":"gnu","o":[{"f":["-h","--help"],"en":"displays a short usage statement."},{"f":["-n"],"en":"dry run; only prints the names of profiles that would be removed"}]}

@@ -1,0 +1,1 @@
+{"n":"tc-prio","s":{"en":"Priority qdisc"},"al":["PRIO"],"syn":"tc qdisc ... dev dev ( parent classid | root) [ handle major: ] prio [ bands bands ] [ priomap band band band... ] [ estimator interval timeconstant ]","st":"gnu","o":[]}

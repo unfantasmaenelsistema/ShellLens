@@ -1,0 +1,1 @@
+{"n":"rdma-resource","s":{"en":"rdma resource configuration"},"syn":"rdma [ OPTIONS ] RESOURCE { COMMAND | help } ⏎ RESOURCE := { cm_id | cq | mr | pd | qp | ctx | srq } ⏎ OPTIONS := { -j[son] | -d[etails] } ⏎ rdma resource show [ DEV/PORT_INDEX ] ⏎ rdma resource help","st":"gnu","o":[]}

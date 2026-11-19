@@ -1,0 +1,1 @@
+{"n":"systemd-hibernate-resume","s":{"en":"Resume from hibernation"},"al":["systemd-hibernate-resume.service","systemd-hibernate-clear.service"],"syn":"systemd-hibernate-resume.service ⏎ systemd-hibernate-clear.service ⏎ /usr/lib/systemd/systemd-hibernate-resume","st":"gnu","o":[]}

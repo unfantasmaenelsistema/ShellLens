@@ -1,0 +1,1 @@
+{"n":"sq-keyring-split","s":{"en":"Split a keyring into individual keys"},"syn":"sq keyring split [OPTIONS] FILE","st":"gnu","o":[{"f":["--prefix"],"en":"Write to files with PREFIX [defaults: `FILE-` if FILE is set, or `output-` if read from stdin] FILE Read from FILE or stdin if FILE is '-' [default: -]","a":"PREFIX"}]}

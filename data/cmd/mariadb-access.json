@@ -1,0 +1,1 @@
+{"n":"mariadb-access","s":{"en":"client for checking access privileges (mariadb-access is now a symlink to mariadb-access)"},"syn":"mariadb-access [host_name [user_name [db_name]]] [options]","st":"gnu","o":[]}

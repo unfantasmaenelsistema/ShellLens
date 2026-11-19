@@ -1,0 +1,1 @@
+{"n":"pam_time","s":{"en":"PAM module for time control access"},"syn":"pam_time.so [conffile=conf-file] [debug] [noaudit]","st":"gnu","o":[]}

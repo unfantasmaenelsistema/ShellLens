@@ -1,0 +1,1 @@
+{"n":"runc-kill","s":{"en":"send a specified signal to container"},"syn":"runc kill container-id [signal]","st":"gnu","o":[]}

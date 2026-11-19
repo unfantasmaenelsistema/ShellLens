@@ -1,0 +1,1 @@
+{"n":"x86_64-w64-mingw32-dllwrap","s":{"en":"Ancient tool for generating PE style dll's."},"al":["dllwrap"],"st":"gnu","o":[{"f":["-h","--help"],"en":"Show summary of options."}]}

@@ -1,0 +1,1 @@
+{"n":"vimdiff","s":{"en":"edit between two and eight versions of a file with Vim and show differences"},"syn":"vimdiff [options] file1 file2 [file3 [file4 [file5 [file6 [file7 [file8]]]]]] ⏎ gvimdiff","st":"gnu","o":[]}

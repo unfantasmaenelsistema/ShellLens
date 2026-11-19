@@ -1,0 +1,1 @@
+{"n":"git-mktag","s":{"en":"Creates a tag object with extra validation"},"syn":"git mktag","st":"gnu","o":[{"f":["--strict"],"en":"By default mktag turns on the equivalent of git-fsck(1) --strict mode. Use --no-strict to disable it."}]}

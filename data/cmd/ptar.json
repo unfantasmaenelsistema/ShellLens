@@ -1,0 +1,1 @@
+{"n":"ptar","s":{"en":"a tar-like program written in perl"},"syn":"ptar -c [-v] [-z] [-C] [-f ARCHIVE_FILE | -] FILE FILE ... ⏎ ptar -c [-v] [-z] [-C] [-T index | -] [-f ARCHIVE_FILE | -] ⏎ ptar -x [-v] [-z] [-f ARCHIVE_FILE | -] ⏎ ptar -t [-z] [-f ARCHIVE_FILE | -] ⏎ ptar -h","st":"gnu","o":[]}

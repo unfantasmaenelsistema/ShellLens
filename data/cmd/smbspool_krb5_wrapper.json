@@ -1,0 +1,1 @@
+{"n":"smbspool_krb5_wrapper","s":{"en":"This is a CUPS printing backend which calls smbspool"},"syn":"smbspool_krb5_wrapper {job} {user} {title} {copies} {options} [filename]","st":"gnu","o":[]}

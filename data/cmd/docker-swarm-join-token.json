@@ -1,0 +1,1 @@
+{"n":"docker-swarm-join-token","s":{"en":"Manage join tokens"},"syn":"docker swarm join-token OPTIONS ⟨worker|manager⟩","st":"gnu","o":[{"f":["-q","--quiet"],"en":"Only display token","a":"false","ao":1},{"f":["--rotate"],"en":"Rotate join token","a":"false","ao":1}]}

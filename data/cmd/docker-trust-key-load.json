@@ -1,0 +1,1 @@
+{"n":"docker-trust-key-load","s":{"en":"Load a private key file for signing"},"syn":"docker trust key load [OPTIONS] KEYFILE","st":"gnu","o":[{"f":["--name"],"en":"Name for the loaded key"}]}

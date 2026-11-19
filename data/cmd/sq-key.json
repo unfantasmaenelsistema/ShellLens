@@ -1,0 +1,1 @@
+{"n":"sq-key","s":{"en":"Manage keys"},"syn":"sq key list [OPTIONS] FINGERPRINT|KEYID|PATTERN ⏎ sq key generate [OPTIONS] ⏎ sq key rotate [OPTIONS] ⏎ sq key import [OPTIONS] KEY_FILE ⏎ sq key export [OPTIONS] ⏎ sq key delete [OPTIONS]","st":"gnu","o":[{"f":["--clear-password"],"en":"","a":"--cert"},{"f":["--reason"],"en":"","a":"superseded"}]}

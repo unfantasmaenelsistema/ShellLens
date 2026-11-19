@@ -1,0 +1,1 @@
+{"n":"docker-service-rollback","s":{"en":"Revert changes to a service's configuration"},"syn":"docker service rollback [OPTIONS] SERVICE","st":"gnu","o":[{"f":["-d","--detach"],"en":"Exit immediately instead of waiting for the service to converge","a":"false","ao":1},{"f":["-q","--quiet"],"en":"Suppress progress output","a":"false","ao":1}]}

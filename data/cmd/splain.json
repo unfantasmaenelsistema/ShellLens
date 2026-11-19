@@ -1,0 +1,1 @@
+{"n":"splain","s":{"en":"produce verbose warning diagnostics"},"al":["diagnostics"],"syn":"Using the \"diagnostics\" pragma: ⏎ use diagnostics; ⏎ use diagnostics -verbose; ⏎ diagnostics->enable; ⏎ diagnostics->disable; ⏎ Using the \"splain\" standalone filter program:","st":"gnu","o":[]}

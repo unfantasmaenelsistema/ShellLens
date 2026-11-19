@@ -1,0 +1,1 @@
+{"n":"tipc-peer","s":{"en":"modify peer information"},"syn":"tipc peer remove address ADDRESS","st":"gnu","o":[{"f":["-h","--help"],"en":"Show help about last valid command. For example tipc peer --help will show peer help and tipc --help will show general help. The position of the option in the string is irrelevant."}]}

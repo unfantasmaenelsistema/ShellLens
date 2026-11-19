@@ -1,0 +1,1 @@
+{"n":"devlink-port","s":{"en":"devlink port configuration"},"syn":"devlink [ OPTIONS ] port { COMMAND | help } ⏎ OPTIONS := { -V[ersion] | -n[no-nice-names] } ⏎ devlink port set DEV/PORT_INDEX [ type { eth | ib | auto } ] ⏎ devlink port split DEV/PORT_INDEX count COUNT ⏎ devlink port unsplit DEV/PORT_INDEX ⏎ devlink port show [ DEV/PORT_INDEX ]","st":"gnu","o":[]}

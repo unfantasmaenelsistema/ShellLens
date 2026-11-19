@@ -1,0 +1,1 @@
+{"n":"systemd-quotacheck@.service","s":{"en":"File system quota checker logic"},"al":["systemd-quotacheck-root.service","systemd-quotacheck"],"syn":"systemd-quotacheck@.service ⏎ systemd-quotacheck-root.service ⏎ /usr/lib/systemd/systemd-quotacheck","st":"gnu","o":[]}

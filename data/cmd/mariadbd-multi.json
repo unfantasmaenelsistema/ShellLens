@@ -1,0 +1,1 @@
+{"n":"mariadbd-multi","s":{"en":"manage multiple MariaDB servers (mariadbd-multi is now a symlink to mariadbd-multi)"},"syn":"mariadbd-multi [options] {start|stop|report} [GNR[,GNR] ...]","st":"gnu","o":[{"f":["-f"],"en":""},{"f":["-x"],"en":"","a":"./bin/mariadbd"}]}

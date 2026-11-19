@@ -1,0 +1,1 @@
+{"n":"docker-plugin-rm","s":{"en":"Remove one or more plugins"},"syn":"docker plugin rm [OPTIONS] PLUGIN [PLUGIN...]","st":"gnu","o":[{"f":["-f","--force"],"en":"Force the removal of an active plugin","a":"false","ao":1}]}

@@ -1,0 +1,1 @@
+{"n":"rdma-monitor","s":{"en":"RDMA events monitoring"},"syn":"rdma [ OPTIONS ] monitor { help } ⏎ OPTIONS := { -V[ersion] } ⏎ rdma monitor ⏎ rdma monitor help","st":"gnu","o":[]}

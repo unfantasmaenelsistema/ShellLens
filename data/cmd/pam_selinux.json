@@ -1,0 +1,1 @@
+{"n":"pam_selinux","s":{"en":"PAM module to set the default security context"},"syn":"pam_selinux.so [open] [close] [restore] [nottys] [debug] [verbose] [select_context] [env_params] [use_current_range]","st":"gnu","o":[]}

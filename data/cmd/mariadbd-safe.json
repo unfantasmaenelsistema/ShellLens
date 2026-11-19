@@ -1,0 +1,1 @@
+{"n":"mariadbd-safe","s":{"en":"MariaDB server startup script (mariadbd-safe is now a symlink to mariadbd-safe)"},"syn":"mariadbd-safe options","st":"gnu","o":[{"f":["--syslog"],"en":"--skip-syslog suppresses the use of syslog; messages are written to an error log file.","a":"causes"}]}

@@ -1,0 +1,1 @@
+{"n":"pam_motd","s":{"en":"Display the motd file"},"syn":"pam_motd.so [motd=/path/filename] [motd_dir=/path/dirname.d]","st":"gnu","o":[]}

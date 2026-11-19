@@ -1,0 +1,1 @@
+{"n":"vdpa-mgmtdev","s":{"en":"vdpa management device view"},"syn":"vdpa mgmtdev { COMMAND| help } ⏎ OPTIONS := { -V[ersion] } ⏎ vdpa mgmtdev show [ MGMTDEV ] ⏎ vdpa mgmtdev help","st":"gnu","o":[]}

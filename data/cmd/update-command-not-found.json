@@ -1,0 +1,1 @@
+{"n":"update-command-not-found","s":{"en":"update the command-not-found cache"},"syn":"update-command-not-found [-h|--help|-n|--no-apt-file]","st":"gnu","o":[{"f":["-h","--help"],"en":"Print the help message"},{"f":["-n","--no-apt-file"],"en":"Do not run apt-file update before updating the cache."}]}

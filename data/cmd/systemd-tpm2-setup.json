@@ -1,0 +1,1 @@
+{"n":"systemd-tpm2-setup","s":{"en":"Set up the TPM2 Storage Root Key (SRK) and initialize NvPCRs at boot"},"al":["systemd-tpm2-setup.service","systemd-tpm2-setup-early.service"],"syn":"systemd-tpm2-setup.service ⏎ /usr/lib/systemd/systemd-tpm2-setup","st":"gnu","o":[]}

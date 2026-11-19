@@ -1,0 +1,1 @@
+{"n":"docker-port","s":{"en":"List port mappings or a specific mapping for the container"},"syn":"docker port CONTAINER [PRIVATE_PORT[/PROTO]]","st":"gnu","o":[]}

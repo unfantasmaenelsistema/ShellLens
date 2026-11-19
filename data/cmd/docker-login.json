@@ -1,0 +1,1 @@
+{"n":"docker-login","s":{"en":"Authenticate to a registry"},"syn":"docker login [OPTIONS] [SERVER]","st":"gnu","o":[{"f":["-p","--password"],"en":"Password or Personal Access Token (PAT)"},{"f":["--password-stdin"],"en":"Take the Password or Personal Access Token (PAT) from stdin","a":"false","ao":1},{"f":["-u","--username"],"en":"Username"}]}

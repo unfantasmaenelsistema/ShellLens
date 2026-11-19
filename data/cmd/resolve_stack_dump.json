@@ -1,0 +1,1 @@
+{"n":"resolve_stack_dump","s":{"en":"resolve numeric stack trace dump to symbols"},"syn":"resolve_stack_dump [options] symbols_file [numeric_dump_file]","st":"gnu","o":[]}

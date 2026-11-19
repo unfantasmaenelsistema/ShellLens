@@ -1,0 +1,1 @@
+{"n":"git-sparse-checkout","s":{"en":"Reduce your working tree to a subset of tracked files"},"syn":"git sparse-checkout (init | list | set | add | reapply | disable | check-rules | clean) [<options>]","st":"gnu","o":[]}

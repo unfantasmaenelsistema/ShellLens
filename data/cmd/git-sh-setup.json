@@ -1,0 +1,1 @@
+{"n":"git-sh-setup","s":{"en":"Common Git shell script setup code"},"syn":". \"$(git --exec-path)/git-sh-setup\"","st":"gnu","o":[]}

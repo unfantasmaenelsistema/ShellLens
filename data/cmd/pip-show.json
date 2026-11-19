@@ -1,0 +1,1 @@
+{"n":"pip-show","s":{"en":"description of pip3 show command"},"al":["pip3-show"],"st":"gnu","o":[{"f":["-f","--files"],"en":"Show the full list of installed files for each package. (environment variable: PIP_FILES)"}]}

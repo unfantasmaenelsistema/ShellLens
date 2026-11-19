@@ -1,0 +1,1 @@
+{"n":"ts_test","s":{"en":"A basic test routine for tslib."},"syn":"ts_test","st":"gnu","o":[{"f":["-r","--rotate"],"en":"Rotate the screen. value is 0 for 0 degree, 1 for 90 degrees (CW), 2 for 180 degrees (upside down) and 3 for 270 degrees (CCW).","a":"value"}]}

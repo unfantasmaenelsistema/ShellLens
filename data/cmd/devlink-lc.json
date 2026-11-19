@@ -1,0 +1,1 @@
+{"n":"devlink-lc","s":{"en":"devlink line card configuration"},"syn":"devlink [ OPTIONS ] lc { COMMAND | help } ⏎ OPTIONS := { -V[ersion] } ⏎ devlink lc set DEV lc LC_INDEX [ type { LC_TYPE | notype } ] ⏎ devlink lc show [ DEV [ lc LC_INDEX ] ] ⏎ devlink lc help","st":"gnu","o":[]}

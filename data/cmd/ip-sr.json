@@ -1,0 +1,1 @@
+{"n":"ip-sr","s":{"en":"IPv6 Segment Routing management"},"syn":"ip sr { COMMAND | help } ⏎ ip sr hmac show ⏎ ip sr hmac set KEYID ALGO ⏎ ip sr tunsrc show ⏎ ip sr tunsrc set ADDRESS","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"ip-nexthop","s":{"en":"nexthop object management"},"syn":"ip [ ip-OPTIONS ] nexthop { COMMAND | help } ⏎ ip nexthop { show | flush } SELECTOR ⏎ ip nexthop { add | replace } id ID NH ⏎ ip nexthop { get | del } id ID ⏎ ip nexthop bucket list BUCKET_SELECTOR ⏎ ip nexthop bucket get id ID index INDEX","st":"gnu","o":[]}

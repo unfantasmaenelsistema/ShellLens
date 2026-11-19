@@ -1,0 +1,1 @@
+{"n":"docker-image-prune","s":{"en":"Remove unused images"},"syn":"docker image prune [OPTIONS]","st":"gnu","o":[{"f":["-a","--all"],"en":"Remove all unused images, not just dangling ones","a":"false","ao":1},{"f":["--filter"],"en":"Provide filter values (e.g. \"until=\")"},{"f":["-f","--force"],"en":"Do not prompt for confirmation","a":"false","ao":1}]}

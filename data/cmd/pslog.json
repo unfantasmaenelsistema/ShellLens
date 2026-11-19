@@ -1,0 +1,1 @@
+{"n":"pslog","s":{"en":"report current logs path of a process"},"syn":"pslog pid ... ⏎ pslog -V","st":"gnu","o":[{"f":["-V"],"en":"Display version information."}]}

@@ -1,0 +1,1 @@
+{"n":"gtk-launch","s":{"en":"Launch an application"},"syn":"gtk-launch [OPTION...] APPLICATION [URI...]","st":"gnu","o":[{"f":["--help"],"en":"Prints a short help text and exits."},{"f":["--version"],"en":"Prints the program version and exits."}]}

@@ -1,0 +1,1 @@
+{"n":"perl","s":{"en":"The Perl 5 language interpreter"},"syn":"perl [ -sTtuUWX ] ⏎ [ -hv ] [ -V[:configvar] ] ⏎ [ -cw ] [ -d[t][:debugger] ] [ -D[number/list] ] ⏎ [ -pna ] [ -Fpattern ] [ -l[octal] ] [ -0[octal/hexadecimal] ] ⏎ [ -Idir ] [ -m[-]module ] [ -M[-]'module...' ] [ -f ] ⏎ [ -C [number/list] ]","st":"gnu","o":[]}

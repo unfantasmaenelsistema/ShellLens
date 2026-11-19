@@ -1,0 +1,1 @@
+{"n":"sq-key-userid","s":{"en":"Manage User IDs"},"syn":"sq key userid add [OPTIONS] ⏎ sq key userid revoke [OPTIONS]","st":"gnu","o":[{"f":["--email"],"en":"","a":"alice@work.example.com"}]}

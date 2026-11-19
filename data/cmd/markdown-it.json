@@ -1,0 +1,1 @@
+{"n":"markdown-it","s":{"en":"parse Markdown and write HTML"},"syn":"markdown-it [OPTIONS] [FILE...] ⏎ markdown-it --stdin [OPTIONS]","st":"gnu","o":[{"f":["--stdin"],"en":"Read Markdown from standard input."},{"f":["-v","--version"],"en":"Show version information and exit."},{"f":["-h","--help"],"en":"Show help text and exit."}]}

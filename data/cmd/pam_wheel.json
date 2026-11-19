@@ -1,0 +1,1 @@
+{"n":"pam_wheel","s":{"en":"Only permit root access to members of group wheel"},"syn":"pam_wheel.so [debug] [deny] [group=name] [root_only] [trust]","st":"gnu","o":[]}

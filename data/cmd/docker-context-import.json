@@ -1,0 +1,1 @@
+{"n":"docker-context-import","s":{"en":"Import a context from a tar or zip file"},"syn":"docker context import CONTEXT FILE|-","st":"gnu","o":[]}

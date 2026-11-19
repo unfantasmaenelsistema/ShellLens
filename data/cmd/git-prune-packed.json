@@ -1,0 +1,1 @@
+{"n":"git-prune-packed","s":{"en":"Remove extra objects that are already in pack files"},"syn":"git prune-packed [-n | --dry-run] [-q | --quiet]","st":"gnu","o":[{"f":["-n","--dry-run"],"en":"Don’t actually remove any objects, only show those that would have been removed."},{"f":["-q","--quiet"],"en":"Squelch the progress indicator."}]}

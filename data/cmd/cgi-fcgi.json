@@ -1,0 +1,1 @@
+{"n":"cgi-fcgi","s":{"en":""},"syn":"cgi‐fcgi ‐f cmdPath ⏎ cgi‐fcgi ‐bind ‐connect connName ⏎ cgi‐fcgi ‐start ‐connect connName appPath [nServers] ⏎ cgi‐fcgi ‐connect connName appPath [nServers]","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"bzexe","s":{"en":"compress executable files in place"},"syn":"bzexe [ name ... ]","st":"gnu","o":[{"f":["-r-xr-xr-x"],"en":"1 root bin 9644 Feb 11 11:16 /bin/cat"},{"f":["-d"],"en":"Decompress the given executables instead of compressing them."}]}

@@ -1,0 +1,1 @@
+{"n":"resolveip","s":{"en":"resolve host name to IP address or vice versa"},"syn":"resolveip [options] {host_name|ip-addr} ...","st":"gnu","o":[]}

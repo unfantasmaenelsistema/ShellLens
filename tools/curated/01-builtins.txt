@@ -1,0 +1,316 @@
+# Órdenes internas de la shell (bash) y palabras reservadas. No tienen página man propia: llevan ES y EN.
+
+@@ cd chdir
+es: cambia el directorio de trabajo actual
+en: change the current working directory
+tags: read
+style: gnu
+pos: DIRECTORIO | Directorio al que ir. Sin argumento va a tu directorio personal; «-» vuelve al anterior; «..» sube un nivel. || Directory to go to. With no argument goes to your home; "-" returns to the previous one; ".." goes up one level.
+-L | Sigue los enlaces simbólicos al resolver la ruta (comportamiento por defecto). || Follow symbolic links when resolving the path (default).
+-P | Usa la estructura física de directorios, sin seguir enlaces simbólicos. || Use the physical directory structure, without following symlinks.
+
+@@ pwd
+es: muestra el directorio de trabajo actual
+en: print the current working directory
+tags: read
+-L --logical | Muestra la ruta lógica (con enlaces simbólicos, valor por defecto). || Print the logical path (with symlinks, default).
+-P --physical | Muestra la ruta física real, resolviendo enlaces simbólicos. || Print the physical path, resolving symlinks.
+
+@@ echo
+es: escribe sus argumentos en la salida estándar
+en: print arguments to standard output
+tags: write
+pos: TEXTO... | Texto que se imprime, separado por espacios. || Text to print, separated by spaces.
+-n | No añade el salto de línea final. || Do not output the trailing newline.
+-e | Interpreta secuencias con barra invertida: \n (salto de línea), \t (tabulador), \e (escape), \xHH… || Interpret backslash escapes: \n (newline), \t (tab), \e (escape), \xHH…
+-E | No interpreta las secuencias con barra invertida (por defecto). || Do not interpret backslash escapes (default).
+
+@@ printf
+es: escribe texto con formato (como printf de C)
+en: format and print data (like C printf)
+tags: write
+pos: FORMATO | Plantilla con marcadores: %s (texto), %d (entero), %f (decimal), %x (hex), \n (salto de línea). || Template with placeholders: %s (string), %d (integer), %f (float), %x (hex), \n (newline).
+pos: ARGUMENTO... | Valores que sustituyen a los marcadores del formato. || Values that fill the format placeholders.
+-v=VAR | Guarda el resultado en la variable VAR en vez de imprimirlo (bash). || Store the result in variable VAR instead of printing (bash).
+
+@@ export
+es: marca variables para que las hereden los procesos hijo
+en: mark variables to be inherited by child processes
+pos: VARIABLE[=VALOR]... | Variable (y opcionalmente su valor) que pasa al entorno. || Variable (optionally with value) passed to the environment.
+-p | Lista todas las variables exportadas. || List all exported variables.
+-n | Quita el atributo de exportación (la variable deja de heredarse). || Remove the export attribute (the variable is no longer inherited).
+-f | Exporta funciones en lugar de variables. || Export functions instead of variables.
+
+@@ unset
+es: elimina variables o funciones de la shell
+en: remove shell variables or functions
+pos: NOMBRE... | Variable o función a eliminar. || Variable or function to remove.
+-v | Trata los nombres como variables (por defecto). || Treat names as variables (default).
+-f | Trata los nombres como funciones. || Treat names as functions.
+
+@@ alias
+es: define o lista alias (atajos para comandos)
+en: define or list aliases (command shortcuts)
+pos: NOMBRE=VALOR... | Alias a definir: cada vez que escribas NOMBRE se sustituye por VALOR. || Alias to define: whenever you type NAME it is replaced with VALUE.
+-p | Imprime todos los alias definidos en formato reutilizable. || Print all defined aliases in reusable form.
+
+@@ unalias
+es: elimina alias
+en: remove aliases
+-a | Elimina todos los alias. || Remove all aliases.
+
+@@ source .
+es: ejecuta un archivo dentro de la shell actual (carga variables y funciones)
+en: run a file inside the current shell (loads variables and functions)
+tags: read exec
+pos: ARCHIVO | Guion que se lee y ejecuta en ESTA shell (no en una nueva), por lo que sus variables persisten. || Script read and run in THIS shell (not a new one), so its variables persist.
+pos: ARGUMENTO... | Parámetros posicionales ($1, $2…) para el guion. || Positional parameters ($1, $2…) for the script.
+
+@@ exit logout
+es: termina la shell (o el guion) con un código de salida
+en: exit the shell (or script) with an exit status
+pos: CÓDIGO? | Código de salida: 0 = éxito, cualquier otro valor = error. || Exit status: 0 = success, any other value = error.
+
+@@ return
+es: sale de una función (o de un guion «source») con un código
+en: return from a function (or sourced script) with a status
+pos: CÓDIGO? | Código de retorno: 0 = éxito. || Return status: 0 = success.
+
+@@ read
+es: lee una línea de la entrada estándar y la guarda en variables
+en: read a line from standard input into variables
+pos: VARIABLE... | Variables que reciben las palabras leídas. Sin nombre usa $REPLY. || Variables receiving the words read. With no name uses $REPLY.
+-r | No interpreta las barras invertidas como escapes (casi siempre conviene). || Do not treat backslashes as escapes (usually what you want).
+-p=PROMPT | Muestra PROMPT antes de leer. || Show PROMPT before reading.
+-s | Modo silencioso: no muestra lo que se escribe (para contraseñas). || Silent mode: do not echo input (for passwords).
+-t=SEGUNDOS | Se rinde si no hay entrada en SEGUNDOS. || Give up if no input within SECONDS.
+-n=NUM | Lee como máximo NUM caracteres. || Read at most NUM characters.
+-a=ARRAY | Guarda las palabras en un array. || Store the words in an array.
+-d=DELIM | Termina la lectura en el carácter DELIM en vez de en el salto de línea. || Stop reading at DELIM instead of newline.
+
+@@ set
+es: cambia opciones de la shell y los parámetros posicionales
+en: set shell options and positional parameters
+-e | Termina el guion en cuanto un comando falle (código distinto de 0). || Exit the script as soon as a command fails (non-zero status).
+-u | Trata las variables sin definir como error. || Treat unset variables as an error.
+-x | Muestra cada comando antes de ejecutarlo (depuración). || Print each command before running it (debugging).
+-o=OPCIÓN | Activa una opción por nombre (pipefail, noclobber, vi, emacs…). || Enable an option by name (pipefail, noclobber, vi, emacs…).
+-f | Desactiva la expansión de comodines (glob). || Disable wildcard (glob) expansion.
+-C | noclobber: «>» no puede sobrescribir archivos existentes. || noclobber: ">" cannot overwrite existing files.
+-v | Muestra cada línea del guion tal como se lee. || Print each script line as it is read.
+
+@@ shift
+es: desplaza los parámetros posicionales hacia la izquierda ($2 pasa a $1…)
+en: shift positional parameters left ($2 becomes $1…)
+pos: N? | Cuántas posiciones desplazar (por defecto 1). || How many positions to shift (default 1).
+
+@@ type
+es: indica cómo interpretaría la shell un nombre (alias, función, orden interna o programa)
+en: tell how the shell would interpret a name (alias, function, builtin or program)
+pos: NOMBRE... | Nombre(s) a consultar. || Name(s) to look up.
+-a | Muestra todas las coincidencias, no solo la primera. || Show all matches, not just the first.
+-t | Imprime solo el tipo: alias, keyword, function, builtin o file. || Print only the type: alias, keyword, function, builtin or file.
+-p | Imprime solo la ruta del archivo ejecutable. || Print only the path of the executable file.
+
+@@ command
+es: ejecuta un comando saltándose alias y funciones, o consulta su ubicación
+en: run a command bypassing aliases and functions, or look it up
+-v | Muestra cómo se resolvería el nombre (ruta o tipo). || Show how the name resolves (path or type).
+-V | Descripción detallada del nombre. || Verbose description of the name.
+-p | Usa un PATH por defecto seguro. || Use a safe default PATH.
+
+@@ builtin
+es: ejecuta una orden interna de bash saltándose funciones y alias
+en: run a bash builtin bypassing functions and aliases
+
+@@ hash
+es: recuerda o consulta la ruta de los programas ejecutados
+en: remember or show the paths of executed programs
+-r | Vacía la tabla de rutas recordadas. || Clear the table of remembered paths.
+-l | Lista en formato reutilizable. || List in reusable form.
+
+@@ history
+es: muestra o gestiona el historial de comandos de la shell
+en: show or manage the shell command history
+tags: read
+-c | Borra por completo el historial en memoria. || Clear the history list in memory.
+-d=N | Borra la entrada número N. || Delete entry number N.
+-w | Escribe el historial actual en el archivo ~/.bash_history. || Write the current history to ~/.bash_history.
+-r | Lee el archivo de historial y lo añade a la lista actual. || Read the history file and append it to the current list.
+-a | Añade las líneas nuevas de esta sesión al archivo de historial. || Append this session's new lines to the history file.
+
+@@ trap
+es: ejecuta un comando cuando la shell recibe una señal o termina
+en: run a command when the shell receives a signal or exits
+pos: COMANDO | Acción a ejecutar cuando se dispare la señal. || Action to run when the signal fires.
+pos: SEÑAL... | Señales o eventos (EXIT, INT, TERM, ERR, DEBUG…). || Signals or events (EXIT, INT, TERM, ERR, DEBUG…).
+-l | Lista los nombres de señales. || List signal names.
+-p | Muestra las trampas definidas. || Show defined traps.
+
+@@ ulimit
+es: consulta o fija límites de recursos del proceso (archivos abiertos, procesos, memoria…)
+en: show or set process resource limits (open files, processes, memory…)
+-a | Muestra todos los límites. || Show all limits.
+-n=N | Máximo de archivos abiertos. || Maximum number of open files.
+-u=N | Máximo de procesos del usuario. || Maximum number of user processes.
+-c=N | Tamaño máximo de los volcados de memoria (core). || Maximum core dump size.
+-s=N | Tamaño de la pila. || Stack size.
+-v=N | Memoria virtual máxima. || Maximum virtual memory.
+-H | Fija/consulta el límite duro (máximo absoluto). || Set/show the hard limit (absolute maximum).
+-S | Fija/consulta el límite blando (el efectivo, modificable hasta el duro). || Set/show the soft limit (effective, adjustable up to the hard one).
+
+@@ umask
+es: fija la máscara de permisos con la que se crean los archivos nuevos
+en: set the permission mask for newly created files
+pos: MÁSCARA? | Permisos que se QUITAN en archivos nuevos: 022 → archivos 644 y directorios 755; 077 → solo el propietario. || Permissions REMOVED from new files: 022 → files 644, dirs 755; 077 → owner only.
+-S | Muestra la máscara en forma simbólica. || Show the mask in symbolic form.
+
+@@ wait
+es: espera a que terminen procesos en segundo plano
+en: wait for background processes to finish
+pos: PID... | Procesos concretos a esperar (sin argumento: todos). || Specific processes to wait for (none: all).
+
+@@ jobs
+es: lista las tareas en segundo plano de esta shell
+en: list this shell's background jobs
+-l | Incluye los PID. || Include PIDs.
+-p | Muestra solo los PID. || Show only PIDs.
+
+@@ fg
+es: trae una tarea de segundo plano al primer plano
+en: bring a background job to the foreground
+pos: %TAREA? | Número de tarea (%1, %2…). Sin argumento, la última. || Job number (%1, %2…). With none, the most recent.
+
+@@ bg
+es: reanuda una tarea detenida y la deja en segundo plano
+en: resume a stopped job in the background
+pos: %TAREA? | Número de tarea (%1, %2…). Sin argumento, la última. || Job number (%1, %2…). With none, the most recent.
+
+@@ disown
+es: desvincula una tarea de la shell para que sobreviva al cerrar la terminal
+en: detach a job from the shell so it survives closing the terminal
+-a | Todas las tareas. || All jobs.
+-h | No la elimina de la lista, pero ignora SIGHUP. || Keep it in the list but ignore SIGHUP.
+
+@@ pushd
+es: guarda el directorio actual en una pila y cambia a otro
+en: push the current directory on a stack and change to another
+pos: DIRECTORIO? | Directorio al que ir. || Directory to go to.
+
+@@ popd
+es: vuelve al último directorio guardado con pushd
+en: return to the last directory saved with pushd
+
+@@ dirs
+es: muestra la pila de directorios
+en: show the directory stack
+
+@@ true
+es: no hace nada y termina con éxito (código 0)
+en: do nothing, successfully (exit status 0)
+
+@@ false
+es: no hace nada y termina con fallo (código 1)
+en: do nothing, unsuccessfully (exit status 1)
+
+@@ :
+es: orden vacía: no hace nada y devuelve éxito (código 0)
+en: null command: does nothing and returns success (status 0)
+
+@@ declare typeset
+es: declara variables y les da atributos (entero, solo lectura, array…)
+en: declare variables and give them attributes (integer, read-only, array…)
+-i | La variable es un entero. || The variable is an integer.
+-r | Solo lectura. || Read-only.
+-x | Exportada al entorno. || Exported to the environment.
+-a | Array indexado. || Indexed array.
+-A | Array asociativo (clave → valor). || Associative array (key → value).
+-p | Muestra las variables con sus atributos. || Print variables with their attributes.
+-f | Muestra o declara funciones. || Show or declare functions.
+
+@@ local
+es: declara una variable local dentro de una función
+en: declare a variable local to a function
+
+@@ readonly
+es: marca variables como de solo lectura
+en: mark variables as read-only
+-p | Lista las variables de solo lectura. || List read-only variables.
+
+@@ let
+es: evalúa expresiones aritméticas
+en: evaluate arithmetic expressions
+
+@@ getopts
+es: analiza las opciones de línea de comandos en un guion
+en: parse command-line options in a script
+
+@@ enable
+es: activa o desactiva órdenes internas de la shell
+en: enable or disable shell builtins
+
+@@ help
+es: muestra ayuda sobre las órdenes internas de bash
+en: show help for bash builtins
+
+@@ test [
+es: evalúa una condición (archivos, textos, números) y devuelve 0 si es verdadera
+en: evaluate a condition (files, strings, numbers); exit 0 if true
+tags: read
+-e | El archivo existe. || File exists.
+-f | Existe y es un archivo normal. || Exists and is a regular file.
+-d | Existe y es un directorio. || Exists and is a directory.
+-L -h | Existe y es un enlace simbólico. || Exists and is a symbolic link.
+-r | Existe y se puede leer. || Exists and is readable.
+-w | Existe y se puede escribir. || Exists and is writable.
+-x | Existe y se puede ejecutar (o entrar, si es directorio). || Exists and is executable (or searchable, if a directory).
+-s | Existe y NO está vacío. || Exists and is not empty.
+-z | La cadena está vacía. || The string is empty.
+-n | La cadena NO está vacía. || The string is not empty.
+-eq | Los números son iguales. || Numbers are equal.
+-ne | Los números son distintos. || Numbers differ.
+-lt | Menor que. || Less than.
+-le | Menor o igual que. || Less or equal.
+-gt | Mayor que. || Greater than.
+-ge | Mayor o igual que. || Greater or equal.
+-nt | El primer archivo es más nuevo que el segundo. || First file is newer than the second.
+-ot | El primer archivo es más antiguo que el segundo. || First file is older than the second.
+-a | Y lógico entre dos condiciones. || Logical AND between two conditions.
+-o | O lógico entre dos condiciones. || Logical OR between two conditions.
+-u | El archivo tiene el bit setuid. || File has the setuid bit.
+-g | El archivo tiene el bit setgid. || File has the setgid bit.
+-p | Es una tubería con nombre (FIFO). || Is a named pipe (FIFO).
+-S | Es un socket. || Is a socket.
+-b | Es un dispositivo de bloques. || Is a block device.
+-c | Es un dispositivo de caracteres. || Is a character device.
+-O | Eres el propietario. || You own it.
+-G | Pertenece a tu grupo. || It belongs to your group.
+-t | El descriptor de archivo está abierto en una terminal. || The file descriptor is open on a terminal.
+
+@@ eval
+es: junta sus argumentos en un texto y lo ejecuta como comando
+en: join its arguments into one string and run it as a command
+tags: exec
+pos: TEXTO... | Texto que la shell vuelve a interpretar y ejecutar. || Text the shell re-interprets and runs.
+
+@@ exec
+es: reemplaza la shell por el comando indicado (sin crear proceso nuevo)
+en: replace the shell with the given command (no new process)
+tags: exec
+-a=NOMBRE | Pasa NOMBRE como argv[0] al programa. || Pass NAME as argv[0] to the program.
+-c | Ejecuta con el entorno vacío. || Run with an empty environment.
+-l | Pone un guion en argv[0] (shell de login). || Put a dash in argv[0] (login shell).
+
+@@ which
+es: muestra la ruta del ejecutable que se usaría para un comando
+en: show the path of the executable that would be used for a command
+tags: read
+-a | Muestra todas las coincidencias en el PATH. || Show all matches in PATH.
+
+@@ whereis
+es: localiza el binario, el código fuente y la página man de un comando
+en: locate the binary, source and man page of a command
+tags: read
+-b | Busca solo binarios. || Search only for binaries.
+-m | Busca solo páginas man. || Search only for manual pages.
+-s | Busca solo fuentes. || Search only for sources.

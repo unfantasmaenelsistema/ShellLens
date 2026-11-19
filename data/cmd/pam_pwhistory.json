@@ -1,0 +1,1 @@
+{"n":"pam_pwhistory","s":{"en":"PAM module to remember last passwords"},"syn":"pam_pwhistory.so [debug] [use_authtok] [enforce_for_root] [remember=N] [retry=N] [authtok_type=STRING] [file=/path/filename] [conf=/path/to/config-file]","st":"gnu","o":[]}

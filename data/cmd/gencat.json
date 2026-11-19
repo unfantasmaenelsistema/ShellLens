@@ -1,0 +1,1 @@
+{"n":"gencat","s":{"en":"Generate message catalog"},"syn":"gencat [OPTION ...] -o OUTPUT-FILE [INPUT-FILE ...]","st":"gnu","o":[{"f":["-H","--header"],"en":"Create C header file NAME containing symbol definitions","a":"NAME"},{"f":["--new"],"en":"Do not use existing catalog, force new output file"},{"f":["-o","--output"],"en":"Write output to file NAME","a":"NAME"}]}

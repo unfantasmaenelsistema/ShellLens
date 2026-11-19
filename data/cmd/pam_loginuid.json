@@ -1,0 +1,1 @@
+{"n":"pam_loginuid","s":{"en":"Record user's login uid to the process attribute"},"syn":"pam_loginuid.so [require_auditd]","st":"gnu","o":[]}

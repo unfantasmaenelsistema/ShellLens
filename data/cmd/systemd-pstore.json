@@ -1,0 +1,1 @@
+{"n":"systemd-pstore","s":{"en":"A service to archive contents of pstore"},"al":["systemd-pstore.service"],"syn":"/usr/lib/systemd/systemd-pstore ⏎ systemd-pstore.service","st":"gnu","o":[]}

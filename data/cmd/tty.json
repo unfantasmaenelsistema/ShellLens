@@ -1,0 +1,1 @@
+{"n":"tty","s":{"en":"print the file name of the terminal connected to standard input"},"syn":"tty [OPTION]...","st":"gnu","o":[{"f":["-s","--silent","--quiet"],"en":"print nothing, only return an exit status"},{"f":["--help"],"en":"display this help and exit"},{"f":["--version"],"en":"output version information and exit"}]}

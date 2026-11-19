@@ -1,0 +1,1 @@
+{"n":"printenv","s":{"en":"print all or part of environment"},"syn":"printenv [OPTION] [VARIABLE]...","st":"gnu","o":[{"f":["-0","--null"],"en":"end each output line with NUL, not newline"},{"f":["--help"],"en":"display this help and exit"},{"f":["--version"],"en":"output version information and exit"}]}

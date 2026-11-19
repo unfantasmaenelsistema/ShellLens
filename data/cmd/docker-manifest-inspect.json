@@ -1,0 +1,1 @@
+{"n":"docker-manifest-inspect","s":{"en":"Display an image manifest, or manifest list"},"syn":"docker manifest inspect [OPTIONS] [MANIFEST_LIST] MANIFEST","st":"gnu","o":[{"f":["--insecure"],"en":"Allow communication with an insecure registry","a":"false","ao":1},{"f":["-v","--verbose"],"en":"Output additional info including layers and platform","a":"false","ao":1}]}

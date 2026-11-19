@@ -1,0 +1,1 @@
+{"n":"setcap","s":{"en":"set file capabilities"},"syn":"setcap [-q] [-n <rootuid>] [-v] {capabilities|-|-r} filename [ ... capabilitiesN fileN ]","st":"gnu","o":[]}

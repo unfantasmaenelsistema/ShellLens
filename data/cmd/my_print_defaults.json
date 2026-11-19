@@ -1,0 +1,1 @@
+{"n":"my_print_defaults","s":{"en":"display options from option files"},"syn":"my_print_defaults [options] option_group ...","st":"gnu","o":[{"f":["--user"],"en":"","a":"myusername"},{"f":["--password"],"en":"","a":"secret"},{"f":["--host"],"en":"","a":"localhost"}]}

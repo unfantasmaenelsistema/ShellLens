@@ -1,0 +1,1 @@
+{"n":"systemd-ssh-proxy","s":{"en":"SSH client plugin for connecting to AF_VSOCK and AF_UNIX sockets"},"syn":"Host unix/* unix%* vsock/* vsock%* vsock-mux/* vsock-mux%* ⏎ ProxyCommand /usr/lib/systemd/systemd-ssh-proxy %h %p ⏎ ProxyUseFdpass yes ⏎ /usr/lib/systemd/systemd-ssh-proxy [ADDRESS] [PORT]","st":"gnu","o":[]}

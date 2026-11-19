@@ -1,0 +1,1 @@
+{"n":"tc-gact","s":{"en":"generic action"},"al":["gact"],"syn":"tc ... action gact CONTROL [ RAND ] [ INDEX ] ⏎ CONTROL := { reclassify | drop | continue | pass | pipe | ⏎ goto chain CHAIN_INDEX | ⏎ jump JUMP_COUNT } ⏎ RAND := random RANDTYPE CONTROL VAL ⏎ RANDTYPE := { netrand | determ }","st":"gnu","o":[]}

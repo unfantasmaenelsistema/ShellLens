@@ -1,0 +1,1 @@
+{"n":"debconf-set-selections","s":{"en":"insert new values into the debconf database"},"syn":"debconf-set-selections file ⏎ debconf-get-selections | ssh newhost debconf-set-selections","st":"gnu","o":[{"f":["--verbose","-v"],"en":"verbose output"},{"f":["--checkonly","-c"],"en":"only check the input file format, do not save changes to database"}]}

@@ -1,0 +1,1 @@
+{"n":"pam_usertype","s":{"en":"check if the authenticated user is a system or regular account"},"syn":"pam_usertype.so [flag...] {condition}","st":"gnu","o":[]}

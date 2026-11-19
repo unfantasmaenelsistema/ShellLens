@@ -1,0 +1,1 @@
+{"n":"snmpset","s":{"en":"communicates with a network entity using SNMP SET requests"},"syn":"snmpset [COMMON OPTIONS] AGENT OID TYPE VALUE [OID TYPE VALUE]...","st":"gnu","o":[]}

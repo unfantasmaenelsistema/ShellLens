@@ -1,0 +1,1 @@
+{"n":"sq-config-template","s":{"en":"Write a template configuration file"},"syn":"sq config template [OPTIONS]","st":"gnu","o":[{"f":["--output"],"en":"Write to FILE or stdout if omitted [default: -]","a":"FILE"}]}

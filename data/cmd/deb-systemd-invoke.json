@@ -1,0 +1,1 @@
+{"n":"deb-systemd-invoke","s":{"en":"wrapper around systemctl, respecting policy-rc.d"},"syn":"deb-systemd-invoke [--user] start|stop|restart unit file ... deb-systemd-invoke [--user] [--no-dbus] daemon-reload|daemon-reexec","st":"gnu","o":[]}

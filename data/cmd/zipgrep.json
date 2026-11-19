@@ -1,0 +1,1 @@
+{"n":"zipgrep","s":{"en":"search files in a ZIP archive for lines matching a pattern"},"syn":"zipgrep [egrep_options] pattern file[.zip] [file(s) ...] [-x xfile(s) ...]","st":"gnu","o":[]}

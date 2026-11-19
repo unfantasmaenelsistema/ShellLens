@@ -1,0 +1,1 @@
+{"n":"ip-token","s":{"en":"tokenized interface identifier support"},"syn":"ip token { COMMAND | help } ⏎ ip token set TOKEN dev DEV ⏎ ip token del dev DEV ⏎ ip token get [ dev DEV ] ⏎ ip token [ list ]","st":"gnu","o":[]}

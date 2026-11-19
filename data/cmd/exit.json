@@ -1,0 +1,1 @@
+{"n":"exit","s":{"en":"exit the shell (or script) with an exit status","es":"termina la shell (o el guion) con un código de salida"},"al":["logout"],"st":"gnu","p":[{"n":"CÓDIGO","es":"Código de salida: 0 = éxito, cualquier otro valor = error.","en":"Exit status: 0 = success, any other value = error.","opt":1}],"o":[]}

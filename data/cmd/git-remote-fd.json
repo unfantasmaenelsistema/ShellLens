@@ -1,0 +1,1 @@
+{"n":"git-remote-fd","s":{"en":"Reflect smart transport stream back to caller"},"syn":"\"fd::<infd>[,<outfd>][/<anything>]\" (as URL)","st":"gnu","o":[]}

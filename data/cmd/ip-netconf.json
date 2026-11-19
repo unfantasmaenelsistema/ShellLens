@@ -1,0 +1,1 @@
+{"n":"ip-netconf","s":{"en":"network configuration monitoring"},"syn":"ip [ ip-OPTIONS ] netconf show [ dev NAME ]","st":"gnu","o":[]}

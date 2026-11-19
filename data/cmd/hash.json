@@ -1,0 +1,1 @@
+{"n":"hash","s":{"en":"remember or show the paths of executed programs","es":"recuerda o consulta la ruta de los programas ejecutados"},"st":"gnu","o":[{"f":["-r"],"es":"Vacía la tabla de rutas recordadas.","en":"Clear the table of remembered paths."},{"f":["-l"],"es":"Lista en formato reutilizable.","en":"List in reusable form."}]}

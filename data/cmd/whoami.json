@@ -1,0 +1,1 @@
+{"n":"whoami","s":{"en":"print effective user name","es":"muestra tu nombre de usuario actual"},"syn":"whoami [OPTION]...","st":"gnu","tg":["read"],"o":[{"f":["--help"],"en":"display this help and exit"},{"f":["--version"],"en":"output version information and exit"}]}

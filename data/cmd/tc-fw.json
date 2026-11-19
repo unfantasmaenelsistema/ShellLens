@@ -1,0 +1,1 @@
+{"n":"tc-fw","s":{"en":"fwmark traffic control filter"},"al":["fw"],"syn":"tc filter ... fw [ classid CLASSID ] [ action ACTION_SPEC ]","st":"gnu","o":[]}

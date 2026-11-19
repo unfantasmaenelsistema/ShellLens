@@ -1,0 +1,1 @@
+{"n":"mysql_upgrade","s":{"en":"check tables for MariaDB upgrade (mariadb-upgrade is now a symlink to mariadb-upgrade)"},"al":["mariadb-upgrade"],"syn":"mariadb-upgrade [options]","st":"gnu","o":[]}

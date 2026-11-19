@@ -1,0 +1,1 @@
+{"n":"docker-volume-update","s":{"en":"Update a volume (cluster volumes only)"},"syn":"docker volume update [OPTIONS] [VOLUME]","st":"gnu","o":[{"f":["--availability"],"en":"Cluster Volume availability (\"active\", \"pause\", \"drain\")"}]}

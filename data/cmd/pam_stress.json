@@ -1,0 +1,1 @@
+{"n":"pam_stress","s":{"en":"The stress-testing PAM module"},"syn":"pam_stress.so [debug] [no_warn] [use_first_pass] [try_first_pass] [rootok] [expired] [fail_1] [fail_2] [prelim] [required]","st":"gnu","o":[]}

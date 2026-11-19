@@ -1,0 +1,1 @@
+{"n":"tc-basic","s":{"en":"basic traffic control filter"},"al":["basic"],"syn":"tc filter ... basic [ match EMATCH_TREE ] [ action ACTION_SPEC ] [ classid CLASSID ]","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"devlink-resource","s":{"en":"devlink device resource configuration"},"syn":"devlink [ OPTIONS ] resource { COMMAND | help } ⏎ OPTIONS := { -v[erbose] } ⏎ devlink resource show DEV ⏎ devlink resource help ⏎ devlink resource set DEV path RESOURCE_PATH size RESOURCE_SIZE","st":"gnu","o":[]}

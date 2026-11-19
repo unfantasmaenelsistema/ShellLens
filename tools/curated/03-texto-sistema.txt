@@ -1,0 +1,608 @@
+# Búsqueda de texto, procesos, usuarios y sistema
+
+@@ grep egrep fgrep rgrep
+es: busca líneas que coinciden con un patrón (texto o expresión regular)
+tags: read
+pos: PATRÓN?unless=-e,-f,--regexp,--file | Lo que se busca: texto o expresión regular. Si tiene espacios o símbolos, ponlo entre comillas. || What to search for: text or regular expression. If it contains spaces or symbols, quote it.
+pos: ARCHIVO... | Archivo(s) donde buscar. Sin archivos lee la entrada estándar (con -r, el directorio actual). || File(s) to search. With none reads standard input (with -r, the current directory).
+-i --ignore-case | No distingue mayúsculas de minúsculas. || Ignore case distinctions.
+-v --invert-match | Invierte: muestra las líneas que NO coinciden. || Invert the sense of matching: show non-matching lines.
+-r --recursive | Busca recursivamente en un directorio (sin seguir enlaces simbólicos). || Read all files under each directory, recursively (without following symlinks).
+-R --dereference-recursive | Como -r pero siguiendo enlaces simbólicos. || Like -r but following all symlinks.
+-n --line-number | Muestra el número de línea de cada coincidencia. || Prefix each line of output with its line number.
+-l --files-with-matches | Muestra solo los nombres de archivo que contienen coincidencias. || Print only the names of files containing matches.
+-L --files-without-match | Muestra los archivos SIN coincidencias. || Print the names of files with no matches.
+-c --count | Cuenta las líneas que coinciden en vez de mostrarlas. || Print a count of matching lines.
+-o --only-matching | Muestra solo la parte que coincide, no toda la línea. || Print only the matched parts of a line.
+-w --word-regexp | La coincidencia debe ser una palabra completa. || Match only whole words.
+-x --line-regexp | La coincidencia debe ocupar la línea entera. || Match only whole lines.
+-E --extended-regexp | Expresiones regulares extendidas (permiten + ? | () {} sin barra invertida). || Extended regular expressions (allow + ? | () {} without backslash).
+-F --fixed-strings | Busca texto literal, sin interpretar caracteres especiales (más rápido). || Search literal text, no special characters (faster).
+-P --perl-regexp | Expresiones regulares estilo Perl (\d, \w, lookahead…). || Perl-style regular expressions (\d, \w, lookahead…).
+-e --regexp=PATRÓN | Usa PATRÓN como patrón; sirve para varios patrones o uno que empiece por «-». || Use PATTERN as pattern; for several patterns or one starting with "-".
+-f --file=ARCHIVO | Lee los patrones de un archivo, uno por línea. || Take patterns from a file, one per line.
+-A --after-context=NUM | Muestra NUM líneas DESPUÉS de cada coincidencia. || Print NUM lines of trailing context.
+-B --before-context=NUM | Muestra NUM líneas ANTES de cada coincidencia. || Print NUM lines of leading context.
+-C --context=NUM | Muestra NUM líneas antes y después. || Print NUM lines of output context.
+-h --no-filename | No muestra el nombre del archivo en cada línea. || Suppress the prefixing of file names on output.
+-H --with-filename | Muestra siempre el nombre del archivo. || Print the file name for each match.
+-s --no-messages | Suprime los errores de archivos inexistentes o ilegibles. || Suppress error messages about nonexistent or unreadable files.
+-q --quiet --silent | No escribe nada: solo el código de salida (0 = hubo coincidencia). || Quiet: write nothing, exit with 0 if a match was found.
+-m --max-count=NUM | Se detiene tras NUM líneas coincidentes. || Stop reading a file after NUM matching lines.
+-a --text | Trata los archivos binarios como texto. || Process a binary file as if it were text.
+-I | Ignora los archivos binarios. || Process a binary file as if it did not contain matching data.
+--include=GLOB | Con -r, busca solo en archivos cuyo nombre coincida (p. ej. "*.log"). || With -r, search only files whose name matches (e.g. "*.log").
+--exclude=GLOB | Con -r, omite los archivos que coincidan. || With -r, skip files whose name matches.
+--exclude-dir=GLOB | Con -r, omite los directorios que coincidan. || With -r, skip directories that match.
+--color=WHEN | Resalta las coincidencias (always, auto, never). || Surround the matched strings with colour markers.
+-z --null-data | Las «líneas» terminan en byte nulo. || Treat input and output data as sequences of lines terminated by a zero byte.
+tip: Comillas simples para el patrón: «grep 'a.*b'» evita que la shell interprete * ? $ antes que grep.
+
+@@ sed
+es: editor de flujo: transforma texto línea a línea (buscar y reemplazar, borrar, imprimir…)
+tags: read write
+special: sed
+pos: GUION?unless=-e,-f,--expression,--file | Las órdenes de sed, normalmente entre comillas simples: s/viejo/nuevo/g, /patrón/d, 3,5p… || The sed commands, usually in single quotes: s/old/new/g, /pattern/d, 3,5p…
+pos: ARCHIVO... | Archivo(s) a procesar (o la entrada estándar). || File(s) to process (or standard input).
+-n --quiet --silent | No imprime cada línea automáticamente: solo lo que pidas con «p». || Suppress automatic printing of pattern space.
+-e --expression=SCRIPT | Añade SCRIPT a las órdenes (se puede repetir). || Add the script to the commands to be executed.
+-f --file=ARCHIVO | Lee las órdenes de un archivo. || Add the contents of the script file to the commands.
+-i --in-place=SUFIJO | MODIFICA el archivo original; con SUFIJO (p. ej. -i.bak) guarda antes una copia. || EDIT the original file in place; with SUFFIX (e.g. -i.bak) a backup is kept.
+-E -r --regexp-extended | Expresiones regulares extendidas (grupos () + ? | sin barra invertida). || Use extended regular expressions (groups () + ? | without backslash).
+-s --separate | Trata cada archivo por separado (los números de línea reinician). || Consider files as separate rather than as a single continuous stream.
+-z --null-data | Separa las líneas con byte nulo. || Separate lines by NUL characters.
+-u --unbuffered | Sin búfer: lee y escribe lo mínimo. || Load minimal amounts of data and flush output more often.
+--debug | Anota y explica el programa mientras se ejecuta. || Annotate program execution.
+tip: Con -i sed edita el archivo sin preguntar: prueba antes sin -i o usa -i.bak.
+
+@@ awk gawk mawk nawk
+es: lenguaje de procesamiento de texto por campos y patrones
+tags: read
+pos: PROGRAMA?unless=-f,--file | El programa awk entre comillas simples: «patrón { acción }». Ej.: '{print $1}' imprime la primera columna. || The awk program in single quotes: "pattern { action }". E.g. '{print $1}' prints the first column.
+pos: ARCHIVO... | Archivo(s) de entrada (o la entrada estándar). || Input file(s) (or standard input).
+-F --field-separator=SEP | Separador de campos (por defecto, espacios y tabuladores). Ej.: -F: o -F',' . || Field separator (default: blanks). E.g. -F: or -F','.
+-v --assign=VAR=VALOR | Define una variable antes de empezar. || Assign a variable before the program starts.
+-f --file=ARCHIVO | Lee el programa de un archivo. || Read the program from a file.
+tip: En awk, $1 es la primera columna, $NF la última, $0 la línea entera, NR el número de línea y NF el número de campos.
+
+@@ sudo
+es: ejecuta un comando con los privilegios de otro usuario (por defecto root)
+en: execute a command as another user (root by default)
+tags: priv exec
+pos: COMANDO... | El comando (y sus argumentos) que se ejecutará con privilegios. || The command (and its arguments) to run with privileges.
+-u --user=USUARIO | Ejecuta como ese usuario en vez de root. || Run as that user instead of root.
+-g --group=GRUPO | Ejecuta con ese grupo primario. || Run with that primary group.
+-i --login | Abre una shell de login como el usuario destino (entorno completo, cambia al directorio personal). || Run a login shell as the target user (full environment, goes to their home).
+-s --shell | Abre una shell como el usuario destino sin cambiar de directorio. || Run a shell as the target user without changing directory.
+-E --preserve-env | Conserva las variables de entorno del usuario actual. || Preserve the user's environment.
+-H --set-home | Pone HOME al directorio personal del usuario destino. || Set HOME to the target user's home directory.
+-k --reset-timestamp | Invalida la contraseña recordada: la pedirá de nuevo. || Invalidate the cached credentials: ask for the password again.
+-K --remove-timestamp | Elimina del todo la marca de tiempo de credenciales. || Remove the timestamp entirely.
+-l --list | Lista qué comandos tienes permitidos con sudo. || List the allowed (and forbidden) commands for the user.
+-v --validate | Renueva la autenticación sin ejecutar ningún comando. || Update the user's cached credentials, without running a command.
+-b --background | Ejecuta el comando en segundo plano. || Run the command in the background.
+-n --non-interactive | No pide contraseña: falla si hace falta. || Avoid prompting the user for input of any kind.
+-S --stdin | Lee la contraseña de la entrada estándar (¡no la dejes en el historial!). || Write the prompt to standard error and read the password from standard input.
+-e --edit | Edita archivos de forma segura (equivale a sudoedit). || Edit one or more files instead of running a command.
+-A --askpass | Pide la contraseña con un programa gráfico externo. || Use a helper program for password prompting.
+-p --prompt=PROMPT | Cambia el texto que pide la contraseña. || Use a custom password prompt.
+-h --host=HOST | Ejecuta en el host indicado (con sudoers por host). || Run the command on a host other than the local one.
+
+@@ su
+es: cambia de usuario (por defecto a root) abriendo una shell
+tags: priv exec
+-l --login | Shell de login: entorno limpio y directorio personal del usuario destino (igual que escribir «su -»). || Login shell: clean environment and the target user's home (same as typing "su -").
+-c --command=COMANDO | Ejecuta ese comando y vuelve, en lugar de abrir una shell interactiva. || Run that command and return, instead of an interactive shell.
+-s --shell=SHELL | Usa esa shell en vez de la del usuario. || Run the specified shell instead of the user's default.
+-m -p --preserve-environment | Conserva las variables de entorno actuales. || Preserve the current environment.
+-g --group=GRUPO | Especifica el grupo primario. || Specify the primary group.
+tip: «su -» pide la contraseña del usuario destino (root); «sudo -i» pide la tuya.
+
+@@ passwd
+es: cambia la contraseña de un usuario o gestiona su estado
+tags: priv write
+pos: USUARIO? | Usuario cuya contraseña se cambia. Sin argumento: la tuya. || User whose password is changed. With none: yours.
+-l --lock | Bloquea la cuenta (la contraseña deja de servir). || Lock the password of the named account.
+-u --unlock | Desbloquea la cuenta. || Unlock the password of the named account.
+-d --delete | Elimina la contraseña (cuenta SIN contraseña: peligroso). || Delete a user's password (make it empty).
+-e --expire | Obliga a cambiar la contraseña en el próximo inicio de sesión. || Immediately expire an account's password.
+-S --status | Muestra el estado de la contraseña. || Display account status information.
+-n --mindays=DÍAS | Días mínimos entre cambios. || Set the minimum number of days between password changes.
+-x --maxdays=DÍAS | Días máximos de validez. || Set the maximum number of days a password remains valid.
+
+@@ whoami
+es: muestra tu nombre de usuario actual
+tags: read
+
+@@ id
+es: muestra tu UID, GID y los grupos a los que perteneces
+tags: read
+pos: USUARIO? | Usuario a consultar (por defecto, tú). || User to look up (default: you).
+-u --user | Solo el UID. || Print only the effective user ID.
+-g --group | Solo el GID principal. || Print only the effective group ID.
+-G --groups | Solo los IDs de todos los grupos. || Print all group IDs.
+-n --name | Muestra nombres en lugar de números (con -u, -g o -G). || Print a name instead of a number.
+
+@@ groups
+es: muestra los grupos a los que pertenece un usuario
+tags: read
+
+@@ who
+es: muestra quién tiene sesión abierta en el sistema
+tags: read
+-a --all | Toda la información disponible. || Same as -b -d --login -p -r -t -T -u.
+-b --boot | Hora del último arranque. || Time of last system boot.
+-H --heading | Muestra una fila de cabecera. || Print line of column headings.
+
+@@ w
+es: muestra quién está conectado y qué está haciendo
+tags: read
+
+@@ last
+es: muestra el historial de inicios de sesión (lee /var/log/wtmp)
+tags: read
+-n=NUM | Muestra solo NUM líneas. || Tell last how many lines to show.
+-a --hostnameslast | Muestra el nombre del host al final. || Display the hostname in the last column.
+-F --fulltimes | Muestra fecha y hora completas. || Print full login and logout times and dates.
+-i --ip | Muestra la IP en vez del nombre. || Like -d, but show the IP address instead of hostname.
+
+@@ lastlog
+es: muestra el último inicio de sesión de cada usuario
+tags: read
+
+@@ useradd adduser
+es: crea una cuenta de usuario
+tags: priv write
+pos: USUARIO | Nombre del usuario nuevo. || Name of the new user.
+-m --create-home | Crea el directorio personal. || Create the user's home directory.
+-s --shell=SHELL | Shell de login (p. ej. /bin/bash; /usr/sbin/nologin impide iniciar sesión). || Login shell (e.g. /bin/bash; /usr/sbin/nologin prevents logging in).
+-G --groups=GRUPOS | Grupos secundarios (separados por comas). || Additional groups (comma-separated).
+-g --gid=GRUPO | Grupo principal. || Primary group.
+-u --uid=UID | UID numérico (¡0 es root!). || Numeric UID (0 is root!).
+-d --home-dir=DIR | Directorio personal. || Home directory.
+-c --comment=TEXTO | Comentario (nombre completo). || Comment (full name).
+-r --system | Crea una cuenta de sistema. || Create a system account.
+-e --expiredate=FECHA | Fecha de caducidad de la cuenta. || Expiration date of the account.
+-o --non-unique | Permite UID repetido. || Allow creating users with duplicate (non-unique) UID.
+
+@@ usermod
+es: modifica una cuenta de usuario existente
+tags: priv write
+pos: USUARIO | Usuario a modificar. || User to modify.
+-aG | Añade el usuario a los grupos indicados SIN quitarlo de los demás (-a debe ir con -G). || Add the user to the groups WITHOUT removing from others (-a must be used with -G).
+-a --append | Con -G, añade en lugar de reemplazar los grupos. || With -G, append instead of replacing the groups.
+-G --groups=GRUPOS | Lista de grupos secundarios (sin -a REEMPLAZA los actuales). || List of supplementary groups (without -a it REPLACES the current ones).
+-s --shell=SHELL | Nueva shell de login. || New login shell.
+-l --login=NUEVO | Nuevo nombre de usuario. || New login name.
+-d --home=DIR | Nuevo directorio personal. || New home directory.
+-m --move-home | Con -d, mueve el contenido del directorio personal antiguo. || With -d, move the content of the old home directory.
+-L --lock | Bloquea la contraseña. || Lock a user's password.
+-U --unlock | Desbloquea la contraseña. || Unlock a user's password.
+-e --expiredate=FECHA | Fecha de caducidad. || Set account expiration date.
+
+@@ userdel deluser
+es: elimina una cuenta de usuario
+tags: priv delete
+pos: USUARIO | Usuario a eliminar. || User to delete.
+-r --remove | También borra su directorio personal y su buzón de correo. || Files in the user's home directory will be removed along with the home directory itself.
+-f --force | Fuerza el borrado aunque tenga sesión abierta. || Force the removal of the user account, even if still logged in.
+
+@@ groupadd addgroup
+es: crea un grupo
+tags: priv write
+-g --gid=GID | GID numérico del grupo. || The numerical value of the group's ID.
+-r --system | Crea un grupo de sistema. || Create a system group.
+
+@@ groupdel delgroup
+es: elimina un grupo
+tags: priv delete
+
+@@ gpasswd
+es: administra los grupos (añadir o quitar miembros)
+tags: priv write
+-a --add=USUARIO | Añade el usuario al grupo. || Add the user to the named group.
+-d --delete=USUARIO | Quita el usuario del grupo. || Remove the user from the named group.
+-M --members=USUARIOS | Fija la lista completa de miembros. || Set the list of members of the group.
+
+@@ chage
+es: gestiona la caducidad de las contraseñas
+tags: priv write
+-l --list | Muestra la información de caducidad. || Show account aging information.
+-M --maxdays=DÍAS | Días máximos de validez de la contraseña. || Set the maximum number of days during which a password is valid.
+-E --expiredate=FECHA | Fecha de caducidad de la cuenta. || Set the date on which the user's account will no longer be accessible.
+-d --lastday=FECHA | Fecha del último cambio de contraseña. || Set the number of days since January 1st, 1970 when the password was last changed.
+
+@@ visudo
+es: edita el archivo /etc/sudoers con comprobación de sintaxis (la forma segura de hacerlo)
+tags: priv write
+-c --check | Solo comprueba la sintaxis. || Enable check-only mode.
+-f --file=ARCHIVO | Edita otro archivo de sudoers (p. ej. en /etc/sudoers.d). || Specify an alternate sudoers file location.
+
+@@ ps
+es: muestra los procesos en ejecución
+tags: read
+style: bsdfirst
+~a | (estilo BSD) Procesos de todos los usuarios con terminal. || (BSD style) Processes of all users with a terminal.
+~u | (estilo BSD) Formato orientado a usuario: usuario, %CPU, %MEM, inicio, comando. || (BSD style) User-oriented format: user, %CPU, %MEM, start, command.
+~x | (estilo BSD) Incluye procesos SIN terminal (demonios, servicios). || (BSD style) Include processes WITHOUT a terminal (daemons, services).
+~f | (estilo BSD) Muestra el árbol de procesos con ramas ASCII. || (BSD style) ASCII-art process tree.
+-e -A | Todos los procesos del sistema. || Select all processes.
+-f | Formato completo: UID, PID, PPID, hora de inicio y comando completo. || Full format: UID, PID, PPID, start time and the full command.
+-F | Formato todavía más completo (incluye tamaño y CPU). || Extra full format (adds size and CPU).
+-l | Formato largo. || Long format.
+-u --user=USUARIO | Procesos de ese usuario. || Select by effective user ID or name.
+-p --pid=PID | Solo ese proceso. || Select by process ID.
+-C=NOMBRE | Procesos cuyo comando se llama así. || Select by command name.
+-o --format=FORMATO | Elige las columnas: pid,ppid,user,%cpu,%mem,cmd… || User-defined format: choose the columns.
+--forest | Árbol de procesos padre-hijo. || ASCII art process hierarchy.
+--sort=CLAVE | Ordena por una columna (p. ej. -%mem para mayor memoria primero). || Specify sorting order (e.g. -%mem for biggest memory first).
+-H | Muestra la jerarquía de procesos. || Show process hierarchy.
+-T | Muestra los hilos de ejecución. || Show threads.
+-w | Salida ancha (no recorta líneas). || Wide output.
+tip: «ps aux» (BSD) y «ps -ef» (UNIX) listan todo; en la salida, PID = identificador, PPID = proceso padre, STAT = estado (R ejecutando, S dormido, Z zombi).
+
+@@ top
+es: muestra los procesos en tiempo real, ordenados por uso de CPU
+tags: read
+-d=SEGUNDOS | Segundos entre actualizaciones. || Specifies the delay between screen updates.
+-p=PID | Monitoriza solo esos PID. || Monitor only processes with the specified process IDs.
+-u=USUARIO | Solo procesos de ese usuario. || Display only processes with a user id or user name matching the given.
+-b | Modo por lotes (sin interfaz): útil para redirigir a un archivo. || Starts top in Batch mode.
+-n=N | Se detiene tras N actualizaciones. || Specifies the maximum number of iterations.
+-H | Muestra hilos. || Instructs top to display individual threads.
+tip: Dentro de top: q sale, k mata un proceso, M ordena por memoria, P por CPU, 1 muestra cada núcleo.
+
+@@ htop
+es: monitor de procesos interactivo y con colores (mejor que top)
+tags: read
+
+@@ kill
+es: envía una señal a un proceso (por defecto TERM: pedirle que termine)
+tags: system
+special: kill
+pos: PID... | Identificador(es) del proceso. «-1» = todos los procesos que puedas matar. || Process ID(s). "-1" = every process you can kill.
+-l --list | Lista las señales disponibles. || List signal names.
+-s --signal=SEÑAL | Señal a enviar, por nombre o número. || Specify the signal to be sent.
+-9 | Señal KILL: muerte inmediata, el proceso no puede evitarla ni limpiar. || KILL signal: immediate death, the process cannot catch it or clean up.
+-15 | Señal TERM: petición educada de terminar (la señal por defecto). || TERM signal: polite request to terminate (the default).
+-1 | Señal HUP: recargar la configuración (en muchos demonios). || HUP signal: reload configuration (in many daemons).
+-2 | Señal INT: igual que Ctrl+C. || INT signal: same as Ctrl+C.
+-STOP | Pausa el proceso (no se puede ignorar). || Pause the process (cannot be ignored).
+-CONT | Reanuda un proceso pausado. || Resume a paused process.
+
+@@ killall
+es: envía una señal a TODOS los procesos con un nombre dado
+tags: system
+special: killall
+-9 | Señal KILL (inmediata). || KILL signal (immediate).
+-i --interactive | Pregunta antes de matar cada proceso. || Interactively ask for confirmation before killing.
+-u --user=USUARIO | Solo procesos de ese usuario. || Kill only processes the specified user owns.
+-v --verbose | Informa de lo que mata. || Report if the signal was successfully sent.
+-w --wait | Espera a que mueran. || Wait for all killed processes to die.
+
+@@ pkill pgrep
+es: busca (pgrep) o mata (pkill) procesos por nombre u otros criterios
+tags: system
+special: pkill
+-f --full | Casa con la línea de comandos completa, no solo con el nombre. || The pattern is normally only matched against the process name. With -f, the full command line is used.
+-u --euid=USUARIO | Solo procesos de ese usuario. || Only match processes whose effective user ID is listed.
+-x --exact | Coincidencia exacta del nombre. || Only match processes whose names exactly match the pattern.
+-l --list-name | Muestra también el nombre (pgrep). || List the process name as well as the process ID.
+-a --list-full | Muestra la línea de comandos completa (pgrep). || List the full command line as well as the process ID.
+-n --newest | Solo el más reciente. || Select only the newest of the matching processes.
+-o --oldest | Solo el más antiguo. || Select only the oldest of the matching processes.
+
+@@ nice
+es: ejecuta un comando con otra prioridad de CPU
+-n --adjustment=N | Cambia la «amabilidad»: de -20 (máxima prioridad) a 19 (mínima). || Add N to the niceness: from -20 (highest priority) to 19 (lowest).
+
+@@ renice
+es: cambia la prioridad de un proceso en marcha
+tags: system
+-n=N | Nueva prioridad (-20 a 19). || Specify the scheduling priority to be added.
+-p=PID | Proceso al que se aplica. || Interpret the arguments as process IDs.
+
+@@ nohup
+es: ejecuta un comando que sigue vivo al cerrar la terminal
+tags: exec
+
+@@ timeout
+es: ejecuta un comando y lo mata si tarda más del tiempo indicado
+tags: exec
+pos: DURACIÓN | Tiempo máximo: 30 (segundos), 5m, 2h, 1d. || Maximum time: 30 (seconds), 5m, 2h, 1d.
+-s --signal=SEÑAL | Señal con la que se corta (por defecto TERM). || Specify the signal to be sent on timeout.
+-k --kill-after=DURACIÓN | Si sigue vivo tras ese tiempo, lo mata con KILL. || Also send a KILL signal if command is still running this long after the initial signal.
+
+@@ watch
+es: repite un comando cada cierto tiempo y muestra su salida en pantalla completa
+tags: read exec
+-n --interval=SEGUNDOS | Intervalo entre ejecuciones (por defecto 2 s). || Specify update interval.
+-d --differences | Resalta lo que cambia entre ejecuciones. || Highlight the differences between successive updates.
+-t --no-title | Oculta la cabecera. || Turn off the header.
+
+@@ uname
+es: muestra información del sistema operativo y del núcleo
+tags: read
+-a --all | Toda la información. || Print all information.
+-r --kernel-release | Versión del núcleo. || Print the kernel release.
+-s --kernel-name | Nombre del núcleo. || Print the kernel name.
+-m --machine | Arquitectura del hardware (x86_64, aarch64…). || Print the machine hardware name.
+-n --nodename | Nombre del equipo. || Print the network node hostname.
+-o --operating-system | Sistema operativo. || Print the operating system.
+
+@@ hostname
+es: muestra o cambia el nombre del equipo
+tags: read
+-I --all-ip-addresses | Todas las direcciones IP del equipo. || Display all network addresses of the host.
+-f --fqdn | Nombre completo (FQDN). || Display the FQDN (Fully Qualified Domain Name).
+-i --ip-address | Dirección IP del nombre del equipo. || Display the network address(es) of the host name.
+
+@@ hostnamectl
+es: consulta o cambia el nombre del equipo y datos del sistema
+tags: read system
+
+@@ uptime
+es: muestra cuánto lleva encendido el sistema y la carga media
+tags: read
+-p --pretty | Formato legible. || Show uptime in pretty format.
+-s --since | Desde cuándo está encendido. || System up since, in yyyy-mm-dd HH:MM:SS format.
+
+@@ free
+es: muestra la memoria RAM y swap libres y usadas
+tags: read
+-h --human | Tamaños legibles. || Show all output fields automatically scaled to shortest three digit unit.
+-m --mebi | En mebibytes. || Display the amount of memory in mebibytes.
+-g --gibi | En gibibytes. || Display the amount of memory in gibibytes.
+-s --seconds=N | Repite cada N segundos. || Continuously display the result delay seconds apart.
+-t --total | Añade una línea de totales. || Display a line showing the column totals.
+
+@@ vmstat
+es: estadísticas de memoria virtual, procesos, E/S y CPU
+tags: read
+
+@@ iostat
+es: estadísticas de uso de CPU y de discos
+tags: read
+
+@@ lsof
+es: lista los archivos abiertos y qué proceso los usa (incluye sockets de red)
+tags: read
+-i | Archivos de red: -i :80 (puerto 80), -i tcp, -i @host. || Network files: -i :80 (port 80), -i tcp, -i @host.
+-p=PID | Archivos abiertos por ese proceso. || Select by process ID.
+-u=USUARIO | Archivos abiertos por ese usuario. || Select by user.
+-c=NOMBRE | Archivos abiertos por procesos con ese nombre. || Select by command name.
+-n | No resuelve nombres de host. || Inhibits the conversion of network numbers to host names.
+-P | No resuelve nombres de puerto. || Inhibits the conversion of port numbers to port names.
+
+@@ date
+es: muestra o cambia la fecha y la hora
+tags: read
+special: date
+pos: +FORMATO? | Formato de salida, p. ej. +%Y-%m-%d_%H:%M:%S. || Output format, e.g. +%Y-%m-%d_%H:%M:%S.
+-d --date=TEXTO | Muestra la fecha descrita en lenguaje natural: "yesterday", "next friday", "@1700000000". || Display the date described in natural language: "yesterday", "next friday", "@1700000000".
+-u --utc --universal | Usa la hora universal (UTC). || Print or set Coordinated Universal Time (UTC).
+-s --set=TEXTO | CAMBIA la fecha del sistema (requiere root). || Set time described by STRING (needs root).
+-R --rfc-email | Formato RFC 5322 (cabeceras de correo). || Output date and time in RFC 5322 format.
+-I --iso-8601=SPEC | Formato ISO 8601 (date, hours, minutes, seconds). || Output date/time in ISO 8601 format.
+-r --reference=ARCHIVO | Muestra la fecha de modificación de un archivo. || Display the last modification time of FILE.
+
+@@ cal
+es: muestra un calendario
+tags: read
+
+@@ env printenv
+es: muestra las variables de entorno, o ejecuta un comando con un entorno modificado
+tags: read
+-i --ignore-environment | Empieza con el entorno VACÍO. || Start with an empty environment.
+-u --unset=NOMBRE | Quita una variable del entorno. || Remove variable from the environment.
+-C --chdir=DIR | Cambia de directorio antes de ejecutar. || Change working directory to DIR.
+-0 --null | Termina cada línea con byte nulo. || End each output line with NUL, not newline.
+
+@@ crontab
+es: gestiona las tareas programadas de un usuario (cron)
+tags: write system
+-l | Lista las tareas del usuario. || Display the current crontab.
+-e | Edita las tareas con el editor por defecto. || Edit the current crontab using the editor.
+-r | BORRA todas las tareas sin pedir confirmación. || Remove the current crontab WITHOUT confirmation.
+-i | Con -r, pide confirmación. || Prompt before deleting.
+-u=USUARIO | Actúa sobre las tareas de otro usuario (requiere root). || Specify the name of the user whose crontab is to be modified.
+pos: ARCHIVO? | Instala este archivo como crontab; «-» lee de la entrada estándar. || Install this file as the crontab; "-" reads standard input.
+tip: Formato de una línea: «minuto hora día-del-mes mes día-de-la-semana comando». Ejemplo: «30 2 * * 1 /ruta/script.sh» = lunes a las 02:30.
+
+@@ at
+es: programa un comando para ejecutarlo UNA vez en un momento dado
+tags: write system
+-f --file=ARCHIVO | Lee los comandos de un archivo. || Read the job from file rather than standard input.
+-l | Lista las tareas pendientes (igual que atq). || List the user's pending jobs.
+-d | Borra una tarea (igual que atrm). || Delete jobs (same as atrm).
+-m | Envía un correo al terminar. || Send mail to the user when the job has completed.
+
+@@ systemctl
+es: controla systemd: servicios, unidades, arranque y apagado
+tags: system priv
+pos: UNIDAD... | Servicio o unidad (nginx, ssh.service, multi-user.target…). || Service or unit (nginx, ssh.service, multi-user.target…).
+> start | Inicia la unidad ahora. No la activa en el arranque. || Start the unit now. Does not enable it at boot.
+> stop | Detiene la unidad ahora. || Stop the unit now.
+> restart | Detiene e inicia la unidad (corta el servicio un instante). || Stop and start the unit (briefly interrupts the service).
+> reload | Recarga la configuración sin parar el servicio (si lo admite). || Reload configuration without stopping the service (if supported).
+> reload-or-restart | Recarga si puede; si no, reinicia. || Reload if possible; otherwise restart.
+> enable | Hace que la unidad arranque automáticamente al iniciar el sistema (con --now, también la inicia). || Make the unit start automatically at boot (with --now, also start it).
+> disable | Quita el arranque automático (no la detiene si está en marcha). || Remove automatic start at boot (does not stop it if running).
+> status | Muestra el estado, el PID y las últimas líneas del registro. || Show the state, PID and last log lines.
+> is-active | Indica si la unidad está activa (código 0 = sí). || Tell whether the unit is active (exit 0 = yes).
+> is-enabled | Indica si arranca en el inicio. || Tell whether the unit starts at boot.
+> is-failed | Indica si ha fallado. || Tell whether the unit has failed.
+> mask | Bloquea la unidad: no se puede iniciar ni siquiera a mano. || Block the unit: it cannot be started, even manually.
+> unmask | Quita el bloqueo. || Remove the block.
+> daemon-reload | Relee los archivos de unidad (tras editarlos). || Re-read unit files (after editing them).
+> list-units | Lista las unidades cargadas. || List loaded units.
+> list-unit-files | Lista los archivos de unidad y si están habilitados. || List unit files and whether they are enabled.
+> list-timers | Lista los temporizadores programados. || List scheduled timers.
+> cat | Muestra el archivo de unidad. || Show the unit file.
+> edit | Edita un archivo de unidad (crea un override). || Edit a unit file (creates an override).
+> show | Muestra todas las propiedades de la unidad. || Show all properties of the unit.
+> poweroff | Apaga el equipo. || Power off the machine.
+> reboot | Reinicia el equipo. || Reboot the machine.
+> suspend | Suspende el equipo. || Suspend the machine.
+> isolate | Cambia a un objetivo (target), parando lo que no pertenezca a él. || Switch to a target, stopping everything not part of it.
+> set-default | Fija el objetivo de arranque por defecto. || Set the default boot target.
+> get-default | Muestra el objetivo de arranque por defecto. || Show the default boot target.
+> kill | Envía una señal a los procesos de la unidad. || Send a signal to the unit's processes.
+--now | Con enable/disable/mask, además inicia o detiene la unidad ahora. || With enable/disable/mask, also start or stop the unit now.
+--no-pager | No usa paginador (útil en guiones y capturas). || Do not pipe output into a pager.
+--user | Actúa sobre las unidades del usuario, no del sistema. || Talk to the service manager of the calling user.
+-t --type=TIPO | Filtra por tipo de unidad (service, socket, timer…). || The argument should be a comma-separated list of unit types.
+--failed | Solo unidades que han fallado. || List units in failed state.
+-a --all | Incluye también las inactivas. || Show all units, including inactive ones.
+-l --full | No recorta las líneas. || Do not ellipsize unit names, process tree entries.
+-q --quiet | Suprime la salida. || Suppress printing of the results of various commands.
+-f --force | Fuerza la operación. || When used with enable, overwrite any existing conflicting symlinks.
+
+@@ journalctl
+es: consulta los registros (logs) de systemd
+tags: read
+-u --unit=UNIDAD | Solo los mensajes de esa unidad (p. ej. nginx). || Show messages for the specified systemd unit.
+-f --follow | Sigue los mensajes nuevos (como tail -f). || Show only the most recent journal entries, and continuously print new entries.
+-n --lines=NUM | Muestra las últimas NUM entradas. || Show the most recent journal events and limit the number of events shown.
+-e --pager-end | Salta al final del registro. || Immediately jump to the end of the journal in the pager.
+-b --boot | Solo desde el último arranque (-b -1 = el arranque anterior). || Show messages from a specific boot (-b -1 = previous boot).
+-p --priority=NIVEL | Filtra por gravedad: emerg, alert, crit, err, warning, notice, info, debug. || Filter output by message priorities or priority ranges.
+-S --since=FECHA | Desde una fecha: "today", "2025-01-01", "1 hour ago". || Start showing entries on or newer than the specified date.
+-U --until=FECHA | Hasta una fecha. || Stop showing entries on or older than the specified date.
+-k --dmesg | Solo mensajes del núcleo (como dmesg). || Show only kernel messages.
+-o --output=FORMATO | Formato de salida (short, json, cat, verbose…). || Controls the formatting of the journal entries that are shown.
+-r --reverse | Los más recientes primero. || Reverse output so that the newest entries are displayed first.
+--no-pager | No usa paginador. || Do not pipe output into a pager.
+--disk-usage | Muestra el espacio que ocupan los registros. || Shows the current disk usage of all journal files.
+--vacuum-size=TAMAÑO | Borra registros antiguos hasta ocupar como máximo TAMAÑO. || Removes the oldest archived journal files until the disk space they use falls below the specified size.
+--vacuum-time=TIEMPO | Borra registros más antiguos que TIEMPO. || Removes archived journal files older than the specified timespan.
+
+@@ service
+es: inicia, detiene o consulta servicios (envoltorio histórico de SysV/systemd)
+tags: system priv
+pos: SERVICIO | Nombre del servicio. || Service name.
+pos: ACCIÓN | start, stop, restart, status… || start, stop, restart, status…
+--status-all | Estado de todos los servicios. || Run all init scripts, in alphabetical order, with the status command.
+
+@@ dmesg
+es: muestra los mensajes del búfer del núcleo (arranque, hardware, errores)
+tags: read
+-T --ctime | Convierte los tiempos a fechas legibles. || Print human-readable timestamps.
+-w --follow | Espera y muestra mensajes nuevos. || Wait for new messages.
+-l --level=NIVEL | Filtra por nivel (err, warn…). || Restrict output to the given (comma-separated) list of levels.
+-H --human | Salida legible con colores y paginador. || Enable human-readable output.
+-c --read-clear | Muestra y luego VACÍA el búfer. || Clear the ring buffer after first printing its contents.
+-C --clear | Vacía el búfer del núcleo. || Clear the ring buffer.
+
+@@ lsmod
+es: lista los módulos del núcleo cargados
+tags: read
+
+@@ modprobe
+es: carga o descarga módulos del núcleo (con sus dependencias)
+tags: system priv
+-r --remove | Descarga el módulo. || Remove modules.
+-n --dry-run | Simula sin hacer nada. || Do not actually insert or remove.
+-v --verbose | Muestra lo que hace. || Print messages about what the program is doing.
+
+@@ lspci
+es: lista los dispositivos PCI (tarjetas gráficas, red, controladoras…)
+tags: read
+-v | Más detalle (-vv aún más). || Be verbose and display detailed information.
+-k | Muestra el controlador (driver) en uso. || Show kernel drivers handling each device.
+-nn | Muestra también los códigos numéricos de fabricante y modelo. || Show PCI vendor and device codes as both numbers and names.
+
+@@ lsusb
+es: lista los dispositivos USB conectados
+tags: read
+-v | Información detallada. || Tells lsusb to be verbose and display detailed information.
+-t | Muestra los dispositivos como un árbol. || Tells lsusb to dump the physical USB device hierarchy as a tree.
+
+@@ lscpu
+es: muestra información de la CPU (modelo, núcleos, caché, virtualización)
+tags: read
+
+@@ lsblk
+es: lista los dispositivos de bloques (discos y particiones) como un árbol
+tags: read
+-f --fs | Muestra sistema de archivos, etiqueta, UUID y punto de montaje. || Output info about filesystems.
+-a --all | Incluye dispositivos vacíos. || Disable all filters which are enabled by default.
+-o --output=COLUMNAS | Elige las columnas (NAME,SIZE,TYPE,MOUNTPOINT…). || Specify which output columns to print.
+-l --list | Muestra una lista en vez de un árbol. || Produce output in the form of a list.
+-b --bytes | Tamaños en bytes. || Print the SIZE column in bytes.
+-p --paths | Muestra rutas completas (/dev/sda1). || Print full device paths.
+
+@@ blkid
+es: muestra el UUID, el tipo y la etiqueta de los dispositivos de bloques
+tags: read
+
+@@ mount
+es: monta un sistema de archivos (lo hace accesible en un directorio) o lista los montados
+tags: system priv
+pos: DISPOSITIVO | Dispositivo o recurso a montar (/dev/sdb1, UUID=…, servidor:/ruta). || Device or resource to mount (/dev/sdb1, UUID=…, server:/path).
+pos: PUNTO_DE_MONTAJE | Directorio (vacío) donde quedará accesible. || Directory (empty) where it will appear.
+-t --types=TIPO | Tipo de sistema de archivos (ext4, ntfs, vfat, nfs, cifs, iso9660…). || Indicate the filesystem type.
+-o --options=OPCIONES | Opciones de montaje separadas por comas: ro, rw, noexec, nosuid, uid=1000… || Options for mount, comma-separated: ro, rw, noexec, nosuid, uid=1000…
+-a --all | Monta todo lo de /etc/fstab. || Mount all filesystems (of the given types) mentioned in fstab.
+-r --read-only | Monta en solo lectura. || Mount the filesystem read-only.
+-w --rw --read-write | Monta en lectura-escritura. || Mount the filesystem read/write.
+--bind | Hace visible un directorio en otro sitio. || Remount a subtree somewhere else.
+-v --verbose | Muestra lo que hace. || Verbose mode.
+tip: Sin argumentos, «mount» lista lo que está montado. «mount -o remount,rw /» cambia las opciones de un montaje en vivo.
+
+@@ umount
+es: desmonta un sistema de archivos
+tags: system priv
+-l --lazy | Desmonta ya y limpia cuando deje de usarse. || Lazy unmount. Detach the filesystem from the file hierarchy now.
+-f --force | Fuerza el desmontaje (útil con NFS caídos). || Force an unmount.
+-R --recursive | Desmonta también lo que cuelga debajo. || Recursively unmount each specified directory.
+
+@@ fdisk
+es: gestiona la tabla de particiones de un disco (interactivo)
+tags: system priv
+-l --list | Lista las particiones de los discos sin modificar nada. || List the partition tables for the specified devices and then exit.
+-u --units | Muestra en sectores o cilindros. || When listing partition tables, show sizes in sectors or cylinders.
+
+@@ parted
+es: gestiona particiones de disco (MBR/GPT) desde la línea de comandos
+tags: system priv
+-l --list | Lista las particiones de todos los discos. || Lists partition layout on all block devices.
+-s --script | Modo no interactivo (sin preguntar confirmación). || Never prompt for user intervention.
+
+@@ mkfs
+es: crea un sistema de archivos (FORMATEA) en una partición
+tags: system priv
+-t --type=TIPO | Tipo (ext4, xfs, vfat…). || Specify the type of filesystem to be built.
+
+@@ fsck
+es: comprueba y repara un sistema de archivos (debe estar desmontado)
+tags: system priv
+-y | Responde «sí» a todo: repara sin preguntar. || Automatically repair without prompting.
+-n | Solo comprueba, no modifica nada. || Make no changes to the filesystem.
+-f | Fuerza la comprobación aunque parezca limpio. || Force checking even if the file system seems clean.
+-a -p | Repara automáticamente lo seguro. || Automatically repair without any questions.
+
+@@ sync
+es: vuelca a disco los datos pendientes en la memoria
+tags: write system
+
+@@ shutdown
+es: apaga o reinicia el equipo (con aviso a los usuarios)
+tags: system priv
+-h --halt | Apaga. || Halt the machine.
+-P --poweroff | Apaga y corta la corriente. || Power-off the machine.
+-r --reboot | Reinicia. || Reboot the machine.
+-c | Cancela un apagado programado. || Cancel a pending shutdown.
+pos: HORA? | now, +MINUTOS o HH:MM. || now, +MINUTES or HH:MM.
+
+@@ reboot poweroff halt
+es: reinicia (reboot) o apaga (poweroff, halt) el equipo
+tags: system priv
+-f --force | Sin avisar ni cerrar servicios con ordenación (peligroso). || Force immediate halt, power-off, reboot.
+
+@@ sysctl
+es: consulta o cambia parámetros del núcleo en caliente
+tags: system priv
+-a --all | Lista todos los parámetros. || Display all values currently available.
+-w --write | Escribe un valor nuevo (net.ipv4.ip_forward=1). || Use this option when you want to change a sysctl setting.
+-p --load=ARCHIVO | Carga los valores de /etc/sysctl.conf (o del archivo). || Load in sysctl settings from the file specified.

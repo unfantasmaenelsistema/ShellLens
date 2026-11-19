@@ -1,0 +1,1 @@
+{"n":"oLschema2ldif","s":{"en":"Converts LDAP schema's to LDB-compatible LDIF"},"syn":"oLschema2ldif [-I INPUT-FILE] [-O OUTPUT-FILE]","st":"gnu","o":[{"f":["-I"],"en":"OpenLDAP schema to read. If none are specified, the schema file will be read from standard input.","a":"input-file"},{"f":["-O"],"en":"File to write ldif version of schema to.","a":"output-file"}]}

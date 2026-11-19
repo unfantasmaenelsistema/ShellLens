@@ -1,0 +1,1 @@
+{"n":"ip-mroute","s":{"en":"multicast routing cache management"},"syn":"ip mroute show [ [ to ] PREFIX ] [ from PREFIX ] [ iif DEVICE ] [ table TABLE_ID ]","st":"gnu","o":[]}

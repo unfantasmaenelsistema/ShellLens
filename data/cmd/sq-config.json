@@ -1,0 +1,1 @@
+{"n":"sq-config","s":{"en":"Query, inspect, and create the configuration file"},"syn":"sq config get [OPTIONS] NAME ⏎ sq config inspect [OPTIONS] SUBCOMMAND ⏎ sq config template [OPTIONS]","st":"gnu","o":[]}

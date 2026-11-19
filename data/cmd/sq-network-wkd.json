@@ -1,0 +1,1 @@
+{"n":"sq-network-wkd","s":{"en":"Retrieve and publishes certificates via Web Key Directories"},"syn":"sq network wkd search [OPTIONS] ADDRESS ⏎ sq network wkd publish [OPTIONS] DEST","st":"gnu","o":[{"f":["--cert"],"en":""},{"f":["--domain"],"en":"","a":"example.org"}]}

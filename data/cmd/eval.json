@@ -1,0 +1,1 @@
+{"n":"eval","s":{"en":"join its arguments into one string and run it as a command","es":"junta sus argumentos en un texto y lo ejecuta como comando"},"st":"gnu","tg":["exec"],"p":[{"n":"TEXTO","es":"Texto que la shell vuelve a interpretar y ejecutar.","en":"Text the shell re-interprets and runs.","v":1}],"o":[]}

@@ -1,0 +1,1 @@
+{"n":"pam_exec","s":{"en":"PAM module which calls an external command"},"syn":"pam_exec.so [debug] [expose_authtok] [seteuid] [quiet] [quiet_log] [stdout] [log=file] [type=type] command [...]","st":"gnu","o":[]}

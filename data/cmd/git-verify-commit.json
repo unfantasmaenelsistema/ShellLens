@@ -1,0 +1,1 @@
+{"n":"git-verify-commit","s":{"en":"Check the GPG signature of commits"},"syn":"git verify-commit [-v | --verbose] [--raw] <commit>...","st":"gnu","o":[{"f":["--raw"],"en":"Print the raw gpg status output to standard error instead of the normal human-readable output."},{"f":["-v","--verbose"],"en":"Print the contents of the commit object before validating it."}]}

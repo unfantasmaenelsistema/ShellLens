@@ -1,0 +1,1 @@
+{"n":"sum","s":{"en":"checksum and count the blocks in a file"},"syn":"sum [OPTION]... [FILE]...","st":"gnu","o":[{"f":["-r"],"en":"use BSD sum algorithm (the default), use 1K blocks"},{"f":["-s","--sysv"],"en":"use System V sum algorithm, use 512 bytes blocks"},{"f":["--help"],"en":"display this help and exit"},{"f":["--version"],"en":"output version information and exit"}]}

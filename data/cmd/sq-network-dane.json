@@ -1,0 +1,1 @@
+{"n":"sq-network-dane","s":{"en":"Retrieve and publishes certificates via DANE"},"syn":"sq network dane search [OPTIONS] ADDRESS ⏎ sq network dane generate [OPTIONS]","st":"gnu","o":[{"f":["--cert-file"],"en":"","a":"juliet.pgp"}]}

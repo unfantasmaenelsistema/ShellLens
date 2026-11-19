@@ -1,0 +1,1 @@
+{"n":"pam_userdb","s":{"en":"PAM module to authenticate against a db database"},"syn":"pam_userdb.so db=/path/database [debug] [crypt=[crypt|none]] [icase] [dump] [try_first_pass] [use_first_pass] [unknown_ok] [key_only]","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"ip-l2tp","s":{"en":"L2TPv3 static unmanaged tunnel configuration"},"syn":"ip [ OPTIONS ] l2tp { COMMAND | help } ⏎ ip l2tp add tunnel ⏎ remote ADDR local ADDR ⏎ tunnel_id ID peer_tunnel_id ID ⏎ [ encap { ip | udp } ] ⏎ [ udp_sport PORT ] [ udp_dport PORT ]","st":"gnu","o":[]}

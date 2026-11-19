@@ -1,0 +1,1 @@
+{"n":"runc-events","s":{"en":"display container events and statistics."},"syn":"runc events [option ...] container-id","st":"gnu","o":[{"f":["--interval"],"en":"Set the stats collection interval. Default is 5s.","a":"time"},{"f":["--stats"],"en":"Show the container's stats once then exit."}]}

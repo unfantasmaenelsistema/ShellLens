@@ -1,0 +1,1 @@
+{"n":"bashbug","s":{"en":"report a bug in bash"},"syn":"bashbug [--help] [--version] [bug-report-email-addresses]","st":"gnu","o":[{"f":["--help"],"en":"Show a brief usage message and exit."},{"f":["--version"],"en":"Show the version of bashbug and exit."}]}

@@ -1,0 +1,1 @@
+{"n":"tc-etf","s":{"en":"Earliest TxTime First (ETF) Qdisc"},"al":["ETF"],"syn":"tc qdisc ... dev dev parent classid [ handle major: ] etf clockid clockid [ delta delta_nsecs ] [ deadline_mode ] [ offload ]","st":"gnu","o":[]}

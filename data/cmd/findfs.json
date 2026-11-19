@@ -1,0 +1,1 @@
+{"n":"findfs","s":{"en":"find a filesystem by label or UUID"},"syn":"findfs TAGNAME=value","st":"gnu","o":[{"f":["-h","--help"],"en":"Display help text and exit."},{"f":["-V","--version"],"en":"Display version and exit."}]}

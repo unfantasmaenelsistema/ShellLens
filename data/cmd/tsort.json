@@ -1,0 +1,1 @@
+{"n":"tsort","s":{"en":"perform topological sort"},"syn":"tsort [OPTION] [FILE]","st":"gnu","o":[{"f":["--help"],"en":"display this help and exit"},{"f":["--version"],"en":"output version information and exit"}]}

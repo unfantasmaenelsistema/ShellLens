@@ -1,0 +1,1 @@
+{"n":"killall5","s":{"en":"send a signal to all processes"},"syn":"killall5 -signalnumber [-o omitpid[,omitpid...]] [-o omitpid[,omitpid...]...]","st":"gnu","o":[{"f":["-o"],"en":"Tells killall5 to omit processes with that process id.","a":"omitpid"}]}

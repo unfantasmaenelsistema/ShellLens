@@ -1,0 +1,1 @@
+{"n":"tc-nat","s":{"en":"stateless native address translation action"},"al":["nat"],"syn":"tc ... action nat DIRECTION OLD NEW ⏎ DIRECTION := { ingress | egress } ⏎ OLD := IPV4_ADDR_SPEC ⏎ NEW := IPV4_ADDR_SPEC ⏎ IPV4_ADDR_SPEC := { default | any | all | in_addr[/{prefix|netmask}]","st":"gnu","o":[]}

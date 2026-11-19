@@ -1,0 +1,1 @@
+{"n":"git-sh-i18n--envsubst","s":{"en":"Git's own envsubst(1) for i18n fallbacks"},"syn":"eval_gettext () { ⏎ printf \"%s\" \"$1\" | ( ⏎ export PATH $(git sh-i18n--envsubst --variables \"$1\"); ⏎ git sh-i18n--envsubst \"$1\" ⏎ ) ⏎ }","st":"gnu","o":[]}

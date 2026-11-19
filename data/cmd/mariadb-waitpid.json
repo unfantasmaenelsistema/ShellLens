@@ -1,0 +1,1 @@
+{"n":"mariadb-waitpid","s":{"en":"kill process and wait for its termination (mariadb-waitpid is now a symlink to mariadb-waitpid)"},"syn":"mariadb-waitpid [options] pid wait_time","st":"gnu","o":[]}

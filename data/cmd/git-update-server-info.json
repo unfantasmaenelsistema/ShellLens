@@ -1,0 +1,1 @@
+{"n":"git-update-server-info","s":{"en":"Update auxiliary info file to help dumb servers"},"syn":"git update-server-info [-f | --force]","st":"gnu","o":[{"f":["-f","--force"],"en":"Update the info files from scratch."}]}

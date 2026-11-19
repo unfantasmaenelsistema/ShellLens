@@ -1,0 +1,1 @@
+{"n":"docker-top","s":{"en":"Display the running processes of a container"},"syn":"docker top CONTAINER [ps OPTIONS]","st":"gnu","o":[]}

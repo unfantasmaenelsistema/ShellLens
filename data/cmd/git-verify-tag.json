@@ -1,0 +1,1 @@
+{"n":"git-verify-tag","s":{"en":"Check the GPG signature of tags"},"syn":"git verify-tag [-v | --verbose] [--format=<format>] [--raw] <tag>...","st":"gnu","o":[{"f":["--raw"],"en":"Print the raw gpg status output to standard error instead of the normal human-readable output."},{"f":["-v","--verbose"],"en":"Print the contents of the tag object before validating it."}]}

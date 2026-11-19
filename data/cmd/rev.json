@@ -1,0 +1,1 @@
+{"n":"rev","s":{"en":"reverse lines characterwise","es":"invierte el orden de los caracteres de cada línea"},"syn":"rev [option] [file...]","st":"gnu","tg":["read"],"o":[{"f":["-0","--zero"],"en":"Zero termination. Use the byte '\\0' as line separator."},{"f":["-h","--help"],"en":"Display help text and exit."},{"f":["-V","--version"],"en":"Display version and exit."}]}

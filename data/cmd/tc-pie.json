@@ -1,0 +1,1 @@
+{"n":"tc-pie","s":{"en":"Proportional Integral controller-Enhanced AQM algorithm"},"al":["PIE"],"syn":"tc qdisc ... pie [ limit PACKETS ] [ target TIME ] [ tupdate TIME ] [ alpha int ] [ beta int ] [ ecn | noecn ] [ bytemode | nobytemode ] [ dq_rate_estimator | no_dq_rate_estimator ]","st":"gnu","o":[]}

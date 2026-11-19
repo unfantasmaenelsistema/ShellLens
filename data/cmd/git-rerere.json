@@ -1,0 +1,1 @@
+{"n":"git-rerere","s":{"en":"Reuse recorded resolution of conflicted merges"},"syn":"git rerere [clear | forget <pathspec>... | diff | status | remaining | gc]","st":"gnu","o":[]}

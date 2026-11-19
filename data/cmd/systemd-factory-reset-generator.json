@@ -1,0 +1,1 @@
+{"n":"systemd-factory-reset-generator","s":{"en":"Pull factory-reset-now.target into the initial boot transaction when factory reset has been requested"},"syn":"/usr/lib/systemd/system-generators/systemd-factory-reset-generator","st":"gnu","o":[]}

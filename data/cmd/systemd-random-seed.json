@@ -1,0 +1,1 @@
+{"n":"systemd-random-seed","s":{"en":"Load and save the OS system random seed at boot and shutdown"},"al":["systemd-random-seed.service"],"syn":"systemd-random-seed.service ⏎ /usr/lib/systemd/systemd-random-seed","st":"gnu","o":[]}

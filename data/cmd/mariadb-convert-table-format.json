@@ -1,0 +1,1 @@
+{"n":"mariadb-convert-table-format","s":{"en":"convert tables to use a given storage engine (mariadb-convert-table-format is now a symlink to mariadb-convert-table-format)"},"syn":"mariadb-convert-table-format [options] db_name","st":"gnu","o":[]}

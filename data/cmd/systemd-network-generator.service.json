@@ -1,0 +1,1 @@
+{"n":"systemd-network-generator.service","s":{"en":"Generate network configuration from the kernel command line"},"al":["systemd-network-generator"],"syn":"systemd-network-generator.service ⏎ /usr/lib/systemd/systemd-network-generator","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"gcc-ranlib","s":{"en":"a wrapper around ranlib adding the --plugin option"},"syn":"gcc-ranlib [OPTION] ... [ARGS...]","st":"gnu","o":[]}

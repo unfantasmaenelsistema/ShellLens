@@ -1,0 +1,1 @@
+{"n":"docker-save","s":{"en":"Save one or more images to a tar archive (streamed to STDOUT by default)"},"syn":"docker save [OPTIONS] IMAGE [IMAGE...]","st":"gnu","o":[{"f":["-o","--output"],"en":"Write to a file, instead of STDOUT"},{"f":["--platform"],"en":"Save only the given platform variant. Formatted as \"os[/arch[/variant]]\" (e.g., \"linux/amd64\")"}]}

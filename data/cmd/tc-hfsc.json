@@ -1,0 +1,1 @@
+{"n":"tc-hfsc","s":{"en":"Hierarchical Fair Service Curve's control under linux"},"al":["HFSC"],"syn":"tc qdisc add ... hfsc [ default CLASSID ] ⏎ tc class add ... hfsc [ [ rt SC ] [ ls SC ] | [ sc SC ] ] [ ul SC ] ⏎ rt : realtime service curve ⏎ ls : linkshare service curve ⏎ sc : rt+ls service curve ⏎ ul : upperlimit service curve","st":"gnu","o":[]}

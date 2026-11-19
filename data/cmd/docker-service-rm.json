@@ -1,0 +1,1 @@
+{"n":"docker-service-rm","s":{"en":"Remove one or more services"},"syn":"docker service rm SERVICE [SERVICE...]","st":"gnu","o":[]}

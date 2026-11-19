@@ -1,0 +1,1 @@
+{"n":"update-rc.d","s":{"en":"install and remove System-V style init script links"},"syn":"update-rc.d [-f] name remove ⏎ update-rc.d name defaults ⏎ update-rc.d name defaults-disabled ⏎ update-rc.d name disable|enable [ S|2|3|4|5 ]","st":"gnu","o":[{"f":["-f"],"en":"Force removal of symlinks even if /etc/init.d/name still exists."}]}

@@ -1,0 +1,1 @@
+{"n":"tc-choke","s":{"en":"choose and keep scheduler"},"al":["choke"],"syn":"tc qdisc ... choke limit packets min packets max packets avpkt bytes burst packets [ ecn ] [ bandwidth rate ] probability chance","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"shasum","s":{"en":"Print or Check SHA Checksums"},"syn":"Usage: shasum [OPTION]... [FILE]... ⏎ Print or check SHA checksums. ⏎ With no FILE, or when FILE is -, read standard input. ⏎ -a, --algorithm 1 (default), 224, 256, 384, 512, 512224, 512256 ⏎ -b, --binary read in binary mode ⏎ -c, --check read SHA sums from the FILEs and check them","st":"gnu","o":[]}

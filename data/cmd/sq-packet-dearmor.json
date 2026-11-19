@@ -1,0 +1,1 @@
+{"n":"sq-packet-dearmor","s":{"en":"Convert ASCII to binary"},"syn":"sq packet dearmor [OPTIONS] FILE","st":"gnu","o":[{"f":["--output"],"en":"Write to FILE or stdout if omitted [default: -] FILE Read from FILE or stdin if FILE is '-' [default: -]","a":"FILE"}]}

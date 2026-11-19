@@ -1,0 +1,1 @@
+{"n":"pdfunite","s":{"en":"Portable Document Format (PDF) page merger"},"syn":"pdfunite [options] PDF-sourcefile1..PDF-sourcefilen PDF-destfile","st":"gnu","o":[{"f":["-v"],"en":"Print copyright and version information."},{"f":["-h"],"en":"Print usage information. (-help and --help are equivalent.)"}]}

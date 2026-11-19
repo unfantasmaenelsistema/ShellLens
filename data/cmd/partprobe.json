@@ -1,0 +1,1 @@
+{"n":"partprobe","s":{"en":"inform the OS of partition table changes"},"syn":"partprobe [-d] [-s] [devices...]","st":"gnu","o":[{"f":["-d","--dry-run"],"en":"Don't update the kernel."},{"f":["-s","--summary"],"en":"Show a summary of devices and their partitions."},{"f":["-h","--help"],"en":"Show summary of options."},{"f":["-v","--version"],"en":"Show version of program."}]}

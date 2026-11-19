@@ -1,0 +1,1 @@
+{"n":"systemd-system-update-generator","s":{"en":"Generator for redirecting boot to offline update mode"},"syn":"/usr/lib/systemd/system-generators/systemd-system-update-generator","st":"gnu","o":[]}

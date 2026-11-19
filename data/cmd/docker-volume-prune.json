@@ -1,0 +1,1 @@
+{"n":"docker-volume-prune","s":{"en":"Remove unused local volumes"},"syn":"docker volume prune [OPTIONS]","st":"gnu","o":[{"f":["-a","--all"],"en":"Remove all unused volumes, not just anonymous ones","a":"false","ao":1},{"f":["--filter"],"en":"Provide filter values (e.g. \"label=\")"},{"f":["-f","--force"],"en":"Do not prompt for confirmation","a":"false","ao":1}]}

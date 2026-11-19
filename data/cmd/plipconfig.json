@@ -1,0 +1,1 @@
+{"n":"plipconfig","s":{"en":"fine tune PLIP device parameters"},"syn":"plipconfig interface [nibble NN] [trigger NN] ⏎ plipconfig [-V] [--version] [-h] [--help]","st":"gnu","o":[]}

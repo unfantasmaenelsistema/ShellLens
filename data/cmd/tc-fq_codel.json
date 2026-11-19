@@ -1,0 +1,1 @@
+{"n":"tc-fq_codel","s":{"en":"Fair Queuing (FQ) with Controlled Delay (CoDel)"},"al":["CoDel"],"syn":"tc qdisc ... fq_codel [ limit PACKETS ] [ flows NUMBER ] [ target TIME ] [ interval TIME ] [ quantum BYTES ] [ ecn | noecn ] [ ce_threshold TIME ] [ ce_threshold_selector VALUE/MASK ] [ memory_limit BYTES ]","st":"gnu","o":[]}

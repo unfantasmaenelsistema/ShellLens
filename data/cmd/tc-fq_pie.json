@@ -1,0 +1,1 @@
+{"n":"tc-fq_pie","s":{"en":"Flow Queue Proportional Integral controller Enhanced"},"al":["FQ-PIE"],"syn":"tc qdisc ... fq_pie [ limit PACKETS ] [ flows NUMBER ] ⏎ [ target TIME ] [ tupdate TIME ] ⏎ [ alpha NUMBER ] [ beta NUMBER ] ⏎ [ quantum BYTES ] [ memory_limit BYTES ] ⏎ [ ecn_prob PERENTAGE ] [ [no]ecn ] ⏎ [ [no]bytemode ] [ [no_]dq_rate_estimator ]","st":"gnu","o":[]}

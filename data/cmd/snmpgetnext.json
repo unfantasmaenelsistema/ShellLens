@@ -1,0 +1,1 @@
+{"n":"snmpgetnext","s":{"en":"communicates with a network entity using SNMP GETNEXT requests"},"syn":"snmpgetnext [COMMON OPTIONS] [-Cf] AGENT OID [OID]...","st":"gnu","o":[{"f":["-Cf"],"en":"If -Cf is not specified, some applications (snmpdelta, snmpget, snmpgetnext and snmpstatus) will try to fix errors returned by the agent that you were talking to and resend the request."}]}

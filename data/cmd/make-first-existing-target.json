@@ -1,0 +1,1 @@
+{"n":"make-first-existing-target","s":{"en":"runs make on one of several targets"},"syn":"make-first-existing-target [-c cmd] target1 [target2 ...] -- [make-options]","st":"gnu","o":[{"f":["-c"],"en":"This can be used to specify the make command to run. Default is \"make\".","a":"cmd"}]}

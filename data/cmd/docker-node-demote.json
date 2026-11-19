@@ -1,0 +1,1 @@
+{"n":"docker-node-demote","s":{"en":"Demote one or more nodes from manager in the swarm"},"syn":"docker node demote NODE [NODE...]","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"dpkg-distaddfile","s":{"en":"add entries to debian/files"},"syn":"dpkg-distaddfile [option...] filename section priority","st":"gnu","o":[{"f":["-ffiles-list-file"],"en":"Read or write the list of files to be uploaded here, rather than using debian/files."},{"f":["--help"],"en":"Show the usage message and exit."},{"f":["--version"],"en":"Show the version and exit."}]}

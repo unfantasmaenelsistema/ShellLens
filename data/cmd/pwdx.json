@@ -1,0 +1,1 @@
+{"n":"pwdx","s":{"en":"report current working directory of a process"},"syn":"pwdx [options] pid [...]","st":"gnu","o":[{"f":["-V","--version"],"en":"Output version information and exit."},{"f":["-h","--help"],"en":"Output help screen and exit."}]}

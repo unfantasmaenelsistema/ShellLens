@@ -1,0 +1,1 @@
+{"n":"gtk-encode-symbolic-svg","s":{"en":"Symbolic icon conversion utility"},"syn":"gtk-encode-symbolic-svg [OPTION...] PATH WIDTHxHEIGHT","st":"gnu","o":[{"f":["-o","--output"],"en":"Write png files to DIRECTORY instead of the current working directory.","a":"DIRECTORY"}]}

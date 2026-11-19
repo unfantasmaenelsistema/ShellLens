@@ -1,0 +1,1 @@
+{"n":"gprofng","s":{"en":"The next generation GNU application profiling tool"},"syn":"gprofng [option(s)] action [qualifier] [option(s)] target [options]","st":"gnu","o":[{"f":["--version"],"en":"Print the version number and exit."},{"f":["--help"],"en":"Print usage information and exit."}]}

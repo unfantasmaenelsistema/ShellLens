@@ -1,0 +1,1 @@
+{"n":"funzip","s":{"en":"filter for extracting from a ZIP archive in a pipe"},"syn":"funzip [-password] [input[.zip|.gz]]","st":"gnu","o":[]}

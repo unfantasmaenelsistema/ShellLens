@@ -1,0 +1,1 @@
+{"n":"crit","s":{"en":""},"syn":"crit decode [-h] [-i IN] [-o OUT] [--pretty] ⏎ crit encode [-h] [-i IN] [-o OUT] ⏎ crit info [-h] in ⏎ crit x [-h] dir {ps,fds,mems} ⏎ crit show [-h] in","st":"gnu","o":[{"f":["-h","--help"],"en":"Print some help and exit"}]}

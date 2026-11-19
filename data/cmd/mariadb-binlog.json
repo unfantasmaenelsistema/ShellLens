@@ -1,0 +1,1 @@
+{"n":"mariadb-binlog","s":{"en":"utility for processing binary log files (mariadb-binlog is now a symlink to mariadb-binlog)"},"syn":"mariadb-binlog [options] log_file ...","st":"gnu","o":[{"f":["--socket"],"en":""}]}

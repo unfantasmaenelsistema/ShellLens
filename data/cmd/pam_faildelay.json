@@ -1,0 +1,1 @@
+{"n":"pam_faildelay","s":{"en":"Change the delay on failure per-application"},"syn":"pam_faildelay.so [debug] [delay=microseconds]","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"docker-context-rm","s":{"en":"Remove one or more contexts"},"syn":"docker context rm CONTEXT [CONTEXT...]","st":"gnu","o":[{"f":["-f","--force"],"en":"Force the removal of a context in use","a":"false","ao":1}]}

@@ -1,0 +1,1 @@
+{"n":"pam_tty_audit","s":{"en":"Enable or disable TTY auditing for specified users"},"syn":"pam_tty_audit.so [disable=patterns] [enable=patterns]","st":"gnu","o":[]}

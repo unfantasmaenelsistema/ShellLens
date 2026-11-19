@@ -1,0 +1,1 @@
+{"n":"systemd-environment-d-generator","s":{"en":"Load variables specified by environment.d"},"al":["30-systemd-environment-d-generator"],"syn":"/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator","st":"gnu","o":[]}

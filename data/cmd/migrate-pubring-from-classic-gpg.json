@@ -1,0 +1,1 @@
+{"n":"migrate-pubring-from-classic-gpg","s":{"en":"Migrate a public keyring from \"classic\" to \"modern\" GnuPG"},"syn":"migrate-pubring-from-classic-gpg [ GPGHOMEDIR | --default ]","st":"gnu","o":[{"f":["-h","--help","--usage"],"en":"","a":"Output"}]}

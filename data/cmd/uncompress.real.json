@@ -1,0 +1,1 @@
+{"n":"uncompress.real","s":{"en":"compress and expand data"},"al":["compress"],"syn":"compress [ -f ] [ -k ] [ -v ] [ -c ] [ -V ] [ -r ] [ -b bits ] [ -- ] [ name ... ] ⏎ uncompress.real [ -f ] [ -k ] [ -v ] [ -c ] [ -V ] [ -- ] [ name ... ]","st":"gnu","o":[]}

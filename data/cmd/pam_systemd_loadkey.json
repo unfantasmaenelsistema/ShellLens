@@ -1,0 +1,1 @@
+{"n":"pam_systemd_loadkey","s":{"en":"Read password from kernel keyring and set it as PAM authtok"},"syn":"pam_systemd_loadkey.so","st":"gnu","o":[{"f":["-auth"],"en":"optional pam_systemd_loadkey.so"},{"f":["-session"],"en":"optional pam_gnome_keyring.so auto_start"}]}

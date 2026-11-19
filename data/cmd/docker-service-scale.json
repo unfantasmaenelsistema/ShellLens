@@ -1,0 +1,1 @@
+{"n":"docker-service-scale","s":{"en":"Scale one or multiple replicated services"},"syn":"docker service scale SERVICE=REPLICAS [SERVICE=REPLICAS...]","st":"gnu","o":[{"f":["-d","--detach"],"en":"Exit immediately instead of waiting for the service to converge","a":"false","ao":1}]}

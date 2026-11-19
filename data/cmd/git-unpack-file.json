@@ -1,0 +1,1 @@
+{"n":"git-unpack-file","s":{"en":"Creates a temporary file with a blob's contents"},"syn":"git unpack-file <blob>","st":"gnu","o":[]}

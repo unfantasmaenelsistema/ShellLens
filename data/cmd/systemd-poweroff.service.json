@@ -1,0 +1,1 @@
+{"n":"systemd-poweroff.service","s":{"en":"System shutdown logic"},"al":["systemd-halt.service","systemd-reboot.service","systemd-kexec.service","systemd-shutdown"],"syn":"systemd-poweroff.service ⏎ systemd-halt.service ⏎ systemd-reboot.service ⏎ systemd-kexec.service ⏎ /usr/lib/systemd/systemd-shutdown ⏎ /usr/lib/systemd/system-shutdown/","st":"gnu","o":[]}

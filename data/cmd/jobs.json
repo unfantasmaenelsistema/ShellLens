@@ -1,0 +1,1 @@
+{"n":"jobs","s":{"en":"list this shell's background jobs","es":"lista las tareas en segundo plano de esta shell"},"st":"gnu","o":[{"f":["-l"],"es":"Incluye los PID.","en":"Include PIDs."},{"f":["-p"],"es":"Muestra solo los PID.","en":"Show only PIDs."}]}

@@ -1,0 +1,1 @@
+{"n":"enc2xs","s":{"en":""},"syn":"enc2xs -[options] ⏎ enc2xs -M ModName mapfiles... ⏎ enc2xs -C","st":"gnu","o":[{"f":["-o"],"en":"","a":"encode_t.c"},{"f":["-e"],"en":"qw(&runtests $verbose); \\"}]}

@@ -1,0 +1,1 @@
+{"n":"docker-stack-rm","s":{"en":"Remove one or more stacks"},"syn":"docker stack rm [OPTIONS] STACK [STACK...]","st":"gnu","o":[{"f":["-d","--detach"],"en":"Do not wait for stack removal","a":"true","ao":1}]}

@@ -1,0 +1,1 @@
+{"n":"docker-stack-config","s":{"en":"Outputs the final config file, after doing merges and interpolations"},"syn":"docker stack config [OPTIONS]","st":"gnu","o":[{"f":["-c","--compose-file"],"en":"Path to a Compose file, or \"-\" to read from stdin"},{"f":["--skip-interpolation"],"en":"Skip interpolation and output only merged config","a":"false","ao":1}]}

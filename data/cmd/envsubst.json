@@ -1,0 +1,1 @@
+{"n":"envsubst","s":{"en":"substitutes environment variables in shell format strings"},"syn":"envsubst [OPTION] [SHELL-FORMAT]","st":"gnu","o":[{"f":["-v","--variables"],"en":"output the variables occurring in SHELL-FORMAT"},{"f":["-h","--help"],"en":"display this help and exit"},{"f":["-V","--version"],"en":"output version information and exit"}]}

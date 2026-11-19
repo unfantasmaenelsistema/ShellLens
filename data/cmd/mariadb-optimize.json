@@ -1,0 +1,1 @@
+{"n":"mariadb-optimize","s":{"en":"a table maintenance program (mariadb-check is now a symlink to mariadb-check)"},"al":["mariadb-check"],"syn":"mariadb-check [options] [db_name [tbl_name ...]]","st":"gnu","o":[]}

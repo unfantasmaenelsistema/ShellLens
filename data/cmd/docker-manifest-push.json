@@ -1,0 +1,1 @@
+{"n":"docker-manifest-push","s":{"en":"Push a manifest list to a repository"},"syn":"docker manifest push [OPTIONS] MANIFEST_LIST","st":"gnu","o":[{"f":["--insecure"],"en":"Allow push to an insecure registry","a":"false","ao":1},{"f":["-p","--purge"],"en":"Remove the local manifest list after push","a":"false","ao":1}]}

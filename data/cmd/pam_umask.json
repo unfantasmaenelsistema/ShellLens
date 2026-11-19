@@ -1,0 +1,1 @@
+{"n":"pam_umask","s":{"en":"PAM module to set the file mode creation mask"},"syn":"pam_umask.so [debug] [silent] [usergroups] [nousergroups] [umask=mask]","st":"gnu","o":[]}

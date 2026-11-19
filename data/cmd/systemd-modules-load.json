@@ -1,0 +1,1 @@
+{"n":"systemd-modules-load","s":{"en":"Load kernel modules at boot"},"al":["systemd-modules-load.service"],"syn":"systemd-modules-load.service ⏎ /usr/lib/systemd/systemd-modules-load","st":"gnu","o":[]}

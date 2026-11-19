@@ -1,0 +1,1 @@
+{"n":"users","s":{"en":"print the user names of users currently logged in to the current host"},"syn":"users [OPTION]... [FILE]","st":"gnu","o":[{"f":["--help"],"en":"display this help and exit"},{"f":["--version"],"en":"output version information and exit"}]}

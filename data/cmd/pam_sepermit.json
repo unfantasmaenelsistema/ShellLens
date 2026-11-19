@@ -1,0 +1,1 @@
+{"n":"pam_sepermit","s":{"en":"PAM module to allow/deny login depending on SELinux enforcement state"},"syn":"pam_sepermit.so [debug] [conf=/path/to/config/file]","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"dpkg-buildtree","s":{"en":"helper for build tree operations during package builds"},"syn":"dpkg-buildtree [option...] [command]","st":"gnu","o":[{"f":["--help"],"en":"Show the usage message and exit."},{"f":["--version"],"en":"Show the version and exit."}]}

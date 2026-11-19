@@ -1,0 +1,1 @@
+{"n":"ownership","s":{"en":"Compaq ownership tag retriever"},"syn":"ownership [OPTIONS]","st":"gnu","o":[{"f":["-d","--dev-mem"],"en":"Read memory from device FILE (default: /dev/mem)","a":"FILE"},{"f":["-h","--help"],"en":"Display usage information and exit"},{"f":["-V","--version"],"en":"Display the version and exit"}]}

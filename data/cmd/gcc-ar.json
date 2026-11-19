@@ -1,0 +1,1 @@
+{"n":"gcc-ar","s":{"en":"a wrapper around ar adding the --plugin option"},"syn":"gcc-ar [OPTION] ... [ARGS...]","st":"gnu","o":[]}

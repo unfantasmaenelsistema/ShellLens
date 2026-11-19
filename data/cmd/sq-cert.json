@@ -1,0 +1,1 @@
+{"n":"sq-cert","s":{"en":"Manage certificates"},"syn":"sq cert import [OPTIONS] FILE ⏎ sq cert export [OPTIONS] ⏎ sq cert list [OPTIONS] FINGERPRINT|KEYID|PATTERN ⏎ sq cert lint [OPTIONS]","st":"gnu","o":[{"f":["--cert-email"],"en":"","a":"bob@example.org"}]}

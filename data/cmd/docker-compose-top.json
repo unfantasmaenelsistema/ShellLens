@@ -1,0 +1,1 @@
+{"n":"docker-compose-top","s":{"en":"Display the running processes"},"syn":"docker compose top [SERVICES...]","st":"gnu","o":[{"f":["-h","--help"],"en":"help for top","a":"false","ao":1},{"f":["--dry-run"],"en":"Execute command in dry run mode","a":"false","ao":1}]}

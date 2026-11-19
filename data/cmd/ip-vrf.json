@@ -1,0 +1,1 @@
+{"n":"ip-vrf","s":{"en":"run a command against a vrf"},"syn":"ip vrf { COMMAND | help } ⏎ ip vrf show [ NAME ] ⏎ ip vrf identify [ PID ] ⏎ ip vrf pids NAME ⏎ ip vrf exec [ NAME ] command...","st":"gnu","o":[]}

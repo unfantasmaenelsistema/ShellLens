@@ -1,0 +1,1 @@
+{"n":"vdpa","s":{"en":"vdpa management tool"},"syn":"vdpa [ OPTIONS ] { dev|mgmtdev } { COMMAND | help }","st":"gnu","o":[{"f":["-V","--Version"],"en":"Print the version of the vdpa utility and exit."},{"f":["-j","--json"],"en":"Generate JSON output."},{"f":["-p","--pretty"],"en":"When combined with -j generate pretty JSON output."}]}

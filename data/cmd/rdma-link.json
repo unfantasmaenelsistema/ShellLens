@@ -1,0 +1,1 @@
+{"n":"rdma-link","s":{"en":"rdma link configuration"},"syn":"rdma [ OPTIONS ] link { COMMAND | help } ⏎ OPTIONS := { -V[ersion] | -d[etails] } ⏎ rdma link show [ DEV/PORT_INDEX ] ⏎ rdma link add NAME type TYPE netdev NETDEV ⏎ rdma link delete NAME ⏎ rdma link help","st":"gnu","o":[]}

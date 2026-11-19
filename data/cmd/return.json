@@ -1,0 +1,1 @@
+{"n":"return","s":{"en":"return from a function (or sourced script) with a status","es":"sale de una función (o de un guion «source») con un código"},"st":"gnu","p":[{"n":"CÓDIGO","es":"Código de retorno: 0 = éxito.","en":"Return status: 0 = success.","opt":1}],"o":[]}

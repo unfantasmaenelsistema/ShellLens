@@ -1,0 +1,1 @@
+{"n":"tc-route","s":{"en":"route traffic control filter"},"al":["route"],"syn":"tc filter ... route [ from REALM | fromif TAG ] [ to REALM ] [ classid CLASSID ] [ action ACTION_SPEC ]","st":"gnu","o":[]}

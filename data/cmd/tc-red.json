@@ -1,0 +1,1 @@
+{"n":"tc-red","s":{"en":"Random Early Detection"},"al":["red"],"syn":"tc qdisc ... red limit bytes [ min bytes ] [ max bytes ] avpkt bytes [ burst packets ] [ ecn ] [ harddrop ] [ nodrop ] [ bandwidth rate ] [ probability chance ] [ adaptive ] [ qevent early_drop block index ] [ qevent mark block index ]","st":"gnu","o":[]}

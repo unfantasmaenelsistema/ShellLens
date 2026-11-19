@@ -1,0 +1,1 @@
+{"n":"pam_access","s":{"en":"PAM module for logdaemon style login access control"},"syn":"pam_access.so [debug] [noaudit] [nodefgroup] [nodns] [quiet_log] [accessfile=file] [fieldsep=sep] [listsep=sep]","st":"gnu","o":[]}

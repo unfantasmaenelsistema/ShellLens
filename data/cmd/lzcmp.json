@@ -1,0 +1,1 @@
+{"n":"lzcmp","s":{"en":"compare compressed files"},"al":["xzcmp","xzdiff","lzdiff"],"syn":"xzcmp [option...] file1 [file2] ⏎ xzdiff ... ⏎ lzcmp ... (DEPRECATED) ⏎ lzdiff ... (DEPRECATED)","st":"gnu","o":[]}

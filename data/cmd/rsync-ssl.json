@@ -1,0 +1,1 @@
+{"n":"rsync-ssl","s":{"en":"a helper script for connecting to an ssl rsync daemon"},"syn":"rsync-ssl [--type=SSL_TYPE] RSYNC_ARGS ⏎ The online version of this manpage (that includes cross-linking of topics) is available at https://download.samba.org/pub/rsync/rsync-ssl.1.","st":"gnu","o":[]}

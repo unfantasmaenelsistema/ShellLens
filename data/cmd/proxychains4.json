@@ -1,0 +1,1 @@
+{"n":"proxychains4","s":{"en":"redirect connections through proxy servers"},"syn":"proxychains4 --help ⏎ proxychains4 [ -f configfile.conf ] <program>","st":"gnu","o":[]}

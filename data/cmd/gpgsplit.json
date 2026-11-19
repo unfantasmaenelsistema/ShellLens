@@ -1,0 +1,1 @@
+{"n":"gpgsplit","s":{"en":"Split an OpenPGP message into packets"},"syn":"gpgsplit [OPTIONS] [FILES]","st":"gnu","o":[{"f":["--uncompress"],"en":"Uncompress a packet."},{"f":["--secret-to-public"],"en":"Convert secret keys to public keys."},{"f":["--no-split"],"en":"Write to stdout and don't actually split."}]}

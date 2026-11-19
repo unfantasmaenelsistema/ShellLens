@@ -1,0 +1,1 @@
+{"n":"bzcmp","s":{"en":"compare bzip2 compressed files"},"al":["bzdiff"],"syn":"bzcmp [ cmp_options ] file1 [ file2 ] ⏎ bzdiff [ diff_options ] file1 [ file2 ]","st":"gnu","o":[]}

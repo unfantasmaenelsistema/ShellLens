@@ -1,0 +1,1 @@
+{"n":"gpg-check-pattern","s":{"en":"Check a passphrase on stdin against the patternfile"},"syn":"gpg-check-pattern [options] patternfile","st":"gnu","o":[{"f":["--verbose"],"en":"Enable extra informational output."},{"f":["--check"],"en":"Run only a syntax check on the patternfile."},{"f":["--null"],"en":"Input is expected to be null delimited."}]}

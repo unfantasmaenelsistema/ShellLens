@@ -1,0 +1,1 @@
+{"n":"pam_getenv","s":{"en":"get environment variables from /etc/environment"},"syn":"pam_getenv [-l] [-s] env_var","st":"gnu","o":[]}

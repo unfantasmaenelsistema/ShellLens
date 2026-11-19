@@ -1,0 +1,1 @@
+{"n":"tc-flow","s":{"en":"flow based traffic control filter"},"al":["flow"],"syn":"Mapping mode: ⏎ tc filter ... flow map key KEY [ OPS ] [ OPTIONS ] ⏎ Hashing mode: ⏎ tc filter ... flow hash keys KEY_LIST [ perturb secs ] [ OPTIONS ] ⏎ OPS := [ OPS ] OP ⏎ OPTIONS := [ divisor NUM ] [ baseclass ID ] [ match EMATCH_TREE ] [ action ACTION_SPEC ]","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"usbreset","s":{"en":"send a USB port reset to a USB device"},"syn":"usbreset [ device ]","st":"gnu","o":[]}

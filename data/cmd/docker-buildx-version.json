@@ -1,0 +1,1 @@
+{"n":"docker-buildx-version","s":{"en":"Show buildx version information"},"syn":"docker buildx version","st":"gnu","o":[{"f":["-h","--help"],"en":"help for version","a":"false","ao":1},{"f":["-D","--debug"],"en":"Enable debug logging","a":"false","ao":1}]}

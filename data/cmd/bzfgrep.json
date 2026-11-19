@@ -1,0 +1,1 @@
+{"n":"bzfgrep","s":{"en":"search possibly bzip2 compressed files for a regular expression"},"al":["bzgrep","bzegrep"],"syn":"bzgrep [ grep_options ] [ -e ] pattern filename... ⏎ bzegrep [ egrep_options ] [ -e ] pattern filename... ⏎ bzfgrep [ fgrep_options ] [ -e ] pattern filename...","st":"gnu","o":[]}

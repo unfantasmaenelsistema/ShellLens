@@ -1,0 +1,1 @@
+{"n":"tc-cgroup","s":{"en":"control group based traffic control filter"},"al":["cgroup"],"syn":"tc filter ... cgroup [ match EMATCH_TREE ] [ action ACTION_SPEC ]","st":"gnu","o":[]}

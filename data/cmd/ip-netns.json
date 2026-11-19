@@ -1,0 +1,1 @@
+{"n":"ip-netns","s":{"en":"process network namespace management"},"syn":"ip [ OPTIONS ] netns { COMMAND | help } ⏎ ip netns [ list ] ⏎ ip netns add NETNSNAME ⏎ ip netns attach NETNSNAME PID ⏎ ip [-all] netns del [ NETNSNAME ] ⏎ ip netns set NETNSNAME NETNSID","st":"gnu","o":[]}

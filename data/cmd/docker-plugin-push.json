@@ -1,0 +1,1 @@
+{"n":"docker-plugin-push","s":{"en":"Push a plugin to a registry"},"syn":"docker plugin push [OPTIONS] PLUGIN[:TAG]","st":"gnu","o":[{"f":["--disable-content-trust"],"en":"Skip image signing","a":"true","ao":1}]}

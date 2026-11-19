@@ -1,0 +1,1 @@
+{"n":"docker-checkpoint-rm","s":{"en":"Remove a checkpoint"},"syn":"docker checkpoint rm [OPTIONS] CONTAINER CHECKPOINT","st":"gnu","o":[{"f":["--checkpoint-dir"],"en":"Use a custom checkpoint storage directory"}]}

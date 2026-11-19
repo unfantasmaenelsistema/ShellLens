@@ -1,0 +1,1 @@
+{"n":"ssh-pkcs11-helper","s":{"en":""},"syn":"ssh-pkcs11-helper [-v]","st":"gnu","o":[{"f":["-v"],"en":"Verbose mode. Causes ssh-pkcs11-helper to print debugging messages about its progress. This is helpful in debugging problems. Multiple -v options increase the verbosity. The maximum is 3."}]}

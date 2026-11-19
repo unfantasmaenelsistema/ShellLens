@@ -1,0 +1,1 @@
+{"n":"ip-link","s":{"en":"network device configuration"},"syn":"ip link { COMMAND | help } ⏎ ip link add [ link DEVICE ] [ name ] NAME ⏎ [ txqueuelen PACKETS ] ⏎ [ address LLADDR ] [ broadcast LLADDR ] ⏎ [ mtu MTU ] [ index IDX ] ⏎ [ numtxqueues QUEUE_COUNT ] [ numrxqueues QUEUE_COUNT ]","st":"gnu","o":[]}

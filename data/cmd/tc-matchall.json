@@ -1,0 +1,1 @@
+{"n":"tc-matchall","s":{"en":"traffic control filter that matches every packet"},"al":["matchall"],"syn":"tc filter ... matchall [ skip_sw | skip_hw ] [ action ACTION_SPEC ] [ classid CLASSID ]","st":"gnu","o":[]}

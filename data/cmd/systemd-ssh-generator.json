@@ -1,0 +1,1 @@
+{"n":"systemd-ssh-generator","s":{"en":"Generator for binding a socket-activated SSH server to local AF_VSOCK and AF_UNIX sockets"},"syn":"/usr/lib/systemd/system-generators/systemd-ssh-generator","st":"gnu","o":[]}

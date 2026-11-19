@@ -1,0 +1,1 @@
+{"n":"criu-ns","s":{"en":""},"syn":"criu-ns dump -t PID [<options>] ⏎ criu-ns pre-dump -t PID [<options>] ⏎ criu-ns restore [<options>] ⏎ criu-ns check [<options>]","st":"gnu","o":[]}

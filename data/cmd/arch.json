@@ -1,0 +1,1 @@
+{"n":"arch","s":{"en":"print machine hardware name (same as uname -m)"},"syn":"arch [OPTION]...","st":"gnu","o":[{"f":["--help"],"en":"display this help and exit"},{"f":["--version"],"en":"output version information and exit"}]}

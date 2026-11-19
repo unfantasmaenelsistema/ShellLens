@@ -1,0 +1,1 @@
+{"n":"pm-gawk","s":{"en":"persistent data and functions"},"syn":"truncate -s size heap.pma ⏎ export GAWK_PERSIST_FILE=heap.pma ⏎ gawk ... ⏎ truncate -s size heap.pma ⏎ GAWK_PERSIST_FILE=heap.pma gawk ... ⏎ truncate -s size heap.pma","st":"gnu","o":[]}

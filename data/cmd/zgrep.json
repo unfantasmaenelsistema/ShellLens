@@ -1,0 +1,1 @@
+{"n":"zgrep","s":{"en":"search possibly compressed files for a regular expression"},"syn":"zgrep [ grep_options ] [ -e ] pattern filename...","st":"gnu","o":[]}

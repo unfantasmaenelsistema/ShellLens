@@ -1,0 +1,1 @@
+{"n":"smbspool","s":{"en":"send a print file to an SMB printer"},"syn":"smbspool {job} {user} {title} {copies} {options} [filename]","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"factor","s":{"en":"factor numbers"},"syn":"factor [OPTION] [NUMBER]...","st":"gnu","o":[{"f":["-h","--exponents"],"en":"print repeated factors in form p^e unless e is 1"},{"f":["--help"],"en":"display this help and exit"},{"f":["--version"],"en":"output version information and exit"}]}

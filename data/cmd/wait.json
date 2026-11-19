@@ -1,0 +1,1 @@
+{"n":"wait","s":{"en":"wait for background processes to finish","es":"espera a que terminen procesos en segundo plano"},"st":"gnu","p":[{"n":"PID","es":"Procesos concretos a esperar (sin argumento: todos).","en":"Specific processes to wait for (none: all).","v":1}],"o":[]}

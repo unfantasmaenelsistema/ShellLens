@@ -1,0 +1,1 @@
+{"n":"docker-buildx","s":{"en":"Docker Buildx"},"syn":"docker buildx","st":"gnu","o":[{"f":["--builder"],"en":"Override the configured builder instance"},{"f":["-D","--debug"],"en":"Enable debug logging","a":"false","ao":1},{"f":["-h","--help"],"en":"help for buildx","a":"false","ao":1}]}

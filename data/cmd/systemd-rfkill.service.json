@@ -1,0 +1,1 @@
+{"n":"systemd-rfkill.service","s":{"en":"Load and save the RF kill switch state at boot and change"},"al":["systemd-rfkill.socket","systemd-rfkill"],"syn":"systemd-rfkill.service ⏎ systemd-rfkill.socket ⏎ /usr/lib/systemd/systemd-rfkill","st":"gnu","o":[]}

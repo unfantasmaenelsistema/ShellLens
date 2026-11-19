@@ -1,0 +1,1 @@
+{"n":"docker-restart","s":{"en":"Restart one or more containers"},"syn":"docker restart [OPTIONS] CONTAINER [CONTAINER...]","st":"gnu","o":[{"f":["-s","--signal"],"en":"Signal to send to the container"},{"f":["-t","--timeout"],"en":"Seconds to wait before killing the container","a":"0"}]}

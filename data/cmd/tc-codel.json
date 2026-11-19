@@ -1,0 +1,1 @@
+{"n":"tc-codel","s":{"en":"Controlled-Delay Active Queue Management algorithm"},"al":["CoDel"],"syn":"tc qdisc ... codel [ limit PACKETS ] [ target TIME ] [ interval TIME ] [ ecn | noecn ] [ ce_threshold TIME ]","st":"gnu","o":[]}

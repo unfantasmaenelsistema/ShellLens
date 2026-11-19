@@ -1,0 +1,1 @@
+{"n":"pam_debug","s":{"en":"PAM module to debug the PAM stack"},"syn":"pam_debug.so [auth=value] [cred=value] [acct=value] [prechauthtok=value] [chauthtok=value] [auth=value] [open_session=value] [close_session=value]","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"pip-search","s":{"en":"description of pip3 search command"},"al":["pip3-search"],"st":"gnu","o":[{"f":["-i","--index"],"en":"Base URL of Python Package Index (default <https://pypi.org/pypi>) (environment variable: PIP_INDEX)","a":"url"}]}

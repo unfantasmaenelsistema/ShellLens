@@ -1,0 +1,1 @@
+{"n":"tc-ematch","s":{"en":"extended matches for use with \"basic\", \"cgroup\"  or \"flow\" filters"},"al":["ematch"],"syn":"tc filter add .. basic match EXPR .. flowid .. ⏎ EXPR := TERM [ { and | or } EXPR ] ⏎ TERM := [ not ] { MATCH | '(' EXPR ')' } ⏎ MATCH := module '(' ARGS ')' ⏎ ARGS := ARG1 ARG2 ..","st":"gnu","o":[]}

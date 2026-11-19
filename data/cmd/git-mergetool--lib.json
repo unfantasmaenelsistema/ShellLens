@@ -1,0 +1,1 @@
+{"n":"git-mergetool--lib","s":{"en":"Common Git merge tool shell scriptlets"},"syn":"TOOL_MODE=(diff|merge) . \"$(git --exec-path)/git-mergetool--lib\"","st":"gnu","o":[]}

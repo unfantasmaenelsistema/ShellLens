@@ -1,0 +1,1 @@
+{"n":"docker-trust-key-generate","s":{"en":"Generate and load a signing key-pair"},"syn":"docker trust key generate NAME","st":"gnu","o":[{"f":["--dir"],"en":"Directory to generate key in, defaults to current directory"}]}

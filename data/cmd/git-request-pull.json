@@ -1,0 +1,1 @@
+{"n":"git-request-pull","s":{"en":"Generates a summary of pending changes"},"syn":"git request-pull [-p] <start> <URL> [<end>]","st":"gnu","o":[{"f":["-p"],"en":"Include patch text in the output."}]}

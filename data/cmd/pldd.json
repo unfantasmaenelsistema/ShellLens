@@ -1,0 +1,1 @@
+{"n":"pldd","s":{"en":"display dynamic shared objects linked into a process"},"syn":"pldd pid ⏎ pldd option","st":"gnu","o":[{"f":["--help"],"en":""},{"f":["--usage"],"en":"Display a short usage message and exit."},{"f":["--version"],"en":""},{"f":["-V"],"en":"Display program version information and exit."},{"f":["-ex"],"en":""},{"f":["-p"],"en":""}]}

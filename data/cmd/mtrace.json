@@ -1,0 +1,1 @@
+{"n":"mtrace","s":{"en":"interpret the malloc trace log"},"syn":"mtrace [option ...] [binary] mtracedata","st":"gnu","o":[{"f":["--help"],"en":"Print help and exit."},{"f":["--version"],"en":"Print version information and exit."}]}

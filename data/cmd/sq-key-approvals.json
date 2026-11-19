@@ -1,0 +1,1 @@
+{"n":"sq-key-approvals","s":{"en":"Manages certification approvals"},"syn":"sq key approvals list [OPTIONS] ⏎ sq key approvals update [OPTIONS]","st":"gnu","o":[{"f":["--cert"],"en":""},{"f":["--add-by"],"en":""},{"f":["--userid"],"en":""},{"f":["--remove-by"],"en":""}]}

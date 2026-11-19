@@ -1,0 +1,1 @@
+{"n":"docker-plugin-enable","s":{"en":"Enable a plugin"},"syn":"docker plugin enable [OPTIONS] PLUGIN","st":"gnu","o":[{"f":["--timeout"],"en":"HTTP client timeout (in seconds)","a":"30"}]}

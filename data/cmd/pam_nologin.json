@@ -1,0 +1,1 @@
+{"n":"pam_nologin","s":{"en":"Prevent non-root users from login"},"syn":"pam_nologin.so [file=/path/nologin] [successok]","st":"gnu","o":[]}

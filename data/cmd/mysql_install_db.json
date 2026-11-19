@@ -1,0 +1,1 @@
+{"n":"mysql_install_db","s":{"en":"initialize MariaDB data directory (mariadb-install-db is now a symlink to mariadb-install-db)"},"al":["mariadb-install-db"],"syn":"mariadb-install-db [options]","st":"gnu","o":[{"f":["--basedir"],"en":"","a":"/opt/mysql/mysql"},{"f":["--datadir"],"en":"","a":"/opt/mysql/mysql/data"}]}

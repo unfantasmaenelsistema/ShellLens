@@ -1,0 +1,1 @@
+{"n":"pam_echo","s":{"en":"PAM module for printing text messages"},"syn":"pam_echo.so [file=/path/message]","st":"gnu","o":[]}

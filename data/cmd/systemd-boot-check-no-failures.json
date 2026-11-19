@@ -1,0 +1,1 @@
+{"n":"systemd-boot-check-no-failures","s":{"en":"verify that the system booted up cleanly"},"al":["systemd-boot-check-no-failures.service"],"syn":"systemd-boot-check-no-failures.service ⏎ /usr/lib/systemd/system-boot-check-no-failures","st":"gnu","o":[]}

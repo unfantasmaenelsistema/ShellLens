@@ -1,0 +1,1 @@
+{"n":"arj-register","s":{"en":"Register the ARJ archiver"},"syn":"arj-register [options] program_name","st":"gnu","o":[{"f":["-arj"],"en":"Registers all ARJ for Linux programs in the current directory."},{"f":["-arj32"],"en":"Registers all ARJ32 (supplied by ARJ Software, Inc.) programs in the current directory."}]}

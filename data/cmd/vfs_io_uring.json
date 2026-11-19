@@ -1,0 +1,1 @@
+{"n":"vfs_io_uring","s":{"en":"Implement async io in Samba vfs using io_uring of Linux (>= 5.1)."},"syn":"vfs objects = io_uring","st":"gnu","o":[]}

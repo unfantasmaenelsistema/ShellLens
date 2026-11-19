@@ -1,0 +1,1 @@
+{"n":"ip-ioam","s":{"en":"IPv6 In-situ OAM (IOAM)"},"syn":"ip ioam { COMMAND | help } ⏎ ip ioam namespace show ⏎ ip ioam namespace add ID [ data DATA32 ] [ wide DATA64 ] ⏎ ip ioam namespace del ID ⏎ ip ioam schema show ⏎ ip ioam schema add ID DATA","st":"gnu","o":[]}

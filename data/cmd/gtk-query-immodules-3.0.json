@@ -1,0 +1,1 @@
+{"n":"gtk-query-immodules-3.0","s":{"en":"Input method module registration utility"},"syn":"gtk-query-immodules-3.0 [--update-cache] [MODULE...]","st":"gnu","o":[{"f":["--update-cache"],"en":"Write the output to the default cache location instead of stdout"}]}

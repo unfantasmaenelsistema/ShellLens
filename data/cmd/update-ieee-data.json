@@ -1,0 +1,1 @@
+{"n":"update-ieee-data","s":{"en":"update data files from IEEE Standards Association such as the OUI and IAB lists"},"syn":"update-ieee-data","st":"gnu","o":[{"f":["-q"],"en":"Be quiet. Do not output messages."},{"f":["-f"],"en":"Force the update, even if the file is newer than 5 days."}]}

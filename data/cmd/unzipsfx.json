@@ -1,0 +1,1 @@
+{"n":"unzipsfx","s":{"en":"self-extracting stub for prepending to ZIP archives"},"syn":"<name of unzipsfx+archive combo> [-cfptuz[ajnoqsCLV$]] [file(s) ... [-x xfile(s) ...]]","st":"gnu","o":[]}

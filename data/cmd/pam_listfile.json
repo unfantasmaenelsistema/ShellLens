@@ -1,0 +1,1 @@
+{"n":"pam_listfile","s":{"en":"deny or allow services based on an arbitrary file"},"syn":"pam_listfile.so item=[tty|user|rhost|ruser|group|shell] sense=[allow|deny] file=/path/filename onerr=[succeed|fail] [apply=[user|@group]] [quiet]","st":"gnu","o":[]}

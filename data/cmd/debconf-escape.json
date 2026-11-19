@@ -1,0 +1,1 @@
+{"n":"debconf-escape","s":{"en":"helper when working with debconf's escape capability"},"syn":"debconf-escape -e < unescaped-text ⏎ debconf-escape -u < escaped-text","st":"gnu","o":[]}

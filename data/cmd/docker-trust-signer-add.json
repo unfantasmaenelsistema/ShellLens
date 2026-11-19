@@ -1,0 +1,1 @@
+{"n":"docker-trust-signer-add","s":{"en":"Add a signer"},"syn":"**docker trust signer add OPTIONS NAME REPOSITORY [REPOSITORY...] **","st":"gnu","o":[{"f":["--key"],"en":"Path to the signer's public key file"}]}

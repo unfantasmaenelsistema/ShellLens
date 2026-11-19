@@ -1,0 +1,1 @@
+{"n":"tc-tbf","s":{"en":"Token Bucket Filter"},"al":["tbf"],"syn":"tc qdisc ... tbf rate rate burst bytes/cell ( latency ms | limit bytes ) [ mpu bytes [ peakrate rate mtu bytes/cell ] ] ⏎ burst is also known as buffer and maxburst. mtu is also known as minburst.","st":"gnu","o":[]}

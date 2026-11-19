@@ -1,0 +1,1 @@
+{"n":"docker-compose-start","s":{"en":"Start services"},"syn":"docker compose start [SERVICE...]","st":"gnu","o":[{"f":["-h","--help"],"en":"help for start","a":"false","ao":1},{"f":["--dry-run"],"en":"Execute command in dry run mode","a":"false","ao":1}]}

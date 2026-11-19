@@ -1,0 +1,1 @@
+{"n":"iptunnel","s":{"en":"Create and manage IP tunnels"},"syn":"iptunnel { add | change | del | show } [ NAME ] ⏎ [ mode { ipip | gre | sit } ] [ remote ADDR ] [ local ADDR ] ⏎ [ [i|o]seq ] [ [i|o]key KEY ] [ [i|o]csum ] ⏎ [ ttl TTL ] [ tos TOS ] [ nopmtudisc ] [ dev PHYS_DEV ] ⏎ iptunnel -V | --version ⏎ Where: NAME := STRING","st":"gnu","o":[]}

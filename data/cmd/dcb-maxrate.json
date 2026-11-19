@@ -1,0 +1,1 @@
+{"n":"dcb-maxrate","s":{"en":"show / manipulate port maxrate settings of the DCB (Data Center Bridging) subsystem"},"syn":"dcb [ OPTIONS ] maxrate { COMMAND | help } ⏎ dcb maxrate show dev DEV [ tc-maxrate ] ⏎ dcb maxrate set dev DEV [ tc-maxrate RATE-MAP ] ⏎ RATE-MAP := [ RATE-MAP ] RATE-MAPPING ⏎ RATE-MAPPING := { TC | all }:RATE ⏎ TC := { 0 .. 7 }","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"htdigest","s":{"en":"manage user files for digest authentication"},"syn":"htdigest [ -c ] passwdfile realm username","st":"gnu","o":[{"f":["-c"],"en":"Create the passwdfile. If passwdfile already exists, it is deleted first."}]}

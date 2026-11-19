@@ -1,0 +1,1 @@
+{"n":"routel","s":{"en":"list routes with pretty output format"},"syn":"routel [ OPTIONS ] [ tablenr [ ip route options... ] ] ⏎ OPTIONS := { -h | --help | [{-f | --family } {inet | inet6 } | -4 | -6 }","st":"gnu","o":[]}

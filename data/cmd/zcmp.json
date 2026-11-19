@@ -1,0 +1,1 @@
+{"n":"zcmp","s":{"en":"compare compressed files"},"al":["zdiff"],"syn":"zcmp [ cmp_options ] file1 [ file2 ] ⏎ zdiff [ diff_options ] file1 [ file2 ]","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"sq-keyring","s":{"en":"Manage collections of keys or certs"},"syn":"sq keyring list [OPTIONS] FILE ⏎ sq keyring split [OPTIONS] FILE ⏎ sq keyring merge [OPTIONS] FILE ⏎ sq keyring filter [OPTIONS] FILE","st":"gnu","o":[{"f":["--domain"],"en":"","a":"example.net"},{"f":["--prune-certs"],"en":"","a":"certs.pgp"}]}

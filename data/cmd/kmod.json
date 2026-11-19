@@ -1,0 +1,1 @@
+{"n":"kmod","s":{"en":"Program to manage Linux Kernel modules"},"syn":"kmod [OPTIONS...] [COMMAND] [COMMAND_OPTIONS...]","st":"gnu","o":[{"f":["-V","--version"],"en":"Show the program version and exit."},{"f":["-h","--help"],"en":"Show the help message."}]}

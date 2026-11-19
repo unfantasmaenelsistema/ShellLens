@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CmdLens · Explica un comando antes de ejecutarlo</title>
+<meta name="description" content="Pega un comando de Linux y CmdLens te explica, pieza a pieza y sin ejecutar nada, qué hace cada parte y qué riesgos tiene. Todo en tu navegador.">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="stylesheet" href="css/app.css">
+<script>try{var t=localStorage.getItem('cl_theme');if(!t)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.dataset.theme=t;var l=localStorage.getItem('cl_lang');if(l){document.documentElement.lang=l;}}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#cmd" data-i="skip">Ir al comando</a>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="https://www.unfantasmaenelsistema.com/" target="_blank" rel="noopener" aria-label="Un Fantasma en el Sistema">
+      <img src="assets/logo.png" alt="" width="40" height="40">
+      <span><b>CmdLens</b><small data-i="tagline">Entiende el comando antes de ejecutarlo</small></span>
+    </a>
+    <nav class="tabs" role="tablist" aria-label="Secciones">
+      <button role="tab" data-tab="explain" aria-selected="true" data-i="tabExplain">Explicar</button>
+      <button role="tab" data-tab="examples" aria-selected="false" data-i="tabExamples">Ejemplos</button>
+      <button role="tab" data-tab="catalog" aria-selected="false" data-i="tabCatalog">Catálogo</button>
+      <button role="tab" data-tab="about" aria-selected="false" data-i="tabAbout">Acerca de</button>
+    </nav>
+    <div class="tools">
+      <button class="pill" id="langBtn" title="Español / English" aria-label="Idioma / Language">ES</button>
+      <button class="pill" id="themeBtn" title="Claro / Oscuro" aria-label="Tema">☾</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="tab-explain" class="tab" role="tabpanel">
+    <div class="composer">
+      <label for="cmd" class="lbl" data-i="pasteLabel">Pega aquí el comando (puede tener tuberías, redirecciones, bucles…)</label>
+      <div class="ta-wrap">
+        <span class="prompt" aria-hidden="true">$</span>
+        <textarea id="cmd" rows="2" spellcheck="false" autocomplete="off" autocapitalize="off" autocorrect="off" placeholder="tar -czvf copia.tar.gz ~/Documentos && rm -rf /tmp/cache"></textarea>
+      </div>
+      <div class="actions">
+        <button class="btn primary" id="goBtn"><span data-i="explainBtn">Explicar</span> <kbd>Ctrl</kbd>+<kbd>↵</kbd></button>
+        <button class="btn" id="clearBtn" data-i="clearBtn">Limpiar</button>
+        <button class="btn" id="linkBtn" data-i="linkBtn">Copiar enlace</button>
+        <span class="status" id="status" role="status" aria-live="polite"></span>
+      </div>
+      <p class="priv" data-i="privacy">🔒 No se ejecuta nada y no se envía nada: todo se analiza en tu navegador.</p>
+    </div>
+    <div id="chips" class="chips" aria-label="Ejemplos rápidos"></div>
+    <div id="out" class="out" aria-live="polite"></div>
+    <div id="hist" class="hist"></div>
+  </section>
+
+  <section id="tab-examples" class="tab" role="tabpanel" hidden></section>
+  <section id="tab-catalog" class="tab" role="tabpanel" hidden></section>
+  <section id="tab-about" class="tab" role="tabpanel" hidden></section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span data-i="footLeft">Hecho por <a href="https://www.unfantasmaenelsistema.com/" target="_blank" rel="noopener">Un Fantasma en el Sistema</a> · Tienda <a href="https://www.ghostore.unfantasmaenelsistema.com/" target="_blank" rel="noopener">GhoStore</a></span>
+    <span><a href="https://github.com/unfantasmaenelsistema/CmdLens" target="_blank" rel="noopener">GitHub</a> · MIT</span>
+  </div>
+</footer>
+
+<script src="js/shell-parser.js"></script>
+<script src="js/data.js"></script>
+<script src="js/special.js"></script>
+<script src="js/risk.js"></script>
+<script src="js/explain.js"></script>
+<script src="js/examples.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+{"n":"colrm","s":{"en":"remove columns from a file"},"syn":"colrm [first [last]]","st":"gnu","o":[{"f":["-h","--help"],"en":"Display help text and exit."},{"f":["-V","--version"],"en":"Display version and exit."}]}

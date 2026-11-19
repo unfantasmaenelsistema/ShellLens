@@ -1,0 +1,1 @@
+{"n":"tc-sample","s":{"en":"packet sampling tc action"},"al":["sample"],"syn":"tc ... action sample rate RATE group GROUP [ trunc SIZE ] [ index INDEX ] ⏎ tc ... action sample index INDEX","st":"gnu","o":[]}

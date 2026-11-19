@@ -1,0 +1,1 @@
+{"n":"tc-bfifo","s":{"en":"Packet limited First In, First Out queue bfifo - Byte limited First In, First Out queue"},"al":["pfifo"],"syn":"tc qdisc ... add pfifo [ limit packets ] ⏎ tc qdisc ... add bfifo [ limit bytes ]","st":"gnu","o":[]}

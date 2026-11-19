@@ -1,0 +1,1 @@
+{"n":"rdma-system","s":{"en":"RDMA subsystem configuration"},"syn":"rdma [ OPTIONS ] sys { COMMAND | help } ⏎ OPTIONS := { -V[ersion] | -d[etails] } ⏎ rdma system show ⏎ rdma system set netns NEWMODE ⏎ rdma system set privileged-qkey NEWSTATE ⏎ rdma system help","st":"gnu","o":[]}

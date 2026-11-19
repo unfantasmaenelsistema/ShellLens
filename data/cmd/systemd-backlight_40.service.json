@@ -1,0 +1,1 @@
+{"n":"systemd-backlight@.service","s":{"en":"Load and save the display backlight brightness at boot and shutdown"},"al":["systemd-backlight"],"syn":"systemd-backlight@.service ⏎ /usr/lib/systemd/systemd-backlight save [backlight|leds]:DEVICE ⏎ /usr/lib/systemd/systemd-backlight load [backlight|leds]:DEVICE","st":"gnu","o":[]}

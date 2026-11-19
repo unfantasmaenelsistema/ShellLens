@@ -1,0 +1,1 @@
+{"n":"mariadb-plugin","s":{"en":"configure MariaDB server plugins (mariadb-plugin is now a symlink to mariadb-plugin)"},"syn":"mariadb-plugin [options] plugin {ENABLE|DISABLE}","st":"gnu","o":[]}

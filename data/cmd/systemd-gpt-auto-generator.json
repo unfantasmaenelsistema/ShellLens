@@ -1,0 +1,1 @@
+{"n":"systemd-gpt-auto-generator","s":{"en":"Generator for automatically discovering and mounting root, /home/, /srv/, /var/ and /var/tmp/ partitions, as well as discovering and enabling swap partitions, based on GPT partition type GUIDs"},"syn":"/usr/lib/systemd/system-generators/systemd-gpt-auto-generator","st":"gnu","o":[]}

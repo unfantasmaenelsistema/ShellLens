@@ -1,0 +1,1 @@
+{"n":"mariadb-show","s":{"en":"display database, table, and column information (mariadb-show is now a symlink to mariadb-show)"},"syn":"mariadb-show [options] [db_name [tbl_name [col_name]]]","st":"gnu","o":[]}

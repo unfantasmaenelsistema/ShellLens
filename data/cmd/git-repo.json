@@ -1,0 +1,1 @@
+{"n":"git-repo","s":{"en":"Retrieve information about the repository"},"syn":"git repo info [--format=(keyvalue|nul) | -z] [--all | <key>...] ⏎ git repo structure [--format=(table|keyvalue|nul) | -z]","st":"gnu","o":[{"f":["-z"],"en":"","a":"is"}]}

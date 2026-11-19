@@ -1,0 +1,1 @@
+{"n":"fc-conflist","s":{"en":"list the configuration files processed by Fontconfig"},"syn":"fc-conflist [ -Vh ] ⏎ [ --version ] [ --help ]","st":"gnu","o":[{"f":["-V"],"en":"Show version of the program and exit.","a":"--version"},{"f":["-h"],"en":"Show summary of options.","a":"--help"}]}

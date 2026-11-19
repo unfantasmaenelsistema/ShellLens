@@ -1,0 +1,1 @@
+{"n":"snmpping","s":{"en":"command an agent to ping a remote host"},"syn":"snmpget [COMMON OPTIONS] AGENT DESTINATION","st":"gnu","o":[{"f":["-Ccpings"],"en":"The AGENT will send pings pings to the DESTINATION."},{"f":["-Cssize"],"en":"The AGENT will send pings that are size bytes."}]}

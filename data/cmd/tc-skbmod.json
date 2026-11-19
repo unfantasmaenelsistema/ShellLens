@@ -1,0 +1,1 @@
+{"n":"tc-skbmod","s":{"en":"user-friendly packet editor action"},"al":["skbmod"],"syn":"tc ... action skbmod { set SETTABLE | swap SWAPPABLE | ecn } [ CONTROL ] [ index INDEX ] ⏎ SETTABLE := [ dmac DMAC ] [ smac SMAC ] [ etype ETYPE ] ⏎ SWAPPABLE := mac ⏎ CONTROL := { reclassify | pipe | drop | shot | continue | pass }","st":"gnu","o":[]}

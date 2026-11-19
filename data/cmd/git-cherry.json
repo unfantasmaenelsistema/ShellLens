@@ -1,0 +1,1 @@
+{"n":"git-cherry","s":{"en":"Find commits yet to be applied to upstream"},"syn":"git cherry [-v] [<upstream> [<head> [<limit>]]]","st":"gnu","o":[{"f":["-v"],"en":"Show the commit subjects next to the SHA1s."}]}

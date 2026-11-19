@@ -1,0 +1,1 @@
+{"n":"systemd-hostnamed","s":{"en":"Daemon to control system hostname from programs"},"al":["systemd-hostnamed.service"],"syn":"systemd-hostnamed.service ⏎ /usr/lib/systemd/systemd-hostnamed","st":"gnu","o":[]}

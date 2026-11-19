@@ -1,0 +1,1 @@
+{"n":"deb-systemd-helper","s":{"en":"subset of systemctl for machines not running systemd"},"syn":"deb-systemd-helper enable | disable | purge | mask | unmask | is-enabled | was-enabled | debian-installed | update-state | reenable unit file ...","st":"gnu","o":[]}

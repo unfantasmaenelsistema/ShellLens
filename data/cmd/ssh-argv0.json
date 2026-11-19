@@ -1,0 +1,1 @@
+{"n":"ssh-argv0","s":{"en":""},"syn":"hostname | user@hostname [-l login_name] [command] ⏎ hostname | user@hostname [-afgknqstvxACNTX1246] [-b bind_address] [-c cipher_spec] [-e escape_char] [-i identity_file] [-l login_name] [-m mac_spec] [-o option] [-p port] [-F configfile] [-L port:host:hostport] [-R port:host:hostport] [-D port] [command]","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"git-sh-i18n","s":{"en":"Git's i18n setup code for shell scripts"},"syn":". \"$(git --exec-path)/git-sh-i18n\"","st":"gnu","o":[]}

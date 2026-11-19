@@ -1,0 +1,1 @@
+{"n":"vfs_worm","s":{"en":"disallows writes for older file"},"syn":"vfs objects = worm","st":"gnu","o":[]}

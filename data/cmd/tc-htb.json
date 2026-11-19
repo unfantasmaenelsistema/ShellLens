@@ -1,0 +1,1 @@
+{"n":"tc-htb","s":{"en":"Hierarchy Token Bucket"},"al":["HTB"],"syn":"tc qdisc ... dev dev ( parent classid | root) [ handle major: ] htb [ default minor-id ] [ r2q divisor ] [ offload ] ⏎ tc class ... dev dev parent major:[minor] [ classid major:minor ] htb rate rate [ ceil rate ] burst bytes [ cburst bytes ] [ prio priority ] [ quantum bytes ]","st":"gnu","o":[]}

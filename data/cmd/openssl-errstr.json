@@ -1,0 +1,1 @@
+{"n":"openssl-errstr","s":{"en":"lookup error codes"},"syn":"openssl errstr [-help] error_code...","st":"gnu","o":[{"f":["-help"],"en":"Display a usage message."}]}

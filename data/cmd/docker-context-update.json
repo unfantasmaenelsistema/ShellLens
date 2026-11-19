@@ -1,0 +1,1 @@
+{"n":"docker-context-update","s":{"en":"Update a context"},"syn":"docker context update [OPTIONS] CONTEXT","st":"gnu","o":[{"f":["--description"],"en":"Description of the context"},{"f":["--docker"],"en":"set the docker endpoint"}]}

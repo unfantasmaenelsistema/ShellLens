@@ -1,0 +1,1 @@
+{"n":"infotocap","s":{"en":"convert a terminfo description into a termcap description"},"syn":"infotocap [tic-option] file ... ⏎ infotocap -V","st":"gnu","o":[]}

@@ -1,0 +1,1 @@
+{"n":"docker-context-export","s":{"en":"Export a context to a tar archive FILE or a tar stream on STDOUT."},"syn":"docker context export [OPTIONS] CONTEXT [FILE|-]","st":"gnu","o":[]}

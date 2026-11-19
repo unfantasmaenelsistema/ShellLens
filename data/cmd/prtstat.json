@@ -1,0 +1,1 @@
+{"n":"prtstat","s":{"en":"print statistics of a process"},"syn":"prtstat [-r|--raw] pid ⏎ prtstat -V|--version","st":"gnu","o":[{"f":["-r","--raw"],"en":"Print the information in raw format."},{"f":["-V","--version"],"en":"Show the version information for prtstat."}]}

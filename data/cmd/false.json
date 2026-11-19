@@ -1,0 +1,1 @@
+{"n":"false","s":{"en":"do nothing, unsuccessfully (exit status 1)","es":"no hace nada y termina con fallo (código 1)"},"syn":"false [ignored command line arguments] ⏎ false OPTION","st":"gnu","o":[{"f":["--help"],"en":"display this help and exit"},{"f":["--version"],"en":"output version information and exit"}]}

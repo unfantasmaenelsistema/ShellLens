@@ -1,0 +1,1 @@
+{"n":"debconf-communicate","s":{"en":"communicate with debconf"},"syn":"echo commands | debconf-communicate [options] [package]","st":"gnu","o":[]}

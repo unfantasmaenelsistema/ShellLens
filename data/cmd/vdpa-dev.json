@@ -1,0 +1,1 @@
+{"n":"vdpa-dev","s":{"en":"vdpa device configuration"},"syn":"vdpa dev [ OPTIONS ] { COMMAND| help } ⏎ OPTIONS := { -V[ersion] } ⏎ vdpa dev show [ DEV ] ⏎ vdpa dev help ⏎ vdpa dev add name NAME mgmtdev MGMTDEV [ device_features DEVICE_FEATURES ] [ mac MACADDR ] [ mtu MTU ] [ max_vqp MAX_VQ_PAIRS ] ⏎ vdpa dev del DEV","st":"gnu","o":[]}

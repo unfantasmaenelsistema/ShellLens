@@ -1,0 +1,1 @@
+{"n":"mariadb-import","s":{"en":"a data import program (mariadb-import is now a symlink to mariadb-import)"},"syn":"mariadb-import [options] db_name textfile1 ...","st":"gnu","o":[]}

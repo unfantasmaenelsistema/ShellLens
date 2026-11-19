@@ -1,0 +1,1 @@
+{"n":"docker-node-promote","s":{"en":"Promote one or more nodes to manager in the swarm"},"syn":"docker node promote NODE [NODE...]","st":"gnu","o":[]}
