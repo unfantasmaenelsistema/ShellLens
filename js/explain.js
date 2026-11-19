@@ -390,7 +390,7 @@
         else if (op === '<') { desc = T('Lee la entrada estándar (stdin) del archivo «' + tgText + '» en vez del teclado.', 'Reads standard input (stdin) from file "' + tgText + '" instead of the keyboard.'); fx.push('read'); }
         else if (op === '&>' || op === '&>>') { desc = T('Envía salida normal y errores juntos al archivo «' + tgText + '»' + (op === '&>>' ? ' (añadiendo al final)' : ' (sobrescribiendo)') + '.', 'Sends stdout and stderr together to "' + tgText + '"' + (op === '&>>' ? ' (appending)' : ' (overwriting)') + '.'); fx.push('write'); }
         else if (op === '>&' || op === '<&') {
-          if (/^\d+$/.test(tgText)) desc = T('Duplica el descriptor: ' + stream + ' va adonde va el descriptor ' + tgText + (tgText === '1' && fd === '2' ? ' → los errores se mezclan con la salida normal (idioma «2>&1»).' : '.'), 'Duplicates the descriptor: ' + stream + ' goes where descriptor ' + tgText + ' goes' + (tgText === '1' && fd === '2' ? ' → errors are merged with normal output ("2>&1").' : '.'));
+          if (/^\d+$/.test(tgText)) desc = T('Duplica el descriptor: redirige ' + stream + ' al mismo destino que el descriptor ' + tgText + (tgText === '1' && fd === '2' ? ' → los errores se mezclan con la salida normal (idioma «2>&1»).' : '.'), 'Duplicates the descriptor: redirects ' + stream + ' to the same place as descriptor ' + tgText + (tgText === '1' && fd === '2' ? ' → errors are merged with normal output ("2>&1").' : '.'));
           else if (tgText === '-') desc = T('Cierra el descriptor.', 'Closes the descriptor.');
           else desc = T('Redirige ' + stream + ' a «' + tgText + '».', 'Redirects ' + stream + ' to "' + tgText + '".');
         }
