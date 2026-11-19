@@ -1,4 +1,4 @@
-/* CmdLens · explicadores especiales por comando (chmod, find, sed, dd, regex, envolturas…). */
+/* ShellLens · explicadores especiales por comando (chmod, find, sed, dd, regex, envolturas…). */
 (function (root) {
   'use strict';
   const isNode = typeof module !== 'undefined' && module.exports;
@@ -205,7 +205,7 @@
       if (c === 'a' || c === 'i' || c === 'c') { const txt = script.slice(i).replace(/^\\?\s*/, ''); i = n; out.push({ label: script.slice(st), desc: where + ({ a: T('añade DESPUÉS de la línea el texto «' + txt + '».', 'appends the text "' + txt + '" AFTER the line.'), i: T('inserta ANTES de la línea el texto «' + txt + '».', 'inserts the text "' + txt + '" BEFORE the line.'), c: T('REEMPLAZA la línea por «' + txt + '».', 'REPLACES the line with "' + txt + '".') }[c]) }); break; }
       if (c === 'w' || c === 'r') { const f = script.slice(i).trim(); i = n; out.push({ label: script.slice(st), desc: where + (c === 'w' ? T('escribe la línea en el archivo «' + f + '».', 'writes the line to file "' + f + '".') : T('inserta el contenido del archivo «' + f + '».', 'inserts the contents of file "' + f + '".')) }); break; }
       if (c === 'e') { out.push({ label: script.slice(st), desc: T('¡Ejecuta un comando de shell!', 'Executes a shell command!') }); break; }
-      out.push({ label: script.slice(st, i), desc: T('Comando de sed no reconocido por CmdLens (consulta «man sed»).', 'sed command not recognised by CmdLens (see "man sed").') });
+      out.push({ label: script.slice(st, i), desc: T('Comando de sed no reconocido por ShellLens (consulta «man sed»).', 'sed command not recognised by ShellLens (see "man sed").') });
       break;
     }
     return out;

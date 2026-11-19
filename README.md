@@ -1,8 +1,8 @@
-# CmdLens
+# ShellLens
 
 **Pega un comando de Linux y entiende, pieza a pieza, qué hace y qué puede salir mal — antes de ejecutarlo** · *Paste a Linux command and understand, piece by piece, what it does and what can go wrong — before you run it*
 
-👉 **https://unfantasmaenelsistema.github.io/CmdLens/**
+👉 **https://unfantasmaenelsistema.github.io/ShellLens/**
 
 Es una web estática (GitHub Pages) que **no ejecuta nada y no envía nada**: todo el análisis ocurre en tu navegador. Está inspirada en [explainshell](https://explainshell.com/), pero es una implementación independiente, bilingüe (**español e inglés**), con tema claro u oscuro y con una capa de **avisos de seguridad** pensada para clase.
 
@@ -62,7 +62,7 @@ Sin servidor, cuentas, base de datos ni analítica. El idioma, el tema y los úl
 
 ## Créditos y licencia
 
-Código bajo licencia **MIT** (ver [`LICENSE`](LICENSE)). Inspirado en [explainshell](https://explainshell.com/) de Idan Kamara (GPL-3.0); CmdLens no contiene código suyo. Las descripciones en inglés proceden de las páginas `man` de cada proyecto y conservan la licencia de sus autores; se incluyen resumidas, para explicar cada opción.
+Código bajo licencia **MIT** (ver [`LICENSE`](LICENSE)). Inspirado en [explainshell](https://explainshell.com/) de Idan Kamara (GPL-3.0); ShellLens no contiene código suyo. Las descripciones en inglés proceden de las páginas `man` de cada proyecto y conservan la licencia de sus autores; se incluyen resumidas, para explicar cada opción.
 
 Hecho por [Un Fantasma en el Sistema](https://www.unfantasmaenelsistema.com/) · Tienda [GhoStore](https://www.ghostore.unfantasmaenelsistema.com/)
 
@@ -70,4 +70,4 @@ Hecho por [Un Fantasma en el Sistema](https://www.unfantasmaenelsistema.com/) ·
 
 ## English
 
-CmdLens is a static web app (GitHub Pages) that explains a pasted Linux command **before** you run it. Nothing is executed or sent anywhere: the analysis runs in your browser. It parses shell syntax (pipes, redirections, loops, substitutions, here-docs), matches every option with its explanation (bundled, long, abbreviated, BSD-style, subcommands), opens wrappers such as `sudo`, `bash -c`, `ssh host cmd`, `xargs` and `find -exec`, explains `chmod` modes, `sed` scripts and regular expressions, and raises **security warnings** with severity, reason and a safer alternative. The interface is bilingual (Spanish/English) with light and dark themes. The database holds 2,570 commands (391 hand-curated in both languages) and 34,016 options, generated from the Kali/Debian man pages plus curated files. MIT licensed; inspired by explainshell but an independent implementation.
+ShellLens is a static web app (GitHub Pages) that explains a pasted Linux command **before** you run it. Nothing is executed or sent anywhere: the analysis runs in your browser. It parses shell syntax (pipes, redirections, loops, substitutions, here-docs), matches every option with its explanation (bundled, long, abbreviated, BSD-style, subcommands), opens wrappers such as `sudo`, `bash -c`, `ssh host cmd`, `xargs` and `find -exec`, explains `chmod` modes, `sed` scripts and regular expressions, and raises **security warnings** with severity, reason and a safer alternative. The interface is bilingual (Spanish/English) with light and dark themes. The database holds 2,570 commands (391 hand-curated in both languages) and 34,016 options, generated from the Kali/Debian man pages plus curated files. MIT licensed; inspired by explainshell but an independent implementation.

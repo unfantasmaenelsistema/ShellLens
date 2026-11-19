@@ -1,4 +1,4 @@
-/* CmdLens · acceso a la base de comandos (data/index.json + data/cmd/*.json).
+/* ShellLens · acceso a la base de comandos (data/index.json + data/cmd/*.json).
  * En el navegador usa fetch; en Node (tests) lee del disco. */
 (function (root) {
   'use strict';

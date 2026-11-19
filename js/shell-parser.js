@@ -1,4 +1,4 @@
-/* CmdLens · parser de shell (subconjunto práctico de bash/POSIX sh).
+/* ShellLens · parser de shell (subconjunto práctico de bash/POSIX sh).
  * No ejecuta nada: solo convierte el texto en un árbol que el motor explica.
  *
  * Nodos de salida:

@@ -1,4 +1,4 @@
-/* CmdLens · reglas de riesgo: qué puede salir mal ANTES de ejecutar el comando.
+/* ShellLens · reglas de riesgo: qué puede salir mal ANTES de ejecutar el comando.
  * analyze({src, parsed, units, T, lang}) → [{level, id, title, text, fix}]  (de más a menos grave) */
 (function (root) {
   'use strict';

@@ -1,4 +1,4 @@
-/* CmdLens · ejemplos clicables. Cada uno: cmd, título y por qué interesa (es/en). */
+/* ShellLens · ejemplos clicables. Cada uno: cmd, título y por qué interesa (es/en). */
 (function (root) {
   'use strict';
   const G = [

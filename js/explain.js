@@ -1,4 +1,4 @@
-/* CmdLens · motor de explicación.
+/* ShellLens · motor de explicación.
  * explain(src) → {src, tree, units, risks, effects, error?}
  * Todo corre en el navegador; nada se ejecuta nunca. */
 (function (root) {
@@ -469,7 +469,7 @@
       if (!rec) {
         const why = res.kind === 'local'
           ? T('Ejecuta el programa o guion «' + head.text + '» (ruta explícita). Lo que haga depende de su contenido: lee el archivo antes de ejecutarlo.', 'Runs the program or script "' + head.text + '" (explicit path). What it does depends on its content: read the file before running it.')
-          : T('«' + head.text + '» no está en la base de CmdLens: puede ser un alias, una función de tu shell o un programa instalado aparte. Prueba «man ' + head.text + '» o «' + head.text + ' --help».', '"' + head.text + '" is not in the CmdLens database: it may be an alias, a shell function or separately installed software. Try "man ' + head.text + '" or "' + head.text + ' --help".');
+          : T('«' + head.text + '» no está en la base de ShellLens: puede ser un alias, una función de tu shell o un programa instalado aparte. Prueba «man ' + head.text + '» o «' + head.text + ' --help».', '"' + head.text + '" is not in the ShellLens database: it may be an alias, a shell function or separately installed software. Try "man ' + head.text + '" or "' + head.text + ' --help".');
         headTok.items.push({ label: head.raw, desc: why });
         unit.summary = why;
         for (let i = 1; i < ws.length; i++) {
